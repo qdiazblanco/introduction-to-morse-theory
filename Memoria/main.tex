@@ -1,0 +1,139 @@
+\documentclass{article}
+
+\usepackage{graphicx} % Para insertar imagenes
+\usepackage{subcaption} % en el preámbulo
+
+\usepackage{pdfpages} % Para insertar pdf's
+
+\usepackage[left=3cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry} %Cambiar margenes
+\setlength{\parindent}{0pt} %elimina la indentacion
+\usepackage[parfill]{parskip} %salto de linea entre parrafos
+\setlength{\parskip}{0.3em}
+
+\renewcommand{\arraystretch}{1.5} % multiplica por 1.5 el espacio vertical dentro del entorno array
+
+\usepackage[spanish,es-lcroman]{babel} 
+\usepackage[utf8]{inputenc}
+
+\usepackage{csquotes} 
+
+\usepackage{hyperref}
+
+\usepackage[backend=biber,citestyle=alphabetic,style=alphabetic]{biblatex} %bibliografia
+\bibliography{bibliografia} % tu archivo .bib
+
+\usepackage{xcolor} %cambiar color del texto
+
+\usepackage{enumitem} % Para hacer apartados (i), (ii), ...
+
+% Paquetes para notación y lenguaje matematico y los entornos de abajo
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+%Entornos para matematicas - - - - - - - - - - -
+\theoremstyle{plain} 
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{corollary}[theorem]{Corolario} 
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observación}
+
+\theoremstyle{remark}
+\newtheorem*{nota}{Nota}
+
+%-------------------------------------- para referencias
+%\usepackage{cleveref}
+
+%\crefname{theorem}{teorema}{teoremas}
+%\Crefname{theorem}{Teorema}{Teoremas}
+
+%\crefname{definition}{definición}{definiciones}
+%\Crefname{definition}{Definición}{Definiciones}
+
+%\crefname{lemma}{lema}{lemas}
+%\Crefname{lemma}{Lema}{Lemas}
+
+%\crefname{proposition}{proposición}{proposiciones}
+%\Crefname{proposition}{Proposición}{Proposiciones}
+
+%\crefname{corollary}{corolario}{corolarios}
+%\Crefname{corollary}{Corolario}{Corolarios}
+
+%\crefname{remark}{observación}{observaciones}
+%\Crefname{remark}{Observación}{Observaciones}
+
+% - - - - - - - - - - - - - - - - - - - - - - - -
+\sloppy %evita partir palabras al final de la linea
+
+% Configuración del título
+\title{
+    \Huge\textbf{Introducción a la Teoría de Morse}\\[1em]
+    \includegraphics[width=0.3\textwidth]{imagenes/logocomplu.png} % Sustituye por el logo de tu universidad
+}
+\author{
+    \Large Trabajo de Fin de Grado \\[0.5em]
+    \Large Autor: Enrique Díaz Blanco \\[0.5em]
+    \Large Universidad Complutense de Madrid \\[0.5em]
+}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+\section{Sobre la notación y otras convenciones?}
+
+\begin{itemize}
+    \item Salvo mencionado todas las funciones son suaves
+    \item Suave = $C^{\infty}$
+    \item Plano tangente a M en p $\to T_{p}M$
+    \item $d_{p}f:T_{p}M\to T_{f(p)}M$ aplicación lineal entre espacios tangentes inducida por $f$.
+    \item Sistemas de coordenadas $\varphi(p) = (x^1(p), \dots, x^n(p))$, ({\color{blue} ni idea de cuando usar subíndices y cuando superíndices})
+    \item {\color{blue} añadir lo de la notacion de las cartas y los sistemas de coordenadas}
+\end{itemize}
+
+\section{Preliminares}
+
+\begin{itemize}
+    \color{blue}
+    \item Topologia + introducción a la topología algebraica?
+        \begin{itemize}
+            \item retracto de deformacion fuerte
+            \item tipo de homotopia
+            \item cw-complejos
+            \item ...
+        \end{itemize}
+    \item Geometría Riemanniana?
+        \begin{itemize}
+            \item campos vectoriales y flujos
+            \item definicion de metrica de riemann
+            \item sobre la exponencial y las geodesicas
+        \end{itemize}
+\end{itemize}
+\bigskip
+{\color{blue}No se si debería introducir estas cosas siquiera, y de hacerlo no se si tendrían que tener su propia sección o irse introduciendo conforme fuese necesario.}
+
+\input{funcionesdemorse}
+
+\input{homotopy}
+
+\newpage
+\nocite{*}
+\printbibliography[title={Bibliografía}]
+
+
+\end{document}

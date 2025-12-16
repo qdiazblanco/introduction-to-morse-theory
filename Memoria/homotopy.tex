@@ -1,0 +1,313 @@
+
+
+\section{Sobre el tipo de homotopía y el pegado de $\lambda$-células \color{blue}(título provisional)}
+
+En primer lugar introducimos algunas nociones básicas de campos vectoriales sobre una variedad $M$ que nos servirán para probar los resultados de esta sección.
+{\color{blue} Aquí podría ir bien definir variedad riemanniana si es necesario, lo demás parece bastante autocontenido.}
+
+\bigskip
+\begin{definition}
+    Sea $M$ una variedad diferenciable. Llamamos \textit{grupo uniparamétrico de difeomorfismos de M} a una aplicación $\varphi:\mathbb{R}\times M \to M$ que verifica:
+    \begin{enumerate}[label=\roman*)]
+        \item $\forall t\in \mathbb{R},~~ \varphi_t:M\to M$ definida como $\varphi_t(q)=\varphi(t,q)$, es un difeomorfismo de $M$ sobre si misma.
+
+        \item $\forall t, s\in\mathbb{R}$ se tiene que $\varphi_{t+s}=\varphi_t\circ \varphi_s$.
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+Dado un grupo uniparamétrico de difeormorfismos $\varphi$ definimos el siguiente campo vectorial sobre $M$
+
+\begin{equation*}
+    X_q(f)=\lim_{h\to 0}\frac{f(\varphi_h(q))-f(q)}{h}
+\end{equation*}
+donde $f$ es una función suave de $M$ en $\mathbb{R}$, y decimos que $X$ genera $\varphi$.
+
+También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:\mathbb{R}\to M$ que definimos de manera similar a X
+\begin{equation*}
+    \frac{dc}{dt}(f)= \lim_{h\to 0}\frac{f(c(t+h))-f(c(t))}{h}\in T_{c(t)}M 
+\end{equation*} 
+
+\bigskip
+\begin{lemma}
+\label{unidiff}
+    Todo campo vectorial sobre una variedad diferenciable $M$ que se anula fuera de un compacto $K\subset M$ genera un único grupo de difeomorfismos de M.
+\end{lemma}
+{\color{blue} Esta demostración se me hace liosa y no se si está del todo bien o si se entiende lo suficientemente bien.}
+\begin{proof}
+    Sean $X$ un campo vectorial y $\varphi$ un grupo uniparamétrico de difeomorfismos de $M$ generado por $X$. Entonces se tiene que fijado un punto cualquiera $q\in M$ la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ verifica la ecuación diferencial
+    \begin{equation*}
+        \frac{d\varphi_t}{dt}(q)=X_{\varphi_t(q)}\tag{$\ast$}
+    \end{equation*}
+    con condición inicial $\varphi_0(q)=q$.\\
+
+    En efecto,
+    \begin{align*}
+        \frac{d\varphi_t(q)}{dt}(f)=\lim_{h\to 0} \frac{f(\varphi_{t+h}(q))- f(\varphi_t(q))}{h} = \lim_{h\to 0} \frac{f(\varphi_{h}(\varphi_t(q)))- f(\varphi_t(q))}{h} = \lim_{h\to 0} \frac{f(\varphi_{h}(p))- f(p)}{h} = X_p(f)
+    \end{align*}
+
+    con $p=\varphi_t(q)$.\\
+
+    Ahora, por el Teorema de Picard-Lindelöf sabemos que existe localmente una solución única, que depende de manera diferenciable de la condición inicial. Es decir, $\forall p\in M$ existen un entorno $\mathcal{U}$ de $p$ y $\varepsilon > 0$ tales que $(\ast)$ tiene una única solución para todo $q\in \mathcal{U}$ y $|t|<\varepsilon$.\\
+
+    Como $K\subset M$ es compacto, puede ser cubierto por una cantidad finita de dichos entornos. Sea $\varepsilon_0$ el menor de los valores definidos arriba y establezcamos $\varphi_t(q)=q,~~\forall q\notin K$ (luego $X_q=0$ fuera de $K$). Entonces $(\ast)$ tiene una única solución $\varphi_t(q)$ para $|t|<\varepsilon_0$ y $\forall q\in M$ suave respecto de ambas variables.\\
+
+    Veamos que para todo $t$ adecuado cada $\varphi_t$ es un difeomorfismo de $M$ en si misma. Para ello basta comprobar que se cumple que $\varphi_{t+s}=\varphi_t\circ \varphi_s$ suponiendo que $|t|,|s|,|t+s|<\varepsilon_0$.\\
+
+    Sean $q\in M$ fijo y  $p=\varphi_s(q)$, entonces $\varphi_t(p)=\varphi_t(\varphi_s(q))$. Definimos la curva $\gamma(u)=\varphi_{u+s}(q)$, así, $\gamma(0)=p$ y 
+    
+    \begin{equation*}
+        \frac{d\gamma}{du}=\frac{d\varphi_{u+s}}{du}(q)=X_{\varphi_{u+s}(q)}=X_{\gamma (u)}
+    \end{equation*} 
+    
+    Por lo que $\gamma$ es también una solución de ($\ast$) con condición inicial $\gamma(0)=p$.\\
+
+    Sin embargo, tambien $\varphi_u(p)$ es solución con condición inicial $\varphi_0(p)=p$. Luego por unicidad de las soluciones
+    \begin{equation*}
+        \varphi_{u+s}(q)=\gamma(u)=\varphi_u(p)=\varphi_u(\varphi_s(q))=\varphi_u\circ \varphi_s(q)
+    \end{equation*}
+    Siempre que $|u|, |u+s|<\varepsilon_0$.
+
+    Por último, necesitamos definir $\varphi_t$ para todo $t\in \mathbb{R}$.\\
+
+    Sea $t\in \mathbb{R}$. Sean $k\in \mathbb{Z}$ y $r\in \mathbb{R}$ con $|r|\le \frac{\varepsilon_0}{2}$ los únicos valores tales que $t=k\frac{\varepsilon_0}{2}+r$. Entonces definimos
+
+    \begin{equation*}
+        \varphi_t=\underbrace{\varphi_{\frac{\varepsilon_0}{2}}\circ \dots \circ \varphi_{\frac{\varepsilon_0}{2}}}_{k~veces}\circ \varphi_r 
+    \end{equation*}
+
+    Es claro que $\varphi:\mathbb{R}\times M\to M$ es un difeomorfismo único para todo $t\in \mathbb{R}$.
+
+\end{proof}
+
+\begin{definition}
+    Sean $(M,\langle\cdot,\cdot\rangle)$ una variedad riemanniana y $f:M\to\mathbb{R}$ suave. Se define el \textit{gradiente de f} como el campo vectorial que verifica 
+    \begin{equation*}
+        \langle X,\nabla f\rangle = X(f)
+    \end{equation*}
+    Para cualquier otro campo vectorial $X$.
+\end{definition}
+\bigskip
+% aqui deberia escribir algo para introducir lo siguiente.
+
+\begin{definition}
+    Sean $M$ una variedad diferenciable y $f:M\to\mathbb{R}$ suave definimos
+    \begin{equation*}
+        M^a := f^{-1}(-\infty,a] =\{p\in M: f(p)\le a\}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}
+\label{retractodef}
+    Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$. Sean $a<b$ reales tales que $f^{-1}[a,b]$ es compacto y no contiene ningún punto crítico de $f$. Entonces $M^a$ es difeomorfo a $M^b$.\\
+    Además, $M^a$ es retracto de deformación de $M^b$, luego tienen en el mismo tipo de homotopía.
+\end{theorem}
+
+\begin{proof}
+    Sea $c:\mathbb{R}\to M$ una curva con vector velocidad $\frac{dc}{dt}$, entonces
+    \begin{equation*}
+        \langle \frac{dc}{dt}, \nabla f\rangle = \frac{dc}{dt}(f)=\frac{d(f\circ c)}{dt}
+    \end{equation*}
+
+    Definimos la aplicación suave $\rho : M\to \mathbb{R}$ como
+
+    \begin{equation*}
+        \rho(p):=
+        \begin{cases}
+            \frac{1}{\langle \nabla_pf, \nabla_pf\rangle}~~,~p\in f^{-1}[a,b]\\
+            0 ~~~~~~~~~~~~~~,p\notin K
+        \end{cases}
+    \end{equation*}
+
+    donde $K$ es un entorno compacto de $f^{-1}[a,b]$\\
+
+    Ahora, sea el campo vectorial dado por $X_q=\rho(q)\nabla_pf$. Se tiene que $X_p$ se anula fuera de $K$ luego por el Lema \ref{unidiff} genera un único grupo uniparamétrico de difeomorfismos $\varphi_t$ de $M$.\\
+
+    Fijemos $q\in M$ y consideremos $f\circ\varphi_{\bullet}(q),~t\mapsto f(\varphi_t(q))$. Si $\varphi_t(q)$ está en $f^{-1}[a,b]$ se tiene
+
+    \begin{align*}
+        \frac{df(\varphi_t(q))}{dt} = \left\langle \frac{d\varphi_t(q)}{dt},\nabla f\right\rangle = \langle X, \nabla f\rangle = \langle \rho~ \nabla f, \nabla f\rangle =\\ =\left\langle \frac{1}{\langle \nabla f,\nabla f\rangle}\nabla f,\nabla f\right\rangle=
+        \frac{\langle \nabla f,\nabla f\rangle}{\langle \nabla f,\nabla f\rangle}= 1
+    \end{align*}
+
+    por lo que $f(\varphi_t(q))$ es lineal con derivada $1$ siempre que $f(\varphi_t(q))$ esté en $[a,b]$. Es decir, $f(\varphi_t(q))=f(q)+t$ {\color{blue}Esto tengo la duda de que sea exactamente así, pero funciona bien.}\\
+
+    Veamos ahora que $\varphi_{b-a}$ es un difeomorfismo de $M^a$ en $M^b$.\\
+
+    Sea $q\in M$,
+    \begin{equation*}
+        \varphi_{b-a}(q)\in M^b \iff(\varphi_{b-a}(q))=f(q)+b-a\le b \iff f(q)-a\le 0 \iff q\in M^a
+    \end{equation*}
+     y en concreto manda la frontera de $M^a$ a la frontera de $M^b$
+     \begin{equation*}
+         q\in \partial M^a \iff f(q)=a \implies f(\varphi_{b-a}(q))=b \iff b\in \partial M^b.
+     \end{equation*}
+
+     Para concluir la demostración falta comprobar que efectivamente $M^a$ es retractor de deformación de $M^b$. Para ello vamos a construir una homotopía relativa a $M^a$ de la identidad de $M^b$ a una retracción de $M^b$ a $M^a$.
+     
+    Sea $H(t,q):[0,1]\times M^b\to M^b$ definida como
+    \begin{equation*}
+        H(t,q)=
+        \begin{cases}
+            q~~~~~~~~~~~~~~~~~,f(q)\le a\iff q\in M^a\\
+            \varphi_{t(a-f(q))}(q)~~,a\le f(q)\le b
+        \end{cases}
+    \end{equation*}
+
+    Entonces, $H(0,\cdot) = id_{M^b}$ ya que $\varphi_0(q)=q,~\forall q\in M^b$ y $H(1,\cdot)$ es una retracción de $M^b$ en $M^a$, comprobémoslo. Sea $q\in f^{-1}[a,b]$, se tiene
+    \begin{equation*}
+        H(1,q)=f(\varphi_{(a-f(q))}(q))= f(q)+(a-f(q))= a \iff \varphi_{(a-f(q))}(q)\in f^{-1}(a)
+    \end{equation*}
+
+    luego $H(1,H(1,\cdot))= id_{M^a}$.    
+
+\end{proof}
+\bigskip
+
+\begin{theorem}
+     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$.\\
+     Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}$ tiene el tipo de homotopía de $M^{c-\varepsilon}$ \underline{con una $\lambda$-célula pegada}. {\color{blue}Esto se dice así?}
+\end{theorem}
+
+\begin{proof}
+    Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el Teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.\\
+    
+    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-célula pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.\\
+%Preliminares------------------
+
+    Sean una carta $(\mathcal{U}, \phi)$ de $M$ que contiene a $p$ y $(u^1,\dots , u^n)$ las coordenadas inducidas tal que $u^1(p)=\dots=u^{n}(p)=0$. Con el fin de simplificar las expresiones que siguen definimos las funciones $\xi:\mathcal{U}\to [0,\infty)$ y $\eta:\mathcal{U}\to [0,\infty)$ como
+    \begin{gather*}
+        \xi(q)=(u^1(q))^2+\dots +(u^{\lambda}(q))^2\\
+        \eta(q)=(u^{\lambda +1}(q))^2+\dots +(u^{n}(q))^2
+    \end{gather*}
+    Aplicando el Lema de Morse (\ref{lemamorse}) a $f$ obtenemos
+
+    \begin{equation*}
+        f(q) = c - \xi(q) + \eta(q)
+    \end{equation*}
+    $\forall q\in \mathcal{U}$, donde $c=f(p).$\\
+
+    Sea $0<\varepsilon_0\le\varepsilon$ suficientemente pequeño para que:
+    \begin{enumerate}[label=\roman*)]
+        \item $f^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ sea compacto y no contenga ningún punto crítico de $f$ distinto de $p$.
+        \item $\phi^{-1}(\mathcal{U})\subset \mathbb{R}^n$ contenga a la bola cerrada
+        \begin{equation*}
+            \phi\left(\overline{B(0, \sqrt{2\varepsilon_0})}\right)= \{q\in \mathcal{U}: \xi(q)+\eta(q)\le 2\varepsilon_0\}
+        \end{equation*}
+    \end{enumerate}
+
+%Construcción de F----------------
+    Construyamos $F:M\to \mathbb{R}$. Sea $\mu:\mathbb{R}\to\mathbb{R}$ una aplicación suave que verifica lo siguiente
+    
+    \begin{equation*}
+        \begin{cases}
+        \mu(0)>\varepsilon_0\\
+        \mu(r)=0, r\ge 2\varepsilon_0\\
+        -1<\mu'(r)\le 0, \forall r\in \mathbb{R}
+        \end{cases}
+    \end{equation*}
+    entonces definimos $F$ como
+    
+    \begin{equation*}
+        F(q)=
+        \begin{cases}
+        f(q)~~~~~~~~~~~~~~~~~~~~~~~~,~~q\notin \mathcal{U}\\
+        f(q)- \mu(\xi(q)+2\eta(q)),~~q\in \mathcal{U}.
+        \end{cases}
+    \end{equation*}
+    Es claro que $F$ esta bien definida ya que $\mu$ se anula en $\partial\mathcal{U}$. Además, es suave ya que en un entorno de $\partial\mathcal{U}$ se tiene que $\mu'$ es identicamente $0$, luego tanto aproximándonos desde dentro de $\mathcal{U}$ como desde fuera $d_qF=d_qf$.\\
+    
+%Primera retraccion-------------------------------
+
+    Ahora que tenemos $F$ debemos comprobar que nos encontramos en las hipótesis del Teorema \ref{retractodef}. Veamos primero que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$, después que $F$ y $f$ poseen los mismos puntos críticos y que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ no contiene ningún punto crítico.\\
+
+    En efecto, $\mu(\xi(q)+2\eta(q))=0, ~\forall q\in M$ tal que $\xi(q)+2\eta(q)\ge 2\varepsilon_0$ luego fuera del elipsoide $E=\{q\in M:\xi(q)+2\eta(q)\le 2\varepsilon_0\}$ se tiene que $F=f$.\\
+    
+    Sabemos que $E\in M_f^{c+\varepsilon_0}$ y por
+    \begin{equation*}
+        F(q)<f(q)=c-\xi(q)+\eta(q)\le c+\frac{1}{2}\xi(q)+\eta\le c + \varepsilon_0, ~\forall q\in E
+    \end{equation*}
+    se tiene que $E\in M_F^{c+\varepsilon_0}$. Visto que es la única región en la que difieren concluimos que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$.\\
+
+    Ahora veamos que coinciden sus puntos críticos. Observamos que en $\mathcal{U}$
+    \begin{align*}
+        \frac{\partial F}{\partial \xi}&=-1-\mu'(\xi + 2\eta)<0\text{ y}\\
+        \frac{\partial F}{\partial \eta}&=1-2\mu'(\xi+2\eta)\ge 1
+    \end{align*}
+    Los puntos críticos de $F$ serán los que anulen su derivadas parciales
+    \begin{align*}
+        \frac{\partial F}{\partial x_i}=\frac{\partial F}{\partial \xi}\frac{\partial \xi}{\partial x_i} + \frac{\partial F}{\partial \eta}\frac{\partial \eta}{\partial x_i}
+    \end{align*}
+    pero el único punto que verifica simultáneamente $\frac{\partial \xi}{\partial x_i}=0$ y $\frac{\partial \eta}{\partial x_i}=0$ es $p$ ya que si no $f$ tendría más puntos críticos en $\mathcal{U}$. Luego como fuera de $\mathcal{U}$ coinciden se tiene que  $F$ y $f$ tienen los mismos puntos críticos.\\
+
+    Veamos que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]=M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F$ es compacto y no contiene ningún punto crítico. Es claro que $M^{c-\varepsilon_0}_f\subset M^{c-\varepsilon_0}_F$ ya que $F$ y $f$ coinciden salvo en el entorno de $p$ en el que $F\le f$ {\color{blue}explicar esto mejor?} así
+    \begin{equation}
+        M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f\implies M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F \subset M^{c+\varepsilon_0}_f\setminus M^{c-\varepsilon_0}_f=f^{-1}[c-\varepsilon_0,c+\varepsilon_0]
+    \end{equation}
+    por lo que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ es compacto. Por otro lado,
+    \begin{equation*}
+        F(p)=c-\mu(0)<c-\varepsilon_0
+    \end{equation*}
+    luego $p\notin F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$.\\
+
+    De esta manera, nos encontramos en las hipótesis del Teorema \ref{retractodef} para $F$, lo que demuestra que $M^{c-\varepsilon_0}_F$ es retracto de deformación de $M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f$.\\
+
+%Segunda retracción------------------
+
+    Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon_0,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-célula. En primer lugar, veamos que
+    \begin{equation*}
+        \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}
+    \end{equation*}
+    
+    $\left( \subseteq \right) ~~\forall q\in \partial e^{\lambda},~f(q)=c-\varepsilon_0 \implies q\in M^{c-\varepsilon_0}_f$\\
+    
+    $\left( \supseteq \right) ~~\forall q\in M^{c-\varepsilon_0}_f\cap e^{\lambda}$, se tiene $\xi(q)\le\varepsilon_0,~\eta(q)=0 \text{ y } f(q)\le -\varepsilon_0$, entonces como
+    \begin{equation*}
+        f(q)=c-\xi(q)\le c-\varepsilon_0\iff \xi(q)\ge \varepsilon_0
+    \end{equation*}
+    \quad \quad necesariamente $\xi(q)=\varepsilon_0$, luego $q\in \partial e^{\lambda}$.\\ 
+
+    De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.\\
+    
+    Observamos que $e^{\lambda}$ está contenido en $H$. En efecto, $F$ alcanza su máximo en $\mathcal{U}$ cuando $\mu(\xi+2\eta)$ alcanza su mínimo y este lo alcanza cuando $\xi$ y $\eta$ se anulan, es decir, únicamente en $p$, así
+    \begin{equation*}
+        F(q)\le F(p)<c-\varepsilon_0 ~\text{ y }~f(q)=c-\xi(q)\ge c-\varepsilon_0,~\forall q\in e^{\lambda}
+    \end{equation*}
+    luego $q\in e^{\lambda}\implies q\in H$.\\
+
+    
+    Ahora queremos demostrar que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ de identidad a una retracción, como en la demostración del Teorema \ref{retractodef}.\\
+
+    Sea $R:[0,1]\times M_f^{c-\varepsilon_0}\cup H\to M_f^{c-\varepsilon_0}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.\\
+
+    \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon_0\}$.\\
+    
+    Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),tu_{\lambda+1}(q),\dots,tu_n(q))$.\\
+    
+    Es claro que es relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ y   $D(1,\cdot)$ es la identidad. Además,
+    \begin{equation*}
+        \forall q\in R_1, ~D(0, q)\in e^{\lambda} ~\text{ y }~ D(0,D(0,q))=D(0,q).
+    \end{equation*} 
+
+    Asimismo, como $\frac{\partial F}{\partial \eta}>0$ (es decir, $F$ crece en la dirección de $\eta$) se tiene que $F(D(t,q))\le F(q)$ para todo $t\in [0,1]$ y todo $q\in R_1$. Luego $D$ lleva $M_f^{c-\varepsilon_0}\cup H$ en si mismo.
+
+
+    \textbf{Región 2:}\quad $R_2=\{q\in \mathcal{U}:~ \varepsilon_0\le \xi(q)\le \eta(q)+\varepsilon_0\}$.\\
+
+    Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),s_t(q) u_{\lambda+1}(q),\dots,s_t(q) u_n(q))$, donde 
+    \begin{equation*}
+        s_t(q)=t + (1-t)\left(\frac{\xi(q)-\varepsilon_0}{\eta}\right)^{1/2}
+    \end{equation*}
+
+    
+
+    
+    
+
+    
+
+    
+\end{proof}
+
+{\color{blue} Al definir $\xi,\eta$ estamos dando un nuevo sistema de coordenadas, y por tanto, una nueva base del tangente. Podríamos llamarlas coordenadas de Morse. En el caso 1 de la segunda retraccion estamos contrayendo los puntos en la direccion del eje $\eta$ (vertical en los diagramas), esto es, en la direccion del campo vectorial $\frac{\partial}{\partial\eta}$...}
+    

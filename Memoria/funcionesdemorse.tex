@@ -1,0 +1,193 @@
+\section{El lema de Morse}
+
+\begin{definition}
+    Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
+    \begin{enumerate}[label=\roman*)]
+        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es identicamente cero. Es decir, dado un sistema de coordenadas local $(x^{1}, \dots ,x^{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \begin{equation*}
+            \frac{\partial f}{\partial x^1}(p)= \dots = \frac{\partial f}{\partial x^n}(p) = 0.
+        \end{equation*}
+        
+        \item A su vez, diremos que $f(p)\in \mathbb{R}$ es un \textit{valor crítico de $f$} si $p \in \mathrm{M}$ es un punto crítico.
+        
+    \end{enumerate}
+\end{definition}
+\bigskip
+
+\begin{definition}
+    Sea $p\in \mathrm{M}$ un punto crítico de f , diremos que es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x^i \partial x^j}(p)\right)$ es no singular, i.e, su determinante es no nulo.
+\end{definition}
+\bigskip
+\begin{definition}
+    Sean $f:\mathrm{M}\to \mathbb{R}$ una función suave y $p\in M$ un punto crítico de f. Definimos $Hess_{p}f: T_{p}\mathrm{M}\to \mathbb{R}$ forma bilineal simétrica sobre el plano tangente a $\mathrm{M}$ en $p$ de la siguiente forma:\\
+
+    Tomemos $v,w\in T_{p}\mathrm{M}$ y sean $\tilde{v}$ y $\tilde{w}$ extensiones locales suyas a campos vectoriales. Entonces $Hess_{p}f(v,w)=\tilde{v}_{p}(\tilde{w}_{p}(f))$ donde $\tilde{v}_{p}$ es simplemente $v$ y $\tilde{w}_{p}(f)$ denota la derivada parcial de $f$ en la dirección de $\tilde{w}$.
+\end{definition}
+
+Es rápido comprobar que $Hess_{p}f$ es en efecto simétrica y está bien definida.\\
+
+Es simétrica ya que $\tilde{v}_{p}(\tilde{w}_{p}(f)) - \tilde{w}_{p}(\tilde{v}_{p}(f)) = [\tilde{v},\tilde{w}]_{p}(f) = 0$ donde $[\tilde{v},\tilde{w}]$ es el corchete de Lie de $\tilde{v}$ y $\tilde{w}$ cuya expresión en coordenadas recordemos que es
+\begin{equation*}
+    [\tilde{v},\tilde{w}]_{p}(f)=\sum_{i=1}^n \big( \tilde{v}_p(\tilde{w}_{i}) - \tilde{w}_p(\tilde{v}_{i}) \big) \left. \frac{\partial}{\partial x_{i}}\right|_p f
+\end{equation*}
+
+Luego sea anula al ser $p$ un punto crítico.\\
+
+Por otro lado, está bien definidaya que $\tilde{v}_{p}(\tilde{w}_{p}(f))$ no depende de las extensiones de $v$ y $w$ elegidas puesto que nos importa el vector del campo en el punto $p$ y este no cambia.\\
+
+Veamos ahora como es $Hess_pf$ en coordenadas. De nuevo, tomemos un sistema de coordenadas local $(x^{1}, \dots ,x^{n})$, tenemos
+
+\begin{equation*}
+    v=\sum_{i=0}^n a_i \left.\frac{\partial}{\partial x_i}\right|_p ~~\text{y}~~ w=\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p 
+\end{equation*}
+
+Y para las extensiones $\tilde{v}$ y $\tilde{w}$ basta tomar como coeficientes las funciones constantes $a_i$ y $b_j$. Así
+
+\begin{equation*}
+    Hess_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x^i \partial x^j}\right|_p f 
+\end{equation*}
+
+Luego matriz $\left(\frac{\partial^{2}f}{\partial x^i \partial x^j}(p)\right)$ mencionada antes representa la forma bilineal $Hess_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
+\bigskip
+
+\begin{definition}
+    Sean $V$ un espacio vectorial y $H$ una forma bilineal sobre $V$. Entonces,
+    
+    \begin{enumerate}[label=\roman*)]
+        \item El \textit{índice} de $H$ es la máxima dimensión de un subespacio de $V$ sobre el cual $H$ es definida negativa.
+        
+        \item La \textit{nulidad} de $H$ es la dimensión del radical de $H$, es decir
+        \begin{equation*}
+            dim(Rad(H)) ~\text{ con }~ Rad(H)=\{v\in V:H(v,w)=0, ~\forall w\in V \}
+        \end{equation*}
+        
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Un punto crítico $p\in M$ de $f$ suave es no degenerado $\iff$ La nulidad de $H$ sobre $T_pM$ es $0$. 
+\end{remark}
+    \mbox{}\\[0.5em]
+    $\boxed{\implies}$ Supongamos que existe $v\in Rad(H)$ distinto del $0$ $\implies$ \\
+    $\implies H(v,w)=v^tHw=0, \forall w\in T_pM \implies v^tH=0 \iff v^t = 0$  ya que $H$ es no singular y $v^tH$ es una \\
+    combinación lineal las filas de $H$, contradicción.\\
+
+    $\boxed{\impliedby}$ $Rad(H)=\{0\}$. Supongamos que $p$ es degenerado y sea $v\in T_pM\setminus\{0\} \implies \exists w\in T_pM$ tal que $v^tHw\neq 0 \implies v^tH\neq 0$ y como $v$ era arbitrario se tiene que $v^tH\neq 0,\forall v\in T_pM\setminus\{0\} \implies H$ es no singular. Hemos llegado a una contradicción.
+
+
+\begin{nota}
+    De ahora en adelante nos referiremos a la forma bilineal inducida por $f$ como $Hess_pf$ y a su matriz con respecto de la base del plano de tangente como $H_pf$ o simplemente $H$ si el contexto lo permite. Además nos referiremos al índice y la nulidad de $Hess_pf$ como \textit{índice y nulidad de $f$ en $p$}.
+\end{nota}
+\bigskip
+
+%poner algo aqui del lema de morse y porque es importante.
+
+\begin{lemma}[Lema de Morse]
+\label{lemamorse}
+    Sean $p$ un punto crítico no degenerado de una función suave $f:M\to \mathbb{R}$. Entonces existe un sistema de coordenadas local $(y^1,\dots, y^n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y^i(p)=0, \forall i\in \{1\dots,n\}$ y se verifica
+    \begin{equation*}
+        f=f(p)-(y^i)^2-\dots-(y^\lambda)^2 + (y^{\lambda +1})^2+\dots + (y^n)^2
+    \end{equation*}
+    en todo $\mathcal{U}$ con $\lambda$ el índice de $f$ en $p$.
+\end{lemma}
+\bigskip
+
+Antes de demostrar el Lema de Morse necesitamos probar el siguiente resultado de calculo diferencial:
+
+\begin{lemma}
+    Sean $V$ un entorno convexo del origen en $\mathbb{R}^n$ y $f\in \mathcal{C}^\infty(V)$ con $f(0)=0$. Entonces,
+    \begin{equation*}
+        f(x_1,\dots,x_n)=\sum_{i=1}^n x_ig_i(x_1,\dots,x_n)
+    \end{equation*}
+    Para unas funciones $g_i\in \mathcal{C}^\infty(V)$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
+\end{lemma}
+\begin{proof}
+\begin{equation*}
+    f(x_i,\dots,x_n)=\int_0^1 \frac{df(tx_1,\dots,tx_n)}{dt}dt = \int_0^1 \big(\sum_{i=1}^n \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)x_i \big)dt =\sum_{i=1}^n x_i \left(\int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n )dt\right)
+\end{equation*}
+
+Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n )dt$ y se cumple que $g_i(0)=\int_0^1 \frac{\partial f}{\partial x_i}(0)dt =\frac{\partial f}{\partial x_i}(0)$.
+
+\end{proof}
+\bigskip
+Ahora ya podemos demostrar el Lema de Morse.
+\bigskip
+\begin{proof}[Demostración del Lema de Morse]
+    En primer lugar, veamos que de poder expresar $f$ de esa manera en $\mathcal{U}$ entonces $\lambda$ es necesariamente el índice de $f$ en $p$. Sea $(x^1,\dots, x^n)$ un sistema de coordenadas local en $\mathcal{U}$ y supongamos que
+    \begin{equation*}
+        f=f(p)-(x^i)^2-\dots-(x^\lambda)^2 + (x^{\lambda +1})^2+\dots + (x^n)^2
+    \end{equation*}
+    Entonces se tiene que 
+
+    \[
+        \frac{\partial^2 f}{\partial x_i \partial x_j}=
+        \begin{cases}
+            -2, ~i=j\le \lambda\\
+            ~~~2, ~i=j\ge \lambda\\
+            ~~~0, i\neq j
+        \end{cases}
+    \]
+
+    Es decir, $H_pf$ es una matriz diagonal con $\lambda$ valores negativos y $n-\lambda$ valores positivos. Luego tiene $\lambda$ autovalores negativos, lo que quiere decir que existe un subespacio de dimensión $\lambda$ de $T_pM$ en el que es definida negativa y otro de dimensión $n-\lambda$ en el que es definida positiva.\\
+
+    La única forma en que $\lambda$ pudiera ser distinto que el índice de $f$ en $p$ es si existiera un subespacio de dimension mayor que el mencionado en el que $H_pf$ fuese definida negativa, lo cual es imposible.\\
+
+    Antes de mostrar que tal sistema de coordenadas existe vemos algunas cosas. En primer lugar podemos asumir que en coordenadas $p$ es el origen de $\mathbb{R}^n$ y que $f(p)=f(0)=0$ ya que de no ser así podemos tomar la función $\bar{f}(x)=f(x+p)-f(p)$ que tiene también un punto crítico en $0$ y cumple que $\bar{f}(0)=0$ y deshacer los cambias después.\\
+
+    Por el lema anterior $f(x_1,\dots,x_n)=\sum_{j=1}^n x_jg_j(x_1,\dots,x_n)$ en un entorno convexo del origen. Ahora, como $0$ es un punto crítico de $f$ se tiene
+    \begin{equation*}
+        \frac{\partial f}{\partial x_j}(0)=0 ~\text{ y }~ g_j(0)=\int_0^1 \frac{\partial f}{\partial x_j}(0)~dt=0
+    \end{equation*}
+    Luego podemos aplicar de nuevo el lema a cada una de las $g_j$ obteniendo
+    \begin{equation*}
+        g_j(x_1,\dots,x_n)=\sum_{i=1}^n x_ih_{ij}(x_1,\dots,x_n)
+    \end{equation*}
+    Y por tanto
+    \begin{equation*}
+        f(x_1,\dots,x_n)=\sum_{i,j} x_ix_jh_{ij}(x_1,\dots,x_n)
+    \end{equation*}
+    %aqui iba lo de quotes
+    Además, la matriz $H(0)=(h_{ij}(0))$ es igual a $\frac{1}{2}H_0f=\frac{1}{2}(\frac{\partial^2f}{\partial x_i\partial x_j}(0))$ y por lo tanto es simétrica y no singular. En efecto, sabemos que 
+    \begin{equation*}
+        h_{ij}=\int_0^1 \frac{\partial g_i}{\partial x_j}(tx_1,\dots,tx_n)dt ~~\text{ y}~~ g_{i}=\int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)dt
+    \end{equation*}
+    Luego
+    \begin{gather*}
+        \frac{\partial g_i}{\partial x_j}(x_1,\dots,x_n)= \int_0^1 \frac{\partial}{\partial x_j}\left(\frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)\right)dt = \int_0^1 \left(\sum_{k=1}^n\frac{\partial^2 f}{\partial x_i \partial x_k}(tx_1,\dots,tx_n) \frac{\partial(tx_k)}{\partial x_j}\right)dt =\\
+        = \int_0^1t\frac{\partial^2 f}{\partial x_i \partial x_j}(tx_1,\dots,tx_n)dt
+    \end{gather*}
+    Así, 
+    \begin{gather*}
+        \frac{\partial g_i}{\partial x_j}(0)=\int_0^1 t\frac{\partial^2 f}{\partial x_i \partial x_j}(0)dt=\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\int_0^1tdt= \frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\implies\\
+        \implies h_{ij}(0)=\frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\int_0^1 dt =\frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)
+    \end{gather*}
+
+    {\color{blue}A partir de aquí no se muy bien como seguir porque no entiendo del todo lo que hace y por qué.}
+    Ahora que tenemos hechos los preparativos veamos que existe un cambio de coordenadas que nos de la expresión de $f$ que buscamos en un entorno de $0$ quizás más pequeño, i.e, un difeomorfismo entre un entorno de $0$ quizás más pequeño que $\mathcal{U}$ (contenido en él) y otro abierto de $\mathbb{R}^n$ que al componer con las funciones coordenadas nos de la expresión que buscamos de $f$. 
+    {\color{blue}Demostración inacabada.}
+
+    
+    %-------------continuar
+    \end{proof}
+
+\begin{corollary}
+        Sea $M$ una variedad diferenciable. Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está aislado respecto de los demás puntos críticos. {\color{blue} Esto lo enuncié así porque me parecía que tenía más sentido.}
+\end{corollary}
+\begin{proof}
+    Sea $p\in M$ un punto crítico no degenerado de una función $f$. Existe un sistema de coordenadas local $(y^1,\dots, y^n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y^i(p)=0,~~\forall i$ y 
+    \begin{equation*}
+        f=f(p)-(y^i)^2-\dots-(y^\lambda)^2 + (y^{\lambda +1})^2+\dots + (y^n)^2
+    \end{equation*}
+    Por el Lema de Morse (\ref{lemamorse}).\\
+
+    Supongamos que existe otro punto crítico $q\in\mathcal{U}$, entonces
+    \begin{equation*}
+        \frac{\partial f}{\partial x_i}(q)=\pm 2q_i= 0\iff q_i= y^i(q)=0\iff q_i=p_i
+    \end{equation*}
+    Luego $p$ es el único punto crítico de f en $\mathcal{U}$.
+    
+\end{proof}
+
+\begin{definition}
+    Sean $M$ una variedad diferenciable y $f:M\to \mathbb{R}$ una función suave. Diremos que $f$ es una \textit{función de Morse} si todos sus puntos críticos son no-degenerados. {\color{blue} Esta definición Milnor no la pone y me da la impresión de que sobra, no me esta ayudando mucho de momento.}
+\end{definition}
