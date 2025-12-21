@@ -1,0 +1,63 @@
+\section{CW-Complejos y tipo de homotopía}
+%tipo de homotopia-----------------------
+\begin{definition}
+Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
+\textit{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+Sean $X$ e $Y$ espacios topológicos. Decimos que $X$ e $Y$ son
+\textit{homotópicamente equivalentes} si existen aplicaciones continuas
+\begin{equation*}
+    f: X \to Y, \qquad g: Y \to X
+\end{equation*}
+tales que
+\begin{equation*}
+    g \circ f \simeq \mathrm{id}_X \qquad \text{y} \qquad f \circ g \simeq \mathrm{id}_Y.
+\end{equation*}
+En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} y llamamos a $f$ y $g$ \textit{equivalencias homotópicas}.
+\end{definition}
+
+\medskip
+
+\begin{nota}
+    En lo que sigue nos referiremos a los retractos de deformación fuerte simplemente como \textit{retractos de deformación}.
+\end{nota}
+
+\begin{remark}
+    Nótese que todo retracto de deformación de un espacio tiene el mismo tipo de homotopía que este. Dados un espacio $X$ y un retracto de deformación $A\subseteq X$, la función inclusión, $\iota: A\hookrightarrow X$, y la retración $r: X \to A$ son equivalencias homotópicas.
+\end{remark}
+%--------------------------------------------------------
+\bigskip
+%CW-complejos-------------------------------
+\begin{definition}
+    Una \textit{célula} \textit{e} es un espacio topológico homeomorfo al disco unidad de n-dimensional.Diremos que la dimensión de la célula es \textit{n} y diremos que \textit{e} es una \textit{n-célula}.
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+    Llamamos \textit{CW-complejo} a un espacio topológico construido siguiendo los siguientes pasos:
+
+        \begin{enumerate}[label=(\roman*)]
+            \item Se comienza con un conjunto discreto $ X_0 $ (llamado también \textit{0-esqueleto}), cuyos elementos llamaremos \textit{0-células}.
+            
+            \item Se construye, de manera inductiva, el llamado $ n $-esqueleto $ X_n $ (donde $n$ denota la dimensión de las células que lo forman) a partir del $(n-1)$-esqueleto. 
+            
+            Tomando $ X_{n-1} $, se le pega una colección $ \Lambda $ de $ n $-células mediante aplicaciones $ \varphi_\lambda $ del $ (n-1) $-disco unidad a $ X_{n-1} $. 
+            
+            El espacio $ X_n $ es el espacio cociente de la unión disjunta $X_{n-1}\sqcup_{\lambda} e_\lambda$ por las identificaciones naturales asociadas a las aplicaciones $ \varphi_\lambda $ anteriores.
+            
+            \item Puede pararse tras un número finito de pasos (aunque no tiene por qué hacerse). Llamaremos \textit{CW-complejo} al espacio 
+            \begin{equation*}
+                X = \bigcup_{n} X_n.    
+            \end{equation*}
+            Si el número de pasos es infinito, los conjuntos abiertos de la topología serán aquellos que sean abiertos para cada $ X_n $.
+        \end{enumerate} 
+\end{definition}
+
+{\color{blue}¿Pongo ejemplos de CW-complejos?}
+
+%---------------------------------------------------------------

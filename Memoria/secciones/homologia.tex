@@ -1,0 +1,81 @@
+\section{Homología simplicial}
+
+Hasta ahora hemos demostrado que dada una variedad diferenciable de dimensión finita, podemos, mediante una función de Morse, extraer su estructura de CW-complejo. Es decir, reconstruirla a partir del pegado de células cuyas dimensiones vienen determinadas por el índice de cada uno de los puntos críticos de una función de Morse.
+
+De cara al siguiente y último apartado sobre las \textit{desigualdades de Morse} necesitamos introducir los \textit{grupos de homología} de una variedad y sus correspondientes \textit{números de Betti}. Desarrollaremos estos conceptos en el contexto de los espacios topológicos \textit{triangulados}.
+
+Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos resultan extremadamente complicados de computar. 
+
+Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca. 
+
+De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular}. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
+
+%Redactar intro:
+%- homologia simplicial
+%- numeros de betti
+%- por que lo necesitamos 
+%- nuestro approach
+
+\subsection{Triangulaciones}
+
+Triangular un espacio topológico consiste en expresarlo como la unión de \textit{poliedros} de su misma dimensión de tal manera que queden adecuadamente pegados.
+
+\begin{definition} \hfill
+
+    \begin{enumerate}[label=(\roman*)]
+        \item  Un \textit{k-poliedro convexo}, $P^k$, es la envoltura convexa de una cantidad finita de puntos de $\mathbb{R}^n$ con interior no vacío.
+        \item Una \textit{l-cara} de $P^k$ es un subconjunto $P^l\subset \partial P^k$ obtenido como la intersección de $P^k$ con un hiperplano que no corta al su interior y que tiene dimensión $l$
+    \end{enumerate}
+   
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+    Una \textit{triangulación} de un espacio topológico $X$ se denota 
+    \begin{equation*}
+        \tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda\}
+    \end{equation*}
+    y consiste de:
+    \begin{enumerate}
+        \item Una familia de poliedros $P^k_{\alpha}$ de dimensiones entre $0$ y $n$.
+        \item Para cada poliedro, una función continua $f_{\alpha}:P^k_{\alpha}\to X$ con las siguientes propiedades:
+        \begin{enumerate}
+            \item $f_{\alpha}: \mathring{P}^k_{\alpha}\to f_{\alpha}(\mathring{P}^k_{\alpha})\subset X$ es un homeomorfismo.
+            \item Los conjuntos $C^k_{\alpha}=f_{\alpha}(P^k_{\alpha})\subset X$ forman un recubrimiento por cerrados localmente finito de $X$.
+            \item Las imágenes $f_{\alpha}(\mathring{P}^k_{\alpha})\subset X$ fromar un recubrimiento disjunto de $X$.
+            \item Para cada $l$-cara $P^l\in \partial P^k_{\alpha}$ existe una función en la triangulación $f_{\beta}:P^l_{\beta}\to X$ tal que $f_{\beta} = f_{\alpha}\circ L$, donde $L: P^l_{\beta}\to P^l\subset P^k_{\alpha}$ es un isomorfismo afín seguido de la inclusión.
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Cada $C^k_{\alpha}$ es una $k$-célula y $n=dim(X)$, la dimensión máxima de los poliedros de la triangulación.
+
+    Recordamos que un recubrimiento $\mathcal{C}=\{C_i\}$ de un espacio topológico $X$ se dice \textit{localmente finito} si todo $x\in X$ tiene un entorno abierto $\mathcal{U}_x$ que interseca solamente a una cantidad finita de elementos de $\mathcal{C}$. 
+
+    Diremos que la topología de un espacio $X$ es \textit{coherente} respecto de un recubrimiento $\mathcal{C}$ si la intersección de todo abierto $\mathcal{U}$ de $X$ con cualquier cerrado $C_i$ del recubrimiento es abierta en $C_i$.
+
+    Se tiene que, dado un recubrimiento por cerrados localmente finito $\mathcal{C}$ de un espacio $X$, la topología de $X$ es coherente respecto de $\mathcal{C}$. 
+
+    Es decir, la topología de un espacio topológico $X$ es coherente respecto del recubrimiento obtenido al triangular. Esto nos permite reconstruir la topología de $X$ teniendo solo una triangulación suya como la coleción de subconjuntos $\mathcal{U}\subseteq X$ tales que $\mathcal{U}\cap C^k_{\alpha}$ es abierto en $C^k_{\alpha}$ para cualquier $\alpha\in \Lambda$.
+
+    La propiedad $2.d$ determina que las intersecciones de imágenes de dos poliedros $P^k_{\alpha}$ y $P^t_{\beta}$ de una triangulación están formadas por $l$-células, no pueden intersecar sus interiores. Además, a cada función $f_{\alpha}$ le permitimos mandar más de una $l$-cara a una misma $l$-célula.
+\end{remark}
+
+\bigskip
+
+Finalmente, introducimos la noción de orientación de un poliedro.
+
+\begin{definition}
+    Una \textit{orientación} $o$ de un $k$-poliedro es una orientación de su interior $\mathring{P}^k$, es decir, una orientación de $\mathbb{R}^n$.
+\end{definition}
+
+Como $\mathring{P}^k$ es un abierto de $\mathbb{R}^k$, su orientación se obtiene fijando una de los dos orientaciones posibles de $\mathbb{R}^k$. Esta orientación $o$ induce una orientación $o|_{P^{n-1}}$ en cada una de las $(n-1)$-caras $P^{n-1}\subset \partial P^k$.
+
+Existen otras nociones triangulación, como la \textit{triangulación regular} y la \textit{pseudotriangulación}, y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
+
+{\color{red} ¿Resultado de Whitehead de que todas las variedades diferenciables se pueden triangular?}
+
+\subsection{Construcción de la homología simplicial}
+

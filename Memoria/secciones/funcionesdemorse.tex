@@ -1,11 +1,11 @@
-\section{El lema de Morse}
+\section{Funciones de Morse}
 
 \begin{definition}
     Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=\roman*)]
-        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es identicamente cero. Es decir, dado un sistema de coordenadas local $(x^{1}, \dots ,x^{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es identicamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
-            \frac{\partial f}{\partial x^1}(p)= \dots = \frac{\partial f}{\partial x^n}(p) = 0.
+            \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
         \end{equation*}
         
         \item A su vez, diremos que $f(p)\in \mathbb{R}$ es un \textit{valor crítico de $f$} si $p \in \mathrm{M}$ es un punto crítico.
@@ -15,7 +15,7 @@
 \bigskip
 
 \begin{definition}
-    Sea $p\in \mathrm{M}$ un punto crítico de f , diremos que es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x^i \partial x^j}(p)\right)$ es no singular, i.e, su determinante es no nulo.
+    Sea $p\in \mathrm{M}$ un punto crítico de f , diremos que es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular, i.e, su determinante es no nulo.
 \end{definition}
 \bigskip
 \begin{definition}
@@ -33,9 +33,9 @@ Es simétrica ya que $\tilde{v}_{p}(\tilde{w}_{p}(f)) - \tilde{w}_{p}(\tilde{v}_
 
 Luego sea anula al ser $p$ un punto crítico.\\
 
-Por otro lado, está bien definidaya que $\tilde{v}_{p}(\tilde{w}_{p}(f))$ no depende de las extensiones de $v$ y $w$ elegidas puesto que nos importa el vector del campo en el punto $p$ y este no cambia.\\
+Por otro lado, está bien definida ya que $\tilde{v}_{p}(\tilde{w}_{p}(f))$ no depende de las extensiones de $v$ y $w$ elegidas puesto que nos importa el vector del campo en el punto $p$ y este no cambia.\\
 
-Veamos ahora como es $Hess_pf$ en coordenadas. De nuevo, tomemos un sistema de coordenadas local $(x^{1}, \dots ,x^{n})$, tenemos
+Veamos ahora como es $Hess_pf$ en coordenadas. De nuevo, tomemos un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$, tenemos
 
 \begin{equation*}
     v=\sum_{i=0}^n a_i \left.\frac{\partial}{\partial x_i}\right|_p ~~\text{y}~~ w=\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p 
@@ -44,10 +44,10 @@ Veamos ahora como es $Hess_pf$ en coordenadas. De nuevo, tomemos un sistema de c
 Y para las extensiones $\tilde{v}$ y $\tilde{w}$ basta tomar como coeficientes las funciones constantes $a_i$ y $b_j$. Así
 
 \begin{equation*}
-    Hess_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x^i \partial x^j}\right|_p f 
+    Hess_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x_i \partial x_j}\right|_p f 
 \end{equation*}
 
-Luego matriz $\left(\frac{\partial^{2}f}{\partial x^i \partial x^j}(p)\right)$ mencionada antes representa la forma bilineal $Hess_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
+Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $Hess_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
 \bigskip
 
 \begin{definition}
@@ -84,9 +84,9 @@ Luego matriz $\left(\frac{\partial^{2}f}{\partial x^i \partial x^j}(p)\right)$ m
 
 \begin{lemma}[Lema de Morse]
 \label{lemamorse}
-    Sean $p$ un punto crítico no degenerado de una función suave $f:M\to \mathbb{R}$. Entonces existe un sistema de coordenadas local $(y^1,\dots, y^n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y^i(p)=0, \forall i\in \{1\dots,n\}$ y se verifica
+    Sean $p$ un punto crítico no degenerado de una función suave $f:M\to \mathbb{R}$. Entonces existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0, \forall i\in \{1\dots,n\}$ y se verifica
     \begin{equation*}
-        f=f(p)-(y^i)^2-\dots-(y^\lambda)^2 + (y^{\lambda +1})^2+\dots + (y^n)^2
+        f=f(p)-(y_1)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2
     \end{equation*}
     en todo $\mathcal{U}$ con $\lambda$ el índice de $f$ en $p$.
 \end{lemma}
@@ -113,9 +113,9 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 Ahora ya podemos demostrar el Lema de Morse.
 \bigskip
 \begin{proof}[Demostración del Lema de Morse]
-    En primer lugar, veamos que de poder expresar $f$ de esa manera en $\mathcal{U}$ entonces $\lambda$ es necesariamente el índice de $f$ en $p$. Sea $(x^1,\dots, x^n)$ un sistema de coordenadas local en $\mathcal{U}$ y supongamos que
+    En primer lugar, veamos que de poder expresar $f$ de esa manera en $\mathcal{U}$ entonces $\lambda$ es necesariamente el índice de $f$ en $p$. Sea $(x_1,\dots, x_n)$ un sistema de coordenadas local en $\mathcal{U}$ y supongamos que
     \begin{equation*}
-        f=f(p)-(x^i)^2-\dots-(x^\lambda)^2 + (x^{\lambda +1})^2+\dots + (x^n)^2
+        f=f(p)-(x_i)^2-\dots-(x_\lambda)^2 + (x_{\lambda +1})^2+\dots + (x_n)^2
     \end{equation*}
     Entonces se tiene que 
 
@@ -174,15 +174,15 @@ Ahora ya podemos demostrar el Lema de Morse.
         Sea $M$ una variedad diferenciable. Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está aislado respecto de los demás puntos críticos. {\color{blue} Esto lo enuncié así porque me parecía que tenía más sentido.}
 \end{corollary}
 \begin{proof}
-    Sea $p\in M$ un punto crítico no degenerado de una función $f$. Existe un sistema de coordenadas local $(y^1,\dots, y^n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y^i(p)=0,~~\forall i$ y 
+    Sea $p\in M$ un punto crítico no degenerado de una función $f$. Existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0,~~\forall i$ y 
     \begin{equation*}
-        f=f(p)-(y^i)^2-\dots-(y^\lambda)^2 + (y^{\lambda +1})^2+\dots + (y^n)^2
+        f=f(p)-(y_i)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2
     \end{equation*}
     Por el Lema de Morse (\ref{lemamorse}).\\
 
     Supongamos que existe otro punto crítico $q\in\mathcal{U}$, entonces
     \begin{equation*}
-        \frac{\partial f}{\partial x_i}(q)=\pm 2q_i= 0\iff q_i= y^i(q)=0\iff q_i=p_i
+        \frac{\partial f}{\partial x_i}(q)=\pm 2q_i= 0\iff q_i= y_i(q)=0\iff q_i=p_i
     \end{equation*}
     Luego $p$ es el único punto crítico de f en $\mathcal{U}$.
     

@@ -8,7 +8,7 @@
 \usepackage[left=3cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry} %Cambiar margenes
 \setlength{\parindent}{0pt} %elimina la indentacion
 \usepackage[parfill]{parskip} %salto de linea entre parrafos
-\setlength{\parskip}{0.3em}
+\setlength{\parskip}{0.7em}
 
 \renewcommand{\arraystretch}{1.5} % multiplica por 1.5 el espacio vertical dentro del entorno array
 
@@ -102,7 +102,7 @@
     \item Suave = $C^{\infty}$
     \item Plano tangente a M en p $\to T_{p}M$
     \item $d_{p}f:T_{p}M\to T_{f(p)}M$ aplicación lineal entre espacios tangentes inducida por $f$.
-    \item Sistemas de coordenadas $\varphi(p) = (x^1(p), \dots, x^n(p))$, ({\color{blue} ni idea de cuando usar subíndices y cuando superíndices})
+    \item Sistemas de coordenadas $\varphi(p) = (x_1(p), \dots, x_n(p))$,
     \item {\color{blue} añadir lo de la notacion de las cartas y los sistemas de coordenadas}
 \end{itemize}
 
@@ -127,9 +127,15 @@
 \bigskip
 {\color{blue}No se si debería introducir estas cosas siquiera, y de hacerlo no se si tendrían que tener su propia sección o irse introduciendo conforme fuese necesario.}
 
-\input{funcionesdemorse}
+%\input{secciones/funcionesdemorse}
 
-\input{homotopy}
+\input{secciones/CWcomplejos.tex}
+
+%\input{secciones/homotopy}
+
+\input{secciones/homologia.tex}
+
+%\input{secciones/desigualdadesMorse.tex}
 
 \newpage
 \nocite{*}
