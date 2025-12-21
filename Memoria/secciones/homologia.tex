@@ -34,7 +34,7 @@ Triangular un espacio topológico consiste en expresarlo como la unión de \text
 \begin{definition}
     Una \textit{triangulación} de un espacio topológico $X$ se denota 
     \begin{equation*}
-        \tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda\}
+        \tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda_k\}
     \end{equation*}
     y consiste de:
     \begin{enumerate}
@@ -49,19 +49,39 @@ Triangular un espacio topológico consiste en expresarlo como la unión de \text
     \end{enumerate}
 \end{definition}
 
+\bigskip
+
+Cada $C^k_{\alpha}$ es una $k$-célula y $n=dim(X)$, la dimensión máxima de los poliedros de la triangulación.
+
+Recordamos que un recubrimiento $\mathcal{C}=\{C_i\}$ de un espacio topológico $X$ se dice \textit{localmente finito} si todo $x\in X$ tiene un entorno abierto $\mathcal{U}_x$ que interseca solamente a una cantidad finita de elementos de $\mathcal{C}$. 
+
+Diremos que la topología de un espacio $X$ es \textit{coherente} respecto de un recubrimiento $\mathcal{C}$ si la intersección de todo abierto $\mathcal{U}$ de $X$ con cualquier cerrado $C_i$ del recubrimiento es abierta en $C_i$.
+
+Se tiene que, dado un recubrimiento por cerrados localmente finito $\mathcal{C}$ de un espacio $X$, la topología de $X$ es coherente respecto de $\mathcal{C}$. Es decir, la topología de un espacio topológico $X$ es coherente respecto del recubrimiento obtenido al triangular. Esto nos permite reconstruir la topología de $X$ teniendo solo una triangulación suya como la coleción de subconjuntos $\mathcal{U}\subseteq X$ tales que $\mathcal{U}\cap C^k_{\alpha}$ es abierto en $C^k_{\alpha}$ para cualquier $\alpha\in \Lambda_k$.
+
+La propiedad $2.d$ determina que las intersecciones de imágenes de dos poliedros $P^k_{\alpha}$ y $P^t_{\beta}$ de una triangulación están formadas por $l$-células, no pueden intersecar sus interiores. Además, a cada función $f_{\alpha}$ le permitimos mandar más de una $l$-cara a una misma $l$-célula.
+
+
+\bigskip
+
+\begin{definition}
+    Con la notación de la definición anterior, una \textit{triangulación regular} es una triangulación tal que
+    \begin{enumerate}
+        \item $f_{\alpha}: P^k_{\alpha} \to C^k_{\alpha}$ es un homeomorfismo para todo $\alpha\in\Lambda_k$.
+        \item Los $P^k_{\alpha}$ \textit{k-símplices}, es decir, la envoltura convexa de $(k+1)$ puntos afinmente independientes.
+        \item Cualesquiera dos $k$-células no pueden compartir todos sus vértices.
+    \end{enumerate}
+\end{definition}
+
 \begin{remark}
-    Cada $C^k_{\alpha}$ es una $k$-célula y $n=dim(X)$, la dimensión máxima de los poliedros de la triangulación.
-
-    Recordamos que un recubrimiento $\mathcal{C}=\{C_i\}$ de un espacio topológico $X$ se dice \textit{localmente finito} si todo $x\in X$ tiene un entorno abierto $\mathcal{U}_x$ que interseca solamente a una cantidad finita de elementos de $\mathcal{C}$. 
-
-    Diremos que la topología de un espacio $X$ es \textit{coherente} respecto de un recubrimiento $\mathcal{C}$ si la intersección de todo abierto $\mathcal{U}$ de $X$ con cualquier cerrado $C_i$ del recubrimiento es abierta en $C_i$.
-
-    Se tiene que, dado un recubrimiento por cerrados localmente finito $\mathcal{C}$ de un espacio $X$, la topología de $X$ es coherente respecto de $\mathcal{C}$. 
-
-    Es decir, la topología de un espacio topológico $X$ es coherente respecto del recubrimiento obtenido al triangular. Esto nos permite reconstruir la topología de $X$ teniendo solo una triangulación suya como la coleción de subconjuntos $\mathcal{U}\subseteq X$ tales que $\mathcal{U}\cap C^k_{\alpha}$ es abierto en $C^k_{\alpha}$ para cualquier $\alpha\in \Lambda$.
-
-    La propiedad $2.d$ determina que las intersecciones de imágenes de dos poliedros $P^k_{\alpha}$ y $P^t_{\beta}$ de una triangulación están formadas por $l$-células, no pueden intersecar sus interiores. Además, a cada función $f_{\alpha}$ le permitimos mandar más de una $l$-cara a una misma $l$-célula.
+    Un $k$-símplice es el objeto geométrico más simple posible de dimensión $k$, el análogo $k$-dimensional del triángulo. Todo $k$-símplice es un $k$-poliedro pero no al revés. De hecho, todo $k$-poliedro puede obtenerse pegando adecuadamente $k$-símplices.
 \end{remark}
+
+\bigskip
+
+Una triangulación regular resulta más sencilla de visualizar. En una triangulación regular dos $k$-símplices distintos cualesquiera o no se tocan o comparten exactamente un único $l$-símplice (con $l<k$) de sus fronteras. Representa lo que uno ve al pensar en una malla de triángulos, en el caso de dimensión $2$. 
+
+Por otro lado, al llevar sobre un espacio los poliedros de una triangulación regular, pueden aparecer identificaciones de las caras de un mismo poliedro. En dimensión $2$, un triángulo puede convertirse por ejemplo en un ``cono'' al quedar dos de sus aristas pegadas mediante la función que lo lleva al espacio que triangula. Resultando en dos posibles inclusiones del vértice que no era común a ambas en dicho espacio.
 
 \bigskip
 
@@ -73,9 +93,55 @@ Finalmente, introducimos la noción de orientación de un poliedro.
 
 Como $\mathring{P}^k$ es un abierto de $\mathbb{R}^k$, su orientación se obtiene fijando una de los dos orientaciones posibles de $\mathbb{R}^k$. Esta orientación $o$ induce una orientación $o|_{P^{n-1}}$ en cada una de las $(n-1)$-caras $P^{n-1}\subset \partial P^k$.
 
-Existen otras nociones triangulación, como la \textit{triangulación regular} y la \textit{pseudotriangulación}, y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
+Existen otras nociones triangulación, como la \textit{pseudotriangulación} y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
 
 {\color{red} ¿Resultado de Whitehead de que todas las variedades diferenciables se pueden triangular?}
 
 \subsection{Construcción de la homología simplicial}
 
+Una ligera generalización de los complejos simpliciales que dan nombre a esta teoría son los $\delta$-complejos. Es sobre estos espacios que textos como \cite{hatcher2002} definen la homología singular.
+
+Nosotros, sin embargo, seguiremos la ruta marcada por \cite{munoz2021}
+
+\textbf{PONER RUTA REDACTADA}
+
+\begin{definition}
+    Sea el par $(X,\tau)$ un espacio topológico triangulado, con $\tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda_k\}$. Elegimos cualesquiera orientaciones $o^k_{\alpha}$ para cada poliedro $P^k_{\alpha}$ de la triangulación y llamamos $e^k_{\alpha}=(P^k_{\alpha},o^k_{\alpha})$ al poliedro orientado. Definimos $C^{\tau}_k(X)$ como el grupo libre abeliano en los generadores $e^k_{\alpha}$
+    \begin{equation*}
+        \mathbb{Z}\langle e^k_{\alpha} | \alpha \in \Lambda_k \rangle
+    \end{equation*}
+    Definimos también los siguientes homomorfismos de grupos, a los que llamaremos \textit{operadores de borde}, $\partial_k: C^{\tau}_k(X) \to C^{\tau}_{k-1}(X)$ dados por
+    \begin{equation*}
+        \partial_k(e^k_{\alpha}) = \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}]e^{k-1}_{\beta},
+    \end{equation*}
+    donde a los $[e^k_{\alpha} : e^{k-1}_{\beta}]$ los llamaremos \textit{números de incidencia} y vienen dados por $[e^k_{\alpha} : e^{k-1}_{\beta}] = \sum \varepsilon_i$ donde $i$ recorre todas las inclusiones $L_i: P^{k-1}_{\beta} \hookrightarrow \partial P^k_{\alpha}$ y $\varepsilon_i=\pm 1$ dependiendo de si la orientación $o^{k-1}_{\beta}$ coincide o no con la orientación inducida como borde por $L_i(P^{k-1}_{\beta})\subset P^k_{\alpha}$
+\end{definition}
+
+\begin{remark}\hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item Definimos $C^{\tau}_k(X) = 0$ siempre que $k<0$ o $k>n$ y $\partial_k \equiv 0$ siempre que $k\le 0$ o $k>n$.
+        \item Elegimos orientaciones cualesquiera para los poliedros dado que elegir una u otra se reduce a cambiar el generador $e^k_{\alpha}$ por $-e^k_{\alpha}$.
+    \end{enumerate}
+\end{remark}
+
+\bigskip
+
+Una propiedad clave de los operadores de borde es la siguiente.
+
+\begin{proposition}
+    Los operadores de borde satisfacen $\partial_{k-1}\circ\partial_k=0$ para todo $k\ge 0$.
+\end{proposition}
+
+\begin{proof}
+    Es posible demostrar que toda triangulación se puede subdividir para obtener una triangulación regular. Teniendo en cuenta que para una traingulación regular la notación y las cuentas se simplifican bastante, vamos a probar el resultado en este caso.
+
+    Basta comprobar que se verifica para los generadores de $C^{\tau}_k(X)$. Sea $e^k_{\alpha}$ un $k$-poliedro orientado que genera $C^{\tau}_k(X)$, se tiene que
+    \begin{equation*}
+        \partial_{k-1}\circ\partial_k(e^k_{\alpha}) = \partial_{k-1}\left( \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}]e^{k-1}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k-1}} \left( \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}][e^{k-1}_{\beta} : e^{k-2}_{\gamma}] \right) e^{k-2}_{\gamma}
+    \end{equation*}
+
+    Queremos ver que, efectivamente, cada $[e^k_{\alpha} : e^{k-1}_{\beta}][e^{k-1}_{\beta} : e^{k-2}_{\gamma}]$ se anula. 
+    
+    Sea $e^{k-2}_{\gamma}$ un $(k-2)$-poliedro cualquiera incluido en $e^k_{\alpha}$. 
+
+\end{proof}
