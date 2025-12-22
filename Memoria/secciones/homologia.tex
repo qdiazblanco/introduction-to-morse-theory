@@ -51,7 +51,7 @@ Triangular un espacio topológico consiste en expresarlo como la unión de \text
 
 \bigskip
 
-Cada $C^k_{\alpha}$ es una $k$-célula y $n=dim(X)$, la dimensión máxima de los poliedros de la triangulación.
+Cada $C^k_{\alpha}$ es una $k$-célula y $n=dim(X)$ la dimensión máxima de los poliedros de la triangulación.
 
 Recordamos que un recubrimiento $\mathcal{C}=\{C_i\}$ de un espacio topológico $X$ se dice \textit{localmente finito} si todo $x\in X$ tiene un entorno abierto $\mathcal{U}_x$ que interseca solamente a una cantidad finita de elementos de $\mathcal{C}$. 
 
@@ -129,19 +129,71 @@ Nosotros, sin embargo, seguiremos la ruta marcada por \cite{munoz2021}
 Una propiedad clave de los operadores de borde es la siguiente.
 
 \begin{proposition}
-    Los operadores de borde satisfacen $\partial_{k-1}\circ\partial_k=0$ para todo $k\ge 0$.
+    Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
 \end{proposition}
 
 \begin{proof}
     Es posible demostrar que toda triangulación se puede subdividir para obtener una triangulación regular. Teniendo en cuenta que para una traingulación regular la notación y las cuentas se simplifican bastante, vamos a probar el resultado en este caso.
 
-    Basta comprobar que se verifica para los generadores de $C^{\tau}_k(X)$. Sea $e^k_{\alpha}$ un $k$-poliedro orientado que genera $C^{\tau}_k(X)$, se tiene que
+    Basta comprobar que se verifica para los generadores de $C^{\tau}_{k+1}(X)$. Sea $e^{k+1}_{\alpha}$ un $(k+1)$-poliedro orientado que genera $C^{\tau}_{k+1}(X)$, se tiene que
     \begin{equation*}
-        \partial_{k-1}\circ\partial_k(e^k_{\alpha}) = \partial_{k-1}\left( \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}]e^{k-1}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k-1}} \left( \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}][e^{k-1}_{\beta} : e^{k-2}_{\gamma}] \right) e^{k-2}_{\gamma}
+        \partial_{k}\circ\partial_k(e^{k+1}_{\alpha}) = \partial_{k}\left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}]e^{k}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k}} \left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] \right) e^{k-1}_{\gamma}
     \end{equation*}
 
-    Queremos ver que, efectivamente, cada $[e^k_{\alpha} : e^{k-1}_{\beta}][e^{k-1}_{\beta} : e^{k-2}_{\gamma}]$ se anula. 
+    Queremos ver que, efectivamente, cada $[e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}]$ se anula. 
     
-    Sea $e^{k-2}_{\gamma}$ un $(k-2)$-poliedro cualquiera incluido en $e^k_{\alpha}$. 
+    Sea $e^{k-1}_{\gamma}$ un $(k-1)$-poliedro cualquiera incluido en $e^{k+1}_{\alpha}$.
+
+    {\color{red}TERMINAR}
 
 \end{proof}
+
+\bigskip
+
+Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $ker(\partial_k)$. Así, definimos el $k$-ésimo grupo de homología de $X$ como sigue.
+
+\begin{definition}
+    Sea $(X,\tau)$ un espacio triangulado. El \textit{k-ésimo grupo de homología simplicial} de $X$ es el grupo abeliano $H^{\tau}_k(X)$ definido por
+    \begin{align*}
+        Z^{\tau}_k(X) &= ker(\partial_k: C^{\tau}_k(X) \to C^{\tau}_{k-1}(X)) \\
+        B^{\tau}_k(X) &= im(\partial_{k+1}: C^{\tau}_{k+1}(X) \to C^{\tau}_{k}(X)) \\
+        H^{\tau}_k(X) &= Z^{\tau}_k(X)/B^{\tau}_k(X)
+    \end{align*}
+\end{definition}
+
+\begin{remark} Sea $X$ un espacio triangulado de dimensión $n$, observamos que
+
+    \begin{itemize}
+        \item $H^{\tau}_k(X)=0$ para todo $k>n$, ya que $C^{\tau}_k(X)=0$.
+        \item $H^{\tau}_n(X)$ es un grupo abeliano libre. En efecto, como $C^{\tau}_{n+1}(X)=0$ se tiene que $B^{\tau}_n(X)=0$ luego $H^{\tau}_n(X)=Z^{\tau}_k(X)\subset C^{\tau}_n(X)$ que es libre por ser subgrupo de un grupo libre.
+        \item Si $X$ es además compacto, entonces $H^{\tau}_k(X)$ es un grupo abeliano finitamente generado. Se tiene que $C^{\tau}_k(X)$ es isomorfo a $\mathbb{Z^{n_k}}$, donde $n_k=|\Lambda_k|$, luego es finitamente generado y todo subgrupo de un grupo abeliano finitamente generado lo es a su vez. Así, $Z^{\tau}_k(X)$ y $B^{\tau}_k(X)$ son finitamente generados y se sigue el resultado.
+    \end{itemize}
+\end{remark}
+
+\bigskip
+
+{\color{red} PONER ALGÚN EJEMPLO DE GRUPO DE HOMOLOGÍA (HATCHER, VIDEO, ÁNGEL...)}
+
+Antes de seguir, listamos algunos resultados que podrían ser de interés para el lector en el contexto de las variedades diferenciables y la teoría de Morse. Sin embargo, decidimos no entreternos ya que no es central a nuestro objetivo y los presentamos sin demostración:
+
+\begin{enumerate}
+    \item Si $M$ es una $n$-variedad compacta, conexa, orientada y sin borde triangulada, entonces $H^{\tau}_n(X)=\mathbb{Z}$.
+    \item Si $M$ es una $n$-variedad compacta, conexa, no orientada y sin borde triangulada, entonces $H^{\tau}_n(X)=0$.
+    \item Si $M$ es una $n$-variedad compacta, conexa y con borde (no vacío), entonces de nuevo $H^{\tau}_n(X)=0$.
+\end{enumerate}
+
+\bigskip
+
+Uno desearía que los grupos de homología no dependiesen de la triangulación escogida y fuesen iguales que los obtenidos por la vía de la homología singular y, en efecto, esto se cumple. 
+
+\begin{theorem}
+    Sea $(X,\tau)$ un espacio triangulado. Entonces $H^{\tau}_k(X)$ es isomorfo a $H_k(X)$ para todo $k>0$. Donde $H_k(X)$ denota el grupo de homología singular de $X$.
+\end{theorem}
+
+ De nuevo, dejaremos que el lector encuentre la demostración en la fuente original en virtud de nuestra decisión de evitar formalizar la homología singular para nuestros propósitos.
+
+ \bigskip
+
+ Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables de dimensión finita, son los CW-complejos. Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-célula.
+
+ La \textit{homología celular} se define de manera similar a la simplicial. 
