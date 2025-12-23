@@ -146,6 +146,8 @@ Una propiedad clave de los operadores de borde es la siguiente.
 
 \end{proof}
 
+{\color{red} ALGO DE COMPLEJOS DE CADENAS Y TAL? MIRAR SECCIÓN DE HOMOLOGÍA SINGULAR}
+
 \bigskip
 
 Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $ker(\partial_k)$. Así, definimos el $k$-ésimo grupo de homología de $X$ como sigue.
@@ -188,7 +190,7 @@ Uno desearía que los grupos de homología no dependiesen de la triangulación e
     Sea $(X,\tau)$ un espacio triangulado. Entonces $H^{\tau}_k(X)$ es isomorfo a $H_k(X)$ para todo $k>0$. Donde $H_k(X)$ denota el grupo de homología singular de $X$.
 \end{theorem}
 
- De nuevo, dejaremos que el lector encuentre la demostración en la fuente original en virtud de nuestra decisión de evitar formalizar la homología singular para nuestros propósitos.
+De nuevo, dejaremos que el lector encuentre la demostración en la fuente original en virtud de nuestra decisión de evitar formalizar la homología singular para nuestros propósitos. De ahora en adelante nos referiremos a los grupos de homología como $H_k(X)$, sin especificar una triangulación.
 
  \bigskip
 
@@ -197,7 +199,14 @@ Uno desearía que los grupos de homología no dependiesen de la triangulación e
  La \textit{homología celular} se define de manera similar a la simplicial.
 
  \begin{definition}
-    Sea $X$ un CW-complejo.
+    Sea $X$ un CW-complejo. Definimos
+    \begin{equation*}
+        C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle
+    \end{equation*}
+    y los operadores de borde $\partial_k : C^{CW}_k(X) \to C^{CW}_{k-1}(X)$ vienen dados por 
+    \begin{equation*}
+        \partial_k(D^k_{\alpha}) = \sum_{\beta\in\Lambda_{k-1}}[D^k_{\alpha}:D^{k-1}_{\beta}]D^{k-1}_{\beta}
+    \end{equation*}
  \end{definition}
 
  {\color{red}SEGUIR, PAGINA 98 DEL PDF}
