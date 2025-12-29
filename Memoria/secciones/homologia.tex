@@ -15,10 +15,13 @@ De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la
 %- numeros de betti
 %- por que lo necesitamos 
 %- nuestro approach
+\bigskip
+
 
 \subsection{Triangulaciones}
+\label{subsec:triangulaciones}
 
-Triangular un espacio topológico consiste en expresarlo como la unión de \textit{poliedros} de su misma dimensión de tal manera que queden adecuadamente pegados.
+Triangular un espacio topológico consiste en expresarlo como la unión de \textit{poliedros} de su misma dimensión adecuadamente pegados.
 
 \begin{definition} \hfill
 
@@ -96,6 +99,10 @@ Como $\mathring{P}^k$ es un abierto de $\mathbb{R}^k$, su orientación se obtien
 Existen otras nociones triangulación, como la \textit{pseudotriangulación} y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
 
 {\color{red} ¿Resultado de Whitehead de que todas las variedades diferenciables se pueden triangular?}
+
+\bigskip
+
+%----------------------------------------------------------
 
 \subsection{Construcción de la homología simplicial}
 
@@ -194,9 +201,29 @@ De nuevo, dejaremos que el lector encuentre la demostración en la fuente origin
 
  \bigskip
 
+ \subsection{Homología de CW-complejos}
+
  Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables de dimensión finita, son los CW-complejos. Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-célula.
 
- La \textit{homología celular} se define de manera similar a la simplicial.
+ La \textit{homología celular} se construye de manera similar a la simplicial, sin embargo, vamos a introducir primero algunos conceptos para evitar posibles lagunas técnicas en el paso de triangulaciones a CW-comlejos en general.
+
+ \begin{definition}
+    Un \textit{complejo de cadena} es una familia de pares $(A_k, \partial_k: A_k\to A_{k-1})$ de grupos abelianos y homomorfismos de grupos llamados \textit{operadores de borde} tales que $\partial_{k-1}\circ \partial_k=0$ para todo $k$.
+ \end{definition}
+
+ \begin{definition}
+    Dados dos complejos de cadena $(A_k, \partial_k)$ y $(B_k, \partial_k')$, llamamos \textit{morfismo de cadena} a una familia $f_k$ de homomorfismos tales que $\partial_k'\circ f_k = f_{k-1}\circ \partial_k$ para todo $k$.
+ \end{definition}
+
+ Esto resulta en el diagrama siguiente
+ \[
+ \begin{array}{ccccccccc}
+    \dots & \overset{\partial_{k+2}}{\longrightarrow} & A_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & A_{k} & \overset{\partial_{k}}{\longrightarrow} & A_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots \\
+    & & f_{k+1} \huge\downarrow  ~~~ & & f_k \huge\downarrow ~~ & & f_{k-1} \huge\downarrow ~~~ & & \\
+    \dots & \overset{\partial_{k+2}}{\longrightarrow} & B_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & B_{k} & \overset{\partial_{k}}{\longrightarrow} & B_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots
+ \end{array}
+\]
+
 
  \begin{definition}
     Sea $X$ un CW-complejo. Definimos
@@ -207,6 +234,12 @@ De nuevo, dejaremos que el lector encuentre la demostración en la fuente origin
     \begin{equation*}
         \partial_k(D^k_{\alpha}) = \sum_{\beta\in\Lambda_{k-1}}[D^k_{\alpha}:D^{k-1}_{\beta}]D^{k-1}_{\beta}
     \end{equation*}
+
  \end{definition}
 
+Ahora, dado un CW-complejo $X$, los pares $(C^{CW}_k(X_n), \partial^X_k)$ y $(C^{CW}_k(X_{n-1}),\partial^Y_k)$ son complejos de cadena. Sea 
+
+ \begin{definition}
+    Dados dos CW-complejos $X$ e $Y$ y una función continua $f:X\to Y$, $f$ induce un homomorfismo $f_*$ entre los grupos de homología de $X$ e $Y$
+ \end{definition}
  {\color{red}SEGUIR, PAGINA 98 DEL PDF}
