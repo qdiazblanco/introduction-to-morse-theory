@@ -1,5 +1,7 @@
 
 \section{Funciones de Morse}
+Para eliminar posibles ambigüedades en el uso de ciertos términos comenzamos la sección presentando de manera informal las variedades diferenciables y estableciendo la dirección de las cartas que será la utilizada en adelante. También conviene prestar atención a que nos referimos cuando hablamos de sistema de coordenadas local y como lo denotamos.
+
 Entendemos como \textit{variedad diferenciable n-dimensional} un par $(M,\mathcal{A})$ donde $M$ es una variedad topológica $n$-dimensional (es decir, un espacio topológico Hausdorff, segundo numerable y localmente euclídeo) y $\mathcal{A}$ un atlas de $M$. 
 
 A su vez, un atlas de una variedad topológica $n$-dimensional $M$ será una famila $\mathcal{A}$ de pares
@@ -154,11 +156,12 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 \bigskip
 
 \begin{proof}[Demostración del Lema de Morse]
+    \setcounter{pequation}{0}
     %################ PARTE 1, INDICE ######################
     En primer lugar, veamos que de poder expresar $f$ de esa manera en $\mathcal{U}$ entonces $\lambda$ es necesariamente el índice de $f$ en $p$. Sea $(x_1,\dots, x_n)$ un sistema de coordenadas local en $\mathcal{U}$ y supongamos que
-    \begin{equation*}
+    \begin{equation}
         f=f(p)-(x_i)^2-\dots-(x_\lambda)^2 + (x_{\lambda +1})^2+\dots + (x_n)^2
-    \end{equation*}
+    \end{equation}
     Entonces se tiene que 
 
     \[
@@ -207,26 +210,80 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
         \frac{\partial g_i}{\partial x_j}(0)=\int_0^1 t\frac{\partial^2 f}{\partial x_i \partial x_j}(0)dt=\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\int_0^1tdt= \frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\implies\\
         \implies h_{ij}(0)=\frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)\int_0^1 dt =\frac{1}{2}\frac{\partial^2 f}{\partial x_i \partial x_j}(0)
     \end{gather*}
-
+    %############### INDUCCION ###########################
     Finalmente, tenemos $f$ expresada similarmente a una forma cuadrática. Lo que queremos hacer a continuación es diagonalizarla, para ello procederemos por inducción. 
     
     El caso base de la inducción ($r=1$) ya está demostrado.
 
     Supongamos ahora que existe un sistema de coordenadas $(u_i,\dots,u_n)$ en un entorno $\mathcal{U}_1$ de $0$ quizás más pequeño que $\mathcal{U}$ tal que
     \begin{equation*}
+    \refstepcounter{pequation}
         f = \pm (u_1)^2 \pm\dots\pm (u_{r-1})^2 + \sum_{i,j\ge r} u_i u_j H_{ij}(u_1,\dots,u_n)
+    \tag{\thepequation}
+    \label{eq1}
     \end{equation*}
     en todo $\mathcal{U}_1$ con $r > 1$ y $H_{ij}=H_{ji}$ para cualesquiera $i$ y $j$.
 
     Podemos realizar ahora un cambio lineal de coordenadas en $(u_r,\dots, u_n)$ para diagonalizar $\sum_{i,j\ge r} u_i u_j H_{ij}(0)$.
     
-    Sabemos que, por ser la matriz $(H_{ij})$ no singular, los términos de la diagonal son todos no nulos. Luego podemos asumir $H_{rr}\neq 0$. Sea $g(u_1,\dots,u_n)=|H_{rr}(u_1,\dots,u_n)|^{1/2}$, existe un entorno $\mathcal{U}_2\subset \mathcal{U}_1$ de $0$ en el que sea suave y no se anule. Definimos
+    Sabemos que, por ser la matriz $(H_{ij})$ no singular, los términos de la diagonal son todos no nulos. Luego podemos asumir $H_{rr}\neq 0$. Sea $g(u_1,\dots,u_n)=|H_{rr}(u_1,\dots,u_n)|^{1/2}$, es claro que existe un entorno $\mathcal{U}_2\subset \mathcal{U}_1$ de $0$ en el que es suave y no se anula. Definimos la siguiente función $V:M\to \mathbb{R}^n$ por componentes como
     \begin{equation*}
+    \refstepcounter{pequation}
         \begin{cases}
-            V_i = u_i,~~i\neq r\\
-            V_r(u_1,\dots,u_n)=g(u_1,\dots,u_n)\left[u_r+\sum_{i>r}u_i\frac{H_{ir}(u_1,\dots,u_n)}{H_{rr}(u_1,\dots,u_n)}\right]
+            V_i(u_1,\dots,u_n) = u_i,~~i\neq r\\
+            V_r(u_1,\dots,u_n)=g(u_1,\dots,u_n)\left[u_r+\sum_{i>r}u_i\frac{H_{ir}(u_1,\dots,u_n)}{H_{rr}(u_1,\dots,u_n)}\right].
         \end{cases}
+    \tag{\thepequation}
+    \label{eq2}
     \end{equation*}
+    Se tiene que la matriz Jacobiana de $V$ en el $0$ es
+    \begin{equation*}
+        D_0V(u_1,\dots, u_n) = 
+        \begin{pmatrix}
+            1 & 0 & ~ & \dots & ~ & ~ & 0 \\
+            0 & ~ & ~ & ~ & ~ & ~ & 0 \\
+            \vdots & ~ & 1 & ~ & ~ & ~ & \vdots \\
+            \frac{\partial V_r}{\partial u_1} & \dots & ~ & g(0) & ~ & \dots & \frac{\partial V_r}{\partial u_n} \\
+            0 & ~ & ~ & ~ & 1 & ~ & 0 \\
+            \vdots & ~ & ~ & ~ & ~ & ~ & \vdots \\
+            0 & ~ & ~ & \dots & ~ & 0 & 1
+        \end{pmatrix},
+    \end{equation*}
+    y es no singular, basta restar a la $r$-ésima fila las demás multiplicadas por el término $\frac{\partial V_i}{\partial u_j}$ adecuado para que sea diagonal.
+
+    Se sigue entonces del \textit{teorema de la función inversa} que $V$ es un difeomorfismo sobre un entorno más pequeño $\mathcal{U}_3\subset \mathcal{U}_2$ del $0$. Es decir, el par $(V,\mathcal{U}_3)$ es una carta de $M$ y, por tanto, un sistema de coordenadas local alrededor de $p$.
+
+    Ahora consideramos
+    \begin{equation*}
+    \refstepcounter{pequation}
+        u_ru_rH_{rr}(u_1,\dots, u_n) + 2\sum_{j=r+1}^n u_ju_rH_{jr}(u_1,\dots, u_n).
+    \tag{\thepequation}
+    \label{eq3}
+    \end{equation*}
+
+    Usando la simetría de $H_{ij}$ observamos esta expresión no es más que los términos de \eqref{eq1} que tienen $j=r$ o $i=r$. Comparando \eqref{eq1} y \eqref{eq2} llegamos a que \eqref{eq3} es
+    \begin{equation*}
+    \refstepcounter{pequation}
+        \pm V_rV_r - \frac{1}{H_{rr}}\left[ \sum_{i>r} u_iH_{ir}(u_1,\dots, u_n) \right]^2
+    \tag{\thepequation}
+    \label{eq4}
+    \end{equation*}
+
+    En efecto,
+    \begin{align*}
+        V_rV_r =& g^2 \left[u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\right]^2 =\\
+        =& g^2 \left( u_r^2 + \left[ \sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\right]^2 + 2u_r\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}} \right) = \\
+        =& |H_{rr}| u_r^2 + \frac{|H_{rr}|}{H_{rr}^2} \left[\sum_{i>r}u_iH_{ir}\right]^2 + 2u_r\frac{|H_{rr}|}{H_{rr}}\sum_{i>r}u_iH_{ir} = \\
+        =& \pm H_{rr}u_r^2 \pm \frac{1}{H_{rr}}\left[\sum_{i>r}u_iH_{ir}\right]^2 \pm 2u_r\sum_{i>r}u_iH_{ir}
+    \end{align*}
+
+    donde el $\pm$ será $+$ si $H_{rr}$ es positivo y $-$ si es negativo. Así, es claro que \eqref{eq3} y \eqref{eq4} son equivalentes. Y desde aquí es fácil ver como \eqref{eq1} se convierte en 
+    \begin{equation*}
+        f = \pm (V_1)^2 \pm\dots\pm (V_{r-1})^2 + (V_r)^2  \pm \sum_{i,j > r} V_iV_j\tilde{H}_{ij}(V_1,\dots,V_n)
+    \end{equation*}
+    para unos nuevos términos $\tilde{H}_{ij}$ simétricos en función del nuevo sistema de coordenadas $V$.
+
+    Esto concluye la inducción ya que tenemos un sumando cuadrático más y queda probada la existencia del sistema de coordenadas local buscado.
 
 
 \iffalse
@@ -256,6 +313,12 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     
 \end{proof}
 
+{\color{blue} ¿Ejemplos de puntos criticos degenerados y no degenerados?}
+
+Concluimos con una definición que más que importancia técnica la tiene símbolica, ya que sin ser necesario definirlos, resultaría inapropiado no dar nombre a los objetos que se lo dan a esta sección y que nos permitirán extraer la estructura de CW-complejo de cualquier variedad diferenciable de dimensión finita.
+\bigskip
+
 \begin{definition}
  Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no-degenerados.
 \end{definition}
+
