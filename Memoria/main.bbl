@@ -16,5 +16,39 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{milnor1963}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=6ed546ba346b01635423d8131e45906b}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \strng{bibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorbibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authornamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \field{labelalpha}{Mil63}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Mathematics Studies}
+      \field{title}{Morse Theory}
+      \field{volume}{51}
+      \field{year}{1963}
+    \endentry
+  \enddatalist
+\endrefsection
 \endinput
 

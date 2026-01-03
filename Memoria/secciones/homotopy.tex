@@ -2,8 +2,39 @@
 
 \section{Sobre el tipo de homotopía y el pegado de $\lambda$-células \color{blue}(título provisional)}
 
-En primer lugar introducimos algunas nociones básicas de campos vectoriales sobre una variedad $M$ que nos servirán para probar los resultados de esta sección.
-{\color{blue} Aquí podría ir bien definir variedad riemanniana si es necesario, lo demás parece bastante autocontenido.}
+En esta sección sentaremos las bases de la Teoría de Morse. Hasta ahora hemos aportado el aparataje técnico sobre el que construir la teoría, aquí veremos como las funciones de Morse nos pueden servir para reconstruir una variedad mediante el pegado de $\lambda$-células, donde $\lambda$ representa el índice de un punto crítico no degenerado.
+
+Antes de probar los probar los resultados principales de esta sección conviene mencionar qué entendemos por \textit{variedad riemanniana} y dar una definición de campo vectorial.
+
+\begin{definition}
+Sea $M$ una variedad diferenciable.  
+Llamamos \textit{fibrado tangente} de $M$ a la unión disjunta
+de los espacios tangentes en todos los puntos de $M$, es decir,
+\[
+TM \;=\; \bigsqcup_{p \in M} T_pM.
+\]
+\end{definition}
+
+\begin{definition}
+Un \textit{campo vectorial suave} sobre una variedad diferenciable $M$ es una aplicación suave
+\[
+X \colon M \to TM,
+\]
+que denotamos $p \mapsto X_p$, y que verifica que, para todo $p \in M$, se tiene $X_p \in T_pM$.
+\end{definition}
+
+\begin{definition}
+Una \textit{variedad riemanniana} es un par $(M,\langle\cdot,\cdot\rangle)$ donde $M$ es una variedad diferenciable y para cada punto $p \in M$, $\langle\cdot,\cdot\rangle_p$ es un producto escalar (luego, bilineal, simétrico y definido positivo)
+  \[
+    \langle\cdot,\cdot\rangle_p \colon T_pM \times T_pM \to \mathbb{R},
+  \]
+que verifica que para cualesquiera campos vectoriales suaves $X$ e $Y$, la función
+    \[
+      p \mapsto \langle X(p), Y(p) \rangle_p
+    \]
+    es suave sobre $M$.
+\end{definition}
+
 
 \bigskip
 \begin{definition}
@@ -14,6 +45,7 @@ En primer lugar introducimos algunas nociones básicas de campos vectoriales sob
         \item $\forall t, s\in\mathbb{R}$ se tiene que $\varphi_{t+s}=\varphi_t\circ \varphi_s$.
     \end{enumerate}
 \end{definition}
+
 \bigskip
 
 Dado un grupo uniparamétrico de difeormorfismos $\varphi$ definimos el siguiente campo vectorial sobre $M$
@@ -22,6 +54,8 @@ Dado un grupo uniparamétrico de difeormorfismos $\varphi$ definimos el siguient
     X_q(f)=\lim_{h\to 0}\frac{f(\varphi_h(q))-f(q)}{h}
 \end{equation*}
 donde $f$ es una función suave de $M$ en $\mathbb{R}$, y decimos que $X$ genera $\varphi$.
+
+Normalmente uno se refiere a la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ como el \textit{flujo de X} cuando se conoce el campo vectorial $X$ que genera el grupo uniparamétrico de difeomorfismos. En cualquier caso, mantendremos un vocabulario lo más fiel posible al texto \cite{milnor1963}.
 
 También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:\mathbb{R}\to M$ que definimos de manera similar a X
 \begin{equation*}
@@ -81,11 +115,11 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 \end{proof}
 
 \begin{definition}
-    Sean $(M,\langle\cdot,\cdot\rangle)$ una variedad riemanniana y $f:M\to\mathbb{R}$ suave. Se define el \textit{gradiente de f} como el campo vectorial que verifica 
+    Sean $(M,\langle\cdot,\cdot\rangle)$ una variedad riemanniana y $f:M\to\mathbb{R}$ suave. Se define el \textit{gradiente de f} como el campo vectorial $\nabla f$ que verifica 
     \begin{equation*}
         \langle X,\nabla f\rangle = X(f)
     \end{equation*}
-    Para cualquier otro campo vectorial $X$.
+    para cualquier otro campo vectorial $X$.
 \end{definition}
 \bigskip
 % aqui deberia escribir algo para introducir lo siguiente.
@@ -124,7 +158,6 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     Ahora, sea el campo vectorial dado por $X_q=\rho(q)\nabla_pf$. Se tiene que $X_p$ se anula fuera de $K$ luego por el Lema \ref{unidiff} genera un único grupo uniparamétrico de difeomorfismos $\varphi_t$ de $M$.\\
 
     Fijemos $q\in M$ y consideremos $f\circ\varphi_{\bullet}(q),~t\mapsto f(\varphi_t(q))$. Si $\varphi_t(q)$ está en $f^{-1}[a,b]$ se tiene
-
     \begin{align*}
         \frac{df(\varphi_t(q))}{dt} = \left\langle \frac{d\varphi_t(q)}{dt},\nabla f\right\rangle = \langle X, \nabla f\rangle = \langle \rho~ \nabla f, \nabla f\rangle =\\ =\left\langle \frac{1}{\langle \nabla f,\nabla f\rangle}\nabla f,\nabla f\right\rangle=
         \frac{\langle \nabla f,\nabla f\rangle}{\langle \nabla f,\nabla f\rangle}= 1
@@ -166,11 +199,11 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
 \begin{theorem}
      Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$.\\
-     Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}$ tiene el tipo de homotopía de $M^{c-\varepsilon}$ \underline{con una $\lambda$-célula pegada}. {\color{blue}Esto se dice así?}
+     Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}$ tiene el tipo de homotopía de $M^{c-\varepsilon}$ con una $\lambda$-célula pegada.
 \end{theorem}
 
 \begin{proof}
-    Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el Teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.\\
+    Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el Teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.
     
     Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-célula pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.\\
 %Preliminares------------------
@@ -258,14 +291,17 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     \begin{equation*}
         \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}
     \end{equation*}
-    
+
+    \begin{quote}
     $\left( \subseteq \right) ~~\forall q\in \partial e^{\lambda},~f(q)=c-\varepsilon_0 \implies q\in M^{c-\varepsilon_0}_f$\\
     
     $\left( \supseteq \right) ~~\forall q\in M^{c-\varepsilon_0}_f\cap e^{\lambda}$, se tiene $\xi(q)\le\varepsilon_0,~\eta(q)=0 \text{ y } f(q)\le -\varepsilon_0$, entonces como
     \begin{equation*}
         f(q)=c-\xi(q)\le c-\varepsilon_0\iff \xi(q)\ge \varepsilon_0
     \end{equation*}
-    \quad \quad necesariamente $\xi(q)=\varepsilon_0$, luego $q\in \partial e^{\lambda}$.\\ 
+    \quad \quad necesariamente $\xi(q)=\varepsilon_0$, luego $q\in \partial e^{\lambda}$. 
+    \end{quote}
+    \bigskip
 
     De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.\\
     
