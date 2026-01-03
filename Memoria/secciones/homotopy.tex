@@ -1,6 +1,6 @@
 
 
-\section{Sobre el tipo de homotopía y el pegado de $\lambda$-células \color{blue}(título provisional)}
+\section{La estructura de CW-complejo de una variedad}
 
 En esta sección sentaremos las bases de la Teoría de Morse. Hasta ahora hemos aportado el aparataje técnico sobre el que construir la teoría, aquí veremos como las funciones de Morse nos pueden servir para reconstruir una variedad mediante el pegado de $\lambda$-células, donde $\lambda$ representa el índice de un punto crítico no degenerado.
 
@@ -133,8 +133,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
 \begin{theorem}
 \label{retractodef}
-    Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$. Sean $a<b$ reales tales que $f^{-1}[a,b]$ es compacto y no contiene ningún punto crítico de $f$. Entonces $M^a$ es difeomorfo a $M^b$.\\
-    Además, $M^a$ es retracto de deformación de $M^b$, luego tienen en el mismo tipo de homotopía.
+    Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$. Sean $a<b$ reales tales que $f^{-1}[a,b]$ es compacto y no contiene ningún punto crítico de $f$. Entonces $M^a$ es difeomorfo a $M^b$. Además, $M^a$ es retracto de deformación de $M^b$, luego tienen en el mismo tipo de homotopía.
 \end{theorem}
 
 \begin{proof}
@@ -197,9 +196,10 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 \end{proof}
 \bigskip
 
+
 \begin{theorem}
-     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$.\\
-     Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}$ tiene el tipo de homotopía de $M^{c-\varepsilon}$ con una $\lambda$-célula pegada.
+\label{pegadocelula}
+     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$. Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-célula pegada.
 \end{theorem}
 
 \begin{proof}
@@ -312,38 +312,112 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     luego $q\in e^{\lambda}\implies q\in H$.\\
 
     
-    Ahora queremos demostrar que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ de identidad a una retracción, como en la demostración del Teorema \ref{retractodef}.\\
+    Ahora queremos demostrar que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon_0}_f\cup e^{\lambda}$, como en la demostración del Teorema \ref{retractodef}.\\
 
-    Sea $R:[0,1]\times M_f^{c-\varepsilon_0}\cup H\to M_f^{c-\varepsilon_0}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.\\
+    Sea $D:[0,1]\times M_f^{c-\varepsilon_0}\cup H\to M_f^{c-\varepsilon_0}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.\\
 
     \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon_0\}$.\\
     
+    En esta región lo que queremos es llevar los puntos a $e^{\lambda}$.
+
     Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),tu_{\lambda+1}(q),\dots,tu_n(q))$.\\
     
-    Es claro que es relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ y   $D(1,\cdot)$ es la identidad. Además,
+    Es claro que es relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ ($R_1\cap M^{c-\varepsilon_0}_f=\varnothing$ y los puntos de $e^{\lambda}$ no los toca) y que  $D(1,\cdot)$ es la identidad. Además,
     \begin{equation*}
         \forall q\in R_1, ~D(0, q)\in e^{\lambda} ~\text{ y }~ D(0,D(0,q))=D(0,q).
     \end{equation*} 
 
     Asimismo, como $\frac{\partial F}{\partial \eta}>0$ (es decir, $F$ crece en la dirección de $\eta$) se tiene que $F(D(t,q))\le F(q)$ para todo $t\in [0,1]$ y todo $q\in R_1$. Luego $D$ lleva $M_f^{c-\varepsilon_0}\cup H$ en si mismo.
+    \bigskip
 
+    \textbf{Región 2:}\quad $R_2=\{q\in \mathcal{U}:~ \varepsilon_0\le \xi(q)\le \eta(q)+\varepsilon_0\}$.
+    \bigskip
 
-    \textbf{Región 2:}\quad $R_2=\{q\in \mathcal{U}:~ \varepsilon_0\le \xi(q)\le \eta(q)+\varepsilon_0\}$.\\
+    Aquí lo que buscamos es llevar los puntos de $R_2$ a la frontera de $M_f^{c-\varepsilon_0}$.
 
     Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),s_t(q) u_{\lambda+1}(q),\dots,s_t(q) u_n(q))$, donde 
     \begin{equation*}
-        s_t(q)=t + (1-t)\left(\frac{\xi(q)-\varepsilon_0}{\eta}\right)^{1/2}
+        s_t(q)=t + (1-t)\left(\frac{\xi(q)-\varepsilon_0}{\eta}\right)^{1/2} \in ~[0,1]
     \end{equation*}
 
+    Igual que sobre $R_1$ queda claro que es relativa a $M_f^{c-\varepsilon_0}\cup e^{\lambda}$, que $D(1,\cdot)$ es de nuevo la identidad y que $D(0,\cdot)$ es una retracción sobre la frontera de $M_f^{c-\varepsilon_0}$. Lo último se sigue de que en la frontera de $M_f^{c-\varepsilon_0}$ se tiene que $-\xi +\eta = \varepsilon_0$, luego $s_0(q)=1$. 
     
+    Resta ver que $s_t$ es continua cuando $\xi \to \varepsilon_0$ y $\eta \to 0$. Reordenando la desigualdad que define $R_2$ tenemos $0\le\xi-\varepsilon_0\le\eta$, lo que significa que a medida que $\eta$ tiende a cero, $\xi$ debe tender a $\varepsilon_0$ más rápidamente. Así, 
+    \begin{equation*}
+        0\le \lim_{\xi \to \varepsilon_0, \eta\to 0} \frac{\xi - \varepsilon_0}{\eta} \le 1
+    \end{equation*}
+    y en particular, se tiene que $\lim_{\xi \to \varepsilon_0, \eta\to 0} \frac{\xi - \varepsilon_0}{\eta}=0$ necesariamente. Concluimos entonces que $s_t$ no genera problemas en la continuidad de $D$ cerca de los puntos con $\eta(q)=0$.
+    \bigskip
 
-    
-    
+    \textbf{Región 3:}\quad $R_3=\{q\in \mathcal{U}:~ \eta(q) + \varepsilon_0 \le \xi(q)\}$
+    \bigskip
 
-    
+    $R_3$ coincide con $M_f^{c-\varepsilon_0}$ luego basta con tomar $D(t,q)= Id_{M_f^{c-\varepsilon_0}}$.
+    \bigskip
 
+    Las tres regiones cubren por completo $\mathcal{U}$. Esto concluye la demostración de que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$ y con ello la demostración del teorema.
     
 \end{proof}
+\bigskip
 
-{\color{blue} Al definir $\xi,\eta$ estamos dando un nuevo sistema de coordenadas, y por tanto, una nueva base del tangente. Podríamos llamarlas coordenadas de Morse. En el caso 1 de la segunda retraccion estamos contrayendo los puntos en la direccion del eje $\eta$ (vertical en los diagramas), esto es, en la direccion del campo vectorial $\frac{\partial}{\partial\eta}$...}
+Uno puede demostrar de manera similar el caso general:
+\vspace{0.7em}
+
+\begin{theorem}
+    Sean $f$ y $M$ en las hipótesis del teorema anterior. Sean $p_1,\dots, p_k$ puntos críticos no degenerados de $f$ con índices $\lambda_1,\dots, \lambda_k$ tales que $f(p_i)=c, ~\forall i\in \{1,\dots, k\}$. Entonces existe un $\varepsilon>0$ lo suficientemente peuqeño tal que $M_f^{c+\varepsilon}$  tiene el tipo de homotopía de 
+    \begin{equation*}
+        M_f^{c-\varepsilon}\cup e^{\lambda_1}\cup\dots\cup e^{\lambda_k}.
+    \end{equation*}
+\end{theorem}
+\bigskip
+
+El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas células vienen definidas por los puntos críticos de una función de Morse. Su demostración estará basada en dos lema acerca de un espacio topológico con una célula pegada que probaremos primero.
+\vspace{0.5em}
+
+\begin{lemma}[Lema de Whitehead]
+    Sean $\varphi_0, \varphi_1: \partial e^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
+    \begin{equation*}
+        k: X\cup_{\varphi_0} e^{\lambda} \to X\cup_{\varphi_1} e^{\lambda}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+
+
+
+
+\end{proof}
+\bigskip
+
+\begin{lemma}
+    Sea $\varphi: \partial e^{\lambda} \to X$ una función de pegado. Toda equivalencia homotópica $f:X\to Y$ se puede extender a una equivalencia homotópica 
+    \begin{equation*}
+        F: X\cup_{\varphi} e^{\lambda} \to Y\cup_{f\circ\varphi} e^{\lambda}.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
     
+
+
+\end{proof}
+
+
+\begin{theorem}
+    Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M_f^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-célula por cada punto crítico de índice $\lambda$.
+\end{theorem}
+\begin{proof}
+    
+
+
+\end{proof}
+
+
+\subsection{Algunas aplicaciones}
+
+Presentamos brevemente dos ejemplos de como aplicar los teoremas acerca del pegado de $\lambda$-células.
+
+\begin{theorem}[Teorema de Reeb]
+    Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
