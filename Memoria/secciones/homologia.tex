@@ -131,29 +131,36 @@ Una ligera generalización de los complejos simpliciales que dan nombre a esta t
 
 \bigskip
 
-Una propiedad clave de los operadores de borde es la siguiente.
+Una propiedad imprescindible de los operadores de borde es la siguiente.
 
 \begin{proposition}
     Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
 \end{proposition}
 
 \begin{proof}
-    Es posible demostrar que toda triangulación se puede subdividir para obtener una triangulación regular. Teniendo en cuenta que para una traingulación regular la notación y las cuentas se simplifican bastante, vamos a probar el resultado en este caso.
+    Es posible demostrar que toda triangulación se puede subdividir para obtener una triangulación regular. Teniendo en cuenta que para una triangulación regular la notación y las cuentas se simplifican bastante, vamos a probar el resultado en este caso. Al no darse identificaciones entre $(k-1)$-símplices de la frontera de cada $k$-poliedro al triangular, se tiene que solo hay una inclusión posible para cada uno, es decir, $[e^k_{\alpha} : e^{k-1}_{\beta}]=\pm 1$ siempre.
 
-    Basta comprobar que se verifica para los generadores de $C^{\tau}_{k+1}(X)$. Sea $e^{k+1}_{\alpha}$ un $(k+1)$-poliedro orientado que genera $C^{\tau}_{k+1}(X)$, se tiene que
+    Ahora, basta comprobar que el enunciado se verifica para los generadores de $C^{\tau}_{k+1}(X)$. Sea $e^{k+1}_{\alpha}$ un $(k+1)$-poliedro orientado que genera $C^{\tau}_{k+1}(X)$, se tiene que
     \begin{equation*}
-        \partial_{k}\circ\partial_k(e^{k+1}_{\alpha}) = \partial_{k}\left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}]e^{k}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k}} \left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] \right) e^{k-1}_{\gamma}
+        \partial_{k}\circ\partial_{k+1}(e^{k+1}_{\alpha}) = \partial_{k}\left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}]e^{k}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k}} \left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] \right) e^{k-1}_{\gamma}
+    \end{equation*}
+    
+    Sea $e^{k-1}_{\gamma}$ un $(k-1)$-poliedro cualquiera incluido en $e^{k+1}_{\alpha}$. Como solo hay una inclusión posible de $e^{k-1}_{\gamma}$ en $\partial e^{k+1}_{\alpha}$ , existen exactamente dos $k$-poliedros orientados $e^{k}_{\beta}$ y $e^{k}_{\beta'}$ tales que 
+    \begin{equation*}
+        e^{k-1}_{\gamma}\subset e^{k}_{\beta} \subset e^{k+1}_{\alpha}~\text{ y }~ e^{k-1}_{\gamma}\subset e^{k}_{\beta'}\subset e^{k+1}_{\alpha}
+    \end{equation*}
+    Luego
+    \begin{equation*}
+        \partial_{k}\circ\partial_{k+1}(e^{k+1}_{\alpha}) = \sum_{\gamma\in\Lambda_{k}}\big( [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] + [e^{k+1}_{\alpha} : e^{k}_{\beta'}][e^{k}_{\beta'} : e^{k-1}_{\gamma}] \big) e^{k-1}_{\gamma}
     \end{equation*}
 
-    Queremos ver que, efectivamente, cada $[e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}]$ se anula. 
-    
-    Sea $e^{k-1}_{\gamma}$ un $(k-1)$-poliedro cualquiera incluido en $e^{k+1}_{\alpha}$.
+    Supongamos que $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$, entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=-[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ luego los sumandos se cancelan.
 
-    {\color{red}TERMINAR}
+    De la misma manera, si $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=-[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$ entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ y se cancelan de nuevo. 
+    {\color{blue} no se si debería explicar bien por que se cancelan, no me he metido mucho en como se induce la orientación}.
 
 \end{proof}
 
-{\color{red} ALGO DE COMPLEJOS DE CADENAS Y TAL? MIRAR SECCIÓN DE HOMOLOGÍA SINGULAR}
 
 \bigskip
 
@@ -179,7 +186,7 @@ Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $
 
 \bigskip
 
-{\color{red} PONER ALGÚN EJEMPLO DE GRUPO DE HOMOLOGÍA (HATCHER, VIDEO, ÁNGEL...)}
+{\color{red} PONER ALGÚN EJEMPLO DE GRUPO DE HOMOLOGÍA?}
 
 Antes de seguir, listamos algunos resultados que podrían ser de interés para el lector en el contexto de las variedades diferenciables y la teoría de Morse. Sin embargo, decidimos no entreternos ya que no es central a nuestro objetivo y los presentamos sin demostración:
 
@@ -237,9 +244,18 @@ De nuevo, dejaremos que el lector encuentre la demostración en la fuente origin
 
  \end{definition}
 
+ \iffalse
 Ahora, dado un CW-complejo $X$, los pares $(C^{CW}_k(X_n), \partial^X_k)$ y $(C^{CW}_k(X_{n-1}),\partial^Y_k)$ son complejos de cadena. Sea 
 
  \begin{definition}
     Dados dos CW-complejos $X$ e $Y$ y una función continua $f:X\to Y$, $f$ induce un homomorfismo $f_*$ entre los grupos de homología de $X$ e $Y$
  \end{definition}
  {\color{red}SEGUIR, PAGINA 98 DEL PDF}
+\fi
+
+{\color{blue}
+\begin{itemize}
+    \item Falta terminar homología celular
+    \item Números de Betti
+\end{itemize}
+}
