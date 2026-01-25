@@ -19,6 +19,33 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{GonzalezPrietoVariedades}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=ebf585ea509eb1b6e11a7f304e03f521}{%
+           family={González-Prieto},
+           familyi={G\bibinithyphendelim P\bibinitperiod},
+           given={Ángel},
+           giveni={Á\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Universidad Complutense de Madrid}%
+      }
+      \strng{namehash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{fullhash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{fullhashraw}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{bibnamehash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{authorbibnamehash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{authornamehash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{authorfullhash}{ebf585ea509eb1b6e11a7f304e03f521}
+      \strng{authorfullhashraw}{ebf585ea509eb1b6e11a7f304e03f521}
+      \field{labelalpha}{Gon24}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Notas de la asignatura {Variedades Diferenciables}}
+      \field{year}{2023--2024}
+    \endentry
     \entry{hatcher2002}{book}{}{}
       \name{author}{1}{}{%
         {{hash=0a94eadf86d8b878d4c37bc5640e53e3}{%
@@ -48,6 +75,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Algebraic Topology}
       \field{year}{2002}
+      \true{nocite}
     \endentry
     \entry{munoz2021}{book}{}{}
       \name{author}{3}{}{%
@@ -90,6 +118,7 @@
       \field{title}{Geometry and Topology of Manifolds: Surfaces and Beyond}
       \field{volume}{208}
       \field{year}{2021}
+      \true{nocite}
     \endentry
     \entry{milnor1963}{book}{}{}
       \name{author}{1}{}{%
@@ -119,6 +148,7 @@
       \field{title}{Morse Theory}
       \field{volume}{51}
       \field{year}{1963}
+      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

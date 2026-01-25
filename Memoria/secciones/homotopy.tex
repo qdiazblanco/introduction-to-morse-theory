@@ -2,8 +2,11 @@
 
 \section{La estructura de CW-complejo de una variedad}
 
-En esta sección sentaremos las bases de la Teoría de Morse. Hasta ahora hemos aportado el aparataje técnico sobre el que construir la teoría, aquí veremos como las funciones de Morse nos pueden servir para reconstruir una variedad mediante el pegado de $\lambda$-células, donde $\lambda$ representa el índice de un punto crítico no degenerado.
+En esta sección sentaremos las bases de la Teoría de Morse. Hasta ahora hemos aportado el aparataje técnico sobre el que construir la teoría, aquí veremos como las funciones de Morse nos pueden servir para reconstruir una variedad mediante el pegado de $\lambda$-celdas, donde $\lambda$ representa el índice de un punto crítico no degenerado.
 
+Empezamos introduciendo algunos resultados sobre campos vectoriales (respetando el vocabulario de \cite{milnor1963}) que nos servirán para probar los resultados principales de la sección.
+
+\iffalse
 Antes de probar los resultados principales de esta sección conviene mencionar qué entendemos por \textit{variedad riemanniana} y dar una definición de campo vectorial.
 
 \begin{definition}
@@ -15,6 +18,7 @@ TM \;=\; \bigsqcup_{p \in M} T_pM.
 \]
 \end{definition}
 
+
 \begin{definition}
 Un \textit{campo vectorial suave} sobre una variedad diferenciable $M$ es una aplicación suave
 \[
@@ -22,6 +26,7 @@ X \colon M \to TM,
 \]
 que denotamos $p \mapsto X_p$, y que verifica que, para todo $p \in M$, se tiene $X_p \in T_pM$.
 \end{definition}
+
 
 \begin{definition}
 Una \textit{variedad riemanniana} es un par $(M,\langle\cdot,\cdot\rangle)$ donde $M$ es una variedad diferenciable y para cada punto $p \in M$, $\langle\cdot,\cdot\rangle_p$ es un producto escalar (luego, bilineal, simétrico y definido positivo)
@@ -34,7 +39,7 @@ que verifica que para cualesquiera campos vectoriales suaves $X$ e $Y$, la funci
     \]
     es suave sobre $M$.
 \end{definition}
-
+\fi
 
 \bigskip
 \begin{definition}
@@ -199,13 +204,13 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
 \begin{theorem}
 \label{pegadocelula}
-     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$. Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-célula pegada.
+     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$. Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada.
 \end{theorem}
 
 \begin{proof}
     Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el Teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.
     
-    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-célula pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.\\
+    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.\\
 %Preliminares------------------
 
     Sean una carta $(\mathcal{U}, \phi)$ de $M$ que contiene a $p$ y $(u^1,\dots , u^n)$ las coordenadas inducidas tal que $u^1(p)=\dots=u^{n}(p)=0$. Con el fin de simplificar las expresiones que siguen definimos las funciones $\xi:\mathcal{U}\to [0,\infty)$ y $\eta:\mathcal{U}\to [0,\infty)$ como
@@ -287,7 +292,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
 %Segunda retracción------------------
 
-    Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon_0,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-célula. En primer lugar, veamos que
+    Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon_0,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-celda. En primer lugar, veamos que
     \begin{equation*}
         \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}
     \end{equation*}
@@ -371,7 +376,7 @@ Uno puede demostrar de manera similar el caso general:
 \end{theorem}
 \bigskip
 
-El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas células vienen definidas por los puntos críticos de una función de Morse. Su demostración estará basada en dos lema acerca de un espacio topológico con una célula pegada que probaremos primero.
+El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración estará basada en dos lema acerca de un espacio topológico con una celda pegada que probaremos primero.
 \vspace{0.5em}
 
 \begin{lemma}[Lema de Whitehead]
@@ -403,7 +408,7 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
 
 \begin{theorem}
 \label{cwvariedad}
-    Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M_f^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-célula por cada punto crítico de índice $\lambda$.
+    Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M_f^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
 \end{theorem}
 \begin{proof}
     
@@ -414,7 +419,7 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
 
 \subsection{Algunas aplicaciones}
 
-Presentamos brevemente dos ejemplos de apliciones de los teoremas acerca del pegado de $\lambda$-células.
+Presentamos brevemente dos ejemplos de apliciones de los teoremas acerca del pegado de $\lambda$-celdas.
 
 \begin{theorem}[Teorema de Reeb]
     Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.

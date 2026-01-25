@@ -35,7 +35,7 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
 
 %CW-complejos-------------------------------
 \begin{definition}
-    Una \textit{célula} $e^n$ es un espacio topológico homeomorfo al disco unidad n-dimensional $D^n$. Diremos que la dimensión de la célula es $n$ y que $e^n$ es una \textit{n-célula}.
+    Una \textit{celda} $e^n$ es un espacio topológico homeomorfo al disco unidad n-dimensional $D^n$. Diremos que la dimensión de la celda es $n$ y que $e^n$ es una \textit{n-celda}.
 \end{definition}
 
 \bigskip
@@ -44,13 +44,13 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
     Llamamos \textit{CW-complejo} a un espacio topológico construido siguiendo los siguientes pasos:
 
         \begin{enumerate}[label=(\roman*)]
-            \item Se comienza con un conjunto discreto $ X_0 $ (llamado también \textit{0-esqueleto}), cuyos elementos llamaremos \textit{0-células}.
+            \item Se comienza con un conjunto discreto $ X_0 $ (llamado también \textit{0-esqueleto}), cuyos elementos llamaremos \textit{0-celdas}.
             
             \item Se construye, de manera inductiva, el llamado $ n $-esqueleto para $n>0$ como
             \begin{equation*}
                 X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n
             \end{equation*}
-            Es decir, $X_n$ se obtiene de $X_{n-1}$ pegando sobre este una colección indexada por $\Lambda_n$ de $n$-células mediante las \textit{funciones de pegado} $\varphi_{\alpha} : \partial D^n_{\alpha} \to X_{n-1}$.
+            Es decir, $X_n$ se obtiene de $X_{n-1}$ pegando sobre este una colección indexada por $\Lambda_n$ de $n$-celdas mediante las \textit{funciones de pegado} $\varphi_{\alpha} : \partial D^n_{\alpha} \to X_{n-1}$.
             
             \item Puede pararse tras un número finito de pasos (aunque no tiene por qué hacerse). Llamaremos \textit{CW-complejo} al espacio 
             \begin{equation*}
@@ -65,14 +65,14 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
 \begin{remark} \hfill
     \begin{enumerate}
         \item Decimos que la dimensión de un CW-complejo $X$ es $n$ si la construcción tiene una cantidad finita $n$ de pasos, en ese caso, $X=X_n$. Como se deja entrever en el último paso de la construcción, un CW-complejo puede tener dimensión infinita.
-        \item Más formalmente, llamamos $n$-célula a la imagen de $i_{\alpha}: D^n_{\alpha}\to X_n$ y dotamos a $X$ de la \textit{topología débil}, es decir, $\mathcal{U}\subseteq X$ es abierto si y solo si $i^{-1}_{\alpha}(\mathcal{U})\subseteq D^k_{\alpha}$ es abierto para todos $\alpha$ y $k\ge 0$. De hecho, es esta topología la que les da nombre, ya que CW viene del inglés ``Closure finite-Weak topology''
+        \item Más formalmente, llamamos $n$-celda a la imagen de $i_{\alpha}: D^n_{\alpha}\to X_n$ y dotamos a $X$ de la \textit{topología débil}, es decir, $\mathcal{U}\subseteq X$ es abierto si y solo si $i^{-1}_{\alpha}(\mathcal{U})\subseteq D^k_{\alpha}$ es abierto para todos $\alpha$ y $k\ge 0$. De hecho, es esta topología la que les da nombre, ya que CW viene del inglés ``Closure finite-Weak topology''
     \end{enumerate}
 \end{remark}
 
 Esta estructura resulta cómoda para aplicar técnicas algebraicas y computar invariantes topológicos como el grupo fundamental o los grupos de homología que veremos más adelante. Existe también, aunque no lo probaremos, la ventaja de que toda variedad diferenciable admite una estructura de este tipo (\textit{cf.} sección \ref{subsec:triangulaciones}).
 
 \begin{nota}
-    Llamaremos indistintamente \textit{vértices} a las $0$-células, \textit{aristas} a las $1$-células y \textit{caras} a las $2$-células. Nótese también que el borde o la frontera de una arista son dos vértices y de una cara una colección finita de aristas.
+    Llamaremos indistintamente \textit{vértices} a las $0$-celdas, \textit{aristas} a las $1$-celdas y \textit{caras} a las $2$-celdas. Nótese también que el borde o la frontera de una arista son dos vértices y de una cara una colección finita de aristas.
 \end{nota}
 
 {\color{blue}¿Pongo ejemplos de CW-complejos?}
@@ -82,7 +82,7 @@ Esta estructura resulta cómoda para aplicar técnicas algebraicas y computar in
 \end{example}
 
 \begin{definition}
-    A cada célula $e^n_{\alpha}$ de un CW-complejo $X$ le corresponde una \textit{función característica} $\phi_{\alpha} : D^n_{\alpha \to X}$ que puede ser factorizada como
+    A cada celda $e^n_{\alpha}$ de un CW-complejo $X$ le corresponde una \textit{función característica} $\phi_{\alpha} : D^n_{\alpha \to X}$ que puede ser factorizada como
     \begin{equation*}
         D^n_{\alpha} \hookrightarrow X_{n-1} \sqcup_{\alpha} D^n_{\alpha} \to X_n \hookrightarrow X
     \end{equation*}

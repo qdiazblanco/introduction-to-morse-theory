@@ -1,29 +1,9 @@
 
 \section{Funciones de Morse}
-Para eliminar posibles ambigüedades en el uso de ciertos términos, comenzamos la sección presentando de manera informal las variedades diferenciables y estableciendo la dirección de las cartas que será la utilizada en adelante. También conviene prestar atención a qué nos referimos cuando hablamos de sistema de coordenadas local y cómo lo denotamos.
 
-Entendemos como \textit{variedad diferenciable n-dimensional} un par $(M,\mathcal{A})$ donde $M$ es una variedad topológica $n$-dimensional (es decir, un espacio topológico Hausdorff, segundo numerable y localmente euclídeo) y $\mathcal{A}$ un atlas de $M$. 
+La teoría de Morse se basa los puntos críticos de una función suave, en concreto, en su índice. Se sirve de este para determinar la estructura una variedad diferenciable. 
 
-A su vez, un atlas de una variedad topológica $n$-dimensional $M$ será una famila $\mathcal{A}$ de pares
-\begin{equation*}
-    \{(\mathcal{U}_{\alpha}, ~\varphi_{\alpha}:\mathcal{U}_{\alpha}\to \mathbb{R}^n)\}_{\alpha\in\Lambda}
-\end{equation*}
-a los que llamaremos \textit{cartas} donde los $\mathcal{U}_{\alpha}$ forman un recubrimiento por abiertos de $M$ y las funciones $\varphi_{\alpha}$ son homeomorfismos tales que las composiciones 
-\begin{equation*}
-    \varphi_\beta \circ \varphi_\alpha^{-1} : \varphi_\alpha (U_\alpha \cap U_\beta)\to \varphi_\beta (U_\alpha \cap U_\beta)
-\end{equation*}
-son suaves para cualesquiera $\alpha$ y $\beta$.
-
-En la presente sección todo espacio $M$ denotará una variedad diferenciable $n$-dimensional salvo que se especifique lo contrario.
-
-Con frecuencia hablaremos de un \textit{sistema de coordenadas local en un entorno $\mathcal{U}$ de $p\in M$}. Con esto no nos referiremos a otra cosa que a la elección de una carta. Lo denotaremos $(x_{1}, \dots ,x_{n})$ y quedará implícito que 
-\begin{equation*}
-    x_i = \pi_i \circ \varphi_{\alpha} : \mathcal{U}\cap\mathcal{U}_{\alpha} \to \mathbb{R}
-\end{equation*}
-donde $\alpha$ dependerá del punto de $\mathcal{U}$ sobre el que actúe $x_i$ y la carta que lo contenga escogida. En términos más sencillos, $x_i$ toma un punto y lo lleva a la proyección sobre la $i$-ésima coordenada de su imagen por una de las cartas.
-
-Haremos abuso de la notación para refererirnos indistintamente como $f$ a una función $f:M\to \mathbb{R}$ y su expresión en coordenadas $\tilde{f} = f\circ\varphi_{\alpha}^{-1} : \mathbb{R}^n \to \mathbb{R}$. Es decir, hablaremos de la imagen de un punto $p$ por $f$ como $f(p)$ y como $f(x_1,\dots,x_n)$, donde $(x_1,\dots,x_n)=(x_1(p),\dots,x_n(p))$ son sus coordenadas por una carta que escojamos. 
-\bigskip
+Comenzaremos introduciendo estos puntos y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores, el Lema de Morse.
 
 \begin{definition}
     Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
@@ -45,11 +25,11 @@ Haremos abuso de la notación para refererirnos indistintamente como $f$ a una f
 \bigskip
 
 \begin{definition}
-    Sean $f:\mathrm{M}\to \mathbb{R}$ una función suave y $p\in M$ un punto crítico de f. Definimos $Hess_{p}f: T_{p}\mathrm{M}\to \mathbb{R}$ como la forma bilineal simétrica sobre el plano tangente a $\mathrm{M}$ en $p$ construida como sigue:
+    Sean $f:\mathrm{M}\to \mathbb{R}$ una función suave y $p\in M$ un punto crítico de f. Definimos $\textrm{Hess}_{p}f: T_{p}\mathrm{M}\to \mathbb{R}$ como la forma bilineal simétrica sobre el plano tangente a $\mathrm{M}$ en $p$ construida como sigue:
     \begin{quote}
         Tomamos $v,w\in T_{p}\mathrm{M}$ y sean $\tilde{v}$ y $\tilde{w}$ extensiones locales suyas a campos vectoriales. Entonces 
         \begin{equation*}
-            Hess_{p}f(v,w)=\tilde{v}_{p}(\tilde{w}_{p}(f))
+            \text{Hess}_{p}f(v,w)=\tilde{v}_{p}(\tilde{w}_{p}(f)),
         \end{equation*}
         donde $\tilde{v}_{p}$ es simplemente $v$ y $\tilde{w}_{p}(f)$ denota la derivada parcial de $f$ en la dirección de $\tilde{w}$.
     \end{quote}
@@ -57,12 +37,12 @@ Haremos abuso de la notación para refererirnos indistintamente como $f$ a una f
 \bigskip
 
 \begin{remark}
-    Es rápido comprobar que $Hess_{p}f$ es en efecto simétrica y está bien definida:
+    Es rápido comprobar que $\text{Hess}_{p}f$ es en efecto simétrica y está bien definida:
 
     \begin{enumerate}[label=(\roman*)]
         \item Es simétrica ya que $\tilde{v}_{p}(\tilde{w}_{p}(f)) - \tilde{w}_{p}(\tilde{v}_{p}(f)) = [\tilde{v},\tilde{w}]_{p}(f) = 0$ donde $[\tilde{v},\tilde{w}]$ es el corchete de Lie de $\tilde{v}$ y $\tilde{w}$ cuya expresión en coordenadas recordemos que es
         \begin{equation*}
-            [\tilde{v},\tilde{w}]_{p}(f)=\sum_{i=1}^n \big( \tilde{v}_p(\tilde{w}_{i}) - \tilde{w}_p(\tilde{v}_{i}) \big) \left. \frac{\partial}{\partial x_{i}}\right|_p f
+            [\tilde{v},\tilde{w}]_{p}(f)=\sum_{i=1}^n \big( \tilde{v}_p(\tilde{w}_{i}) - \tilde{w}_p(\tilde{v}_{i}) \big) \left. \frac{\partial}{\partial x_{i}}\right|_p f.
         \end{equation*}
         Luego sea anula al ser $p$ un punto crítico.
 
@@ -71,19 +51,19 @@ Haremos abuso de la notación para refererirnos indistintamente como $f$ a una f
 \end{remark}
 \bigskip
 
-Veamos ahora como es $Hess_pf$ en coordenadas. De nuevo, tomemos un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$, tenemos
+Veamos ahora como es $\text{Hess}_pf$ en coordenadas. De nuevo, tomemos un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$, tenemos
 
 \begin{equation*}
-    v=\sum_{i=0}^n a_i \left.\frac{\partial}{\partial x_i}\right|_p ~~\text{y}~~ w=\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p 
+    v=\sum_{i=0}^n a_i \left.\frac{\partial}{\partial x_i}\right|_p ~~\text{y}~~ w=\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p .
 \end{equation*}
 
 Y para las extensiones $\tilde{v}$ y $\tilde{w}$ basta tomar como coeficientes las funciones constantes $a_i$ y $b_j$. Así
 
 \begin{equation*}
-    Hess_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x_i \partial x_j}\right|_p f 
+    \text{Hess}_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x_i \partial x_j}\right|_p f .
 \end{equation*}
 
-Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $Hess_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
+Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $\text{Hess}_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
 \bigskip
 
 \begin{definition}
@@ -94,32 +74,30 @@ Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ m
         
         \item La \textit{nulidad} de $H$ es la dimensión del radical de $H$, es decir,
         \begin{equation*}
-            dim(Rad(H)) ~\text{ con }~ Rad(H)=\{v\in V:H(v,w)=0, ~\forall w\in V \}
+            \text{dim}(\text{Rad}(H)) ~\text{ con }~ \text{Rad}(H)=\{v\in V:H(v,w)=0, ~\forall w\in V \}.
         \end{equation*}
         
     \end{enumerate}
 \end{definition}
 
 \begin{remark}
-    Un punto crítico $p\in M$ de $f$ suave es no degenerado $\iff$ La nulidad de $H$ sobre $T_pM$ es $0$. En efecto:
+    Un punto crítico $p\in M$ de $f$ suave es no degenerado si y sol si La nulidad de $H$ sobre $T_pM$ es $0$. En efecto:
     \vspace{-2em}
     \begin{quote}
         \mbox{}\\[0.5em]
-        $\boxed{\implies}$ Supongamos que existe $v\in Rad(H)$ distinto del $0$ $\implies$ \\
-        $\implies H(v,w)=v^tHw=0, \forall w\in T_pM \implies v^tH=0 \iff v^t = 0$  ya que $H$ es no singular y $v^tH$ es una \\
-        combinación lineal las filas de $H$, contradicción.
+        $\boxed{\implies}$ Supongamos que existe $v\in \text{Rad}(H)$ distinto del cero, entonces $H(v,w)=v^tHw=0$ para todo $w\in T_pM$, luego $v^tH=0 \text{ si y solo si } v^t = 0$ ya que $H$ es no singular y $v^tH$ es una combinación lineal las filas de $H$, contradicción.
 
-        $\boxed{\impliedby}$ $Rad(H)=\{0\}$. Supongamos que $p$ es degenerado y sea $v\in T_pM\setminus\{0\} \implies \exists w\in T_pM$ tal que $v^tHw\neq 0 \implies v^tH\neq 0$ y como $v$ era arbitrario se tiene que $v^tH\neq 0,\forall v\in T_pM\setminus\{0\} \implies H$ es no singular. Hemos llegado a una contradicción.
+        $\boxed{\impliedby}$ $\text{Rad}(H)=\{0\}$. Supongamos que $p$ es degenerado y sea $v\in T_pM\setminus\{0\}$, entonces existe $w\in T_pM$ tal que $v^tHw\neq 0$. Así, $v^tH\neq 0$ y como $v$ era arbitrario se tiene que $v^tH\neq 0$ para todo $v\in T_pM\setminus\{0\}$, luego $H$ es no singular y hemos llegado a una contradicción.
     \end{quote}
 \end{remark}
 \bigskip
 
 \begin{nota}
-    De ahora en adelante nos referiremos a la forma bilineal inducida por $f$ como $Hess_pf$ y a su matriz con respecto de la base del plano de tangente como $H_pf$ o simplemente $H$ si el contexto lo permite. Además nos referiremos al índice y la nulidad de $Hess_pf$ como \textit{índice y nulidad de $f$ en $p$}.
+    De ahora en adelante nos referiremos a la forma bilineal inducida por $f$ como $\text{Hess}_pf$ y a su matriz con respecto de la base del plano de tangente como $H_pf$ o simplemente $H$ si el contexto lo permite. Además nos referiremos al índice y la nulidad de $\text{Hess}_pf$ como \textit{índice y nulidad de $f$ en $p$}.
 \end{nota}
 \bigskip
 
-%poner algo aqui del lema de morse y porque es importante.
+
 Ahora que hemos desarrollado el vocabulario para hablar de los puntos críticos de una función sobre los reales, cerramos esta sección con el enunciado y la demostración del \textit{Lema de Morse}. 
 
 Este resultado es primordial para el desarrollo de esta teoría. A grandes rasgos, establece que en un entorno de un punto crítico no degenerado existe un sistema local de coordenadas respecto al cual la función $f$ es cuadrática. En terminos geométricos, $f$ \textit{es} un paraboloide en dicho entorno. Las funciones cuadráticas además ofrecen múltiples beneficios desde el punto de vista computacional como veremos en la demostración.
@@ -132,7 +110,7 @@ Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de 
     \begin{equation*}
         f(x_1,\dots,x_n)=\sum_{i=1}^n x_ig_i(x_1,\dots,x_n)
     \end{equation*}
-    Para unas funciones $g_i\in \mathcal{C}^\infty(V)$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
+    para unas funciones $g_i\in \mathcal{C}^\infty(V)$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
 \end{lemma}
 \begin{proof}
 \begin{equation*}
@@ -156,12 +134,11 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 \bigskip
 
 \begin{proof}[Demostración del Lema de Morse]
-    \setcounter{pequation}{0}
     %################ PARTE 1, INDICE ######################
     En primer lugar, veamos que de poder expresar $f$ de esa manera en $\mathcal{U}$ entonces $\lambda$ es necesariamente el índice de $f$ en $p$. Sea $(x_1,\dots, x_n)$ un sistema de coordenadas local en $\mathcal{U}$ y supongamos que
-    \begin{equation}
-        f=f(p)-(x_i)^2-\dots-(x_\lambda)^2 + (x_{\lambda +1})^2+\dots + (x_n)^2
-    \end{equation}
+    \begin{equation*}
+        f=f(p)-(x_i)^2-\dots-(x_\lambda)^2 + (x_{\lambda +1})^2+\dots + (x_n)^2.
+    \end{equation*}
     Entonces se tiene que 
 
     \[
@@ -185,25 +162,25 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 
     Por el lema anterior $f(x_1,\dots,x_n)=\sum_{j=1}^n x_jg_j(x_1,\dots,x_n)$ en un entorno convexo del origen. Ahora, como $0$ es un punto crítico de $f$ se tiene
     \begin{equation*}
-        \frac{\partial f}{\partial x_j}(0)=0 ~\text{ y }~ g_j(0)=\int_0^1 \frac{\partial f}{\partial x_j}(0)~dt=0
+        \frac{\partial f}{\partial x_j}(0)=0 ~\text{ y }~ g_j(0)=\int_0^1 \frac{\partial f}{\partial x_j}(0)~dt=0.
     \end{equation*}
     Luego podemos aplicar de nuevo el lema a cada una de las $g_j$ obteniendo
     \begin{equation*}
-        g_j(x_1,\dots,x_n)=\sum_{i=1}^n x_ih_{ij}(x_1,\dots,x_n)
+        g_j(x_1,\dots,x_n)=\sum_{i=1}^n x_ih_{ij}(x_1,\dots,x_n).
     \end{equation*}
-    Y por tanto
+    Y, por tanto,
     \begin{equation*}
-        f(x_1,\dots,x_n)=\sum_{i,j} x_ix_jh_{ij}(x_1,\dots,x_n)
+        f(x_1,\dots,x_n)=\sum_{i,j} x_ix_jh_{ij}(x_1,\dots,x_n).
     \end{equation*}
     %aqui iba lo de quotes
     Además, la matriz $H(0)=(h_{ij}(0))$ es igual a $\frac{1}{2}H_0f=\frac{1}{2}(\frac{\partial^2f}{\partial x_i\partial x_j}(0))$ y por lo tanto es simétrica y no singular. En efecto, sabemos que 
     \begin{equation*}
-        h_{ij}=\int_0^1 \frac{\partial g_i}{\partial x_j}(tx_1,\dots,tx_n)dt ~~\text{ y}~~ g_{i}=\int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)dt
+        h_{ij}=\int_0^1 \frac{\partial g_i}{\partial x_j}(tx_1,\dots,tx_n)dt ~~\text{ y}~~ g_{i}=\int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)dt.
     \end{equation*}
     Luego
     \begin{gather*}
         \frac{\partial g_i}{\partial x_j}(x_1,\dots,x_n)= \int_0^1 \frac{\partial}{\partial x_j}\left(\frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n)\right)dt = \int_0^1 \left(\sum_{k=1}^n\frac{\partial^2 f}{\partial x_i \partial x_k}(tx_1,\dots,tx_n) \frac{\partial(tx_k)}{\partial x_j}\right)dt =\\
-        = \int_0^1t\frac{\partial^2 f}{\partial x_i \partial x_j}(tx_1,\dots,tx_n)dt
+        = \int_0^1t\frac{\partial^2 f}{\partial x_i \partial x_j}(tx_1,\dots,tx_n)dt.
     \end{gather*}
     Así, 
     \begin{gather*}
@@ -216,26 +193,22 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     El caso base de la inducción ($r=1$) ya está demostrado.
 
     Supongamos ahora que existe un sistema de coordenadas $(u_i,\dots,u_n)$ en un entorno $\mathcal{U}_1$ de $0$ quizás más pequeño que $\mathcal{U}$ tal que
-    \begin{equation*}
-    \refstepcounter{pequation}
+    \begin{equation}
         f = \pm (u_1)^2 \pm\dots\pm (u_{r-1})^2 + \sum_{i,j\ge r} u_i u_j H_{ij}(u_1,\dots,u_n)
-    \tag{\thepequation}
     \label{eq1}
-    \end{equation*}
+    \end{equation}
     en todo $\mathcal{U}_1$ con $r > 1$ y $H_{ij}=H_{ji}$ para cualesquiera $i$ y $j$.
 
     Podemos realizar ahora un cambio lineal de coordenadas en $(u_r,\dots, u_n)$ para diagonalizar $\sum_{i,j\ge r} u_i u_j H_{ij}(0)$.
     
     Sabemos que, por ser la matriz $(H_{ij})$ no singular, los términos de la diagonal son todos no nulos. Luego podemos asumir $H_{rr}\neq 0$. Sea $g(u_1,\dots,u_n)=|H_{rr}(u_1,\dots,u_n)|^{1/2}$, es claro que existe un entorno $\mathcal{U}_2\subset \mathcal{U}_1$ de $0$ en el que es suave y no se anula. Definimos el nuevo sistema de coordenadas
-    \begin{equation*}
-    \refstepcounter{pequation}
+    \begin{equation}
         \begin{cases}
             V_i(u_1,\dots,u_n) = u_i,~~i\neq r\\
             V_r(u_1,\dots,u_n)=g(u_1,\dots,u_n)\left[u_r+\sum_{i>r}u_i\frac{H_{ir}(u_1,\dots,u_n)}{H_{rr}(u_1,\dots,u_n)}\right],
         \end{cases}
-    \tag{\thepequation}
     \label{eq2}
-    \end{equation*}
+    \end{equation}
 
     veamos que en efecto lo es. Se tiene que la matriz Jacobiana de la transformación de coordenadas en el $0$ es
     \begin{equation*}
@@ -255,20 +228,16 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     Se sigue entonces del \textit{teorema de la función inversa} que la transformación es un difeomorfismo sobre un entorno más pequeño $\mathcal{U}_3\subset \mathcal{U}_2$ del $0$ y por tanto $(v_1,\dots, v_n)$ es un sistema de coordenadas local alrededor de $p$.
 
     Ahora consideramos
-    \begin{equation*}
-    \refstepcounter{pequation}
+    \begin{equation}
         u_ru_rH_{rr}(u_1,\dots, u_n) + 2\sum_{j=r+1}^n u_ju_rH_{jr}(u_1,\dots, u_n).
-    \tag{\thepequation}
     \label{eq3}
-    \end{equation*}
+    \end{equation}
 
     Usando la simetría de $H_{ij}$ observamos esta expresión no es más que los términos de \eqref{eq1} que tienen $j=r$ o $i=r$. Comparando \eqref{eq1} y \eqref{eq2} llegamos a que \eqref{eq3} es
-    \begin{equation*}
-    \refstepcounter{pequation}
+    \begin{equation}
         \pm V_rV_r - \frac{1}{H_{rr}}\left[ \sum_{i>r} u_iH_{ir}(u_1,\dots, u_n) \right]^2
-    \tag{\thepequation}
     \label{eq4}
-    \end{equation*}
+    \end{equation}
 
     En efecto,
     \begin{align*}
@@ -287,13 +256,6 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     para unos nuevos términos $\tilde{H}_{ij}$ simétricos en función del nuevo sistema de coordenadas.
 
     Esto concluye la inducción ya que tenemos un sumando cuadrático más y queda probada la existencia del sistema de coordenadas local buscado.
-
-
-\iffalse
-    {\color{blue}A partir de aquí no se muy bien como seguir porque no entiendo del todo lo que hace y por qué.}
-    Ahora que tenemos hechos los preparativos veamos que existe un cambio de coordenadas que nos de la expresión de $f$ que buscamos en un entorno de $0$ quizás más pequeño, i.e, un difeomorfismo entre un entorno de $0$ quizás más pequeño que $\mathcal{U}$ (contenido en él) y otro abierto de $\mathbb{R}^n$ que al componer con las funciones coordenadas nos de la expresión que buscamos de $f$. 
-    {\color{blue}Demostración inacabada.}
-\fi
     
 \end{proof}
 
@@ -320,7 +282,37 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     
 \end{proof}
 
-{\color{blue} ¿Ejemplos de puntos criticos degenerados y no degenerados?}
+A continuación ilustramos algunos puntos puntos críticos degenerados y no degenerados junto con las gráficas de sus funciones correspondientes. Obsérvese que mientras los puntos no degenerados han de ser aislados, una función puede tener puntos críticos degenerados tanto aislados como no.
+
+\begin{example}
+    \hfil
+    \begin{enumerate}
+        \item $f(x,y)=(x-1)^2 + (y-1)^2$ tiene nueve puntos críticos no degenerados.
+        \item La función $g(x,y)=x^3-3xy^2$ cuya gráfica se corresponde con la ``silla de mono'' posee un único punto crítico degenerado en el punto $(0,0)$. Basta ver que $\text{Hess}_{(0,0)}f$ tiene ceros en las cuatro entradas.
+        \item $h(x,y)= x^2y^2$ tiene infinitos puntos críticos degenerados, los de la forma $(0,y)$ y $(x,0)$.
+    \end{enumerate}
+\end{example}
+
+\begin{figure}[H]
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/Memoria/imagenes/grafica1.png}
+    \caption{Gráfica de $f(x,y)=(x-1)^2 + (y-1)^2$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/Memoria/imagenes/grafica2.png}
+    \caption{Gráfica de $g(x,y)=x^3-3xy^2$}
+\end{minipage}
+
+% --- Segunda fila ---
+\centering
+\begin{minipage}{0.45\textwidth}
+    \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/Memoria/imagenes/grafica3.png}
+    \caption{Gráfica de $h(x,y)= x^2y^2$}
+\end{minipage}
+\end{figure}
 
 Concluimos con una definición que más que importancia técnica la tiene símbolica, ya que sin ser necesario definirlos, resultaría inapropiado no dar nombre a los objetos que se lo dan a esta sección y que nos permitirán extraer la estructura de CW-complejo de cualquier variedad diferenciable de dimensión finita.
 \bigskip
