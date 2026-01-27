@@ -45,6 +45,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Notas de la asignatura {Variedades Diferenciables}}
       \field{year}{2023--2024}
+      \true{nocite}
     \endentry
     \entry{hatcher2002}{book}{}{}
       \name{author}{1}{}{%
@@ -148,7 +149,6 @@
       \field{title}{Morse Theory}
       \field{volume}{51}
       \field{year}{1963}
-      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection
