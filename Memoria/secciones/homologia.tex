@@ -1,12 +1,12 @@
 \section{Homología simplicial}
 
-Hasta ahora hemos demostrado que dada una variedad diferenciable de dimensión finita, podemos, mediante una función de Morse, extraer su estructura de CW-complejo. Es decir, reconstruirla a partir del pegado de celdas cuyas dimensiones vienen determinadas por el índice de cada uno de los puntos críticos de una función de Morse.
+Hasta ahora hemos demostrado que dada una variedad diferenciable de dimensión, podemos, mediante una función de Morse, extraer su estructura de CW-complejo. Es decir, reconstruirla a partir del pegado de celdas cuyas dimensiones vienen determinadas por el índice de cada uno de los puntos críticos de una función de Morse.
 
 De cara al siguiente y último apartado sobre las \textit{desigualdades de Morse} necesitamos introducir los \textit{grupos de homología} de una variedad y sus correspondientes \textit{números de Betti}. Desarrollaremos estos conceptos en el contexto de los espacios topológicos \textit{triangulados}.
 
-Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos resultan extremadamente complicados de computar. 
+Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos pueden resultar extremadamente complicados de computar. 
 
-Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca. 
+Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca.
 
 De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular}. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
 
@@ -84,7 +84,7 @@ La propiedad $2.d$ determina que las intersecciones de imágenes de dos poliedro
 
 Una triangulación regular resulta más sencilla de visualizar. En una triangulación regular dos $k$-símplices distintos cualesquiera o no se tocan o comparten exactamente un único $l$-símplice (con $l<k$) de sus fronteras. Representa lo que uno ve al pensar en una malla de triángulos, en el caso de dimensión $2$. 
 
-Por otro lado, al llevar sobre un espacio los poliedros de una triangulación regular, pueden aparecer identificaciones de las caras de un mismo poliedro. En dimensión $2$, un triángulo puede convertirse por ejemplo en un ``cono'' al quedar dos de sus aristas pegadas mediante la función que lo lleva al espacio que triangula. Resultando en dos posibles inclusiones del vértice que no era común a ambas en dicho espacio.
+Por otro lado, al llevar sobre un espacio los poliedros de una triangulación no regular, pueden aparecer identificaciones de las caras de un mismo poliedro. En dimensión $2$, un triángulo puede convertirse por ejemplo en un ``cono'' al quedar dos de sus aristas pegadas mediante la función que lo lleva al espacio que triangula. Resultando en dos posibles inclusiones del vértice que no era común a ambas en dicho espacio.
 
 \bigskip
 
@@ -95,6 +95,16 @@ Finalmente, introducimos la noción de orientación de un poliedro.
 \end{definition}
 
 Como $\mathring{P}^k$ es un abierto de $\mathbb{R}^k$, su orientación se obtiene fijando una de los dos orientaciones posibles de $\mathbb{R}^k$. Esta orientación $o$ induce una orientación $o|_{P^{n-1}}$ en cada una de las $(n-1)$-caras $P^{n-1}\subset \partial P^k$.
+
+Más concretamente, una base de $\mathbb{R}^k$ pertenece a una de dos clases de equivalencia de bases bajo la relación siguiente: dos bases $B_1$ y $B_2$ están relacionadas si el determinante de la matriz de cambio de base es positivo. Orientar $\mathbb{R}^k$ es sencillamente elegir una de estas dos clases.
+
+Por otro lado, dado un $k$-poliedro orientado $P^k$, la orientación inducida sobre un $k-1$-poliedro $P^{k-1}$ de su frontera es de nuevo una elección de clase de equivalencia de bases de $\mathbb{R}^{k-1}$ pero esta vez forzada por la que la induce. Supongamos que la orientación del $P^k$ es la dada por la clase $[v_1,v_2,\dots, v_k]$, entonces la orientación inducidad sobre $P^{k-1}$ será la dada por la clase $[w_2,\dots,w_k]$ que verifica que
+\begin{equation*}
+    [\nu, w_2,\dots, w_k] = [v_1,\dots,v_k]
+\end{equation*}
+donde $\nu$ es un vector tangente a $P^k$, ortogonal a $P^{k-1}$ y apunta hacia el exterior de $P^k$.
+
+Es conveniente señalar que, dada una triangulación regular, si dos $k$-poliedros con la misma orientación comparten un $k-1$-poliedro de sus fronteras entonces inducen orientaciones opuestas en el mismo. Basta observar que los vectores $\nu_1$ y $\nu_2$ correspondientes son opuestos.
 
 Existen otras nociones triangulación, como la \textit{pseudotriangulación} y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
 
@@ -157,8 +167,6 @@ Una propiedad imprescindible de los operadores de borde es la siguiente.
     Supongamos que $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$, entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=-[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ luego los sumandos se cancelan.
 
     De la misma manera, si $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=-[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$ entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ y se cancelan de nuevo. 
-    {\color{blue} no se si debería explicar bien por que se cancelan, no me he metido mucho en como se induce la orientación}.
-
 \end{proof}
 
 
@@ -180,7 +188,7 @@ Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $
     \begin{itemize}
         \item $H^{\tau}_k(X)=0$ para todo $k>n$, ya que $C^{\tau}_k(X)=0$.
         \item $H^{\tau}_n(X)$ es un grupo abeliano libre. En efecto, como $C^{\tau}_{n+1}(X)=0$ se tiene que $B^{\tau}_n(X)=0$ luego $H^{\tau}_n(X)=Z^{\tau}_k(X)\subset C^{\tau}_n(X)$ que es libre por ser subgrupo de un grupo libre.
-        \item Si $X$ es además compacto, entonces $H^{\tau}_k(X)$ es un grupo abeliano finitamente generado. Se tiene que $C^{\tau}_k(X)$ es isomorfo a $\mathbb{Z^{n_k}}$, donde $n_k=|\Lambda_k|$, luego es finitamente generado y todo subgrupo de un grupo abeliano finitamente generado lo es a su vez. Así, $Z^{\tau}_k(X)$ y $B^{\tau}_k(X)$ son finitamente generados y se sigue el resultado.
+        \item Si $X$ es además compacto, entonces $H^{\tau}_k(X)$ es un grupo abeliano finitamente generado. Se tiene que $C^{\tau}_k(X)$ es isomorfo a $\mathbb{Z}^{n_k}$, donde $n_k=|\Lambda_k|$, luego es finitamente generado y todo subgrupo de un grupo abeliano finitamente generado lo es a su vez. Así, $Z^{\tau}_k(X)$ y $B^{\tau}_k(X)$ son finitamente generados y se sigue el resultado.
     \end{itemize}
 \end{remark}
 
