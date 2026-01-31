@@ -19,6 +19,37 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{FuchsInfiniteAbelianGroupsI}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=935ea0cffe6257cf804e84c342dfb396}{%
+           family={Fuchs},
+           familyi={F\bibinitperiod},
+           given={László},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{fullhash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{fullhashraw}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{bibnamehash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{authorbibnamehash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{authornamehash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{authorfullhash}{935ea0cffe6257cf804e84c342dfb396}
+      \strng{authorfullhashraw}{935ea0cffe6257cf804e84c342dfb396}
+      \field{labelalpha}{Fuc70}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Infinite Abelian Groups}
+      \field{volume}{1}
+      \field{year}{1970}
+    \endentry
     \entry{GonzalezPrietoVariedades}{book}{}{}
       \name{author}{1}{}{%
         {{hash=ebf585ea509eb1b6e11a7f304e03f521}{%
@@ -147,6 +178,7 @@
       \field{title}{Morse Theory}
       \field{volume}{51}
       \field{year}{1963}
+      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

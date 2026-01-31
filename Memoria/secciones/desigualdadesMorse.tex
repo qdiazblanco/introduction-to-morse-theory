@@ -1,3 +1,72 @@
-
 \section{Desigualdades de Morse}
 
+{\color{red} Introducción.}
+
+\begin{definition}
+    Sea $S$ una función que toma pares $(X,Y)$ de espacios topológicos y les asigna un entero $S(X,Y)\in \mathbb{Z}$. Decimos que $S$ es \textit{subaditiva} si siempre que $X\supset Y\supset Z$ se tiene que
+    \begin{equation*}
+        S(X,Z) \le S(X,Y) + S(Y,Z).
+    \end{equation*}
+    Si en las misma hipótesis se verifica siempre la igualdad diremos que $S$ es \textit{aditiva}.
+\end{definition}
+
+\begin{example}
+    \hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item $b_k(X,Y)$ es subaditiva. para todo par para el que sea finita.
+        \item $\chi (X,Y)$ es aditiva.
+    \end{enumerate}
+\end{example}
+
+\bigskip
+
+\begin{lemma}
+    Sea $S$ una función subaditiva y sean $X_0\subset \dots \subset X_n$. Entonces,
+    \begin{equation*}
+        S(X_n, X_0) \le \sum^n_{i=1} S(X_i,X_{i-1}).
+    \end{equation*}
+    Si $S$ es aditiva se verifica la igualdad.
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}[Desigualdades de Morse, versión débil]
+    Sean $f$ una función suave {¿\color{blue} de Morse?} sobre una variedad compacta M y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
+    \begin{equation*}
+        b_{\lambda}(M) \le C_{\lambda},~\forall \lambda\in\Lambda ~~\text{ y }~~ \chi(M) = \sum_{\lambda\in\Lambda} (-1)^{\lambda} C_{\lambda},
+    \end{equation*}
+    donde $\Lambda$ incluye todos los valores de los índices de los puntos críticos de $f$.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\bigskip
+
+\begin{lemma}
+    La función $S_{\lambda}$ es subaditiva, donde 
+    \begin{equation*}
+        S_{\lambda}(X,Y) = \sum_{i=0}^{\lambda} (-1)^i b_{\lambda-i}(X,Y)
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+\bigskip
+
+\begin{theorem}[Desigualdades de Morse]
+
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+lo de 'as an ilustration'\dots
+
+\begin{corollary}
+    Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$ 
+\end{corollary}
+
+explicar por que esto es la ostia y por que se deduce del ultimo de homotopia y de las desigualdades de morse. mirar lo del proyectivo o yo que se.

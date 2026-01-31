@@ -264,6 +264,46 @@ Ahora, dado un CW-complejo $X$, los pares $(C^{CW}_k(X_n), \partial^X_k)$ y $(C^
 {\color{blue}
 \begin{itemize}
     \item Falta terminar homología celular
-    \item Números de Betti
 \end{itemize}
 }
+
+\subsection{Homología relativa}
+
+...
+
+
+
+\subsection{Los números de Betti y la característica de Euler-Poincaré}
+
+Introducimos brevemente dos invariantes topológicos relacionados con la homología de un espacio que serán centrales en la última sección.
+
+\begin{definition}
+    Sea $X$ un espacio topológico. Definimos el \textit{$k$-ésimo número de Betti de X} como 
+    \begin{equation*}
+        b_k(X) = \text{rank } H_k(X).
+    \end{equation*}
+\end{definition}
+
+\begin{nota}
+    Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}.
+\end{nota}
+
+En el caso de un espacio compacto, como ya hemos mencionado, sus grupos de homología serán finitamente generados y, por tanto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\text{rank } H_k(X)$ es $r$ en
+\begin{equation*}
+    H_k(X) = \underbrace{\mathbb{Z}\oplus\dots\oplus\mathbb{Z}}_{r} \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z_{d_m}}.
+\end{equation*}
+\bigskip
+
+\begin{definition}
+    Sea $X$ un espacio topológico cuyos grupos de homología son finitamente generados y tal que $H_k(X)=0$ para todo $k>N$. La \textit{característica de Euler-Poincaré de X} es 
+    \begin{equation*}
+        \chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
+    \end{equation*}
+\end{definition}
+
+\begin{nota}
+    Una definición habitual de la característica de Euler-Poincaré en términos de los poliedros de una triangulación se puede encontrar en la página $39$ de \cite{munoz2021}. En ella se pide que $X$ sea compacto para que tenga sentido sumar recorriendo los poliedros de la triangulación, aquí ponemos una condición más débil. 
+    
+    Dado que no siempre contamos en nuestro caso con una triangulación conviene tomar la versión más general de arriba en términos de los números de Betti.
+\end{nota}
+
