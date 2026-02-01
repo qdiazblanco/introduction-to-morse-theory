@@ -4,11 +4,19 @@ Hasta ahora hemos demostrado que dada una variedad diferenciable de dimensión, 
 
 De cara al siguiente y último apartado sobre las \textit{desigualdades de Morse} necesitamos introducir los \textit{grupos de homología} de una variedad y sus correspondientes \textit{números de Betti}. Desarrollaremos estos conceptos en el contexto de los espacios topológicos \textit{triangulados}.
 
-Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos pueden resultar extremadamente complicados de computar. 
+Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos pueden resultar extremadamente complicados de computar. Esta idea queda reforzada cuando uno se da cuenta de que ni siquiera existe una manera robusta de computar los grupos de homotopía de $\mathbb{S}^n$ para cualquier $n>1$. Ponemos como ejemplo algunos de los grupos de homotopía conocidos de $\mathbb{S}^2$ para tener una idea de su complejidad:
+\begin{center}
+    \begin{tabular}{c|ccccccccccccccc}
+    & $\pi_1$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ & $\pi_6$ & $\pi_7$ & $\pi_8$ & $\pi_9$ & $\pi_{10}$ & $\pi_{11}$ & $\pi_{12}$ & $\pi_{13}$ & $\pi_{14}$ & $\pi_{15}$ \\
+    \hline
+    $\mathbb{S}^2$ & $0$ & $\mathbb{Z}$ & $\mathbb{Z}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}_{12}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}_3$ & $\mathbb{Z}_{15}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2^2$ & $\mathbb{Z}_{12}\times \mathbb{Z}_2$ & $\mathbb{Z}_{84}\times \mathbb{Z}_2^2$ & $\mathbb{Z}_2^2$
+    \end{tabular}
+\end{center}
+\vspace{1em}
 
 Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca.
 
-De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular}. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
+De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular} y, aunque habrá aspectos de esta que debamos introducir, el vocabulario que necesitamos es definitivamente más sencillo. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
 
 %Redactar intro:
 %- homologia simplicial
@@ -21,7 +29,7 @@ De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la
 \subsection{Triangulaciones}
 \label{subsec:triangulaciones}
 
-Triangular un espacio topológico consiste en expresarlo como la unión de \textit{poliedros} de su misma dimensión adecuadamente pegados.
+Triangular un espacio topológico consiste esencialmente en expresarlo como la unión de \textit{poliedros} de su misma dimensión adecuadamente pegados.
 
 \begin{definition} \hfill
 
@@ -104,19 +112,28 @@ Por otro lado, dado un $k$-poliedro orientado $P^k$, la orientación inducida so
 \end{equation*}
 donde $\nu$ es un vector tangente a $P^k$, ortogonal a $P^{k-1}$ y apunta hacia el exterior de $P^k$.
 
+En el caso $0$-dimensional, es decir, los vértices, la orientación será la elección del signo y utilizaremos la siguiente convención: dados una arista $a$ y un vértice $v$, $a$ induce la orientación $o(v)=\{+\}$ si termina en $v$ y $o(v)=\{-\}$ si empieza en $v$. Si $a=[v_1,v_2]$ y el orden determina la orientación $a$, entonces $o(v_1)=\{-\}$ y $o(v_2)=\{+\}$.
+
 Es conveniente señalar que, dada una triangulación regular, si dos $k$-poliedros con la misma orientación comparten un $k-1$-poliedro de sus fronteras entonces inducen orientaciones opuestas en el mismo. Basta observar que los vectores $\nu_1$ y $\nu_2$ correspondientes son opuestos.
 
 Existen otras nociones triangulación, como la \textit{pseudotriangulación} y toda una teoría de las llamadas \textit{variedades PL} que para nuestro propósito no son necesarias. Para mayor profundidad en este tema, detalles técnicos y ejemplos sugerimos que el lector se refiera a la fuente original \cite{munoz2021}.
 
-{\color{red} ¿Resultado de Whitehead de que todas las variedades diferenciables se pueden triangular?}
+\bigskip
 
+Terminamos la sección de triangulaciones con un resultado de Whitehead recogido en \cite{Whitehead1978} que nos permitirá hablar de la homología de cualquier variedad diferenciable.
+
+\begin{theorem}
+    Para toda variedad diferenciable $n$-dimensional $M$ existe una triangulación $\tau$.
+\end{theorem}
+
+Este resultado se corresponde con el teorema $7$, situado en la página $819$ de \cite{Whitehead1978}. Primero Whitehead lo formula para variedades cerradas y más tarde, en el apartado $4$ (página $823$) lo generaliza para las variedades abiertas.
 \bigskip
 
 %----------------------------------------------------------
 
 \subsection{Construcción de la homología simplicial}
 
-Una ligera generalización de los complejos simpliciales que dan nombre a esta teoría son los $\delta$-complejos. Es sobre estos espacios que textos como \cite{hatcher2002} definen la homología singular. Nosotros, como ya hemos mencionado, lo haremos para espacios topológicos triangulados y, más tarde, para CW-complejos.
+Una ligera generalización de los complejos simpliciales que dan nombre a esta teoría son los $\Delta$-complejos. Es sobre estos que textos como \cite{hatcher2002} definen la homología singular. Nosotros, como ya hemos mencionado, lo haremos para espacios topológicos triangulados y, más tarde, para CW-complejos.
 
 \bigskip
 
@@ -141,7 +158,15 @@ Una ligera generalización de los complejos simpliciales que dan nombre a esta t
 
 \bigskip
 
-Una propiedad imprescindible de los operadores de borde es la siguiente.
+Sin ningún bagage adicional el lector puede estar preguntándose cómo son los elementos de $C^{\tau}_k(X)$ y qué hacen exactamente los operadores de borde. Bien, llamamos \textit{$k$-cadenas} a los elementos de $C^{\tau}_k(X)$ , que son sumas formales de poliedros de $\tau$ con coeficientes enteros donde el signo depende de las orientaciones. Es decir, elegimos una orientación para que lleve el signo $+$ y los poliedros poliedros cuya orientación sea la otra posible llevarán el signo $-$. Es decir, son de la forma
+\begin{equation*}
+    \sum_{i=1}^m z_i e^k_{\alpha_i} ~~\text{ con }~~ z_i \in \mathbb{Z} ~~\text{ y }~~ \alpha_i \in \Lambda_k, ~\forall i\in \{1,\dots, m\}.
+\end{equation*}
+Arriba hemos descrito como actuan los operadores de borde $\partial_k$ sobre los generadores de $C^{\tau}_k(X)$, sin embargo, por linealidad, se pueden extender a homomorfismos de grupos de $C^{\tau}_k(X)$ a $C^{\tau}_{k-1}(X)$. Así,
+\begin{equation*}
+    \partial_k \left( \sum_{i=1}^m z_i e^k_{\alpha_i} \right) = \sum_{i=1}^m z_i \partial_k (e^k_{\alpha_i}). 
+\end{equation*}
+Ahora, el operador de borde lleva una $k$-cadena a la $(k-1)$-cadena que constituye su borde teniendo en cuenta la orientación, en el caso $2$-dimensional, diríamos que lleva un $2$-poliedro a la suma de sus aristas. Una propiedad imprescindible de los operadores de borde es la siguiente.
 
 \begin{proposition}
     Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
@@ -167,12 +192,19 @@ Una propiedad imprescindible de los operadores de borde es la siguiente.
     Supongamos que $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$, entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=-[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ luego los sumandos se cancelan.
 
     De la misma manera, si $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=-[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$ entonces $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ y se cancelan de nuevo. 
+
 \end{proof}
 
 
 \bigskip
 
-Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $ker(\partial_k)$. Así, definimos el $k$-ésimo grupo de homología de $X$ como sigue.
+Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $ker(\partial_k)$. Lo que a su vez significa que si una $k$-cadena es un borde, entonces esta no tiene borde. Imaginemos un disco $2$-dimensional, este es homeomorfo a un $2$-símplice, lo que nos da una triangulación. Tenemos tres vértices $v_1$, $v_2$ y $v_3$, tres aristas $[v_0,v_1]$, $[v_1,v_2]$ y $[v_2,v_0]$ y una cara $[v_0, v_1, v_2]$. Luego,
+\begin{equation*}
+    \partial_1(\partial_2([v_0, v_1, v_2])) = \partial_1([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) = (v_1-v_0) + (v_2-v_1) + (v_0-v_2) = 0. 
+\end{equation*}
+El borde del $2$-símplice no tiene borde, $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]\in \text{im}(\partial_2) \subseteq \text{ker}(\partial_1)$.
+
+Así, podemos definir el $k$-ésimo grupo de homología de $X$ como sigue.
 
 \begin{definition}
     Sea $(X,\tau)$ un espacio triangulado. El \textit{k-ésimo grupo de homología simplicial} de $X$ es el grupo abeliano $H^{\tau}_k(X)$ definido por
@@ -193,6 +225,8 @@ Este resultado es equivalente a que $im(\partial_{k+1})$ está contenido en el $
 \end{remark}
 
 \bigskip
+
+De nuevo, esta definición merece una aclaración. A los elementos de los subgrupos $Z^{\tau}_k(X)$ y $B^{\tau}_k(X)$ de $C^{\tau}_k(X)$ los llamaremos, respectivamente, \textit{ciclos} y \textit{bordes}. El primero lo reciben las $k$-cadenas cuyo borde o bien es vacío (como en el caso del $2$-símplice) y el segundo aquellas que constituyen el borde de una suma formal de $(k+1)$-cadenas. Los elementos de $H^{\tau}_k(X)$ son, por tanto, las clases de equivalencia de ciclos cuya diferencia es un borde.
 
 {\color{red} PONER ALGÚN EJEMPLO DE GRUPO DE HOMOLOGÍA?}
 

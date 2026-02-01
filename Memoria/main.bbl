@@ -180,6 +180,39 @@
       \field{year}{1963}
       \true{nocite}
     \endentry
+    \entry{Whitehead1978}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=6bf40219d3cd88074c021861b356ec83}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={J.\bibnamedelimi H.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \strng{bibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorbibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authornamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \field{labelalpha}{Whi78}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0387902205}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Elements of Homotopy Theory}
+      \field{volume}{61}
+      \field{year}{1978}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
