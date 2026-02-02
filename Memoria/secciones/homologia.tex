@@ -243,7 +243,7 @@ De nuevo, dejaremos que el lector encuentre la demostración en la fuente origin
 
 \bigskip
 
-Terminemos el ejemplo sencillo del disco y proporcionaremos más ejemplos para el caso de los CW-complejos más adelante.Sea $D^2$ el disco, entonces, usando la triangulación ya mencionada formada por un $2$-símplice se tienen $C_0(D^2) = \mathbb{Z}\langle v_0, v_1, v_2 \rangle \cong \mathbb{Z}^3$, $C_1(D^2)=\mathbb{Z}\langle [v_0,v_1],[v_1,v_2],[v_2,v_0] \rangle \cong \mathbb{Z}^3$ y $C_2(D^2)=\mathbb{Z}\langle [v_0,v_1,v_2] \rangle \cong \mathbb{Z}$. 
+Terminemos el ejemplo sencillo del disco, proporcionaremos más ejemplos para el caso de los CW-complejos más adelante.Sea $D^2$ el disco, entonces, usando la triangulación ya mencionada formada por un $2$-símplice se tienen $C_0(D^2) = \mathbb{Z}\langle v_0, v_1, v_2 \rangle \cong \mathbb{Z}^3$, $C_1(D^2)=\mathbb{Z}\langle [v_0,v_1],[v_1,v_2],[v_2,v_0] \rangle \cong \mathbb{Z}^3$ y $C_2(D^2)=\mathbb{Z}\langle [v_0,v_1,v_2] \rangle \cong \mathbb{Z}$. 
     
 Ahora, $Z_2(D^2)= \text{ker}(\partial_2)=\{0\}$ ya que los elementos de $C_2(D^2)$ son de la forma $z([v_0,v_1,v_2])$ con $z$ entero y $\partial_2(z[v_0,v_1,v_2]) = z([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) \neq 0$ si $z$ es distinto de cero. Además, $B_2(D^2) =\{0\}$ necesariamente luego $H_2(D^2)=\{0\}$.
     
@@ -266,9 +266,9 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 
 \subsection{Homología de CW-complejos}
 \label{subsec:homcelular}
- Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables de dimensión finita, son los CW-complejos. Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-celda.
-
- La \textit{homología celular} se construye de manera similar a la simplicial, sin embargo, ahora en vez de $k$-poliedros tendremos pegados a un espacio $X$ de manera adecuada tendremos $k$-celdas pegadas entre si por las funciones de pegado.
+ Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables, son los CW-complejos. Como hemos visto, toda variedad diferenciable admite una estructura de CW-complejo vía una función de Morse. Luego la homología celular nos permite computar los grupos de homología de cualquier variedad diferenciable siempre que tengamos una función de Morse. {\color{blue} pero el problema aquí es que na funcion de Morse no nos dice como se pegan no?}
+ 
+ Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-celda. Es de esperar entonces que la \textit{homología celular} se construya de manera similar a la simplicial, aunque ahora en vez de $k$-poliedros tendremos pegados a un espacio $X$ de manera adecuada tendremos $k$-celdas pegadas entre si por las funciones de pegado.
  
  \iffalse
  , sin embargo, vamos a introducir primero algunos conceptos para evitar posibles lagunas técnicas en el paso de triangulaciones a CW-comlejos en general.
@@ -361,6 +361,10 @@ Terminamos con un par de ejemplos de como computar la homología de un CW-comple
         Y $H_0(T^2)\cong \mathbb{Z}$ por ser conexo por caminos.
     \end{enumerate}
 \end{example}
+
+
+{\color{red} Siento que falta mencionar que los grupos de homologia son invariantes por homeomorfismos y por qué.}
+
 
 \subsection{Homología relativa}
 

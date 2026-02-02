@@ -91,4 +91,13 @@ La seccion \ref{subsec:homcelular} sobre homología celular contiene algunos eje
 \end{definition}
 %---------------------------------------------------------------
 
-{\color{blue} Demostrar que $X_n/X_{n-1}$ es una suma wedge de esferas?}
+
+\begin{proposition}
+    Dados el $k$-esqueleto $X_k$ y el $(k-1)$-esqueleto $X_{k-1}$ de un CW-complejo $X$ se tiene que 
+    \begin{equation*}
+        X_k/X_{k-1} = \vee_{\alpha\in\Lambda_k} D^k_{\alpha}/\partial D^k_{\alpha} = \vee_{\alpha\in\Lambda_k} \mathbb{S}^{k-1}_{\alpha},
+    \end{equation*}
+    donde $\vee$ denota la suma wedge y $\Lambda_k$ recorre las $k$-celdas de $X$.
+\end{proposition}
+
+{\color{blue} Se sigue de que al colapsar $X_{k-1}$ esencialmente estas colapsando las fronteras de las $k$-celdas.}
