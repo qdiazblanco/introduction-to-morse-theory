@@ -264,8 +264,8 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 
  \bigskip
 
- \subsection{Homología de CW-complejos}
-
+\subsection{Homología de CW-complejos}
+\label{subsec:homcelular}
  Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables de dimensión finita, son los CW-complejos. Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-celda.
 
  La \textit{homología celular} se construye de manera similar a la simplicial, sin embargo, ahora en vez de $k$-poliedros tendremos pegados a un espacio $X$ de manera adecuada tendremos $k$-celdas pegadas entre si por las funciones de pegado.
@@ -292,9 +292,9 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 \fi
 
  \begin{definition}
-    Sea $X$ un CW-complejo. Definimos
+    Sea $X$ un CW-complejo. Orientamos cada una de la $k$-celdas de $X$ y definimos
     \begin{equation*}
-        C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle
+        C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle,
     \end{equation*}
     y los operadores de borde $\partial_k : C^{CW}_k(X) \to C^{CW}_{k-1}(X)$ vienen dados por 
     \begin{equation*}
@@ -312,16 +312,59 @@ Ahora, dado un CW-complejo $X$, los pares $(C^{CW}_k(X_n), \partial^X_k)$ y $(C^
  {\color{red}SEGUIR, PAGINA 98 DEL PDF}
 \fi
 
-{\color{blue}
-\begin{itemize}
-    \item Falta terminar homología celular
-\end{itemize}
-}
+Igual que en homología simplicial, los elementos de $C^{CW}_k(X)$ son sumas formales de $k$-celdas con coeficientes enteros. Ahora, los operadores de borde siguen llevando una $k$-celda a su borde, solo que esta vez dicho borde será (teniendo en cuenta la orientación) la imagen de su función de pegado. 
+
+Seamos más claros, sean $i_{\alpha}(D^k_{\alpha})$ una $k$-celda de un CW-complejo $X$ y $\varphi_{\alpha}: \partial D_{\alpha}^k \cong \mathbb{S}^{k-1} \to X_{k-1}$ su mapa de pegado. Entonces, $[D^k_{\alpha}:D^{k-1}_{\beta}]$ mide cuántas veces (pueden ser cero) $\varphi_{\alpha}(\partial D_{\alpha}^k)$ recorre completamente (es un entero) la $(k-1)$-celda $i_{\beta}(D^{k-1}_{\beta})$ y en qué sentido, si este coincide con la orientación de $i_{\beta}(D^{k-1}_{\beta})$ el signo será positivo y si difiere negativo. Así, obtenemos una suma formal de elementos de $(k-1)$-celdas, es decir, un elemento de $C^{CW}_{k-1}(X)$. 
+
+Más formalmente, el operador de borde $\partial_k$ realiza el siguiente recorrido. La función de pegado induce un homomorfismo en homología 
+\[
+(\varphi_{\alpha})_* : H_{k-1}(\partial D_{\alpha}^k)\to H_{k-1}(X_{k-1}).
+\]
+Este homomorfismo lleva la \textit{clase fundamental}, que es esencialmente el generador de $H_{k-1}(\partial D_{\alpha}^k)\cong \mathbb{Z}\langle [\partial D_{\alpha}^k]\rangle$ de $\partial D_{\alpha}^k$ a un elemento de $H_{k-1}(X_{k-1})$. A continuación, el cociente $q: X_{k-1}\to X_{k-1}/X_{k-2} \cong \vee_{\beta}\mathbb{S}_{\beta}^{k-1}$ induce otro homomorfismo en homología 
+\[
+q_*: H_{k-1}(X_{k-1}) \to H_{k-1}(X_{k-1}/X_{k-2}) = H_{k-1}(\vee_{\beta}\mathbb{S}_{\beta}^{k-1}) \cong \oplus_{\beta}\mathbb{Z}\langle D^{k-1}_{\beta} \rangle = C^{CW}_{k-1}(X).
+\]
+
+A su vez, también se verifica que $\partial_{k}\circ\partial_{k+1} = 0$. Ahora que hemos visto como actuan los operadores de borde, los grupos de homología se construyen exactamente igual que en el caso simplicial.
+
+Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\cong H^{CW}_k(X)$ para cualquier CW-complejo $X$.
+
+Terminamos con un par de ejemplos de como computar la homología de un CW-complejo.
+
+\begin{example}
+    \hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item Podemos dotar a $\mathbb{S}^n$ de una estructura de CW-complejo con una $0$-celda y una $n$-celda identificando la frontera de un $n$-disco al punto.
+        
+        Así, es sencillo ver que $H_0(\mathbb{S}^n)\cong \mathbb{Z}$ por ser $\mathbb{S}^n$ conexo por caminos y que $H_1(\mathbb{S}^n), \dots H_{n-1}(\mathbb{S}^n)$ son todos $\{0\}$ al ser vacíos los grupos de cadenas en esas dimensiones.
+
+        Ahora, $H_{n}(\mathbb{S}^n)\cong \mathbb{Z}$ necesariamente ya que $Z_n(\mathbb{S}^n)=C_n(\mathbb{S}^n)\cong \mathbb{Z}$ por ser $\partial_n \equiv 0$ y $B_n(\mathbb{S}^n)=\{0\}$ por construir del complejo de cadena.
+        \item El toro $T^2$ puede ser considerado un CW-complejo con una $0$-celda $e^0$, dos $1$-celdas $e^1_1$ y $e^1_2$ y una $2$-celda $e^2$ de la siguiente manera. Tómese la construir habitual del toro plano, un cuadrado cuyos lados paralelos han sido identificados. La frontera de dicho cuadrado es la suma wedge de dos circunferencias, $\mathbb{S}^1\vee \mathbb{S}^1$, es decir, dos cricunferencias tangentes, estas serán nuestras $1$-celdas, el punto de tangencia nuestra $0$-celda. La $2$-celda será el interior del cuadrado.
+        
+        Ahora, $C_2(T^2)\cong \mathbb{Z}\langle e^2 \rangle \cong \mathbb{Z}$, $C_1(T^2)\cong \mathbb{Z}\langle e^1_1 \rangle \oplus \mathbb{Z}\langle e^1_2 \rangle \cong \mathbb{Z}^2$ y $C_0(T^2)\cong \mathbb{Z}\langle e^0 \rangle$.
+
+        La $2$-celda $e^2$ se pega a las $1$-celdas a lo largo del lazo $e^1_1 e^1_2 (e^1_1)^{-1} (e^1_2)^{-1} $ donde el exponente $-1$ significa que se recorre en el sentido opuesto. En terminos de cadenas queda
+        \begin{equation*}
+            \partial_2(e^2) = e^1_1 + e^1_2 - e^1_1 - e^1_2 = 0.
+        \end{equation*}
+        Luego quedan $Z_2(T^2)=C_2(T^2)\cong \mathbb{Z}$ y $B_1(T^2)=\{0\}$. 
+
+        Ambas $1$-celdas se pegan al $0$-esqueleto en $e^0$, ambas son lazos luego 
+        \begin{equation*}
+            \partial_1(e^1_1) = \partial_1(e^1_2) = e^0 - e^0 = 0.
+        \end{equation*}
+        Por lo que $Z_1(T^2)=C_1(T^2)\cong \mathbb{Z}^2$. De esta manera, se tiene 
+        \begin{equation*}
+            H_2(T^2)=Z_2/B_2 = \mathbb{Z}/\{0\} = \mathbb{Z} ~\text{ y }~ H_1(T^2)=Z_1/B1= \mathbb{Z}^2/\{0\} = \mathbb{Z}^2.
+        \end{equation*}
+
+        Y $H_0(T^2)\cong \mathbb{Z}$ por ser conexo por caminos.
+    \end{enumerate}
+\end{example}
 
 \subsection{Homología relativa}
 
 ...
-
 
 
 \subsection{Los números de Betti y la característica de Euler-Poincaré}
