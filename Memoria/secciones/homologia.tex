@@ -200,12 +200,12 @@ Ahora, el operador de borde lleva una $k$-cadena a la $(k-1)$-cadena que constit
         \begin{equation*}
             \dots \overset{\partial_{k+2}}{\longrightarrow} A_{k+1} \overset{\partial_{k+1}}{\longrightarrow} A_{k} \overset{\partial_{k}}{\longrightarrow} A_{k-1} \overset{\partial_{k-1}}{\longrightarrow} \dots,
         \end{equation*}
-        donde los $A_i$ sean grupos abelianos, como en nuestro caso, y se verifique esta propiedad. 
+        donde los $A_i$ sean grupos abelianos, como en nuestro caso, y se verifique esta propiedad. Dicha propiedad es equivalente a $\text{im}(\partial_{k+1})\subseteq\text{ker}(\partial_k)$. Diremos que la secuencia es \textit{exacta} si se da la igualdad.
 \end{remark}
 
 \bigskip
 
-Este resultado es equivalente a que $\text{im}(\partial_{k+1})$ está contenido en el $\text{ker}(\partial_k)$. Lo que a su vez significa que si una $k$-cadena es un borde, entonces esta no tiene borde. Imaginemos un disco $2$-dimensional, este es homeomorfo a un $2$-símplice, lo que nos da una triangulación. Tenemos tres vértices $v_0$, $v_1$ y $v_2$, tres aristas $[v_0,v_1]$, $[v_1,v_2]$ y $[v_2,v_0]$ y una cara $[v_0, v_1, v_2]$. Luego,
+Extraemos del resultado que si una $k$-cadena es un borde, entonces esta no tiene borde. Imaginemos un disco $2$-dimensional, este es homeomorfo a un $2$-símplice, lo que nos da una triangulación. Tenemos tres vértices $v_0$, $v_1$ y $v_2$, tres aristas $[v_0,v_1]$, $[v_1,v_2]$ y $[v_2,v_0]$ y una cara $[v_0, v_1, v_2]$. Luego,
 \begin{equation*}
     \partial_1(\partial_2([v_0, v_1, v_2])) = \partial_1([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) = (v_1-v_0) + (v_2-v_1) + (v_0-v_2) = 0. 
 \end{equation*}
@@ -251,6 +251,8 @@ Continuamos, $B_1(D^2)=\text{im}(\partial_2)=\{z[v_0,v_1,v_2]\}_{z\in\mathbb{Z}}
 
 No hace falta comprobar que $Z_0(D^2)=\text{ker}(\partial_0)=C_0(D^2)\cong \mathbb{Z}$. Por otro lado, $B_0(D^2)=\text{im}(\partial_2)\subseteq \text{ker}(\partial_1)$ luego es necesariamente $\{0\}$. Así, $H_0(D^2)\cong \mathbb{Z}$.
 
+¿Qué ocurre si eliminamos el interior del $2$-símplice? Obtenemos una circunferencia $\mathbb{S}^1$ triangulada por tres $1$-símplices y tres $0$-símplices. Ahora, los grupos $C_1$ y $C_0$ se mantienen, así como $Z_1$, sin embargo, $B_1(\mathbb{S}^1)$ ahora es $\{0\}$ necesariamente por lo que $H_1(\mathbb{S}^1)\cong\mathbb{Z}/\{0\} = \mathbb{Z}$. Qué coincide con el resultado esperado ya que ahora $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]$ es un ciclo que no es borde de nada, luego representa una clase no trivial del grupo de homología.
+
 \bigskip
 
 Antes de seguir, listamos algunos resultados que podrían ser de interés para el lector en el contexto de las variedades diferenciables y la teoría de Morse. Sin embargo, decidimos no entreternos ya que no es central a nuestro objetivo y los presentamos sin demostración:
@@ -266,16 +268,20 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 
 \subsection{Homología de CW-complejos}
 \label{subsec:homcelular}
- Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables, son los CW-complejos. Como hemos visto, toda variedad diferenciable admite una estructura de CW-complejo vía una función de Morse. Luego la homología celular nos permite computar los grupos de homología de cualquier variedad diferenciable siempre que tengamos una función de Morse. {\color{blue} pero el problema aquí es que na funcion de Morse no nos dice como se pegan no?}
- 
- Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-celda. Es de esperar entonces que la \textit{homología celular} se construya de manera similar a la simplicial, aunque ahora en vez de $k$-poliedros tendremos pegados a un espacio $X$ de manera adecuada tendremos $k$-celdas pegadas entre si por las funciones de pegado.
+ Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables, son los CW-complejos. 
  
  \iffalse
- , sin embargo, vamos a introducir primero algunos conceptos para evitar posibles lagunas técnicas en el paso de triangulaciones a CW-comlejos en general.
+ Como hemos visto, toda variedad diferenciable admite una estructura de CW-complejo vía una función de Morse. Luego la homología celular nos permite computar los grupos de homología de cualquier variedad diferenciable siempre que tengamos una función de Morse. {\color{blue} pero el problema aquí es que na funcion de Morse no nos dice como se pegan no?}
+ \fi
 
+ Un espacio triangulado constituye un CW-complejo, al fin y al cabo, cada uno de los $C^k_{\alpha}$ que se unen para construir una triangulación es una $k$-celda. Es de esperar entonces que la \textit{homología celular} se construya de manera similar a la simplicial, aunque ahora en vez de $k$-poliedros tendremos pegados a un espacio $X$ de manera adecuada tendremos $k$-celdas pegadas entre si por las funciones de pegado.
+ 
+Vamos a introducir primero algunos conceptos para evitar posibles lagunas técnicas en el paso de triangulaciones a CW-comlejos en general.
+ \iffalse
  \begin{definition}
     Un \textit{complejo de cadena} es una familia de pares $(A_k, \partial_k: A_k\to A_{k-1})$ de grupos abelianos y homomorfismos de grupos llamados \textit{operadores de borde} tales que $\partial_{k-1}\circ \partial_k=0$ para todo $k$.
  \end{definition}
+\fi
 
  \begin{definition}
     Dados dos complejos de cadena $(A_k, \partial_k)$ y $(B_k, \partial_k')$, llamamos \textit{morfismo de cadena} a una familia $f_k$ de homomorfismos tales que $\partial_k'\circ f_k = f_{k-1}\circ \partial_k$ para todo $k$.
@@ -289,7 +295,18 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
     \dots & \overset{\partial_{k+2}}{\longrightarrow} & B_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & B_{k} & \overset{\partial_{k}}{\longrightarrow} & B_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots
  \end{array}
 \]
-\fi
+
+\begin{definition}
+    Sea $f \colon (A_\bullet, \partial) \to (B_\bullet, \partial')$ un morfismo de complejos de cadenas. Como $f \circ \partial = \partial' \circ f$, se tiene que
+    $f(\ker \partial_k) \subset \ker \partial'_k$ y $f(\operatorname{im} \partial_{k+1}) \subset \operatorname{im} \partial'_{k+1}$. Por tanto, \( f \) desciende al cociente, dando lugar a un homomorfismo $f_* \colon H_k(A_\bullet, \partial) \to H_k(B_\bullet, \partial')$ que llamamos \textit{homomorfismo inducido en homología}.
+
+\end{definition}
+\begin{remark}
+    Es claro que $(g \circ f)_* = g_* \circ f_*$,
+    para morfismos $(A_\bullet, \partial) \xrightarrow{f} (B_\bullet, \partial') \xrightarrow{g} (C_\bullet, \partial'')$.
+\end{remark}
+
+\bigskip
 
  \begin{definition}
     Sea $X$ un CW-complejo. Orientamos cada una de la $k$-celdas de $X$ y definimos
@@ -303,14 +320,6 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 
  \end{definition}
 
- \iffalse
-Ahora, dado un CW-complejo $X$, los pares $(C^{CW}_k(X_n), \partial^X_k)$ y $(C^{CW}_k(X_{n-1}),\partial^Y_k)$ son complejos de cadena. Sea 
-
- \begin{definition}
-    Dados dos CW-complejos $X$ e $Y$ y una función continua $f:X\to Y$, $f$ induce un homomorfismo $f_*$ entre los grupos de homología de $X$ e $Y$
- \end{definition}
- {\color{red}SEGUIR, PAGINA 98 DEL PDF}
-\fi
 
 Igual que en homología simplicial, los elementos de $C^{CW}_k(X)$ son sumas formales de $k$-celdas con coeficientes enteros. Ahora, los operadores de borde siguen llevando una $k$-celda a su borde, solo que esta vez dicho borde será (teniendo en cuenta la orientación) la imagen de su función de pegado. 
 
@@ -327,7 +336,15 @@ q_*: H_{k-1}(X_{k-1}) \to H_{k-1}(X_{k-1}/X_{k-2}) = H_{k-1}(\vee_{\beta}\mathbb
 
 A su vez, también se verifica que $\partial_{k}\circ\partial_{k+1} = 0$. Ahora que hemos visto como actuan los operadores de borde, los grupos de homología se construyen exactamente igual que en el caso simplicial.
 
-Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\cong H^{CW}_k(X)$ para cualquier CW-complejo $X$.
+Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\cong H^{CW}_k(X)$ para cualquier CW-complejo $X$. Así, por transitividad se tiene que los grupos de homología de un espacio son isomorfos independientemente de la técnica que apliquemos para computarlos.
+
+También se verifica que los grupos de homología son invariantes por homeomorfismos y, de hecho, por equivalencias homotópicas (\cite[p.~111]{hatcher2002}). Enunciamos solamente el segundo resultado en virtu de que el tipo de homotopía es también invariante por homeomorfismos.
+
+\begin{theorem}
+    Los homomorfismos $f_*:H_k(X)\to H_k(Y)$ inducidos en homología por una equivalencia homotópica $f:X\to Y$ entre dos espacios topológicos son isomorfismos.
+\end{theorem}
+
+El resultado se sigue de que dos funciones homotópicas inducen los mismos homomorfismos en homología, por tanto, una equivalencia homotópica y su inversa inducen homomorfismos inversos, luego isomorfismos.
 
 Terminamos con un par de ejemplos de como computar la homología de un CW-complejo.
 
@@ -338,7 +355,7 @@ Terminamos con un par de ejemplos de como computar la homología de un CW-comple
         
         Así, es sencillo ver que $H_0(\mathbb{S}^n)\cong \mathbb{Z}$ por ser $\mathbb{S}^n$ conexo por caminos y que $H_1(\mathbb{S}^n), \dots H_{n-1}(\mathbb{S}^n)$ son todos $\{0\}$ al ser vacíos los grupos de cadenas en esas dimensiones.
 
-        Ahora, $H_{n}(\mathbb{S}^n)\cong \mathbb{Z}$ necesariamente ya que $Z_n(\mathbb{S}^n)=C_n(\mathbb{S}^n)\cong \mathbb{Z}$ por ser $\partial_n \equiv 0$ y $B_n(\mathbb{S}^n)=\{0\}$ por construir del complejo de cadena.
+        Ahora, $H_{n}(\mathbb{S}^n)\cong \mathbb{Z}$ necesariamente ya que $Z_n(\mathbb{S}^n)=C_n(\mathbb{S}^n)\cong \mathbb{Z}$ por ser $\partial_n \equiv 0$ y $B_n(\mathbb{S}^n)=\{0\}$ por construcción del complejo de cadena.
         \item El toro $T^2$ puede ser considerado un CW-complejo con una $0$-celda $e^0$, dos $1$-celdas $e^1_1$ y $e^1_2$ y una $2$-celda $e^2$ de la siguiente manera. Tómese la construir habitual del toro plano, un cuadrado cuyos lados paralelos han sido identificados. La frontera de dicho cuadrado es la suma wedge de dos circunferencias, $\mathbb{S}^1\vee \mathbb{S}^1$, es decir, dos cricunferencias tangentes, estas serán nuestras $1$-celdas, el punto de tangencia nuestra $0$-celda. La $2$-celda será el interior del cuadrado.
         
         Ahora, $C_2(T^2)\cong \mathbb{Z}\langle e^2 \rangle \cong \mathbb{Z}$, $C_1(T^2)\cong \mathbb{Z}\langle e^1_1 \rangle \oplus \mathbb{Z}\langle e^1_2 \rangle \cong \mathbb{Z}^2$ y $C_0(T^2)\cong \mathbb{Z}\langle e^0 \rangle$.
@@ -363,12 +380,9 @@ Terminamos con un par de ejemplos de como computar la homología de un CW-comple
 \end{example}
 
 
-{\color{red} Siento que falta mencionar que los grupos de homologia son invariantes por homeomorfismos y por qué.}
-
-
 \subsection{Homología relativa}
 
-...
+Concluimos el desarrollo de los aspectos que necesitamos de homología con la \textit{homología relativa}. En esencia, la homología relativa busca...
 
 
 \subsection{Los números de Betti y la característica de Euler-Poincaré}
