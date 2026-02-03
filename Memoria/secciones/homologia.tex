@@ -18,14 +18,14 @@ Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos 
 
 De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular} y, aunque habrá aspectos de esta que debamos introducir, el vocabulario que necesitamos es definitivamente más sencillo. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
 
-%Redactar intro:
-%- homologia simplicial
-%- numeros de betti
-%- por que lo necesitamos 
-%- nuestro approach
+
 \bigskip
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%             TRIANGULACIONES                %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Triangulaciones}
 \label{subsec:triangulaciones}
 
@@ -129,8 +129,12 @@ Terminamos la sección de triangulaciones con un resultado de Whitehead recogido
 Este resultado se corresponde con el teorema $7$, situado en la página $819$ de \cite{Whitehead1978}. Primero Whitehead lo formula para variedades cerradas y más tarde, en el apartado $4$ (página $823$) lo generaliza para las variedades abiertas.
 \bigskip
 
-%----------------------------------------------------------
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%           HOMOLOGIA SIMPLICIAL             %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Construcción de la homología simplicial}
 
 Una ligera generalización de los complejos simpliciales que dan nombre a esta teoría son los $\Delta$-complejos. Es sobre estos que textos como \cite{hatcher2002} definen la homología singular. Nosotros, como ya hemos mencionado, lo haremos para espacios topológicos triangulados y, más tarde, para CW-complejos.
@@ -266,7 +270,12 @@ Antes de seguir, listamos algunos resultados que podrían ser de interés para e
 
  \bigskip
 
-\subsection{Homología de CW-complejos}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            HOMOLOGIA CELULAR                %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homología celular}
 \label{subsec:homcelular}
  Recordamos que unos de los espacios que tienen especial interés para nosotros, junto con las variedades diferenciables, son los CW-complejos. 
  
@@ -297,7 +306,7 @@ Vamos a introducir primero algunos conceptos para evitar posibles lagunas técni
 \]
 
 \begin{definition}
-    Sea $f \colon (A_\bullet, \partial) \to (B_\bullet, \partial')$ un morfismo de complejos de cadenas. Como $f \circ \partial = \partial' \circ f$, se tiene que
+    Sea $f \colon (A_\bullet, \partial) \to (B_\bullet, \partial')$ un morfismo de cadena. Como $f \circ \partial = \partial' \circ f$, se tiene que
     $f(\ker \partial_k) \subset \ker \partial'_k$ y $f(\operatorname{im} \partial_{k+1}) \subset \operatorname{im} \partial'_{k+1}$. Por tanto, \( f \) desciende al cociente, dando lugar a un homomorfismo $f_* \colon H_k(A_\bullet, \partial) \to H_k(B_\bullet, \partial')$ que llamamos \textit{homomorfismo inducido en homología}.
 
 \end{definition}
@@ -308,7 +317,7 @@ Vamos a introducir primero algunos conceptos para evitar posibles lagunas técni
 
 \bigskip
 
- \begin{definition}
+\begin{definition}
     Sea $X$ un CW-complejo. Orientamos cada una de la $k$-celdas de $X$ y definimos
     \begin{equation*}
         C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle,
@@ -317,8 +326,7 @@ Vamos a introducir primero algunos conceptos para evitar posibles lagunas técni
     \begin{equation*}
         \partial_k(D^k_{\alpha}) = \sum_{\beta\in\Lambda_{k-1}}[D^k_{\alpha}:D^{k-1}_{\beta}]D^{k-1}_{\beta}
     \end{equation*}
-
- \end{definition}
+\end{definition}
 
 
 Igual que en homología simplicial, los elementos de $C^{CW}_k(X)$ son sumas formales de $k$-celdas con coeficientes enteros. Ahora, los operadores de borde siguen llevando una $k$-celda a su borde, solo que esta vez dicho borde será (teniendo en cuenta la orientación) la imagen de su función de pegado. 
@@ -329,12 +337,12 @@ Más formalmente, el operador de borde $\partial_k$ realiza el siguiente recorri
 \[
 (\varphi_{\alpha})_* : H_{k-1}(\partial D_{\alpha}^k)\to H_{k-1}(X_{k-1}).
 \]
-Este homomorfismo lleva la \textit{clase fundamental}, que es esencialmente el generador de $H_{k-1}(\partial D_{\alpha}^k)\cong \mathbb{Z}\langle [\partial D_{\alpha}^k]\rangle$ de $\partial D_{\alpha}^k$ a un elemento de $H_{k-1}(X_{k-1})$. A continuación, el cociente $q: X_{k-1}\to X_{k-1}/X_{k-2} \cong \vee_{\beta}\mathbb{S}_{\beta}^{k-1}$ induce otro homomorfismo en homología 
+Este homomorfismo lleva la \textit{clase fundamental} $[\partial D_{\alpha}^k]$, que es esencialmente el generador de $H_{k-1}(\partial D_{\alpha}^k)\cong \mathbb{Z}\langle [\partial D_{\alpha}^k]\rangle$, a un elemento de $H_{k-1}(X_{k-1})$. A continuación, el cociente $q: X_{k-1}\to X_{k-1}/X_{k-2} \cong \vee_{\beta}\mathbb{S}_{\beta}^{k-1}$ induce otro homomorfismo en homología 
 \[
 q_*: H_{k-1}(X_{k-1}) \to H_{k-1}(X_{k-1}/X_{k-2}) = H_{k-1}(\vee_{\beta}\mathbb{S}_{\beta}^{k-1}) \cong \oplus_{\beta}\mathbb{Z}\langle D^{k-1}_{\beta} \rangle = C^{CW}_{k-1}(X).
 \]
 
-A su vez, también se verifica que $\partial_{k}\circ\partial_{k+1} = 0$. Ahora que hemos visto como actuan los operadores de borde, los grupos de homología se construyen exactamente igual que en el caso simplicial.
+A su vez, también se verifica que $\partial_{k}\circ\partial_{k+1} = 0$ {\color{red} esto no veo claro por qué es}. Ahora que hemos visto como actuan los operadores de borde, los grupos de homología se construyen exactamente igual que en el caso simplicial.
 
 Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\cong H^{CW}_k(X)$ para cualquier CW-complejo $X$. Así, por transitividad se tiene que los grupos de homología de un espacio son isomorfos independientemente de la técnica que apliquemos para computarlos.
 
@@ -379,12 +387,55 @@ Terminamos con un par de ejemplos de como computar la homología de un CW-comple
     \end{enumerate}
 \end{example}
 
+\bigskip
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            HOMOLOGIA RELATIVA              %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Homología relativa}
 
-Concluimos el desarrollo de los aspectos que necesitamos de homología con la \textit{homología relativa}. En esencia, la homología relativa busca...
+Concluimos el desarrollo de los aspectos que necesitamos de homología con la \textit{homología relativa}. En esencia, en homología relativa lo que hacemos es ignorar todas las cadenas de un subespacio. La construcción es similar a lo que ya conocemos\dots
 
+\begin{definition}
+    Sean $X$ un espacio y  $A\subset X$ un subespacio. Definimos $C_k(X,A)$ como el grupo cociente
+    \begin{equation*}
+        C_k(X)/C_k(A).
+    \end{equation*} 
+    Luego las cadenas de $A$ se vuelven triviales.
+\end{definition}
+ 
+Ahora, para los operadores de borde vayamos por partes. En primer lugar, para que tenga sentido definirlos debe ocurrir que $\partial_k$ lleve $C_k(A)$ a $C_{k-1}(A)$. En el caso de un espacio triangulado se puede demostrar que tomando un subespacio cualquiera podemos refinar la triangulación hasta que el subespacio quede triangulado unicamente por poliedros completos. Para CW-complejos el subespacio debe ser un subcomplejo, es decir una colección de celdas completas del espacio. En realidad, en ambos casos es la misma situación, la diferencia es que para un espacio triangulado podemos modificar los poliedros hasta tener un subcomplejo de la triangulación.
 
+Una vez tenemos esto, el operador de borde en homología relativa no es más que el operador de borde en homología seguido del paso al cociente. En efecto, gracias a que $\partial_k(C_k(A))$ está contenido en $C_{k-1}(A)$, estos inducen un operador de borde en el cociente dado por
+\begin{equation*}
+    \partial^{rel}_k = q_{k-1}\circ\partial_k,
+\end{equation*} 
+donde los $q_k$ forman la familia de funciones de paso al cociente. Omitiremos la etiqueta ``rel'' siempre que el contexto lo permita.
+
+Observamos que en este caso también se verifica $\partial^{rel}_{k-1}\circ \partial^{rel}_k = 0$ ya que se anulan antes de pasar al cociente, luego los $q_k$ forman un morfismo de cadena.
+
+Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se construyen los \textit{grupos de homología relativa} de la misma manera que en homología celular y simplicial.
+
+\bigskip
+
+\begin{proposition}
+    Para cualquier par $(X,A)$ con las propiedades necesarias según el contexto como establecido arriba se tiene la siguiente secuencia exacta
+    \begin{align*}
+        \cdots \longrightarrow H_n(A) \longrightarrow H_n(X) \longrightarrow H_n(X,A) \longrightarrow H_{n-1}(A) \longrightarrow H_{n-1}(X) \longrightarrow \cdots \longrightarrow H_0(X,A) \longrightarrow 0.
+    \end{align*}
+\end{proposition}
+
+Demostrar esto es uno de los objetivos oficiales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la nos hemos basado para esta sección.
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            NUMEROS DE BETTI                %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Los números de Betti y la característica de Euler-Poincaré}
 
 Introducimos brevemente dos invariantes topológicos relacionados con la homología de un espacio que serán centrales en la última sección.
@@ -419,3 +470,6 @@ En el caso de un espacio compacto, como ya hemos mencionado, sus grupos de homol
     Dado que no siempre contamos en nuestro caso con una triangulación conviene tomar la versión más general de arriba en términos de los números de Betti.
 \end{nota}
 
+Tanto para los números de Betti como para la característica de Euler-Poincaré se pueden cambiar $b_k(X)$ y $\chi(X)$ por $b_k(X,A)$ y $\chi(X,A)$ y se conservan las definiciones para los grupos de homología relativa.
+
+\bigskip
