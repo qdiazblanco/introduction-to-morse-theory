@@ -49,6 +49,7 @@
       \field{title}{Infinite Abelian Groups}
       \field{volume}{1}
       \field{year}{1970}
+      \true{nocite}
     \endentry
     \entry{GonzalezPrietoVariedades}{book}{}{}
       \name{author}{1}{}{%
@@ -107,6 +108,7 @@
       \field{labeltitlesource}{title}
       \field{title}{Algebraic Topology}
       \field{year}{2002}
+      \true{nocite}
     \endentry
     \entry{munoz2021}{book}{}{}
       \name{author}{3}{}{%
@@ -149,6 +151,7 @@
       \field{title}{Geometry and Topology of Manifolds: Surfaces and Beyond}
       \field{volume}{208}
       \field{year}{2021}
+      \true{nocite}
     \endentry
     \entry{milnor1963}{book}{}{}
       \name{author}{1}{}{%
@@ -178,7 +181,6 @@
       \field{title}{Morse Theory}
       \field{volume}{51}
       \field{year}{1963}
-      \true{nocite}
     \endentry
     \entry{Whitehead1978}{book}{}{}
       \name{author}{1}{}{%
@@ -212,6 +214,7 @@
       \field{title}{Elements of Homotopy Theory}
       \field{volume}{61}
       \field{year}{1978}
+      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

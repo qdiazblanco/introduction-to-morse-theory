@@ -72,26 +72,26 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 \label{unidiff}
     Todo campo vectorial sobre una variedad diferenciable $M$ que se anula fuera de un compacto $K\subset M$ genera un único grupo de difeomorfismos de M.
 \end{lemma}
-{\color{blue} Esta demostración se me hace liosa y no se si está del todo bien o si se entiende lo suficientemente bien.}
+
 \begin{proof}
     Sean $X$ un campo vectorial y $\varphi$ un grupo uniparamétrico de difeomorfismos de $M$ generado por $X$. Entonces se tiene que fijado un punto cualquiera $q\in M$ la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ verifica la ecuación diferencial
     \begin{equation*}
         \frac{d\varphi_t}{dt}(q)=X_{\varphi_t(q)}\tag{$\ast$}
     \end{equation*}
-    con condición inicial $\varphi_0(q)=q$.\\
+    con condición inicial $\varphi_0(q)=q$.
 
     En efecto,
     \begin{align*}
         \frac{d\varphi_t(q)}{dt}(f)=\lim_{h\to 0} \frac{f(\varphi_{t+h}(q))- f(\varphi_t(q))}{h} = \lim_{h\to 0} \frac{f(\varphi_{h}(\varphi_t(q)))- f(\varphi_t(q))}{h} = \lim_{h\to 0} \frac{f(\varphi_{h}(p))- f(p)}{h} = X_p(f)
     \end{align*}
 
-    con $p=\varphi_t(q)$.\\
+    con $p=\varphi_t(q)$.
 
-    Ahora, por el Teorema de Picard-Lindelöf sabemos que existe localmente una solución única, que depende de manera diferenciable de la condición inicial. Es decir, $\forall p\in M$ existen un entorno $\mathcal{U}$ de $p$ y $\varepsilon > 0$ tales que $(\ast)$ tiene una única solución para todo $q\in \mathcal{U}$ y $|t|<\varepsilon$.\\
+    Ahora, por el Teorema de Picard-Lindelöf sabemos que existe localmente una solución única, que depende de manera diferenciable de la condición inicial. Es decir, $\forall p\in M$ existen un entorno $\mathcal{U}$ de $p$ y $\varepsilon > 0$ tales que $(\ast)$ tiene una única solución para todo $q\in \mathcal{U}$ y $|t|<\varepsilon$.
 
-    Como $K\subset M$ es compacto, puede ser cubierto por una cantidad finita de dichos entornos. Sea $\varepsilon_0$ el menor de los valores definidos arriba y establezcamos $\varphi_t(q)=q,~~\forall q\notin K$ (luego $X_q=0$ fuera de $K$). Entonces $(\ast)$ tiene una única solución $\varphi_t(q)$ para $|t|<\varepsilon_0$ y $\forall q\in M$ suave respecto de ambas variables.\\
+    Como $K\subset M$ es compacto, puede ser cubierto por una cantidad finita de dichos entornos. Sea $\varepsilon_0$ el menor de los valores definidos arriba y establezcamos $\varphi_t(q)=q,~~\forall q\notin K$ (luego $X_q=0$ fuera de $K$). Entonces $(\ast)$ tiene una única solución $\varphi_t(q)$ para $|t|<\varepsilon_0$ y $\forall q\in M$ suave respecto de ambas variables.
 
-    Veamos que para todo $t$ adecuado cada $\varphi_t$ es un difeomorfismo de $M$ en si misma. Para ello basta comprobar que se cumple que $\varphi_{t+s}=\varphi_t\circ \varphi_s$ suponiendo que $|t|,|s|,|t+s|<\varepsilon_0$.\\
+    Veamos que para todo $t$ adecuado cada $\varphi_t$ es un difeomorfismo de $M$ en si misma. Para ello basta comprobar que se cumple que $\varphi_{t+s}=\varphi_t\circ \varphi_s$ suponiendo que $|t|,|s|,|t+s|<\varepsilon_0$.
 
     Sean $q\in M$ fijo y  $p=\varphi_s(q)$, entonces $\varphi_t(p)=\varphi_t(\varphi_s(q))$. Definimos la curva $\gamma(u)=\varphi_{u+s}(q)$, así, $\gamma(0)=p$ y 
     
@@ -99,7 +99,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
         \frac{d\gamma}{du}=\frac{d\varphi_{u+s}}{du}(q)=X_{\varphi_{u+s}(q)}=X_{\gamma (u)}
     \end{equation*} 
     
-    Por lo que $\gamma$ es también una solución de ($\ast$) con condición inicial $\gamma(0)=p$.\\
+    Por lo que $\gamma$ es también una solución de ($\ast$) con condición inicial $\gamma(0)=p$.
 
     Sin embargo, tambien $\varphi_u(p)$ es solución con condición inicial $\varphi_0(p)=p$. Luego por unicidad de las soluciones
     \begin{equation*}
@@ -107,7 +107,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     \end{equation*}
     Siempre que $|u|, |u+s|<\varepsilon_0$.
 
-    Por último, necesitamos definir $\varphi_t$ para todo $t\in \mathbb{R}$.\\
+    Por último, necesitamos definir $\varphi_t$ para todo $t\in \mathbb{R}$.
 
     Sea $t\in \mathbb{R}$. Sean $k\in \mathbb{Z}$ y $r\in \mathbb{R}$ con $|r|\le \frac{\varepsilon_0}{2}$ los únicos valores tales que $t=k\frac{\varepsilon_0}{2}+r$. Entonces definimos
 
@@ -157,23 +157,23 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
         \end{cases}
     \end{equation*}
 
-    donde $K$ es un entorno compacto de $f^{-1}[a,b]$\\
+    donde $K$ es un entorno compacto de $f^{-1}[a,b]$
 
-    Ahora, sea el campo vectorial dado por $X_q=\rho(q)\nabla_pf$. Se tiene que $X_p$ se anula fuera de $K$ luego por el Lema \ref{unidiff} genera un único grupo uniparamétrico de difeomorfismos $\varphi_t$ de $M$.\\
+    Ahora, sea el campo vectorial dado por $X_q=\rho(q)\nabla_pf$. Se tiene que $X_p$ se anula fuera de $K$ luego por el Lema \ref{unidiff} genera un único grupo uniparamétrico de difeomorfismos $\varphi_t$ de $M$.
 
     Fijemos $q\in M$ y consideremos $f\circ\varphi_{\bullet}(q),~t\mapsto f(\varphi_t(q))$. Si $\varphi_t(q)$ está en $f^{-1}[a,b]$ se tiene
     \begin{align*}
         \frac{df(\varphi_t(q))}{dt} = \left\langle \frac{d\varphi_t(q)}{dt},\nabla f\right\rangle = \langle X, \nabla f\rangle = \langle \rho~ \nabla f, \nabla f\rangle =\\ =\left\langle \frac{1}{\langle \nabla f,\nabla f\rangle}\nabla f,\nabla f\right\rangle=
-        \frac{\langle \nabla f,\nabla f\rangle}{\langle \nabla f,\nabla f\rangle}= 1
+        \frac{\langle \nabla f,\nabla f\rangle}{\langle \nabla f,\nabla f\rangle}= 1,
     \end{align*}
 
-    por lo que $f(\varphi_t(q))$ es lineal con derivada $1$ siempre que $f(\varphi_t(q))$ esté en $[a,b]$. Es decir, $f(\varphi_t(q))=f(q)+t$ {\color{blue}Esto tengo la duda de que sea exactamente así, pero funciona bien.}\\
+    por lo que $f(\varphi_t(q))$ es lineal con derivada $1$ siempre que $f(\varphi_t(q))$ esté en $[a,b]$, es decir, $f(\varphi_t(q))=f(q)+t$.
 
-    Veamos ahora que $\varphi_{b-a}$ es un difeomorfismo de $M^a$ en $M^b$.\\
+    Veamos ahora que $\varphi_{b-a}$ es un difeomorfismo de $M^a$ en $M^b$.
 
     Sea $q\in M$,
     \begin{equation*}
-        \varphi_{b-a}(q)\in M^b \iff(\varphi_{b-a}(q))=f(q)+b-a\le b \iff f(q)-a\le 0 \iff q\in M^a
+        \varphi_{b-a}(q)\in M^b \iff(\varphi_{b-a}(q))=f(q)+b-a\le b \iff f(q)-a\le 0 \iff q\in M^a,
     \end{equation*}
      y en concreto manda la frontera de $M^a$ a la frontera de $M^b$
      \begin{equation*}
@@ -186,14 +186,14 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     \begin{equation*}
         H(t,q)=
         \begin{cases}
-            q~~~~~~~~~~~~~~~~~,f(q)\le a\iff q\in M^a\\
-            \varphi_{t(a-f(q))}(q)~~,a\le f(q)\le b
+            q~~~~~~~~~~~~~~~~~,~f(q)\le a\iff q\in M^a,\\
+            \varphi_{t(a-f(q))}(q)~~,a\le f(q)\le b.
         \end{cases}
     \end{equation*}
 
     Entonces, $H(0,\cdot) = id_{M^b}$ ya que $\varphi_0(q)=q,~\forall q\in M^b$ y $H(1,\cdot)$ es una retracción de $M^b$ en $M^a$, comprobémoslo. Sea $q\in f^{-1}[a,b]$, se tiene
     \begin{equation*}
-        H(1,q)=f(\varphi_{(a-f(q))}(q))= f(q)+(a-f(q))= a \iff \varphi_{(a-f(q))}(q)\in f^{-1}(a)
+        H(1,q)=f(\varphi_{(a-f(q))}(q))= f(q)+(a-f(q))= a \iff \varphi_{(a-f(q))}(q)\in f^{-1}(a),
     \end{equation*}
 
     luego $H(1,H(1,\cdot))= id_{M^a}$.    
@@ -210,7 +210,9 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 \begin{proof}
     Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el Teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.
     
-    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.\\
+    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.
+
+    \bigskip
 %Preliminares------------------
 
     Sean una carta $(\mathcal{U}, \phi)$ de $M$ que contiene a $p$ y $(u^1,\dots , u^n)$ las coordenadas inducidas tal que $u^1(p)=\dots=u^{n}(p)=0$. Con el fin de simplificar las expresiones que siguen definimos las funciones $\xi:\mathcal{U}\to [0,\infty)$ y $\eta:\mathcal{U}\to [0,\infty)$ como
@@ -219,11 +221,10 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
         \eta(q)=(u^{\lambda +1}(q))^2+\dots +(u^{n}(q))^2
     \end{gather*}
     Aplicando el Lema de Morse (\ref{lemamorse}) a $f$ obtenemos
-
     \begin{equation*}
         f(q) = c - \xi(q) + \eta(q)
     \end{equation*}
-    $\forall q\in \mathcal{U}$, donde $c=f(p).$\\
+    $\forall q\in \mathcal{U}$, donde $c=f(p).$
 
     Sea $0<\varepsilon_0\le\varepsilon$ suficientemente pequeño para que:
     \begin{enumerate}[label=\roman*)]
@@ -245,7 +246,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
         \end{cases}
     \end{equation*}
     entonces definimos $F$ como
-    
+    \vspace{1em}
     \begin{equation*}
         F(q)=
         \begin{cases}
@@ -253,32 +254,43 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
         f(q)- \mu(\xi(q)+2\eta(q)),~~q\in \mathcal{U}.
         \end{cases}
     \end{equation*}
-    Es claro que $F$ esta bien definida ya que $\mu$ se anula en $\partial\mathcal{U}$. Además, es suave ya que en un entorno de $\partial\mathcal{U}$ se tiene que $\mu'$ es identicamente $0$, luego tanto aproximándonos desde dentro de $\mathcal{U}$ como desde fuera $d_qF=d_qf$.\\
+
+    Es claro que $F$ esta bien definida ya que $\mu$ se anula en $\partial\mathcal{U}$. Además, es suave ya que en un entorno de $\partial\mathcal{U}$ se tiene que $\mu'$ es identicamente $0$, luego tanto aproximándonos desde dentro de $\mathcal{U}$ como desde fuera $d_qF=d_qf$.
+
+    \bigskip
     
 %Primera retraccion-------------------------------
 
-    Ahora que tenemos $F$ debemos comprobar que nos encontramos en las hipótesis del Teorema \ref{retractodef}. Veamos primero que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$, después que $F$ y $f$ poseen los mismos puntos críticos y que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ no contiene ningún punto crítico.\\
+    Ahora que tenemos $F$ debemos comprobar que nos encontramos en las hipótesis del Teorema \ref{retractodef}. Veamos primero que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$, después que $F$ y $f$ poseen los mismos puntos críticos y que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ no contiene ningún punto crítico.
 
-    En efecto, $\mu(\xi(q)+2\eta(q))=0, ~\forall q\in M$ tal que $\xi(q)+2\eta(q)\ge 2\varepsilon_0$ luego fuera del elipsoide $E=\{q\in M:\xi(q)+2\eta(q)\le 2\varepsilon_0\}$ se tiene que $F=f$.\\
+    En efecto, $\mu(\xi(q)+2\eta(q))=0, ~\forall q\in M$ tal que $\xi(q)+2\eta(q)\ge 2\varepsilon_0$ luego fuera del elipsoide $E=\{q\in M:\xi(q)+2\eta(q)\le 2\varepsilon_0\}$ se tiene que $F=f$.
+
+    \medskip
     
     Sabemos que $E\in M_f^{c+\varepsilon_0}$ y por
     \begin{equation*}
-        F(q)<f(q)=c-\xi(q)+\eta(q)\le c+\frac{1}{2}\xi(q)+\eta\le c + \varepsilon_0, ~\forall q\in E
+        F(q)<f(q)=c-\xi(q)+\eta(q)\le c+\frac{1}{2}\xi(q)+\eta\le c + \varepsilon_0, ~\forall q\in E,
     \end{equation*}
-    se tiene que $E\in M_F^{c+\varepsilon_0}$. Visto que es la única región en la que difieren concluimos que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$.\\
 
-    Ahora veamos que coinciden sus puntos críticos. Observamos que en $\mathcal{U}$
+    se tiene que $E\in M_F^{c+\varepsilon_0}$. Visto que es la única región en la que difieren concluimos que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$.
+
+    \medskip
+
+    Ahora veamos que coinciden sus puntos críticos. Observamos que en $\mathcal{U}$ se verifican
     \begin{align*}
-        \frac{\partial F}{\partial \xi}&=-1-\mu'(\xi + 2\eta)<0\text{ y}\\
-        \frac{\partial F}{\partial \eta}&=1-2\mu'(\xi+2\eta)\ge 1
+        \frac{\partial F}{\partial \xi}&=-1-\mu'(\xi + 2\eta)<0 ~\text{ y}\\
+        \frac{\partial F}{\partial \eta}&=1-2\mu'(\xi+2\eta)\ge 1.
     \end{align*}
     Los puntos críticos de $F$ serán los que anulen su derivadas parciales
     \begin{align*}
-        \frac{\partial F}{\partial x_i}=\frac{\partial F}{\partial \xi}\frac{\partial \xi}{\partial x_i} + \frac{\partial F}{\partial \eta}\frac{\partial \eta}{\partial x_i}
+        \frac{\partial F}{\partial x_i}=\frac{\partial F}{\partial \xi}\frac{\partial \xi}{\partial x_i} + \frac{\partial F}{\partial \eta}\frac{\partial \eta}{\partial x_i},
     \end{align*}
-    pero el único punto que verifica simultáneamente $\frac{\partial \xi}{\partial x_i}=0$ y $\frac{\partial \eta}{\partial x_i}=0$ es $p$ ya que si no $f$ tendría más puntos críticos en $\mathcal{U}$. Luego como fuera de $\mathcal{U}$ coinciden se tiene que  $F$ y $f$ tienen los mismos puntos críticos.\\
 
-    Veamos que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]=M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F$ es compacto y no contiene ningún punto crítico. Es claro que $M^{c-\varepsilon_0}_f\subset M^{c-\varepsilon_0}_F$ ya que $F$ y $f$ coinciden salvo en el entorno de $p$ en el que $F\le f$ {\color{blue}explicar esto mejor?} así
+    pero el único punto que verifica simultáneamente $\frac{\partial \xi}{\partial x_i}=0$ y $\frac{\partial \eta}{\partial x_i}=0$ es $p$ ya que si no $f$ tendría más puntos críticos en $\mathcal{U}$. Luego como fuera de $\mathcal{U}$ coinciden se tiene que  $F$ y $f$ tienen los mismos puntos críticos.
+
+    \medskip
+
+    Veamos que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]=M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F$ es compacto y no contiene ningún punto crítico. Es claro que $M^{c-\varepsilon_0}_f\subset M^{c-\varepsilon_0}_F$ ya que $F$ y $f$ coinciden salvo en el entorno de $p$ en el que $F\le f$ así
     \begin{equation}
         M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f\implies M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F \subset M^{c+\varepsilon_0}_f\setminus M^{c-\varepsilon_0}_f=f^{-1}[c-\varepsilon_0,c+\varepsilon_0]
     \end{equation}
@@ -286,19 +298,24 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     \begin{equation*}
         F(p)=c-\mu(0)<c-\varepsilon_0
     \end{equation*}
-    luego $p\notin F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$.\\
 
-    De esta manera, nos encontramos en las hipótesis del Teorema \ref{retractodef} para $F$, lo que demuestra que $M^{c-\varepsilon_0}_F$ es retracto de deformación de $M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f$.\\
+    luego $p\notin F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$.
+
+    \medskip
+
+    De esta manera, nos encontramos en las hipótesis del Teorema \ref{retractodef} para $F$, lo que demuestra que $M^{c-\varepsilon_0}_F$ es retracto de deformación de $M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f$.
+
+    \bigskip
 
 %Segunda retracción------------------
 
     Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon_0,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-celda. En primer lugar, veamos que
     \begin{equation*}
-        \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}
+        \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}.
     \end{equation*}
 
     \begin{quote}
-    $\left( \subseteq \right) ~~\forall q\in \partial e^{\lambda},~f(q)=c-\varepsilon_0 \implies q\in M^{c-\varepsilon_0}_f$\\
+    $\left( \subseteq \right) ~~\forall q\in \partial e^{\lambda},~f(q)=c-\varepsilon_0 \implies q\in M^{c-\varepsilon_0}_f$
     
     $\left( \supseteq \right) ~~\forall q\in M^{c-\varepsilon_0}_f\cap e^{\lambda}$, se tiene $\xi(q)\le\varepsilon_0,~\eta(q)=0 \text{ y } f(q)\le -\varepsilon_0$, entonces como
     \begin{equation*}
@@ -308,13 +325,17 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     \end{quote}
     \bigskip
 
-    De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.\\
+    De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.
+
+    \medskip
     
     Observamos que $e^{\lambda}$ está contenido en $H$. En efecto, $F$ alcanza su máximo en $\mathcal{U}$ cuando $\mu(\xi+2\eta)$ alcanza su mínimo y este lo alcanza cuando $\xi$ y $\eta$ se anulan, es decir, únicamente en $p$, así
     \begin{equation*}
         F(q)\le F(p)<c-\varepsilon_0 ~\text{ y }~f(q)=c-\xi(q)\ge c-\varepsilon_0,~\forall q\in e^{\lambda}
     \end{equation*}
-    luego $q\in e^{\lambda}\implies q\in H$.\\
+    luego $q\in e^{\lambda}$ lo que implica que $q$ está en $H$.
+
+    \medskip
 
     
     Ahora queremos demostrar que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon_0}_f\cup e^{\lambda}$, como en la demostración del Teorema \ref{retractodef}.\\

@@ -76,22 +76,61 @@
 \usepackage[font=small,skip=3pt]{caption}
 
 
-% Configuración del título
-\title{
-    \Huge\textbf{Introducción a la Teoría de Morse}\\[1em]
-    \includegraphics[width=0.3\textwidth]{imagenes/logocomplu.png} % Sustituye por el logo de tu universidad
-}
-\author{
-    \Large Trabajo de Fin de Grado \\[0.5em]
-    \Large Autor: Enrique Díaz Blanco \\[0.5em]
-    \Large Universidad Complutense de Madrid \\[0.5em]
-}
-\date{}
-
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \thispagestyle{empty}
 
+    \begin{center}
+
+        \vspace*{0.5cm}
+
+        \includegraphics[width=0.25\textwidth]{imagenes/logocomplu.png}
+
+        \vspace{0.15cm}
+
+        {\scshape\Large Universidad Complutense de Madrid\par}
+        \vspace{0.15cm}
+        {\scshape\large Grado en Matemáticas\par}
+
+        \vspace{1.5cm}
+
+        \rule{0.9\textwidth}{0.4pt}\par
+        \vspace{0.5cm}
+
+        {\Huge\bfseries Introducción a la teoría de Morse\par}
+
+        \vspace{0.5cm}
+        \rule{0.9\textwidth}{0.4pt}\par
+
+        \vspace{1.5cm}
+
+        {\huge Trabajo de Fin de Grado\par}
+
+        \vspace{1.5cm}
+
+        {\Large \textbf{Autor}: Enrique Díaz Blanco\par}
+
+        \vspace{0.15cm}
+
+        {\Large \textbf{Tutor}: Ángel González Prieto\par}
+
+        \vfill
+
+        {\large Curso académico 2025--2026\par}
+
+    \end{center}
+
+\end{titlepage}
+
+
+
+\iffalse
+\newpage
+\
+\newpage
+
+\input{extras/declaracion_responsable.tex}
 \newpage
 \
 \newpage
@@ -100,6 +139,7 @@
 \newpage
 \
 \newpage
+\fi
 
 \tableofcontents
 \newpage
@@ -111,13 +151,13 @@
 
 %\input{secciones/funcionesdemorse}
 
-\input{secciones/CWcomplejos.tex}
+%\input{secciones/CWcomplejos.tex}
 
-%\input{secciones/homotopy}
+\input{secciones/homotopy}
 
-\input{secciones/homologia.tex}
+%\input{secciones/homologia.tex}
 
-\input{secciones/desigualdadesMorse.tex}
+%\input{secciones/desigualdadesMorse.tex}
 
 \newpage
 \nocite{*}
