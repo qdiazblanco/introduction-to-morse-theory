@@ -397,7 +397,8 @@ Uno puede demostrar de manera similar el caso general:
 \end{theorem}
 \bigskip
 
-El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración estará basada en dos lema acerca de un espacio topológico con una celda pegada que probaremos primero.
+
+El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración necesitará de dos lemas acerca de un espacio topológico con una celda pegada que probaremos primero.
 \vspace{0.5em}
 
 \begin{lemma}[Lema de Whitehead]
@@ -408,9 +409,56 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
 \end{lemma}
 \begin{proof}
 
-
-
-
+    Primero definimos la función $k$ y su inversa $l$ y después probamos que, en efecto, dan una equivalencia homotópica. 
+    
+    Sea $\{\varphi_t:\partial e^{\lambda} \to X\}$ una homotopía entre $\varphi_0$ y $\varphi_1$, definimos $k$ como sigue.
+    \begin{equation*}
+        \begin{cases}
+            k(x) = x ~~~~~~~~~~~~~\text{ si }~~ x\in X\\
+            k(tu) = 2tu ~~~~~~~~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda}\\
+            k(tu) = \varphi_{2-2t}(u) ~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda},
+        \end{cases}
+    \end{equation*}
+    donde $tu$ denota el producto usual de el escalar $t\in [0,1]$ con el vector unitario $u\in \partial e^{\lambda}$. $k$ es continua ya que para $t=\frac{1}{2}$ se tiene
+    \begin{equation*}
+        k(u/2) = u = \varphi_{1}(u) ~~\text{ y }~~ u \sim \varphi_{1}(u) ~\text{ en }~ X\cup_{\varphi_1} e^{\lambda}.
+    \end{equation*}
+    Además, está bien definida ya que envía representantes de la misma clase de euivalencia al mismo punto. En $X\cup_{\varphi_0} e^{\lambda}$ están relacionado $u$ y $\varphi_0(u)$ para todo $u$ en $\partial e^{\lambda}$ y $k$ verifica que 
+    \begin{equation*}
+        k(u) = \varphi_{0}(u) ~\text{ y }~ k(\varphi_{0}(u)) = \varphi_{0}(u),
+    \end{equation*} 
+    donde la segunda igualdad se tiene ya que $\varphi_{0}(u)$ está en $X$.
+      
+    De manera similar, construimos $l: X\cup_{\varphi_1} e^{\lambda} \to X\cup_{\varphi_0} e^{\lambda}$ como
+    \begin{equation*}
+        \begin{cases}
+            l(x) = x &~~\text{ si }~~ x\in X,\\
+            l(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
+            l(tu) = \varphi_{2t-1}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda}.
+        \end{cases}
+    \end{equation*}
+    Se prueba de manera análoga a $k$ que $l$ es continua y está bien definida.
+    
+    Ahora, veamos como es $l\circ k$ y demos una homotopía de esta a la identidad de $X\cup_{\varphi_0} e^{\lambda}$. El caso $k\circ l$ es análogo y se deja a la discreción del lector.
+    \begin{equation*}
+        \begin{cases}
+            l\circ k(x) = x &~~\text{ si }~~ x\in X,\\
+            l\circ k(tu) = 4tu &~~\text{ si }~~ 0\le t\le \frac{1}{4},~u\in \partial e^{\lambda},\\
+            l\circ k(tu) = \varphi_{4t-1}(u) &~~\text{ si }~~  \frac{1}{4} \le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
+            l\circ k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda}.
+        \end{cases}
+    \end{equation*}
+    El último caso se sigue de que $k(tu) = \varphi_{2-2t}(u)$ si $\frac{1}{2} \le t\le 1$ y esto pertecene a $X$, luego $l$ lo deja fijo. Veamos ahora la homotopía, definimos
+    \begin{equation*}
+    \begin{cases}
+        h_s(x) = x &~~\text{ si }~~ x\in X, ~~s\in[0,1],\\
+        h_s(tu) = \frac{4t}{1+s}u &~~\text{ si }~~ 0 \le t \le \frac{1+s}{4}, \\
+        h_s(tu) = \varphi_{\frac{4t}{1+s}-1}(u) &~~\text{ si }~~ \frac{1+s}{4} \le t \le \frac{1+s}{2}, \\
+        h_s(tu) = \varphi_{2-2t}(u),
+        & \frac{1+s}{2} \le t \le 1 .
+    \end{cases}
+    \end{equation*}
+    Es claro que para $s$ igual a $0$ recuperamos $l\circ k$
 \end{proof}
 \bigskip
 
