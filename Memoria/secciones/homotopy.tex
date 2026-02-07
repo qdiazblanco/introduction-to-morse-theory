@@ -414,12 +414,12 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
     Sea $\{\varphi_t:\partial e^{\lambda} \to X\}$ una homotopía entre $\varphi_0$ y $\varphi_1$, definimos $k$ como sigue.
     \begin{equation*}
         \begin{cases}
-            k(x) = x ~~~~~~~~~~~~~\text{ si }~~ x\in X\\
-            k(tu) = 2tu ~~~~~~~~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda}\\
-            k(tu) = \varphi_{2-2t}(u) ~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda},
+            k(x) = x &~~\text{ si }~~ x\in X\\
+            k(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda}\\
+            k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda},
         \end{cases}
     \end{equation*}
-    donde $tu$ denota el producto usual de el escalar $t\in [0,1]$ con el vector unitario $u\in \partial e^{\lambda}$. $k$ es continua ya que para $t=\frac{1}{2}$ se tiene
+    donde $tu$ denota el producto usual de el escalar $t\in [0,1]$ con el vector unitario $u\in \partial e^{\lambda}$, es decir, cubre todo $D^{\lambda}$. Es continua ya que para $t=\frac{1}{2}$ se tiene
     \begin{equation*}
         k(u/2) = u = \varphi_{1}(u) ~~\text{ y }~~ u \sim \varphi_{1}(u) ~\text{ en }~ X\cup_{\varphi_1} e^{\lambda}.
     \end{equation*}
@@ -451,14 +451,19 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
     El último caso se sigue de que $k(tu) = \varphi_{2-2t}(u)$ si $\frac{1}{2} \le t\le 1$ y esto pertecene a $X$, luego $l$ lo deja fijo. Veamos ahora la homotopía, definimos
     \begin{equation*}
     \begin{cases}
-        h_s(x) = x &~~\text{ si }~~ x\in X, ~~s\in[0,1],\\
-        h_s(tu) = \frac{4t}{1+s}u &~~\text{ si }~~ 0 \le t \le \frac{1+s}{4}, \\
-        h_s(tu) = \varphi_{\frac{4t}{1+s}-1}(u) &~~\text{ si }~~ \frac{1+s}{4} \le t \le \frac{1+s}{2}, \\
-        h_s(tu) = \varphi_{2-2t}(u),
-        & \frac{1+s}{2} \le t \le 1 .
+        h_s(x) = x &~~\text{ si }~~ x\in X, ~~s\in[0,1],\\[4pt]
+        h_s(tu) = (4-3s)tu &~~\text{ si }~~ 0 \le t \le \frac{1}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
+        h_s(tu) = \varphi_{((4-3s)t-1)(1-s)}(u) &~~\text{ si }~~ \frac{1}{4-3s} \le t \le \frac{2-s}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
+        h_s(tu) = \varphi_{(1-s)(2-2t)\frac{(2-s)-(4-3s)t}{2-4t}}(u),
+        &~~\text{ si }~~  \frac{2-s}{4-3s} < t \le 1,~u\in \partial e^{\lambda}.
     \end{cases}
     \end{equation*}
-    Es claro que para $s$ igual a $0$ recuperamos $l\circ k$
+    En el útlimo tramo dejamos una desigualdad estricta ya que para $t=1/2$ no está definida la función, $t$ solo puede tomar este valor para $s=0$, basta definir $h_0(u/2)=\varphi_1(u)$ para tener continuidad. 
+    
+    Es claro que para $s=0$ recuperamos $l\circ k$ y para $s=1$ se tiene la identidad de $X\cup_{\varphi_0} e^{\lambda}$. Que $h_s$ está bien definida se comprueba como en el caso de $k$.
+
+    Así concluye la demostración.
+
 \end{proof}
 \bigskip
 
@@ -469,11 +474,85 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
     \end{equation*}
 \end{lemma}
 \begin{proof}
-    
+    Definimos $F$ mediante
+    \begin{equation*}
+        \begin{cases}
+            F|_X = f, \\
+            F|_{e^{\lambda}} = \text{id}_{e^{\lambda}}.
+        \end{cases}
+    \end{equation*}
 
+    Sea $g:Y\to X$ una inversa homotópica de $f$, definimos
+    \begin{equation*}
+        G: Y\cup_{f\circ\varphi} e^{\lambda} \to X\cup_{g\circ f\circ\varphi} e^{\lambda}
+    \end{equation*}
+    de la misma forma que $F$,
+    \begin{equation*}
+        \begin{cases}
+            G|_Y = g, \\
+            F|_{e^{\lambda}} = \text{id}_{e^{\lambda}}.
+        \end{cases}
+    \end{equation*}
+
+    Ahora, como $g\circ f$ es homótopa a la identidad de $X$ tenemos que $g\circ f\circ\varphi$ es homótopa a $\varphi$. Luego se sigue del lema anterior que existe una equivalencia homotópica 
+    \begin{equation*}
+        k: X\cup_{g\circ f\circ\varphi} e^{\lambda} \to X\cup_{\varphi} e^{\lambda}.
+    \end{equation*}
+    que construimos igual que en la demostración de dicho lema usando una homotopía de $g\circ f$ a la identidad de $X$ $\{h_t: X \to X\}$.
+
+    Veamos primero que la composición $(k\circ G\circ F):X\cup_{\varphi} e^{\lambda}\to X\cup_{\varphi} e^{\lambda}$ es homótopa a la identidad, de ahora en adelante nos referiremos a esta composición como $kGF$. 
+    
+    Es sencillo comprobar que $kGF$ viene dada por
+    \begin{equation*}
+        \begin{cases}
+            kGF(x) = g(f(x)) &~~\text{ si }~~ x\in X,\\
+            kGF(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
+            kGF(tu) = h_{2-2t}(\varphi(u)) &~~\text{ si }~~ \frac{1}{2}\le t\le 1,~u\in \partial e^{\lambda}.
+        \end{cases}
+    \end{equation*} 
+    Ahora, denotamos por $q_s:X\cup_{\varphi} e^{\lambda}\to X\cup_{\varphi} e^{\lambda}$ la homotopía que necesitamos de $kGF$ a la identidad. Esta viene dada por
+    \begin{equation*}
+        \begin{cases}
+            q_s(x) = h_s(x) &~~\text{ si }~~ x\in X,\\
+            q_s(tu) = \frac{2}{1+s}tu &~~\text{ si }~~ 0\le t\le \frac{1+s}{2},~u\in \partial e^{\lambda},\\
+            q_s(tu) = h_{2-2t+s}(\varphi(u)) &~~\text{ si }~~ \frac{1+s}{2}\le t\le 1,~u\in \partial e^{\lambda}.
+        \end{cases}
+    \end{equation*}
+
+    En $s=0$ recuperamos $kGF$ ya que $h_0\equiv g\circ f$, los otros dos tramos son claros. En $s=1$ se tienen $h_1$, que es la identidad en $X$,  $q_1(tu)=tu$ para todo $t\in[0,1]$ y $q_1(u)=h_1(\varphi(u))$ en el último tramo (ya que $t$ solo puede tomar el valor $1$), que es igual a $\varphi(u)$ que está relacionado con $u$. Se comprueba fácilmente que no hay problemas de continuidad observando los valores que toma $q$ cuando $t=\frac{1+s}{2}$ están relacionados.
+
+    Además, $q$ está bien definida ya que $q_s(u) = h_s(\varphi(u)) = q_s(\varphi(u))$.
+
+    Así hemos probado que $F$ tiene una inversa homotópica por la izquierda. Se prubea de manera análoga que $G$ tiene un inversa homotópica por la derecha. 
+    
+    Ahora debemos probar que $kG$ es, en efecto, también una inversa homotópica por la derecha de $F$. Para ello probamos el siguiente resultado primero:
+    \begin{quote}
+        Si una función $F:X\to Y$ tiene una inversa homotópica por la izquierda $L$ y una inversa homotópica por la derecha $R$, entonces $F$ es una equivalencia homotópica y tanto $R$ como $L$ son inversas homotópicas por ambos lados.
+    \end{quote}
+    \medskip
+    En efecto, las relaciones $L\circ F \simeq \text{id}_{X}$ y $F\circ R \simeq \text{id}_{Y}$ implican  
+    \begin{equation*}
+        L \simeq L(F\circ R) = (L\circ F)(R) \simeq R.
+    \end{equation*}
+    Luego, como $L$ esta relacionado con $R$,
+    \begin{equation*}
+        L\circ F \simeq R\circ F \simeq \text{id}_{X}.
+    \end{equation*}
+    Así, $R$ es una inversa homotópica por ambos lados. Se prueba para $L$ de la misma forma.
+
+    \bigskip
+
+    Terminamos la prueba del lema como sigue. Sabemos que tanto $F$ como $G$ tienen una inversa homotópica por la izquierda. 
+
+    Ahora, como $k(GF)\simeq \text{id}_{X\cup_{\varphi} e^{\lambda}}$ y sabemos que $k$ tiene una inversa homotópica por la izquierda, se tiene que $(GF)k\simeq \text{id}_{X\cup_{g\circ f\circ\varphi} e^{\lambda}}$. Donde hemos aplicado el desarrollo dela demostración del resultado intermedio con $l=L$, $F=k$ y $R=GF$.
+
+    De la misma forma, como $G(Fk) \simeq \text{id}_{X\cup_{g\circ f\circ\varphi} e^{\lambda}}$ y sabemos que $G$ tiene una invera homotópica por la izquierda, se tiene $(Fk)G \simeq \text{id}_{Y\cup_{f\circ\varphi} e^{\lambda}}$.
+
+    Y, por último, como $F(kG) \simeq \text{id}_{Y\cup_{f\circ\varphi} e^{\lambda}}$ y $F$ tiene una inversa homotópica por la izquierda, se tiene que $F$ es una equivalencia homotópica, lo que conlcluye la demostración.
 
 \end{proof}
 
+Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado de la sección.
 
 \begin{theorem}
 \label{cwvariedad}
