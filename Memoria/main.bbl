@@ -150,7 +150,6 @@
       \field{title}{Geometry and Topology of Manifolds: Surfaces and Beyond}
       \field{volume}{208}
       \field{year}{2021}
-      \true{nocite}
     \endentry
     \entry{milnor1963}{book}{}{}
       \name{author}{1}{}{%
@@ -181,6 +180,37 @@
       \field{volume}{51}
       \field{year}{1963}
     \endentry
+    \entry{Whitehead1949CombinatorialHomotopy}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6bf40219d3cd88074c021861b356ec83}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={J.\bibnamedelimi H.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \strng{bibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorbibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authornamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \field{extraname}{1}
+      \field{labelalpha}{Whi49}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annals of Mathematics}
+      \field{number}{2}
+      \field{series}{Second Series}
+      \field{title}{Combinatorial Homotopy. I}
+      \field{volume}{50}
+      \field{year}{1949}
+      \field{pages}{213\bibrangedash 245}
+      \range{pages}{33}
+    \endentry
     \entry{Whitehead1978}{book}{}{}
       \name{author}{1}{}{%
         {{hash=6bf40219d3cd88074c021861b356ec83}{%
@@ -203,6 +233,7 @@
       \strng{authornamehash}{6bf40219d3cd88074c021861b356ec83}
       \strng{authorfullhash}{6bf40219d3cd88074c021861b356ec83}
       \strng{authorfullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \field{extraname}{2}
       \field{labelalpha}{Whi78}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}

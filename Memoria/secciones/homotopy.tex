@@ -403,17 +403,43 @@ Uno puede demostrar de manera similar el caso general:
 \bigskip
 
 
-El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración necesitará del \textit{teorema de aproximación celular} cuya demostración se puede encontrar en \cite[p.~349]{hatcher2002} y de dos lemas acerca de un espacio topológico con una celda pegada que probaremos.
+El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. 
+
+Su demostración necesitará del \textit{teorema de aproximación celular} cuya demostración se puede encontrar en \cite[p.~349]{hatcher2002}, del teorema $1$ de \cite{Whitehead1949CombinatorialHomotopy} y de dos lemas acerca de un espacio topológico con una celda pegada que probaremos. Procedemos en este orden.
 \vspace{0.5em}
 
 \begin{definition}
     Se dice que una función $f:X\to Y$ entre CW-complejos es una \textit{función celular} si $f(X^k)\subset Y^k$ para todo $k$. Es decir, una función que lleva celdas a celdas de su misma dimensión o más pequeña.
 \end{definition}
-\begin{theorem}
+\begin{theorem}[Teorema de aproximación celular]
+\label{aprox_celular}
     Toda función $f:X\to Y$ entre CW-complejos es homótopa a una función celular.
 \end{theorem}
 
 \bigskip
+
+\begin{definition}
+    Se dice que un espacio topológico $X$ \textit{domina} a un espacio topológico $Y$ si existen funciones continuas $f:Y\to X$ y $g:X\to Y$ tales que $f\circ g$ es homótopa a la identidad de $X$.
+\end{definition}
+
+\begin{definition}
+    Sea $X$ un espacio dominado por un CW-complejo $K$. Denotamos por $\Delta X$ la mínima dimensión de entre los CW-complejos que dominan a $X$ (puede ser infinita), es decir,
+    \begin{equation*}
+        \Delta X := \text{min}\{\text{dim}K\colon K \text{ es un CW-complejo que domina a }X\}.
+    \end{equation*}
+\end{definition}
+
+El siguiente teorema requiere de más vocabulario aún para ser entendido. Presentamos aquí los objetos pero instamos al lector a recurrir a cualquiera de las referencias \cite{Whitehead1949CombinatorialHomotopy}, \cite{munoz2021} y \cite{hatcher2002} para mayor profundidad.
+
+Dado un espacio topológico $X$ sus grupos de homotopía $\pi_n(X)$ son una generalización en dimensión superior de su grupo fundamental $\pi_1(X)$ formado por las clases de equivalencia módulo homotopía de lazos en $X$. Toda función continua $f:X\to Y$ induce homomorfismos $f_n:\pi_n(X)\to \pi_n(Y)$ entre dichos grupos de homotopía, los cuales serán isomorfismos si y solo si $f$ es una equivalencia homotópica.
+\begin{theorem}
+    Sean $X$ e $Y$ dos espacios topológicos conexos dominados por sendos CW-complejos. Entonces una función $f:X\to Y$ es una equivalencia homotópica si y solo si $f_n:\pi_n(X)\to \pi_n(Y)$ es un isomorfismo de grupos para todo $n$ tal que $1\le n<N+1$, donde $N=\text{max } \{\Delta X,\Delta Y\}$.
+\end{theorem}
+
+\bigskip
+
+Vamos ahora con los dos lemas, ambos con demostración.
+
 \begin{lemma}[Lema de Whitehead]
     Sean $\varphi_0, \varphi_1: \partial e^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
     \begin{equation*}
@@ -586,13 +612,13 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     
     Para el caso base supongamos $a<c_1$. Es claro que $M^a$ es vacío ya que si no lo fuera, por ser compacto, $f$ debe alcanzar un mínimo en $M^a$ y tendría un valor crítico menor que $c_1$.
 
-    Para la hipótesis de inducción supongamos que $M^a$ con $c_i<a<c_{i+1}$ tiene el tipo de homotopía de un CW-complejo $K$. Denotemos por $h':M^a\to K$ una equivalencia homotópicas. Por el teorema \ref{pegadocelula_general}, para $\varepsilon$ suficientemente pequeño $M^{c_i+\varepsilon}$ tiene el tipo de homotopía de 
+    Para la hipótesis de inducción supongamos que $M^a$ con $c_{i-1}<a<c_{i}$ tiene el tipo de homotopía de un CW-complejo $K$. Denotemos por $h:M^a\to K$ una equivalencia homotópica. Por el teorema \ref{pegadocelula_general}, para $\varepsilon$ suficientemente pequeño $M^{c_i+\varepsilon}$ tiene el tipo de homotopía de 
     \begin{equation*}
         M^{c_i - \varepsilon}\cup_{\varphi_1} e^{\lambda_1} \cup\dots\cup_{\varphi_j}
     \end{equation*}
-    para ciertas funciones de pegado $\varphi_1,\dots,\varphi_j$.
+    para ciertas funciones de pegado $\varphi_1,\dots,\varphi_j$. Además, por el teorema \ref{retractodef} existe una equivalencia homotópica $g: M^{c_i-\varepsilon}\to M^a$.
 
-    
+    Ahora, por el teorema de aproximación celular (\ref{aprox_celular})
     
 
 \end{proof}
