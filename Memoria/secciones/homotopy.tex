@@ -388,10 +388,14 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     Las tres regiones cubren por completo $\mathcal{U}$. Esto concluye la demostración de que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$ y con ello la demostración del teorema.
     
 \end{proof}
+\begin{remark}
+\label{obs_incluso_con_c_critico}
+    Modificando un poco la demostración es posible demostrar que $M^c_f$ es también retracto de deformación de $M^{c+\varepsilon}_f$. De hecho, $M^c_f$ es retracto de deoformación de $M_F^c$, que es a su vez retracto de deformación de $M^{c+\varepsilon}_f$, esto, junto con el teorema, deja claro que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^c_f$.
+\end{remark}
+
 \bigskip
 
 Uno puede demostrar de manera similar el caso general:
-\vspace{0.7em}
 
 \begin{theorem}
 \label{pegadocelula_general}
@@ -432,7 +436,9 @@ Su demostración necesitará del \textit{teorema de aproximación celular} cuya 
 El siguiente teorema requiere de más vocabulario aún para ser entendido. Presentamos aquí los objetos pero instamos al lector a recurrir a cualquiera de las referencias \cite{Whitehead1949CombinatorialHomotopy}, \cite{munoz2021} y \cite{hatcher2002} para mayor profundidad.
 
 Dado un espacio topológico $X$ sus grupos de homotopía $\pi_n(X)$ son una generalización en dimensión superior de su grupo fundamental $\pi_1(X)$ formado por las clases de equivalencia módulo homotopía de lazos en $X$. Toda función continua $f:X\to Y$ induce homomorfismos $f_n:\pi_n(X)\to \pi_n(Y)$ entre dichos grupos de homotopía, los cuales serán isomorfismos si y solo si $f$ es una equivalencia homotópica.
+
 \begin{theorem}
+\label{dominados}
     Sean $X$ e $Y$ dos espacios topológicos conexos dominados por sendos CW-complejos. Entonces una función $f:X\to Y$ es una equivalencia homotópica si y solo si $f_n:\pi_n(X)\to \pi_n(Y)$ es un isomorfismo de grupos para todo $n$ tal que $1\le n<N+1$, donde $N=\text{max } \{\Delta X,\Delta Y\}$.
 \end{theorem}
 
@@ -441,6 +447,7 @@ Dado un espacio topológico $X$ sus grupos de homotopía $\pi_n(X)$ son una gene
 Vamos ahora con los dos lemas, ambos con demostración.
 
 \begin{lemma}[Lema de Whitehead]
+\label{lema1_democwvariedad}
     Sean $\varphi_0, \varphi_1: \partial e^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
     \begin{equation*}
         k: X\cup_{\varphi_0} e^{\lambda} \to X\cup_{\varphi_1} e^{\lambda}.
@@ -507,6 +514,7 @@ Vamos ahora con los dos lemas, ambos con demostración.
 \bigskip
 
 \begin{lemma}
+\label{lema2_democwvariedad}
     Sea $\varphi: \partial e^{\lambda} \to X$ una función de pegado. Toda equivalencia homotópica $f:X\to Y$ se puede extender a una equivalencia homotópica 
     \begin{equation*}
         F: X\cup_{\varphi} e^{\lambda} \to Y\cup_{f\circ\varphi} e^{\lambda}.
@@ -608,25 +616,58 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     \end{equation*}
     y por continuidad de la diferencial de $f$, $p$ es un punto crítico. Esto es una contradicción ya que $f$ es una función de Morse, luego $p$ es no degenerado y, por tanto, aislado.
 
-    Sea $a\in\mathbb{R}\setminus\{c_i\}_{i\in \mathcal{C}}$, procedemos por inducción en la cantidad de valores críticos menores que $a$. 
+    Sea $a\in\mathbb{R}\setminus\{c_i\}_{i\in \mathcal{C}}$, procedemos por inducción completa en la cantidad de valores críticos menores que $a$. 
     
     Para el caso base supongamos $a<c_1$. Es claro que $M^a$ es vacío ya que si no lo fuera, por ser compacto, $f$ debe alcanzar un mínimo en $M^a$ y tendría un valor crítico menor que $c_1$.
 
-    Para la hipótesis de inducción supongamos que $M^a$ con $c_{i-1}<a<c_{i}$ tiene el tipo de homotopía de un CW-complejo $K$. Denotemos por $h:M^a\to K$ una equivalencia homotópica. Por el teorema \ref{pegadocelula_general}, para $\varepsilon$ suficientemente pequeño $M^{c_i+\varepsilon}$ tiene el tipo de homotopía de 
-    \begin{equation*}
-        M^{c_i - \varepsilon}\cup_{\varphi_1} e^{\lambda_1} \cup\dots\cup_{\varphi_j}
-    \end{equation*}
-    para ciertas funciones de pegado $\varphi_1,\dots,\varphi_j$. Además, por el teorema \ref{retractodef} existe una equivalencia homotópica $g: M^{c_i-\varepsilon}\to M^a$.
-
-    Ahora, por el teorema de aproximación celular (\ref{aprox_celular})
+    Para la hipótesis de inducción supongamos que $M^a$ con $c_{i-1}<a<c_{i}$ tiene el tipo de homotopía de un CW-complejo $K$ y denotemos por $h:M^a\to K$ una equivalencia homotópica. Veamos entonces que dado $a'>c_{i}$ se tiene que $M^{a'}$ tiene el tipo de homotopía de un CW-complejo. 
     
+    Por el teorema \ref{pegadocelula_general}, para $\varepsilon$ suficientemente pequeño $M^{c_i+\varepsilon}$ tiene el tipo de homotopía de 
+    \begin{equation*}
+        M^{c_i - \varepsilon}\cup_{\varphi_1} e^{\lambda_1} \cup\dots\cup_{\varphi_m} e^{\lambda_m}
+    \end{equation*}
+    para ciertas funciones de pegado $\varphi_1:\partial D^{\lambda_1}\to M^{c_i - \varepsilon},\dots,\varphi_m: \partial D^{\lambda_m}\to M^{c_i - \varepsilon}$, tomemos $a'=c_i+\varepsilon$. Además, por el teorema \ref{retractodef} existe una equivalencia homotópica $g: M^{c_i-\varepsilon}\to M^a$.
+
+    Ahora, por el teorema de aproximación celular (\ref{aprox_celular}) se tiene que para todo $j\in\{1,\dots,m\}$ $h\circ g\circ\varphi_j$ es homótopa a una función
+    \begin{equation*}
+        \psi_j: \partial D^{\lambda_j} \to K^{\lambda_j - 1},
+    \end{equation*}
+    donde $K^{\lambda_j - 1}$ denota el $(\lambda_j -1)$-esqueleto de $K$. Así, por los lemas \ref{lema1_democwvariedad} y \ref{lema2_democwvariedad} se tiene que 
+    \begin{equation*}
+        K\cup_{\psi_1} e^{\lambda_1} \cup\dots\cup_{\psi_m} e^{\lambda_m}
+    \end{equation*}
+    es un CW-complejo y tiene el mismo tipo de homotopía que $M^{c_i+\varepsilon}$. Hemos completado la inducción, $M^a$ tiene el tipo de homotopía de un CW-complejo para todo $a$.
+
+    Si $M$ es compacta hemos terminado ya que tendríamos una cantidad finita de valores críticos y se tiene que $M$ es igual a $M^a$ para todo $a\ge \text{max }f$, es decir, la inducción cubre todo $M$.
+
+    Si $M$ no es compacta pero la cantidad de valores críticos es finita, se tiene que todos los puntos críticos de $M$ se encuentran en un mismo $M^a$ y de manera similar a la demostración del teorema \ref{retractodef} se puede demostrar que $M^a$ es retracto de deformación de $M$ y, de nuevo, hemos terminado.
+
+    Si tenemos una cantidad infinitad de valores críticos y, por tanto, de puntos críticos, la construcción hecha en la inducción nos da la siguiente secuencia de equivalencias homotópicas
+    \[
+        \begin{array}{cccccc}
+            M^{a_1} & \subset & M^{a_2} & \subset & M^{a_3} & \subset \cdots \\
+            \;\;\downarrow{\simeq} & & \;\;\downarrow{\simeq} & & \;\;\downarrow{\simeq} & \\
+            K_1 & \subset & K_2 & \subset & K_3 & \subset \cdots
+        \end{array}
+    \]
+    tales que cada una extendiende a la anterior. Sea $K$ la unión de todos los $K_i$ {\color{blue}¿lo de la direct limit topology?}. Sea $\Phi:M\to K$ la función límite, se tiene que $\Phi$ induce isomorfismos entre los grupos de homotopía en todas las dimensiones, entonces, por el teorema \ref{dominados} es una equivalencia homotópica, lo que concluye la demostración.
 
 \end{proof}
+\begin{remark}
+    Durante la demostración en la que nos basamos \cite[p.~23]{milnor1963}, Milnor omite algunos detalles técnicos. Aquí hemos tratado salvar todas las lagunas técnicas posibles, sin embargo, hay al menos dos que hemos obviado:
+    \begin{enumerate}[label=(\roman*)]
+        \item Al final de la demostración, para ver que se puede aplicar el teorema \ref{dominados} hay que comprobar que tanto $K$ como $M$ están dominados por CW-complejos. Es claro que $K$ está dominado por si mismo, para demostrar que $M$ lo está Milnor mencionar que ha de considerarse como un retacto de un entorno tubular del espacio euclideo.
+        \item Asumimos que la función límite $\Phi$ existe sin dar demostración.
+    \end{enumerate}    
+\end{remark}
 
+\begin{remark}
+    Hemos probado que cada $M^a$ tiene el tipo de homotopía de un CW-complejo con una cantidad finita de celdas, una por cada punto crítico. Esto es cierto incluso cuando $a$ es un valor crítico (ver la observación \ref{obs_incluso_con_c_critico}).
+\end{remark}
 
 \subsection{Algunas aplicaciones}
 
-Presentamos brevemente dos ejemplos de apliciones de los teoremas acerca del pegado de $\lambda$-celdas.
+Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del pegado de $\lambda$-celdas.
 
 \begin{theorem}[Teorema de Reeb]
     Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
