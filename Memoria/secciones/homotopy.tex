@@ -130,7 +130,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 % aqui deberia escribir algo para introducir lo siguiente.
 
 \begin{definition}
-    Sean $M$ una variedad diferenciable y $f:M\to\mathbb{R}$ suave definimos
+    Sean $M$ una variedad diferenciable y $f:M\to\mathbb{R}$ suave definimos los \textit{conjuntos subnivel de f} como
     \begin{equation*}
         M^a := f^{-1}(-\infty,a] =\{p\in M: f(p)\le a\}
     \end{equation*}
@@ -199,8 +199,12 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
     luego $H(1,H(1,\cdot))= id_{M^a}$.    
 
 \end{proof}
+\begin{remark}
+    Nótese la importancia de que $f^{-1}[a,b]$ sea compacto. Si por ejemplo nuestra variedad es la esfera $\mathbb{S}^2$ embebida en $\mathbb{R}^3$, es claro que la función que asigna a cada punto de la esfera su coordenada $z$ es de Morse y verifica que $f^{-1}[a,b]$ es compacto puesto que es cerrado y la esfera es compacta. Ahora, si eliminamos de $\mathbb{S}^2$ un punto $p$ tal que $f(p)$ queda entre $f(a)$ y $f(b)$ se tiene que $f^{-1}[a,b]$ deja de ser compacto (pues deja de ser cerrado y estamos en un espacio Hausdorff) y claramente $M^a$ no es retracto de deformación de $M^b$. 
+\end{remark}
 \bigskip
 
+El siguiente teorema es crucial para conocer la estructura de CW-complejo de una variedad. Este establece que el cambio provocado en el tipo de homotopía de los conjuntos subnivel de una función de Morse al cruzar un punto crítico equivale al de pegar una célula de dimensión el índice de dicho punto crítico.
 
 \begin{theorem}
 \label{pegadocelula}
@@ -390,7 +394,8 @@ Uno puede demostrar de manera similar el caso general:
 \vspace{0.7em}
 
 \begin{theorem}
-    Sean $f$ y $M$ en las hipótesis del teorema anterior. Sean $p_1,\dots, p_k$ puntos críticos no degenerados de $f$ con índices $\lambda_1,\dots, \lambda_k$ tales que $f(p_i)=c, ~\forall i\in \{1,\dots, k\}$. Entonces existe un $\varepsilon>0$ lo suficientemente peuqeño tal que $M_f^{c+\varepsilon}$  tiene el tipo de homotopía de 
+\label{pegadocelula_general}
+    Sean $f$ y $M$ en las hipótesis del teorema anterior. Sean $p_1,\dots, p_k$ puntos críticos no degenerados de $f$ con índices $\lambda_1,\dots, \lambda_k$ tales que $f(p_i)=c, ~\forall i\in \{1,\dots, k\}$. Entonces existe un $\varepsilon>0$ lo suficientemente pequeño tal que $M_f^{c+\varepsilon}$  tiene el tipo de homotopía de 
     \begin{equation*}
         M_f^{c-\varepsilon}\cup e^{\lambda_1}\cup\dots\cup e^{\lambda_k}.
     \end{equation*}
@@ -398,9 +403,17 @@ Uno puede demostrar de manera similar el caso general:
 \bigskip
 
 
-El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración necesitará de dos lemas acerca de un espacio topológico con una celda pegada que probaremos primero.
+El último resultado corona la sección relacionando el tipo de homotopía de una variedad diferenciable con el de un CW-complejo cuyas celdas vienen definidas por los puntos críticos de una función de Morse. Su demostración necesitará del \textit{teorema de aproximación celular} cuya demostración se puede encontrar en \cite[p.~349]{hatcher2002} y de dos lemas acerca de un espacio topológico con una celda pegada que probaremos.
 \vspace{0.5em}
 
+\begin{definition}
+    Se dice que una función $f:X\to Y$ entre CW-complejos es una \textit{función celular} si $f(X^k)\subset Y^k$ para todo $k$. Es decir, una función que lleva celdas a celdas de su misma dimensión o más pequeña.
+\end{definition}
+\begin{theorem}
+    Toda función $f:X\to Y$ entre CW-complejos es homótopa a una función celular.
+\end{theorem}
+
+\bigskip
 \begin{lemma}[Lema de Whitehead]
     Sean $\varphi_0, \varphi_1: \partial e^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
     \begin{equation*}
@@ -552,15 +565,35 @@ El último resultado corona la sección relacionando el tipo de homotopía de un
 
 \end{proof}
 
-Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado de la sección.
+Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado de la sección. 
 
 \begin{theorem}
 \label{cwvariedad}
-    Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M_f^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
+    Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
 \end{theorem}
 \begin{proof}
-    
+    Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<_3<\dots$ Este conjunto no puede tener ningún punto de acumulación, para verlo, supongamos que tuviera uno.
 
+    En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a $c$. Ahora, por esto, existen inifnitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
+    
+    Esta colección infinita de puntos críticos contiene necesariamente una sucesión $\{p_{i_k}\}_{k\in \mathbb{N}}$ convergente a un punto $p$ de $M^{c+1}$. Por continuidad de $f$ se tiene que 
+    \begin{equation*}
+        f(p) = \lim_{k\to \infty} f(p_{i_k}) =  \lim_{k\to \infty} c_{i_k} = c
+    \end{equation*}
+    y por continuidad de la diferencial de $f$, $p$ es un punto crítico. Esto es una contradicción ya que $f$ es una función de Morse, luego $p$ es no degenerado y, por tanto, aislado.
+
+    Sea $a\in\mathbb{R}\setminus\{c_i\}_{i\in \mathcal{C}}$, procedemos por inducción en la cantidad de valores críticos menores que $a$. 
+    
+    Para el caso base supongamos $a<c_1$. Es claro que $M^a$ es vacío ya que si no lo fuera, por ser compacto, $f$ debe alcanzar un mínimo en $M^a$ y tendría un valor crítico menor que $c_1$.
+
+    Para la hipótesis de inducción supongamos que $M^a$ con $c_i<a<c_{i+1}$ tiene el tipo de homotopía de un CW-complejo $K$. Denotemos por $h':M^a\to K$ una equivalencia homotópicas. Por el teorema \ref{pegadocelula_general}, para $\varepsilon$ suficientemente pequeño $M^{c_i+\varepsilon}$ tiene el tipo de homotopía de 
+    \begin{equation*}
+        M^{c_i - \varepsilon}\cup_{\varphi_1} e^{\lambda_1} \cup\dots\cup_{\varphi_j}
+    \end{equation*}
+    para ciertas funciones de pegado $\varphi_1,\dots,\varphi_j$.
+
+    
+    
 
 \end{proof}
 
