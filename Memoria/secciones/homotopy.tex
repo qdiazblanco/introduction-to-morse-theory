@@ -650,7 +650,7 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
             K_1 & \subset & K_2 & \subset & K_3 & \subset \cdots
         \end{array}
     \]
-    tales que cada una extendiende a la anterior. Sea $K$ la unión de todos los $K_i$ {\color{blue}¿lo de la direct limit topology?}. Sea $\Phi:M\to K$ la función límite, se tiene que $\Phi$ induce isomorfismos entre los grupos de homotopía en todas las dimensiones, entonces, por el teorema \ref{dominados} es una equivalencia homotópica, lo que concluye la demostración.
+    tales que cada una extiende a la anterior. Sea $K$ la unión de todos los $K_i$. Sea $\Phi:M\to K$ la función límite, se tiene que $\Phi$ induce isomorfismos entre los grupos de homotopía en todas las dimensiones, entonces, por el teorema \ref{dominados} es una equivalencia homotópica, lo que concluye la demostración.
 
 \end{proof}
 \begin{remark}
@@ -673,5 +673,29 @@ Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del p
     Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
 \end{theorem}
 \begin{proof}
-    
+    Dichos puntos críticos han de ser necesariamente el máximo y el mínimo. Llamemos $p$ y $q$ a los puntos críticos y digamos que $f(p)=0$ es el mínimo y $f(q)=1$ es el máximo.
+
+    Sabemos por el lema de Morse (\ref{lemamorse}) que existen entornos $\mathcal{U}_p$ de $p$ y $\mathcal{U}_q$ de $q$ y sistemas de coordenadas locales $(x_1,\dots,x_n)$ y $(y_1,\dots,y_n)$ tales que $p$ y $q$ tienen, respectivamente, coordenadas $0$ y $f$ es de la forma
+    \begin{equation*}
+        f(x) = x_1^2+x_2^2+\dots+x_n^2~~\text{ y }~~ f(x)=1-y_1^2- y_2^2-\dots-y_n^2
+    \end{equation*}
+    Ahora, sea $\varepsilon > 0$ suficientemente pequeño, se tiene que
+    \begin{equation*}
+        M^{\varepsilon} = \{p\in M \colon f(p)\le \varepsilon\} ~~\text{ y }~~ f^{-1}[1-\varepsilon,1] = \{p\in M \colon 1-\varepsilon \le f(p)\le 1\}.
+    \end{equation*}
+    Ambos, en coordenadas locales se corresponden con $n$-discos cerrados de radio $\sqrt{\varepsilon}$ y centro $0$, por tanto, son homeomorfos a dichas bolas.
+
+    Por otro lado, como $f^{-1}[\varepsilon, 1-\varepsilon]$ no contiene ningún punto crítico, por el teorema \ref{retractodef}$M^{\varepsilon}$ y $M^{1-\varepsilon}$ son difeomorfos. Así, $M$ es igual a la unión de los dos $n$-discos $M^{1-\varepsilon}$ y $f^{-1}[1-\varepsilon,1]$ pegados a lo largo de su frontera común.
 \end{proof}
+\begin{remark}
+    \begin{enumerate}[label=(\roman*)]
+        \item El resultado es cierto incluso cuando los puntos críticos son degenerados, sin embargo, la prueba es más complicada.
+        \item Utilizando el teorema \ref{cwvariedad} es fácil ver que $M$ tiene el tipo de homotopía de un CW-complejo con una $0$-celda y una $n$-celda. Una esfera admite una estructura de CW-complejo con esas celdas, sin embargo, el teorema no nos dice como se pegan. Luego no podemos asegurar que $M$ tenga el tipo de homotopía de la esfera, lo que sería suficiente gracias a la \textit{conjetura de Poincaré generalizada}.
+        \item No es necesario que $M$ sea difeomorfa a la esfera, esto se debe a la existencia de \textit{esferas exóticas} en algunas dimensiones, espacios homeomorfos a la esfera cuyas estructuras diferenciables no son difeomorfas a la de la esfera estándar.
+    \end{enumerate}
+\end{remark}
+
+Otra aplicación de los teoremas de la sección anterior es la siguiente.
+
+Sea $\mathbb{CP}^n$ el espacio proyectivo complejo de dimensión $n$.
+

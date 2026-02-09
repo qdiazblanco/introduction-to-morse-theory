@@ -77,7 +77,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Notas de la asignatura {Variedades Diferenciables}}
       \field{year}{2023--2024}
-      \true{nocite}
     \endentry
     \entry{hatcher2002}{book}{}{}
       \name{author}{1}{}{%
