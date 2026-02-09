@@ -49,7 +49,6 @@
       \field{title}{Infinite Abelian Groups}
       \field{volume}{1}
       \field{year}{1970}
-      \true{nocite}
     \endentry
     \entry{GonzalezPrietoVariedades}{book}{}{}
       \name{author}{1}{}{%
@@ -243,7 +242,6 @@
       \field{title}{Elements of Homotopy Theory}
       \field{volume}{61}
       \field{year}{1978}
-      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

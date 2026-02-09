@@ -354,7 +354,7 @@ También se verifica que los grupos de homología son invariantes por homeomorfi
 
 El resultado se sigue de que dos funciones homotópicas inducen los mismos homomorfismos en homología, por tanto, una equivalencia homotópica y su inversa inducen homomorfismos inversos, luego isomorfismos.
 
-Terminamos con un par de ejemplos de como computar la homología de un CW-complejo.
+Terminamos con unos de ejemplos de como computar la homología de un CW-complejo.
 
 \begin{example}
     \hfill
@@ -384,6 +384,18 @@ Terminamos con un par de ejemplos de como computar la homología de un CW-comple
         \end{equation*}
 
         Y $H_0(T^2)\cong \mathbb{Z}$ por ser conexo por caminos.
+        \item Por la estructura de CW-complejo dada para $\mathbb{CP}^n$ en la subsección \ref{subsec:aplicaciones} se tiene el siguiente complejo de cadena
+        \begin{equation*}
+            0\to C_{2n}\simeq \mathbb{Z} \to C_{2n-1}\simeq \{0\}\to \dots \to C_{2}\simeq \mathbb{Z} \to C_1\simeq \{0\}\to C_0 \simeq \mathbb{Z}\to 0 
+        \end{equation*}
+        donde para las dimensiones pares los grupos de cadenas son isomorfos a $\mathbb{Z}$ y para las impares a $\{0\}$. Esto significa que $Z_j = C_j$ y $B_j = \{0\}$ para todo $j$, luego los grupos de homología de $\mathbb{CP}^n$ quedan
+        \begin{equation*}
+            H_j(\mathbb{CP}^n) =
+            \begin{cases}
+                \mathbb{Z} &\text{ si } j \text{ es par},\\
+                \{0\} &\text{ si } j \text{ toma otros valores}.
+            \end{cases}
+        \end{equation*}
     \end{enumerate}
 \end{example}
 
@@ -401,12 +413,14 @@ Concluimos el desarrollo de los aspectos que necesitamos de homología con la \t
 \begin{definition}
     Sean $X$ un espacio y  $A\subset X$ un subespacio. Definimos $C_k(X,A)$ como el grupo cociente
     \begin{equation*}
-        C_k(X)/C_k(A).
+        C_k(X)/C_k(A),
     \end{equation*} 
-    Luego las cadenas de $A$ se vuelven triviales.
+    luego las cadenas de $A$ se vuelven triviales.
 \end{definition}
  
-Ahora, para los operadores de borde vayamos por partes. En primer lugar, para que tenga sentido definirlos debe ocurrir que $\partial_k$ lleve $C_k(A)$ a $C_{k-1}(A)$. En el caso de un espacio triangulado se puede demostrar que tomando un subespacio cualquiera podemos refinar la triangulación hasta que el subespacio quede triangulado unicamente por poliedros completos. Para CW-complejos el subespacio debe ser un subcomplejo, es decir una colección de celdas completas del espacio. En realidad, en ambos casos es la misma situación, la diferencia es que para un espacio triangulado podemos modificar los poliedros hasta tener un subcomplejo de la triangulación.
+Ahora, para los operadores de borde vayamos por partes. En primer lugar, para que tenga sentido definirlos debe ocurrir que $\partial_k$ lleve $C_k(A)$ a $C_{k-1}(A)$. 
+
+En el caso de un espacio triangulado $A$ debe ser \textit{subespacio triangulado}, es decir, un subespacio cubierto únicamente por poliedros completos de la triangulación original. Para CW-complejos el subespacio debe ser un \textit{subcomplejo}, es decir una colección de celdas completas del espacio.
 
 Una vez tenemos esto, el operador de borde en homología relativa no es más que el operador de borde en homología seguido del paso al cociente. En efecto, gracias a que $\partial_k(C_k(A))$ está contenido en $C_{k-1}(A)$, estos inducen un operador de borde en el cociente dado por
 \begin{equation*}
@@ -418,6 +432,9 @@ Observamos que en este caso también se verifica $\partial^{rel}_{k-1}\circ \par
 
 Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se construyen los \textit{grupos de homología relativa} de la misma manera que en homología celular y simplicial.
 
+\begin{nota}
+    Como cabría esperar, si el subespacio $A$ es por ejemplo contractible o vacío, se recuperan los grupos de homología no relativa.
+\end{nota}
 \bigskip
 
 \begin{proposition}
@@ -427,7 +444,10 @@ Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se co
     \end{align*}
 \end{proposition}
 
-Demostrar esto es uno de los objetivos oficiales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la nos hemos basado para esta sección.
+Demostrar esto es uno de los objetivos principales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la que nos hemos basado para esta sección.
+
+Un ejemplo de la utilidad de esta secuencia exacta para computar los grupos de homología relativa es el siguiente.
+{\color{red} lo del disco sin la frontera que hice con angel.}
 
 \bigskip
 
@@ -443,15 +463,12 @@ Introducimos brevemente dos invariantes topológicos relacionados con la homolog
 \begin{definition}
     Sea $X$ un espacio topológico. Definimos el \textit{$k$-ésimo número de Betti de X} como 
     \begin{equation*}
-        b_k(X) = \text{rank } H_k(X).
+        b_k(X) = \text{rank} H_k(X).
     \end{equation*}
 \end{definition}
 
-\begin{nota}
-    Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}.
-\end{nota}
 
-En el caso de un espacio compacto, como ya hemos mencionado, sus grupos de homología serán finitamente generados y, por tanto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\text{rank } H_k(X)$ es $r$ en
+Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}. En el caso de que los grupos de homología sean finitamente generados, como es el de un espacio compacto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\text{rank} H_k(X)$ es $r$ en
 \begin{equation*}
     H_k(X) = \underbrace{\mathbb{Z}\oplus\dots\oplus\mathbb{Z}}_{r} \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z_{d_m}}.
 \end{equation*}

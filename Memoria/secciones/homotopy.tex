@@ -665,8 +665,13 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     Hemos probado que cada $M^a$ tiene el tipo de homotopía de un CW-complejo con una cantidad finita de celdas, una por cada punto crítico. Esto es cierto incluso cuando $a$ es un valor crítico (ver la observación \ref{obs_incluso_con_c_critico}).
 \end{remark}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                           %%
+%%       APLICACIONES        %%
+%%                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Algunas aplicaciones}
-
+\label{subsec:aplicaciones}
 Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del pegado de $\lambda$-celdas.
 
 \begin{theorem}[Teorema de Reeb]
@@ -697,5 +702,43 @@ Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del p
 
 Otra aplicación de los teoremas de la sección anterior es la siguiente.
 
-Sea $\mathbb{CP}^n$ el espacio proyectivo complejo de dimensión $n$.
+Sea $\mathbb{CP}^n$ el espacio proyectivo complejo de dimensión $n$. Pensaremos en $\mathbb{CP}^n$ como el espacio cuyos puntos son las clases de equivalencia de $(n+1)$-uplas $(z_0,\dots,z_n)$ de números complejos denotadas por $[z_0:z_1:\dots:z_n]$ tales que $\sum_j |z_j|^2=1$. 
 
+Definimos la función $f:\mathbb{CP}^n \to \mathbb{R}$ dada por 
+\begin{equation*}
+    f[z_0:z_1:\dots:z_n] = \sum_{j=0}^n c_j |z_j|^2,
+\end{equation*}
+donde $c_0,\dots,c_n\in \mathbb{R}$ son constantes distintas dos a dos. Para hallar sus puntos críticos consideremos el siguiente sistema de coordenadas locales de $\mathbb{CP}^n$. Sea $\mathcal{U}_0$ el subespacio de los puntos tales que $z_0$ es distinto de $0$, establecemos 
+\begin{equation*}
+    |z_0|\frac{z_j}{z_0} = x_j + iy_j
+\end{equation*}
+donde $x_1,y_1,\dots,x_n,y_n : \mathcal{U}_0\to \mathbb{R}$ son funciones coordenadas que llevan de manera difeomorfa $\mathcal{U}_0$ a la bola unidad de $\mathbb{R}^{2n}$. Es claro que 
+\begin{equation*}
+    |z_j|^2 = x_j^2 + y_j^2 ~~\text{ y }~~ |z_0|^2 = 1 - \sum_{j=1}^n (x_j^2 + y_j^2),
+\end{equation*}
+donde la segunda igualdad se sigue de que $\sum_j |z_j|^2=1$ implica que $|z_0|^2 = 1 - \sum_{j=1}^n |z_j|^2 $. Y por tanto $f$ en estas coordenadas locales es de la forma
+\begin{equation*}
+    f = c_0 + \sum_{j=1}^n (c_j-c_0)(x_j^2 + y_j^2)
+\end{equation*}
+ya que 
+\begin{equation*}
+    \sum_{j=0}^n c_j |z_j|^2 = c_0|z_0|^2 + \sum_{j=1}^n c_j |z_j|^2 = c_0 \Big(1 - \sum_{j=1}^n (x_j^2 + y_j^2) \Big) + \sum_{j=1}^n c_j(x_j^2 + y_j^2).
+\end{equation*}
+Así, obtenemos que para todo $j\in\{1,\dots,n\}$
+\begin{equation*}
+    \frac{\partial f}{\partial x_j} = 2x_j(c_j - c_0) ~~\text{ y }~~ \frac{\partial f}{\partial y_j} = 2y_j(c_j - c_0),
+\end{equation*}
+por lo que el único punto de $\mathcal{U}_0$ que anula todas las derivadas parciales es $p_0 = [1:0:\dots:0]$. 
+
+Dado que la matriz Hessiana de $f$ en coordenadas es una matriz diagonal cuyos elementos son constantes no nulas, $p_0$ es no degenerado. Además, es sencillo ver que su índice es dos veces el número de constantes $c_j$ que son menores que $c_0$.
+
+De manera análoga podemos considerar los sistemas de coordenadas equivalentes para los conjuntos $\mathcal{U}_1, \dots, \mathcal{U}_n$, obteniendo los puntos críticos no degenerados
+\begin{equation*}
+    p_1 = [0:1:0:\dots:0], \dots, p_1 = [0:0:\dots:0:1]
+\end{equation*}
+tales que el índice de $p_k$ es igual a dos veces el número de constantes $c_j$ menores que $c_k$. Como la unión de los $\mathcal{U}_j$ conforma el total de $\mathbb{CP}^n$ se sigue que estos son los únicos puntos críticos de $f$, por lo que todo índice posible entre $0$ y $2n$, es decir, los pares, se da una única vez.
+
+Por el teorema \ref{cwvariedad} $\mathbb{CP}^n$ tiene el tipo de homotopía de un CW-complejo de la forma
+\begin{equation*}
+    e^0\cup e^2 \cup e^4 \cup \dots \cup e^{2n}.
+\end{equation*}
