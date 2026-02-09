@@ -1,0 +1,88 @@
+\section{Preliminares y notación}
+
+Para eliminar posibles ambigüedades en el uso de ciertos términos, comenzamos presentando de manera informal las variedades diferenciables y estableciendo la dirección de las cartas que será la utilizada en adelante. También conviene prestar atención a qué nos referimos cuando hablamos de sistema de coordenadas local y cómo lo denotamos.
+
+Entendemos como \textit{variedad diferenciable n-dimensional} un par $(M,\mathcal{A})$ donde $M$ es una variedad topológica $n$-dimensional (es decir, un espacio topológico Hausdorff, segundo numerable y localmente euclídeo) y $\mathcal{A}$ un atlas de $M$. 
+
+A su vez, un atlas de una variedad topológica $n$-dimensional $M$ será una famila $\mathcal{A}$ de pares
+\begin{equation*}
+    \{(\mathcal{U}_{\alpha}, ~\varphi_{\alpha}:\mathcal{U}_{\alpha}\to \mathbb{R}^n)\}_{\alpha\in\Lambda}
+\end{equation*}
+a los que llamaremos \textit{cartas} donde los $\mathcal{U}_{\alpha}$ forman un recubrimiento por abiertos de $M$ y las funciones $\varphi_{\alpha}$ son homeomorfismos tales que las composiciones 
+\begin{equation*}
+    \varphi_\beta \circ \varphi_\alpha^{-1} : \varphi_\alpha (U_\alpha \cap U_\beta)\to \varphi_\beta (U_\alpha \cap U_\beta)
+\end{equation*}
+son suaves para cualesquiera $\alpha$ y $\beta$.
+
+Todo espacio $M$ denotará una variedad diferenciable $n$-dimensional salvo que se especifique lo contrario.
+
+\bigskip
+
+Con frecuencia hablaremos de un \textit{sistema de coordenadas local en un entorno $\mathcal{U}$ de $p\in M$}. Con esto no nos referiremos a otra cosa que a la elección de una carta. Lo denotaremos $(x_{1}, \dots ,x_{n})$ y quedará implícito que 
+\begin{equation*}
+    x_i = \pi_i \circ \varphi_{\alpha} : \mathcal{U}\cap\mathcal{U}_{\alpha} \to \mathbb{R},
+\end{equation*}
+donde $\alpha$ dependerá del punto de $\mathcal{U}$ sobre el que actúe $x_i$ y la carta que lo contenga escogida. En términos más sencillos, $x_i$ toma un punto y lo lleva a la proyección sobre la $i$-ésima coordenada de su imagen por una de las cartas.
+
+Haremos abuso de la notación para refererirnos indistintamente como $f$ a una función $f:M\to \mathbb{R}$ y su expresión en coordenadas $\tilde{f} = f\circ\varphi_{\alpha}^{-1} : \mathbb{R}^n \to \mathbb{R}$. Es decir, hablaremos de la imagen de un punto $p$ por $f$ como $f(p)$ y como $f(x_1,\dots,x_n)$, donde $(x_1,\dots,x_n)=(x_1(p),\dots,x_n(p))$ son sus coordenadas por una carta que escojamos. 
+
+\bigskip
+
+Por otro lado, una \textit{aplicación diferenciable} $f \colon M \to N$ entre dos variedades diferenciables es una aplicación continua tal que, para todo par de cartas
+$(U,\varphi \colon U \to V) \in \mathcal A$ y $(U',\varphi' \colon U' \to V') \in \mathcal A'$, la aplicación
+\[
+\varphi' \circ f \circ \varphi^{-1}
+\;:\;
+\varphi\bigl(f^{-1}(U')\bigr) \subseteq V
+\longrightarrow V'
+\]
+es de clase $C^\infty$. En lo que sigue, nos referiremos a ellas como aplicaciones \textit{suaves} y \textit{difeomorfismos} si poseen inversa diferenciable.
+
+\bigskip
+
+Cuando tengamos una aplicación diferenciable $f$ podremos hablar de su \textit{diferencial en un punto} $p \in M$ que será la aplicación lineal
+\[
+\mathrm d_p f \colon T_p M \longrightarrow T_{f(p)} N
+\]
+definida por
+\[
+\mathrm d_p f(X) = X(\,\bullet\, \circ f),
+\]
+donde $\bullet$ indica la posición del argumento. De manera explícita, el vector $\mathrm d_p f(X) \in T_{f(p)}N$ es la derivación  que, para toda función $g$ diferenciable en un entorno de $f(p)$, viene dada por
+\[
+\mathrm d_p f(X)(g) = X(g \circ f).
+\]
+
+Observemos que esta diferencial será la aplicación lineal habitual dada por la matriz de las derivadas parciales de $f$ cuando $f$ sea una función de $\mathbb{R}^n$ en $\mathbb{R}^m$.
+
+\bigskip
+
+Dada una variedad diferenciable $M$ llamaremos \textit{fibrado tangente} de $M$ a la unión disjunta
+de los espacios tangentes en cada uno de los puntos de $M$, es decir,
+\[
+TM \;=\; \bigsqcup_{p \in M} T_pM.
+\]
+
+A su vez, un \textit{campo vectorial suave} sobre una $M$ es una aplicación suave
+\[
+X \colon M \to TM,
+\]
+que denotamos $p \mapsto X_p$, y que verifica que, para todo $p \in M$, se tiene $X_p \in T_pM$.
+
+\bigskip
+
+Por último, hablaremos de \textit{variedades Riemannianas} cuando lo que tengamos sea una variedad diferenciable $M$ equipada con un \textit{producto escalar}, es decir, un par $(M,\langle\cdot,\cdot\rangle)$ donde $M$ es una variedad diferenciable y para cada punto $p \in M$, $\langle\cdot,\cdot\rangle_p$ es un producto escalar (forma bilineal, simétrica y definida positiva)
+  \[
+    \langle\cdot,\cdot\rangle_p \colon T_pM \times T_pM \to \mathbb{R},
+  \]
+que verifica que para cualesquiera campos vectoriales suaves $X$ e $Y$, la función
+  \[
+    p \mapsto \langle X(p), Y(p) \rangle_p
+  \]
+es suave sobre $M$. Este producto esacalar se conoce como \textit{métrica de Riemann}. Cabe mencionar que en ocasiones nos referiremos a una variedad riemanniana solamente como $M$ si no necesitamos hacer uso explícito de la métrica ya que toda variedad diferenciable se puede equipar con una.
+
+\bigskip
+
+Para mayor profundidad en la mayoría de estos conceptos sugerimos que se recurra a \cite{GonzalezPrietoVariedades}, de donde nosotros mismos hemos obtenido gran parte de la información. 
+
+Ahora que nos hemos deshecho de posibles lagunas en lo que a las variedades diferenciables se refiere abrámonos paso a la \textit{teoría de Morse}.

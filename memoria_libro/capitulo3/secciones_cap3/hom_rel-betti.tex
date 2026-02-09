@@ -1,0 +1,84 @@
+\section{Homología relativa}
+
+Concluimos el desarrollo de los aspectos que necesitamos de homología con la \textit{homología relativa}. En esencia, en homología relativa lo que hacemos es ignorar todas las cadenas de un subespacio. La construcción es similar a lo que ya conocemos\dots
+
+\begin{definition}
+    Sean $X$ un espacio y  $A\subset X$ un subespacio. Definimos $C_k(X,A)$ como el grupo cociente
+    \begin{equation*}
+        C_k(X)/C_k(A),
+    \end{equation*} 
+    luego las cadenas de $A$ se vuelven triviales.
+\end{definition}
+ 
+Ahora, para los operadores de borde vayamos por partes. En primer lugar, para que tenga sentido definirlos debe ocurrir que $\partial_k$ lleve $C_k(A)$ a $C_{k-1}(A)$. 
+
+En el caso de un espacio triangulado $A$ debe ser \textit{subespacio triangulado}, es decir, un subespacio cubierto únicamente por poliedros completos de la triangulación original. Para CW-complejos el subespacio debe ser un \textit{subcomplejo}, es decir una colección de celdas completas del espacio.
+
+Una vez tenemos esto, el operador de borde en homología relativa no es más que el operador de borde en homología seguido del paso al cociente. En efecto, gracias a que $\partial_k(C_k(A))$ está contenido en $C_{k-1}(A)$, estos inducen un operador de borde en el cociente dado por
+\begin{equation*}
+    \partial^{rel}_k = q_{k-1}\circ\partial_k,
+\end{equation*} 
+donde los $q_k$ forman la familia de funciones de paso al cociente. Omitiremos la etiqueta ``rel'' siempre que el contexto lo permita.
+
+Observamos que en este caso también se verifica $\partial^{rel}_{k-1}\circ \partial^{rel}_k = 0$ ya que se anulan antes de pasar al cociente, luego los $q_k$ forman un morfismo de cadena.
+
+Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se construyen los \textit{grupos de homología relativa} de la misma manera que en homología celular y simplicial.
+
+\begin{nota}
+    Como cabría esperar, si el subespacio $A$ es por ejemplo contractible o vacío, se recuperan los grupos de homología no relativa.
+\end{nota}
+\bigskip
+
+\begin{proposition}
+    Para cualquier par $(X,A)$ con las propiedades necesarias según el contexto como establecido arriba se tiene la siguiente secuencia exacta
+    \begin{align*}
+        \cdots \longrightarrow H_n(A) \longrightarrow H_n(X) \longrightarrow H_n(X,A) \longrightarrow H_{n-1}(A) \longrightarrow H_{n-1}(X) \longrightarrow \cdots \longrightarrow H_0(X,A) \longrightarrow 0.
+    \end{align*}
+\end{proposition}
+
+Demostrar esto es uno de los objetivos principales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la que nos hemos basado para esta sección.
+
+Un ejemplo de la utilidad de esta secuencia exacta para computar los grupos de homología relativa es el siguiente.
+{\color{red} lo del disco sin la frontera que hice con angel.}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            NUMEROS DE BETTI                %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Invariantes relacionados con la homología}
+
+Introducimos brevemente dos invariantes topológicos relacionados con la homología de un espacio que serán centrales en la última sección.
+
+\begin{definition}
+    Sea $X$ un espacio topológico. Definimos el \textit{$k$-ésimo número de Betti de X} como 
+    \begin{equation*}
+        b_k(X) = \text{rank} H_k(X).
+    \end{equation*}
+\end{definition}
+
+
+Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}. En el caso de que los grupos de homología sean finitamente generados, como es el de un espacio compacto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\text{rank} H_k(X)$ es $r$ en
+\begin{equation*}
+    H_k(X) = \underbrace{\mathbb{Z}\oplus\dots\oplus\mathbb{Z}}_{r} \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z_{d_m}}.
+\end{equation*}
+\bigskip
+
+\begin{definition}
+    Sea $X$ un espacio topológico cuyos grupos de homología son finitamente generados y tal que $H_k(X)=0$ para todo $k>N$. La \textit{característica de Euler-Poincaré de X} es 
+    \begin{equation*}
+        \chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
+    \end{equation*}
+\end{definition}
+
+\begin{nota}
+    Una definición habitual de la característica de Euler-Poincaré en términos de los poliedros de una triangulación se puede encontrar en la página $39$ de \cite{munoz2021}. En ella se pide que $X$ sea compacto para que tenga sentido sumar recorriendo los poliedros de la triangulación, aquí ponemos una condición más débil. 
+    
+    Dado que no siempre contamos en nuestro caso con una triangulación conviene tomar la versión más general de arriba en términos de los números de Betti.
+\end{nota}
+
+Tanto para los números de Betti como para la característica de Euler-Poincaré se pueden cambiar $b_k(X)$ y $\chi(X)$ por $b_k(X,A)$ y $\chi(X,A)$ y se conservan las definiciones para los grupos de homología relativa.
+
+\bigskip

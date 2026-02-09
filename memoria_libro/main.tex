@@ -1,0 +1,178 @@
+
+\documentclass[12pt]{ucmthesis}  % default square logo 
+
+\usepackage{graphicx} % Para insertar imagenes
+\usepackage{subcaption} % en el preámbulo
+
+\usepackage{pdfpages} % Para insertar pdf's
+
+\usepackage[left=3cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry} %Cambiar margenes
+\setlength{\parindent}{0pt} %elimina la indentacion
+\usepackage[parfill]{parskip} %salto de linea entre parrafos
+\setlength{\parskip}{0.7em}
+
+\renewcommand{\arraystretch}{1.5} % multiplica por 1.5 el espacio vertical dentro del entorno array
+
+\usepackage[spanish,es-lcroman]{babel} 
+\usepackage[utf8]{inputenc}
+
+\usepackage{csquotes} 
+
+%\usepackage{hyperref}
+
+\usepackage[backend=biber,citestyle=alphabetic,style=alphabetic]{biblatex} %bibliografia
+\bibliography{bibliografia/bibliografia} % tu archivo .bib
+
+\usepackage{xcolor} %cambiar color del texto
+
+\usepackage{enumitem} % Para hacer apartados (i), (ii), ...
+
+% Paquetes para notación y lenguaje matematico y los entornos de abajo
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+%Entornos para matematicas - - - - - - - - - - -
+\theoremstyle{plain} 
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{corollary}[theorem]{Corolario} 
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observación}
+
+\theoremstyle{remark}
+\newtheorem*{nota}{Nota}
+
+%-------------------------------------- para referencias
+%\usepackage{cleveref}
+
+%\crefname{theorem}{teorema}{teoremas}
+%\Crefname{theorem}{Teorema}{Teoremas}
+
+%\crefname{definition}{definición}{definiciones}
+%\Crefname{definition}{Definición}{Definiciones}
+
+%\crefname{lemma}{lema}{lemas}
+%\Crefname{lemma}{Lema}{Lemas}
+
+%\crefname{proposition}{proposición}{proposiciones}
+%\Crefname{proposition}{Proposición}{Proposiciones}
+
+%\crefname{corollary}{corolario}{corolarios}
+%\Crefname{corollary}{Corolario}{Corolarios}
+
+%\crefname{remark}{observación}{observaciones}
+%\Crefname{remark}{Observación}{Observaciones}
+
+% - - - - - - - - - - - - - - - - - - - - - - - -
+\sloppy %evita partir palabras al final de la linea
+%------------------------------------------------
+% -------------------------------------------------
+% Encabezados estilo libro clásico (GTM / Springer)
+% -------------------------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % limpiar todo
+
+% --- PÁGINAS IMPARES (odd / right pages)
+% izquierda  -> sección
+% derecha    -> número de página
+\fancyhead[OL]{\nouppercase{\rightmark}}
+\fancyhead[OR]{\thepage}
+
+% --- PÁGINAS PARES (even / left pages)
+% izquierda  -> número de página
+% derecha    -> capítulo
+\fancyhead[EL]{\thepage}
+\fancyhead[ER]{\nouppercase{\leftmark}}
+
+% Línea del encabezado
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Capítulo: número + título (sin la palabra "Capítulo")
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\thechapter.\ #1}{}%
+}
+
+% Sección: número completo + título
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection.\ #1}%
+}
+
+\usepackage{emptypage}
+
+%------------------------------------
+% para el numero de pagina cuando empieza un capitulo
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[R]{%
+     \raisebox{0.6ex}{\rule{0.8cm}{0.4pt}}\hspace{0.4em}\thepage
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+%-------------------------------------------------
+
+\usepackage{float}
+\usepackage[font=small,skip=3pt]{caption}
+
+\title{Plantilla para\\     %your thesis title,
+        Trabajos de Fin de Grado}   %note \\[1ex] is a line break in the title
+
+\author{Ángel González Prieto}             %your name
+\college{Facultad de Ciencias Matemáticas}  %your college
+
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degree{Grado en Matemáticas}     %the degree
+\degreedate{Noviembre de 2021}         %the degree date
+
+%end the preamble and start the document
+\begin{document}
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=18pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+\maketitle                  % create a title page from the preamble info
+%\include{dedication}        % include a dedication.tex file
+%\include{acknowlegements}   % include an acknowledgements.tex file
+%\include{abstract}          % include the abstract
+
+\begin{romanpages}          % start roman page numbering
+\tableofcontents            % generate and include a table of contents
+%\listoffigures             % Uncomment to generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+\include{capitulo1/chapter1}
+\include{capitulo2/chapter2}
+\include{capitulo3/chapter3}
+\include{capitulo4/chapter4}
+
+%now enable appendix numbering format and include any appendices
+
+%\appendix
+%\include{appendix1}
+
+%next line adds the Bibliography to the contents page
+\addcontentsline{toc}{chapter}{Bibliografía}
+
+\newpage
+\printbibliography[title={Bibliografía}]
+
+\end{document}
