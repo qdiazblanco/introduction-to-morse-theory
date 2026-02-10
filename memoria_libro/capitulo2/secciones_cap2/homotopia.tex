@@ -444,7 +444,7 @@ Dado un espacio topológico $X$ sus grupos de homotopía $\pi_n(X)$ son una gene
 
 \bigskip
 
-Vamos ahora con los dos lemas, ambos con demostración.
+Vamos ahora con los dos lemas, ambos con demostración. Para la demostración del primero nos hemos basado en la demostración del lema $5$ encontrado en \cite[p.~67]{whitehead_lemacw}.
 
 \begin{lemma}[Lema de Whitehead]
 \label{lema1_democwvariedad}
@@ -499,14 +499,12 @@ Vamos ahora con los dos lemas, ambos con demostración.
     \begin{cases}
         h_s(x) = x &~~\text{ si }~~ x\in X, ~~s\in[0,1],\\[4pt]
         h_s(tu) = (4-3s)tu &~~\text{ si }~~ 0 \le t \le \frac{1}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
-        h_s(tu) = \varphi_{((4-3s)t-1)(1-s)}(u) &~~\text{ si }~~ \frac{1}{4-3s} \le t \le \frac{2-s}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
-        h_s(tu) = \varphi_{(1-s)(2-2t)\frac{(2-s)-(4-3s)t}{2-4t}}(u),
-        &~~\text{ si }~~  \frac{2-s}{4-3s} < t \le 1,~u\in \partial e^{\lambda}.
+        h_s(tu) = \varphi_{(4-3s)t-1}(u) &~~\text{ si }~~ \frac{1}{4-3s} \le t \le \frac{2-s}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
+        h_s(tu) = \varphi_{\frac{1}{2}(4-3s)(1-t)}(u),
+        &~~\text{ si }~~  \frac{2-s}{4-3s} \le t \le 1,~u\in \partial e^{\lambda}.
     \end{cases}
     \end{equation*}
-    En el útlimo tramo dejamos una desigualdad estricta ya que para $t=1/2$ no está definida la función, $t$ solo puede tomar este valor para $s=0$, basta definir $h_0(u/2)=\varphi_1(u)$ para tener continuidad. 
-    
-    Es claro que para $s=0$ recuperamos $l\circ k$ y para $s=1$ se tiene la identidad de $X\cup_{\varphi_0} e^{\lambda}$. Que $h_s$ está bien definida se comprueba como en el caso de $k$.
+    Es claro que para $s=0$ recuperamos $l\circ k$ y para $s=1$ se tiene la identidad de $X\cup_{\varphi_0} e^{\lambda}$. La continuidad se demuestra fácilmente viendo el comportamiento en los extremos de cada tramo. Que $h_s$ está bien definida se comprueba como en el caso de $k$.
 
     Así concluye la demostración.
 

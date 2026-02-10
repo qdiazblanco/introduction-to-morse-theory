@@ -18,6 +18,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \end{definition}
 
 \begin{example}
+\label{betti_subad}
     \hfill
     \begin{enumerate}[label=(\roman*)]
         \item La función $b_k(X,Y)$ que asigna a cada par $(X,Y)$ su $k$-ésimo número de Betti es subaditiva, siempre que sean finitos. En efecto, sean $X$, $Y$ y $Z$ tales que $X\supset Y\supset Z$, se tiene la siguiente secuencia exacta:
@@ -57,21 +58,60 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     Si $S$ es aditiva se verifica la igualdad.
 \end{lemma}
 \begin{proof}
-    Procedemos por inducción sobre $n$. Para $n=1$ se verifica la igualdad trivialmente y para $n=2$ se tiene la definición de subaditividad.
+    Procedemos por inducción sobre $n$. Para $n=1$ se verifica la igualdad trivialmente y para $n=2$ se tiene la definición de subaditividad. Supongamos que se verifica para $n-1$, entonces
+    \begin{equation*}
+        S(X_{n-1}, X_0) \le \sum^{n-1}_{i=1} S(X_i,X_{i-1}).
+    \end{equation*}
+    Utilizando la subaditividad de $S$ y la hipótesis de inducción se tiene
+    \begin{equation*}
+        S(X_n, X_0) \le S(X_{n-1}, X_0) + S(X_n, X_{n-1}) \le \sum^n_{i=1} S(X_i,X_{i-1}). 
+    \end{equation*}
 
-
-    
 \end{proof}
 
 \bigskip
 
 \begin{lemma}
-    La función $S_{\lambda}$ es subaditiva, donde 
+    La función $S_{k}$ es subaditiva, donde 
     \begin{equation*}
-        S_{\lambda}(X,Y) = \sum_{i=0}^{\lambda} (-1)^i b_{\lambda-i}(X,Y)
+        S_{k}(X,Y) = \sum_{i=0}^{k} (-1)^i b_{k-i}(X,Y)
     \end{equation*}
 \end{lemma}
 \begin{proof}
+    Supongamos que tenemos la siguiente secuencia exacta
+    \begin{align*}
+        \cdots \overset{f_{k+1}}{\longrightarrow} A_k \overset{f_{k}}{\longrightarrow} A_{k-1} \overset{f_{k-1}}{\longrightarrow} A_{k-2} \overset{f_{k-2}}{\longrightarrow} \cdots \overset{f_{1}}{\longrightarrow} A_0 \overset{f_{0}}{\longrightarrow} 0.
+    \end{align*}
+    Recordamos que se define el rango de cada $f_i$ como el rango de $\text{im } f_i$. Así,
+    \begin{align*}
+        &\text{rank } f_{k+1} = \text{rank } (\text{im }f_{k+1}),\\
+        &\text{rank }A_k = \text{rank } (\text{ker }f_{k}) + \text{rank } (\text{im }f_{k}) = \text{rank } (\text{im }f_{k+1}) + \text{rank } f_{k}. 
+    \end{align*}
+    De lo que se sigue que
+    \begin{equation*}
+        \text{rank } f_{k+1}  = \text{rank }A_k - \text{rank } f_{k}
+    \end{equation*}
+    Si continuamos desarrollando los rangos de las funciones de la misma forma llegamos a lo siguiente
+    \begin{align*}
+        \text{rank } f_{k+1}  &= \text{rank }A_k - \text{rank } f_{k}=\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank } f_{k-1} =\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank }A_{k-2} - \text{rank } f_{k-2} =\\
+        &~\vdots\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank }A_{k-2} - \dots \pm \text{rank }A_0.
+    \end{align*}
+    Es claro que la última expresión es mayor que cero. Considaremos ahora la secuencia exacta de la terna $X\supset Y\supset Z$ (introducida en \ref{betti_subad}(i)),
+    \begin{align*}
+        \cdots \longrightarrow H_{k+1}(Y,Z) \longrightarrow H_{k+1}(X,Z) \longrightarrow H_{k+1}(X,Y) \overset{f}{\longrightarrow} H_{k}(Y,Z) \longrightarrow \cdots
+    \end{align*}
+    y aplicamos a $f$ lo que acabamos de probar. Observamos que
+    \begin{equation*}
+        \text{rank} f = b_k(Y,Z) - b_k(X,Z) + b_k(X,Y) - b_{k-1}(Y,Z) + \dots \ge 0.
+    \end{equation*}
+    Agrupando los terminos adecuadamente llegamos a
+    \begin{equation*}
+        S_{k}(Y,Z) - S_{k}(X,Z) + S_{k}(X,Y) \ge 0,
+    \end{equation*}
+    lo que concluye la demostración.
 
 \end{proof}
 
@@ -85,7 +125,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \section{Las desigualdades}
 
 \begin{theorem}[Desigualdades de Morse, versión débil]
-    Sean $f$ una función suave {¿\color{blue} de Morse?} sobre una variedad compacta M y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
+    Sean $f$ una función de Morse sobre una variedad compacta M y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
     \begin{equation*}
         b_{\lambda}(M) \le C_{\lambda},~\forall \lambda\in\Lambda ~~\text{ y }~~ \chi(M) = \sum_{\lambda\in\Lambda} (-1)^{\lambda} C_{\lambda},
     \end{equation*}

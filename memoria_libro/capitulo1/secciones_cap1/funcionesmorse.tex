@@ -1,9 +1,7 @@
 
 \section{El lema de Morse}
 
-La teoría de Morse se basa los puntos críticos de una función suave, en concreto, en su índice. Se sirve de este para determinar la estructura una variedad diferenciable. 
-
-Comenzaremos introduciendo estos puntos y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores, el Lema de Morse.
+Comenzamos introduciendo los puntos críticos de una función suave y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores, el Lema de Morse.
 
 \begin{definition}
     Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
@@ -100,7 +98,8 @@ Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ m
 
 Ahora que hemos desarrollado el vocabulario para hablar de los puntos críticos de una función sobre los reales, cerramos esta sección con el enunciado y la demostración del \textit{Lema de Morse}. 
 
-Este resultado es primordial para el desarrollo de esta teoría. A grandes rasgos, establece que en un entorno de un punto crítico no degenerado existe un sistema local de coordenadas respecto al cual la función $f$ es cuadrática. En terminos geométricos, $f$ \textit{es} un paraboloide en dicho entorno. Las funciones cuadráticas además ofrecen múltiples beneficios desde el punto de vista computacional como veremos en la demostración.
+Este resultado es fundamental para el desarrollo de la teoría de Morse. A grandes rasgos, establece que en un entorno de un punto crítico no degenerado existe un sistema local de coordenadas respecto al cual la función $f$ puede expresarse como una forma cuadrática. Desde un punto de vista geométrico, esto implica que $f$ se asemeja a un paraboloide en dicho entorno. Esto resulta increíblemente útil y constituye la base de los argumentos topológicos que usaremos a partir de este punto.
+
 \bigskip
 
 Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de calculo diferencial:
@@ -122,6 +121,7 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 \end{proof}
 \bigskip
 
+Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de Milnor (\cite[p.~6]{milnor1963}) como en la que se encuentra en \cite[p.~431]{marsdenHoffman1993eca}.
 
 \begin{lemma}[Lema de Morse]
 \label{lemamorse}
@@ -264,6 +264,8 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
 \end{remark}
 \bigskip
 
+El siguiente corolario será clave a la hora de demostrar uno de los teoremas principales de la teoría de Morse (ver \ref{cwvariedad}) y muestra una de las ventajas fundamentales de trabajar con puntos críticos no degenerados.
+
 \begin{corollary}
         Sea $M$ una variedad diferenciable. Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está aislado respecto de los demás puntos críticos.
 \end{corollary}
@@ -282,7 +284,7 @@ Tomamos $g_i(x_1,\dots,x_n) = \int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dot
     
 \end{proof}
 
-A continuación ilustramos algunos puntos críticos degenerados y no degenerados junto con las gráficas de sus funciones correspondientes. Obsérvese que mientras los puntos no degenerados han de ser aislados, una función puede tener puntos críticos degenerados tanto aislados como no.
+A continuación presentamos algunos puntos críticos degenerados y no degenerados junto con las gráficas de sus funciones correspondientes. Obsérvese que mientras los puntos no degenerados han de ser aislados, una función puede tener puntos críticos degenerados tanto aislados como no aislados.
 
 \begin{example}
     \hfil
@@ -314,11 +316,11 @@ A continuación ilustramos algunos puntos críticos degenerados y no degenerados
 \end{minipage}
 \end{figure}
 
-Concluimos la sección definiendo los objetos que le dan nombre y que nos usaremos de ahora en adelante para extraer la estructura de CW-complejo de cualquier variedad diferenciable.
+Concluimos la sección definiendo los objetos que le dan nombre y de los que nos serviremos de ahora en adelante para describir la estructura de CW-complejo de cualquier variedad diferenciable.
 \bigskip
 
 \begin{definition}
- Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no-degenerados.
+ Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no degenerados.
 \end{definition}
 
 {\color{blue} ¿Demostrar que para toda variedad de dimension finita existe una funcion de morse?}

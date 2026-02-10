@@ -206,6 +206,43 @@
       \field{volume}{208}
       \field{year}{2021}
     \endentry
+    \entry{marsdenHoffman1993eca}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=ec03988d2dd9d918b4d7f236b192cc6a}{%
+           family={Marsden},
+           familyi={M\bibinitperiod},
+           given={Jerrold\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=214b3bd073ff0952c29c56531eaa0ec6}{%
+           family={Hoffman},
+           familyi={H\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{2}{%
+        {W. H. Freeman}%
+        {Company}%
+      }
+      \strng{namehash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{fullhash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{fullhashraw}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{bibnamehash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{authorbibnamehash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{authornamehash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{authorfullhash}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \strng{authorfullhashraw}{cd3a7bf805bccc4ded0100fb6cd7869d}
+      \field{labelalpha}{MH93}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Elementary Classical Analysis}
+      \field{year}{1993}
+    \endentry
     \entry{milnor1963}{book}{}{}
       \name{author}{1}{}{%
         {{hash=6ed546ba346b01635423d8131e45906b}{%
@@ -255,6 +292,7 @@
       \field{labelalpha}{Whi49}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Annals of Mathematics}
@@ -265,6 +303,36 @@
       \field{year}{1949}
       \field{pages}{213\bibrangedash 245}
       \range{pages}{33}
+    \endentry
+    \entry{whitehead_lemacw}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6bf40219d3cd88074c021861b356ec83}{%
+           family={Whitehead},
+           familyi={W\bibinitperiod},
+           given={J.\bibnamedelimi H.\bibnamedelimi C.},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{fullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \strng{bibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorbibnamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authornamehash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhash}{6bf40219d3cd88074c021861b356ec83}
+      \strng{authorfullhashraw}{6bf40219d3cd88074c021861b356ec83}
+      \field{extraname}{2}
+      \field{labelalpha}{Whi49}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Commentarii Mathematici Helvetici}
+      \field{title}{On simply connected, 4-dimensional polyhedra}
+      \field{volume}{22}
+      \field{year}{1949}
+      \field{pages}{48\bibrangedash 92}
+      \range{pages}{45}
     \endentry
     \entry{Whitehead1978}{book}{}{}
       \name{author}{1}{}{%
@@ -288,7 +356,7 @@
       \strng{authornamehash}{6bf40219d3cd88074c021861b356ec83}
       \strng{authorfullhash}{6bf40219d3cd88074c021861b356ec83}
       \strng{authorfullhashraw}{6bf40219d3cd88074c021861b356ec83}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{labelalpha}{Whi78}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
