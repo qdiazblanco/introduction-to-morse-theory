@@ -19,6 +19,38 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{BottMarstonMorse}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c957d7c7683ecc087a423939393b4c34}{%
+           family={Bott},
+           familyi={B\bibinitperiod},
+           given={Raoul},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{fullhash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{fullhashraw}{c957d7c7683ecc087a423939393b4c34}
+      \strng{bibnamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorbibnamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authornamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorfullhash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorfullhashraw}{c957d7c7683ecc087a423939393b4c34}
+      \field{labelalpha}{Bot80}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bulletin of the American Mathematical Society}
+      \field{month}{11}
+      \field{number}{3}
+      \field{series}{New Series}
+      \field{title}{Marston Morse and His Mathematical Works}
+      \field{volume}{3}
+      \field{year}{1980}
+      \field{dateera}{ce}
+      \field{pages}{907\bibrangedash 958}
+      \range{pages}{52}
+    \endentry
     \entry{FuchsInfiniteAbelianGroupsI}{book}{}{}
       \name{author}{1}{}{%
         {{hash=935ea0cffe6257cf804e84c342dfb396}{%
@@ -106,6 +138,31 @@
       \field{labeltitlesource}{title}
       \field{title}{Algebraic Topology}
       \field{year}{2002}
+    \endentry
+    \entry{KletteCellComplexesHistory}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=3fdb5a470313544616e5b98edf4eaa19}{%
+           family={Klette},
+           familyi={K\bibinitperiod},
+           given={Reinhard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{fullhash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{fullhashraw}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{bibnamehash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{authorbibnamehash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{authornamehash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{authorfullhash}{3fdb5a470313544616e5b98edf4eaa19}
+      \strng{authorfullhashraw}{3fdb5a470313544616e5b98edf4eaa19}
+      \field{labelalpha}{Kle00}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Technical Report CITR-TR-60, University of Auckland}
+      \field{title}{Cell Complexes through Time}
+      \field{year}{2000}
     \endentry
     \entry{munoz2021}{book}{}{}
       \name{author}{3}{}{%

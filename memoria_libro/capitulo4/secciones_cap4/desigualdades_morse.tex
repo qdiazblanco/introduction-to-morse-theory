@@ -1,6 +1,13 @@
-{\color{red} Introducción.}
+
+Cuando Morse desarrolló su teoría, a lo largo de los años veinte (\cite{BottMarstonMorse}), la escena matemática era muy distinta, no fue hasta $1949$ que Whitehead formalizó siquiera el concepto de CW-complejo tal y como lo conocemos (\cite{KletteCellComplexesHistory}). En particular, el teorema \ref{cwvariedad} aún no había sido demostrado, por lo que la relación entre la topología de una variedad diferenciable y los puntos críticos de una función de Morse fue descrita mediante una colección de desigualdades. 
+
+En este capítulo presentamos esta formulación original siguiendo de nuevo el desarrollo encontrado en \cite{milnor1963}. 
 
 \section{Subaditividad}
+
+Empezamos introduciendo algunos resultados de funciones subaditivas.
+
+A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Conviene aclarar que no se trata de pares de espacios arbitrarios, sino de pares tales que $Y$ es un subespacio de $X$ para el que tiene sentido construir los grupos de homología relativa (ver \ref{sec:hom_relat}). Recordemos también que en el caso en el que $Y$ es vacío o contractible recuperamos la homología de $X$.
 
 \begin{definition}
     Sea $S$ una función que toma pares $(X,Y)$ de espacios topológicos y les asigna un entero $S(X,Y)\in \mathbb{Z}$. Decimos que $S$ es \textit{subaditiva} si siempre que $X\supset Y\supset Z$ se tiene que
@@ -13,8 +20,30 @@
 \begin{example}
     \hfill
     \begin{enumerate}[label=(\roman*)]
-        \item $b_k(X,Y)$ es subaditiva. para todo par para el que sea finita.
-        \item $\chi (X,Y)$ es aditiva.
+        \item La función $b_k(X,Y)$ que asigna a cada par $(X,Y)$ su $k$-ésimo número de Betti es subaditiva, siempre que sean finitos. En efecto, sean $X$, $Y$ y $Z$ tales que $X\supset Y\supset Z$, se tiene la siguiente secuencia exacta:
+        \begin{align*}
+            \cdots \longrightarrow H_k(Y,Z) \overset{f}{\longrightarrow} H_k(X,Z) \overset{g}{\longrightarrow} H_k(X,Y) \overset{h}{\longrightarrow} \cdots
+        \end{align*}
+        Esta surge de generalizar la secuencia mencionada en \ref{exact_sec_hom_rel} a una terna (\cite[p.~118]{hatcher2002}). De ella se deduce la subaditividad, veamos cómo. Dado un homomorfismo entre grupos abelianos de rango finito $\varphi: G\to H$, por el primer teorema de isomorfía $G/\text{ker}\varphi$ es isomorfo a $\text{im} \varphi$, luego se tiene
+        \begin{equation*}
+            \text{rank } G = \text{rank}(\text{ker } \varphi) + \text{rank}(\text{im } \varphi).
+        \end{equation*}
+        En nuestro caso, tenemos las siguientes igualdades
+        \begin{equation*}
+            \text{im } f = \text{ker } g ~~\text{ y }~~ \text{im } g = \text{ker } h.
+        \end{equation*}
+        Además,
+        \begin{align*}
+            &b_k(Y,Z) = \text{rank}(\text{ker } f) + \text{rank}(\text{im } f) = \text{rank}(\text{ker } f) + \text{rank}(\text{ker } g),\\
+            &b_k(X,Z) = \text{rank}(\text{ker } g) + \text{rank}(\text{im } g),\\
+            &b_k(X,Y) = \text{rank}(\text{ker } h) + \text{rank}(\text{im } h) = \text{rank}(\text{im } g) + \text{rank}(\text{im } h). 
+        \end{align*}
+        Por lo que
+        \begin{equation*}
+            b_k(X,Z) - b_k(Y,Z) = \text{rank}(\text{im } g) - \text{rank}(\text{ker } f) \le b_k(X,Y).
+        \end{equation*}
+        De donde se deduce la subaditividad.
+        \item Aunque la demostración es más involucrada y no la añadiremos, se tiene que la funcíon que asigna a cada par su característica de Euler-Poincaré $\chi (X,Y)$ es aditiva.
     \end{enumerate}
 \end{example}
 
@@ -28,6 +57,9 @@
     Si $S$ es aditiva se verifica la igualdad.
 \end{lemma}
 \begin{proof}
+    Procedemos por inducción sobre $n$. Para $n=1$ se verifica la igualdad trivialmente y para $n=2$ se tiene la definición de subaditividad.
+
+
     
 \end{proof}
 
