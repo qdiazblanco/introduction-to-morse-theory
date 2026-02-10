@@ -1,6 +1,6 @@
 \section{Preliminares y notación}
 
-Para eliminar posibles ambigüedades en el uso de ciertos términos, comenzamos presentando de manera informal las variedades diferenciables y estableciendo la dirección de las cartas que será la utilizada en adelante. También conviene prestar atención a qué nos referimos cuando hablamos de sistema de coordenadas local y cómo lo denotamos.
+Para eliminar posibles ambigüedades en el uso de ciertos términos, comenzamos presentando las variedades diferenciables y estableciendo la dirección de las cartas que será la utilizada en adelante. También conviene prestar atención a qué nos referimos cuando hablamos de sistema de coordenadas local y cómo lo denotamos.
 
 Entendemos como \textit{variedad diferenciable n-dimensional} un par $(M,\mathcal{A})$ donde $M$ es una variedad topológica $n$-dimensional (es decir, un espacio topológico Hausdorff, segundo numerable y localmente euclídeo) y $\mathcal{A}$ un atlas de $M$. 
 
@@ -12,7 +12,7 @@ a los que llamaremos \textit{cartas} donde los $\mathcal{U}_{\alpha}$ forman un 
 \begin{equation*}
     \varphi_\beta \circ \varphi_\alpha^{-1} : \varphi_\alpha (U_\alpha \cap U_\beta)\to \varphi_\beta (U_\alpha \cap U_\beta)
 \end{equation*}
-son suaves para cualesquiera $\alpha$ y $\beta$.
+son de clase $C^\infty$ para cualesquiera $\alpha$ y $\beta$.
 
 Todo espacio $M$ denotará una variedad diferenciable $n$-dimensional salvo que se especifique lo contrario.
 
@@ -24,7 +24,7 @@ Con frecuencia hablaremos de un \textit{sistema de coordenadas local en un entor
 \end{equation*}
 donde $\alpha$ dependerá del punto de $\mathcal{U}$ sobre el que actúe $x_i$ y la carta que lo contenga escogida. En términos más sencillos, $x_i$ toma un punto y lo lleva a la proyección sobre la $i$-ésima coordenada de su imagen por una de las cartas.
 
-Haremos abuso de la notación para refererirnos indistintamente como $f$ a una función $f:M\to \mathbb{R}$ y su expresión en coordenadas $\tilde{f} = f\circ\varphi_{\alpha}^{-1} : \mathbb{R}^n \to \mathbb{R}$. Es decir, hablaremos de la imagen de un punto $p$ por $f$ como $f(p)$ y como $f(x_1,\dots,x_n)$, donde $(x_1,\dots,x_n)=(x_1(p),\dots,x_n(p))$ son sus coordenadas por una carta que escojamos. 
+Haremos abuso de la notación para refererirnos indistintamente como $f$ a una función $f:M\to \mathbb{R}$ y su expresión en coordenadas $\tilde{f} = f\circ\varphi_{\alpha}^{-1} : \mathbb{R}^n \to \mathbb{R}$. Es decir, hablaremos de la imagen de un punto $p$ por $f$ como $f(p)$ y como $f(x_1,\dots,x_n)$, donde $(x_1,\dots,x_n)=(x_1(p),\dots,x_n(p))$ son sus coordenadas en una carta escogida. 
 
 \bigskip
 
@@ -40,7 +40,7 @@ es de clase $C^\infty$. En lo que sigue, nos referiremos a ellas como aplicacion
 
 \bigskip
 
-Cuando tengamos una aplicación diferenciable $f$ podremos hablar de su \textit{diferencial en un punto} $p \in M$ que será la aplicación lineal
+Cuando tengamos una aplicación diferenciable $f$ podremos hablar de su \textit{diferencial en un punto} $p \in M$, que será la aplicación lineal
 \[
 \mathrm d_p f \colon T_p M \longrightarrow T_{f(p)} N
 \]

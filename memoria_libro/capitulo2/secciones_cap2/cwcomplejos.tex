@@ -73,7 +73,7 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
     \end{enumerate}
 \end{remark}
 
-Los CW-complejos presentan una estructura cómoda para aplicar técnicas algebraicas y computar invariantes topológicos como el grupo fundamental o los grupos de homología que veremos más adelante. Existe también, la ventaja de que toda variedad diferenciable puede dotarse de una estructura de este tipo vía triangulaciones (\textit{cf.} sección \ref{subsec:triangulaciones}) o la teoría de Morse.
+Los CW-complejos presentan una estructura cómoda para aplicar técnicas algebraicas y computar invariantes topológicos como el grupo fundamental o los grupos de homología, que veremos más adelante. Existe también la ventaja de que toda variedad diferenciable puede dotarse de una estructura de este tipo bien vía triangulaciones (\textit{cf.} sección \ref{subsec:triangulaciones}), o bien vía teoría de Morse.
 
 \begin{nota}
     Llamaremos habitualmente \textit{vértices} a las $0$-celdas, \textit{aristas} a las $1$-celdas y \textit{caras} a las $2$-celdas. Nótese también que el borde o la frontera de una arista son dos vértices y de una cara una colección finita de aristas.
@@ -102,11 +102,9 @@ La seccion \ref{subsec:homcelular} sobre homología celular contiene algunos eje
     donde $\vee$ denota la suma wedge \cite[p.~10]{hatcher2002} y $\Lambda_n$ recorre las $n$-celdas de $X$.
 \end{proposition}
 
-Se sigue de que cada $n$-celda $e_{\alpha}^n$ se obtiene pegando la frontera de un $n$-disco al $n-1$-esqueleto. Al cocientar $X_n/X_{n-1}$ estamos colapsando a un solo punto el $n-1$-esqueleto, de manera que componiendo la función de pegado con la de paso al cociente lo que se obtiene es una clase trivial, luego la frontera del disco queda identificada a un solo punto y se tiene que 
-\begin{equation*}
-    D^n/\partial D^n \cong \mathbb{S}^n.
-\end{equation*}
+Esto último se sigue de que cada $n$-celda $e_{\alpha}^n$ se obtiene pegando la frontera de un $n$-disco al $(n-1)$-esqueleto. Al cocientar $X_n/X_{n-1}$ estamos colapsando a un solo punto el $(n-1)$-esqueleto, de manera que componiendo la función de pegado con la de paso al cociente lo que se obtiene es la clase trivial. Así, la frontera del disco queda identificada a un solo punto, además, sabemos que $D^n/\partial D^n \cong \mathbb{S}^n$.
+
 Como las fronteras de todos los  $n$-discos quedan identificadas al mismo punto lo que se obtiene es un ``ramillete'' de esferas, que denotamos
 \begin{equation*}
-    \vee_{\alpha\in\Lambda_n} \mathbb{S}^{n-1}_{\alpha}
+    \vee_{\alpha\in\Lambda_n} \mathbb{S}^{n-1}_{\alpha}.
 \end{equation*}
