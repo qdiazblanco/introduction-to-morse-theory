@@ -1,5 +1,5 @@
 
-Cuando Morse desarrolló su teoría, a lo largo de los años veinte (\cite{BottMarstonMorse}), la escena matemática era muy distinta, no fue hasta $1949$ que Whitehead formalizó siquiera el concepto de CW-complejo tal y como lo conocemos (\cite{KletteCellComplexesHistory}). En particular, el teorema \ref{cwvariedad} aún no había sido demostrado, por lo que la relación entre la topología de una variedad diferenciable y los puntos críticos de una función de Morse fue descrita mediante una colección de desigualdades. 
+Cuando Morse desarrolló su teoría, a lo largo de los años veinte (\cite{BottMarstonMorse}), la escena matemática era muy distinta; no fue hasta $1949$ que Whitehead formalizó siquiera el concepto de CW-complejo tal y como lo conocemos (\cite{KletteCellComplexesHistory}). En particular, el teorema \ref{cwvariedad} aún no había sido demostrado, por lo que la relación entre la topología de una variedad diferenciable y los puntos críticos de una función de Morse fue descrita mediante una colección de desigualdades. 
 
 En este capítulo presentamos esta formulación original siguiendo de nuevo el desarrollo encontrado en \cite{milnor1963}. 
 
@@ -51,6 +51,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \bigskip
 
 \begin{lemma}
+\label{lema__weak_desig_morse}
     Sea $S$ una función subaditiva y sean $X_0\subset \dots \subset X_n$. Entonces,
     \begin{equation*}
         S(X_n, X_0) \le \sum^n_{i=1} S(X_i,X_{i-1}).
@@ -72,6 +73,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \bigskip
 
 \begin{lemma}
+\label{lema_desig_morse}
     La función $S_{k}$ es subaditiva, donde 
     \begin{equation*}
         S_{k}(X,Y) = \sum_{i=0}^{k} (-1)^i b_{k-i}(X,Y)
@@ -125,29 +127,82 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \section{Las desigualdades}
 
 \begin{theorem}[Desigualdades de Morse, versión débil]
-    Sean $f$ una función de Morse sobre una variedad compacta M y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
-    \begin{equation*}
-        b_{\lambda}(M) \le C_{\lambda},~\forall \lambda\in\Lambda ~~\text{ y }~~ \chi(M) = \sum_{\lambda\in\Lambda} (-1)^{\lambda} C_{\lambda},
-    \end{equation*}
-    donde $\Lambda$ incluye todos los valores de los índices de los puntos críticos de $f$.
+\label{weak_morse_desig}
+    Sean $f$ una función de Morse sobre una variedad compacta M $n$-dimensional y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
+    \begin{equation}
+    \label{weak_morse_desig1}
+    \tag{$1_{\lambda}$}
+        b_{\lambda}(M) \le C_{\lambda},~\forall \lambda\in\Lambda, ~~\text{ y }~~ 
+    \end{equation}
+    \begin{equation}
+    \label{weak_morse_desig2}
+    \tag{2}
+        \chi(M) = \sum_{j=0}^n (-1)^{j} C_{j}.
+    \end{equation}
 \end{theorem}
 \begin{proof}
-    
+    Por ser $M$ compacta $f$ tiene una cantidad finita de puntos críticos. Sean $a_1<\dots<a_k$ tales que para todo $i\in \{1,\dots,k\}$ se tiene que $M^{a_i}$ contiene exactamente $i$ puntos críticos, y $M^{a_k}=M$. Entonces,
+    \begin{align*}
+        H_j(M^{a_i},M^{a_i-1}) = H_j(M^{a_i-1}\cup e^{\lambda_i},M^{a_i-1}) = H_j(e^{\lambda_i},\partial e^{\lambda_i}) = 
+        \begin{cases}
+            \mathbb{Z} &~~\text{ si }~~ j=\lambda_i,\\
+            0 &~~\text{ en cualquier otro caso}.
+        \end{cases}
+    \end{align*}
+    La primera igualdad se sigue del teorema \ref{pegadocelula}, donde $\lambda_i$ es el índice del punto crítico. La segunda se obtiene al aplicar el teorema de escisión (\ref{escision}) al espacio $M^{a_i-1}\cup e^{\lambda_i}$ y los subespacios $M^{a_i-1}$ y $e^{\lambda_i}$. La tercera igualdad quedó demostrada en el ejemplo \ref{hom_relat_disco}.
+
+    Ahora, aplicando el lema \ref{lema__weak_desig_morse} con $M^{a_=0}=\emptyset \subset \dots \subset M^{a_k}=M$ y $S=b_{\lambda}$ se tiene 
+    \begin{equation*}
+        b_{\lambda}(M) \le \sum_{i=1}^k b_{\lambda}(M^{a_i},M^{a_i-1}) = C_{\lambda}.
+    \end{equation*}
+    Si por el contrario, aplicamos el lema con $S=\chi$ se llega a 
+    \begin{gather*}
+        \chi(M) = \sum_{i=1}^k \chi(M^{a_i},M^{a_i-1}) = \sum_{i=1}^k \Big(\sum_{j=0}^n (-1)^j b_j(M^{a_i},M^{a_i-1})\Big) = \sum_{j=0}^n (-1)^j \sum_{i=1}^k b_j(M^{a_i},M^{a_i-1})=\\
+        = \sum_{j=0}^n (-1)^{j} C_{j}
+    \end{gather*}
+
 \end{proof}
 
-\bigskip
+Hemos demostrado una primera relación, el rango del $\lambda$-ésimo grupo de homología de $M$ ha de ser menor o igual que el número de puntos críticos de índice $\lambda$ de cualquier función de Morse definida sobre $M$. Además, dada una función de Morse, basta hallar el número de puntos críticos con cada índice posible para conocer la característica de Euler-Poincaré de $M$.
+
+Ahora, se pueden obtener desigualdades ligeramente más fuertes que estas:
 
 \begin{theorem}[Desigualdades de Morse]
-
+    Sea $f$ una función de Morse sobre una variedad compacta $n$-dimensional $M$ y $S_{\lambda}$ la función definida en el lema \ref{lema_desig_morse}, para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
+    \begin{equation*}
+        S_{\lambda}(M)\le \sum_{i=1}^k S_{\lambda}(M^{a_i},M^{a_i-1}) = C_{\lambda}-C_{\lambda-1}+\dots\pm C_0,
+    \end{equation*}
+    donde $(M^{a_i},M^{a_i-1})$ son como en la demostración de \ref{weak_morse_desig}. Equivalentemente,
+    \begin{equation}
+    \label{desig_morse_fuerte}
+    \tag{$3_{\lambda}$}
+        b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
+    \end{equation}
 \end{theorem}
 \begin{proof}
-    
+    Basta aplicar la subaditividad de $S_{\lambda}$ y el lema \ref{lema__weak_desig_morse} con los espacios $M^{a_=0}=\emptyset \subset \dots \subset M^{a_k}=M$.
+
 \end{proof}
 
-lo de 'as an ilustration'\dots
+Es claro que está colección de desigualdades es más fuerte que la anterior. En efecto, basta observar que sumando (\ref{desig_morse_fuerte}) y ($3_{\lambda-1}$) se obtiene la desigualdad (\ref{weak_morse_desig1}). Por otro lado, si $\lambda$ es mayor que $n$ se tiene que (\ref{desig_morse_fuerte}) es la igualdad (\ref{weak_morse_desig2}).
+
+\bigskip
+Veamos una forma de utilizar estas desigualdades. Supongamos que $C_{\lambda+1}=0$, entonces, necesariamente $b_{\lambda+1}=0$. Así, (\ref{desig_morse_fuerte}) y ($3_{\lambda+1}$) quedan
+\begin{align*}
+    &b_{\lambda}-b_{\lambda-1}+\dots\pm b_0 \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0,\\
+    &-b_{\lambda}+b_{\lambda-1}-\dots\pm b_0(M) \le -C_{\lambda}+C_{\lambda-1}-\dots\pm C_0.
+\end{align*}
+De lo que se deduce
+\begin{equation*}
+    b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) = C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
+\end{equation*}
+Supongamos ahora que $C_{\lambda-1}=0$, se tiene entonces que $b_{\lambda-1}=0$, y de la misma forma se llega a la igualdad
+\begin{equation*}
+    b_{\lambda-2}(M)-b_{\lambda-3}+\dots\pm b_0(M) = C_{\lambda-2}-C_{\lambda-3}+\dots\pm C_0.
+\end{equation*}
+Restando ahora esta a la primera igualdad se obtiene que $b_{\lambda} = C_{\lambda}$. Acabamos de demostrar el siguiente corolario.
 
 \begin{corollary}
-    Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$ 
+    Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
 \end{corollary}
 
-explicar por que esto es la ostia y por que se deduce del ultimo de homotopia y de las desigualdades de morse. mirar lo del proyectivo o yo que se.

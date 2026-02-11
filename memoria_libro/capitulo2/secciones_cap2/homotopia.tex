@@ -55,13 +55,12 @@ que verifica que para cualesquiera campos vectoriales suaves $X$ e $Y$, la funci
 \bigskip
 
 Dado un grupo uniparamétrico de difeormorfismos $\varphi$ definimos el siguiente campo vectorial sobre $M$
-
 \begin{equation*}
     X_q(f)=\lim_{h\to 0}\frac{f(\varphi_h(q))-f(q)}{h}
 \end{equation*}
 donde $f$ es una función suave de $M$ en $\mathbb{R}$, y decimos que $X$ genera $\varphi$.
 
-Normalmente uno se refiere a la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ como el \textit{flujo de X} cuando se conoce el campo vectorial $X$ que genera el grupo uniparamétrico de difeomorfismos. En cualquier caso, mantendremos un vocabulario lo más fiel posible al texto \cite{milnor1963}.
+Normalmente, uno se refiere a la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ como el \textit{flujo de X} cuando se conoce el campo vectorial $X$ que genera el grupo uniparamétrico de difeomorfismos. En cualquier caso, mantendremos un vocabulario lo más fiel posible al texto \cite{milnor1963}.
 
 También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:\mathbb{R}\to M$ que definimos de manera similar a X
 \begin{equation*}
@@ -734,7 +733,7 @@ Así, obtenemos que para todo $j\in\{1,\dots,n\}$
 \end{equation*}
 por lo que el único punto de $\mathcal{U}_0$ que anula todas las derivadas parciales es $p_0 = [1:0:\dots:0]$. 
 
-Dado que la matriz Hessiana de $f$ en coordenadas es una matriz diagonal cuyos elementos son constantes no nulas, $p_0$ es no degenerado. Además, es sencillo ver que su índice es dos veces el número de constantes $c_j$ que son menores que $c_0$.
+Dado que $\text{H}_p f$ es una matriz diagonal cuyos elementos son constantes no nulas, $p_0$ es no degenerado. Además, es sencillo ver que su índice es dos veces el número de constantes $c_j$ que son menores que $c_0$.
 
 De manera análoga podemos considerar los sistemas de coordenadas equivalentes para los conjuntos $\mathcal{U}_1, \dots, \mathcal{U}_n$, obteniendo los puntos críticos no degenerados
 \begin{equation*}
@@ -742,7 +741,8 @@ De manera análoga podemos considerar los sistemas de coordenadas equivalentes p
 \end{equation*}
 tales que el índice de $p_k$ es igual a dos veces el número de constantes $c_j$ menores que $c_k$. Como la unión de los $\mathcal{U}_j$ conforma el total de $\mathbb{CP}^n$ se sigue que estos son los únicos puntos críticos de $f$, por lo que todo índice posible entre $0$ y $2n$, es decir, los pares, se da una única vez.
 
-Por el teorema \ref{cwvariedad} $\mathbb{CP}^n$ tiene el tipo de homotopía de un CW-complejo de la forma
+Por el teorema \ref{cwvariedad}, $\mathbb{CP}^n$ tiene el tipo de homotopía de un CW-complejo de la forma
 \begin{equation*}
-    e^0\cup e^2 \cup e^4 \cup \dots \cup e^{2n}.
+    e^0\cup_{\varphi_1} e^2 \cup_{\varphi_2} e^4 \cup_{\varphi_3} \dots \cup_{\varphi_n} e^{2n}.
 \end{equation*}
+para ciertas funciones de pegado $\varphi_j$.

@@ -219,9 +219,6 @@
            given={Michael\bibnamedelima J.},
            giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {New York}%
-      }
       \list{publisher}{2}{%
         {W. H. Freeman}%
         {Company}%
