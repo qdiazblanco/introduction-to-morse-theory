@@ -41,19 +41,81 @@ Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se co
 Demostrar esto es uno de los objetivos principales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la que nos hemos basado para esta sección.
 
 Un ejemplo de la utilidad de esta secuencia exacta para computar los grupos de homología relativa es el siguiente.
-{\color{red} lo del disco sin la frontera que hice con angel.}
 \begin{example}
 \label{hom_relat_disco}
-    jsdskjdn
+Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos de homología relativa $H_k(D^n,\mathbb{S}^{n-1})$. Por la proposición anterior, tenemos la siguiente secuencia exacta.
+\[
+\begin{tikzcd}[
+  column sep=large,
+  row sep=large,
+  every cell/.style={math mode},
+  remember picture
+]
+\cdots ~ \arrow[r] &
+ ~ H_k(\mathbb{S}^{n-1})~  \arrow[r] &
+~ H_k(D^n)\simeq \{0\} ~ \arrow[r] &
+|[alias=topend]| ~H_k(D^n,\mathbb{S}^{n-1})~ \\
+|[alias=botstart]| ~H_{k-1}(\mathbb{S}^{n-1})~ \arrow[r] &
+~H_{k-1}(D^n)\simeq \{0\}~ \arrow[r] &
+~H_{k-1}(D^n,\mathbb{S}^{n-1})~ \arrow[r] &
+~\cdots
+\end{tikzcd}
+\]
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw[-{Stealth[length=1.5mm]}, thin]
+  (topend.east)
+  .. controls +(2.5cm,-1.4cm) and +(-2.5cm,1.4cm) ..
+  (botstart.west);
+\end{tikzpicture}
+
+---------------------------------
+
+
+\[
+\begin{tikzcd}[
+  column sep=large,
+  row sep=large,
+  every cell/.style={math mode},
+  remember picture
+]
+\cdots ~ \arrow[r] &
+ ~ H_1(\mathbb{S}^{n-1})~  \arrow[r] &
+~ H_1(D^n)\simeq \{0\} ~ \arrow[r] &
+|[alias=topend]| ~H_1(D^n,\mathbb{S}^{n-1})\simeq \{0\}~ \\
+|[alias=botstart]| ~H_{0}(\mathbb{S}^{n-1})\simeq \mathbb{Z}~ \arrow[r] &
+~H_{0}(D^n)\simeq \mathbb{Z}~ \arrow[r] &
+~H_{0}(D^n,\mathbb{S}^{n-1})\simeq \{0\}~ \arrow[r] &
+~\cdots
+\end{tikzcd}
+\]
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw[-{Stealth[length=1.5mm]}, thin]
+  (topend.east)
+  .. controls +(2.5cm,-1.4cm) and +(-2.5cm,1.4cm) ..
+  (botstart.west);
+\end{tikzpicture}
+
+
+
+
 \end{example}
+
+
+
+
+
+
+
+
+
 
 Presentamos un último resultado que necesitaremos para demostrar las deisguladades de Morse, el teorema de escisión \cite[p.~119]{hatcher2002}. Este describe cuándo los grupos de homología relativa $H_k(X,A)$ no se ven afectados por eliminar un subespacio $Z\subset A$.
 
 \begin{theorem}[Teorema de escisión]
 \label{escision}
-    Sea $X$ un espacio topológico y $A$ y $Z$ subespacios tales que $Z\subset A\subset X$ y la adherencia de $Z$ está contenida en $A$. Entonces, la inclusión $(X\setminus Z, A\setminus Z)\hookrightarrow (X,A)$, induce isomorfismos $H_n((X\setminus Z, A\setminus Z))\to H_n(X,A)$ para todo $n$. {\color{red}igual quitamos esta version}
-
-    Equivalentemente, para subespacios $A,B\subset X$ cuyos interiores rescubren $X$, la inclusión $(B,A\cap B)\hookrightarrow (X,A)$ induce isomorfismos $H_n(B,A\cap B)\to H_n(X,A)$ para todo $n$.
+    Sea $X$ un espacio topológico y $A,B\subset X$ subespacios cuyos interiores recubren $X$. Entonces, la inclusión $(B,A\cap B)\hookrightarrow (X,A)$ induce isomorfismos $H_n(B,A\cap B)\to H_n(X,A)$ para todo $n$.
 \end{theorem}
 
 Tal y como se explica en \cite{hatcher2002}, la demostración del teorema de escisión requiere de un cierto rodeo técnico que involucra una construcción conocida como subdivisión baricéntrica. Conviene conocer el resultado pero no cubriremos la demostración aquí.
