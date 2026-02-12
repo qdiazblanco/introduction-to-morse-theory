@@ -604,17 +604,19 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
 \end{theorem}
 \begin{proof}
-    Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<_3<\dots$ Este conjunto no puede tener ningún punto de acumulación, para verlo, supongamos que tuviera uno.
+    Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<_3<\dots$ Este conjunto no puede tener ningún punto de acumulación, veámoslo.
 
-    En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a $c$. Ahora, por esto, existen inifnitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
+    En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a un valor $c$. Ahora, por esto, existen inifnitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
     
-    Esta colección infinita de puntos críticos contiene necesariamente una sucesión $\{p_{i_k}\}_{k\in \mathbb{N}}$ convergente a un punto $p$ de $M^{c+1}$. Por continuidad de $f$ se tiene que 
+    Por la compacidad de $M^{c+1}$, esta colección infinita de puntos críticos contiene necesariamente una sucesión $\{p_{i_k}\}_{k\in \mathbb{N}}$ convergente a un punto $p$ de $M^{c+1}$. Por continuidad de $f$ se tiene que 
     \begin{equation*}
         f(p) = \lim_{k\to \infty} f(p_{i_k}) =  \lim_{k\to \infty} c_{i_k} = c
     \end{equation*}
     y por continuidad de la diferencial de $f$, $p$ es un punto crítico. Esto es una contradicción ya que $f$ es una función de Morse, luego $p$ es no degenerado y, por tanto, aislado.
 
-    Sea $a\in\mathbb{R}\setminus\{c_i\}_{i\in \mathcal{C}}$, procedemos por inducción completa en la cantidad de valores críticos menores que $a$. 
+    \medskip
+
+    Sea $a\in\mathbb{R}\setminus\{c_i\}_{i\in \mathcal{C}}$, procedemos ahora por inducción en la cantidad de valores críticos menores que $a$. 
     
     Para el caso base supongamos $a<c_1$. Es claro que $M^a$ es vacío ya que si no lo fuera, por ser compacto, $f$ debe alcanzar un mínimo en $M^a$ y tendría un valor crítico menor que $c_1$.
 
@@ -663,12 +665,15 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     Hemos probado que cada $M^a$ tiene el tipo de homotopía de un CW-complejo con una cantidad finita de celdas, una por cada punto crítico. Esto es cierto incluso cuando $a$ es un valor crítico (ver la observación \ref{obs_incluso_con_c_critico}).
 \end{remark}
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                           %%
 %%       APLICACIONES        %%
 %%                           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Algunas aplicaciones}
+\subsection{Aplicaciones de los teoremas sobre el pegado de $\lambda$-celdas}
 \label{subsec:aplicaciones}
 Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del pegado de $\lambda$-celdas.
 

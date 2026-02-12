@@ -179,18 +179,34 @@
    \begin{quote}}
 {\end{quote}\end{alwayssingle}}
 
+\newenvironment{resumen} {\begin{alwayssingle} \thispagestyle{empty}
+  \begin{center}
+  \vspace*{1.5cm}
+  {\Large \bfseries  Resumen}
+  \end{center}
+  \vspace{0.5cm}
+   \begin{quote}}
+{\end{quote}\end{alwayssingle}}
+
 %The abstractlong environment puts a large, bold, centered "Abstract" label at
 %the top of the page. The abstract itself does not appears in a quote
 %environment so you can get more in.
 
 \newenvironment{abstractlong} {\begin{alwayssingle} \thispagestyle{empty}
   \begin{center}
-  \vspace*{1.5cm}
+  \vspace*{1cm}
   {\Large \bfseries  Abstract}
   \end{center}
-  \vspace{0.5cm}}
+  \vspace{0.3cm}}
 {\end{alwayssingle}}
 
+\newenvironment{resumenlong} {\begin{alwayssingle} \thispagestyle{empty}
+  \begin{center}
+  \vspace*{1cm}
+  {\Large \bfseries  Resumen}
+  \end{center}
+  \vspace{0.3cm}}
+{\end{alwayssingle}}
 %The abstractseparate environment is for running of a page with the abstract
 %on including title and author etc as required to be handed in separately
 
