@@ -43,7 +43,8 @@ Demostrar esto es uno de los objetivos principales de la sección de homología 
 Un ejemplo de la utilidad de esta secuencia exacta para computar los grupos de homología relativa es el siguiente.
 \begin{example}
 \label{hom_relat_disco}
-Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos de homología relativa $H_k(D^n,\mathbb{S}^{n-1})$. Por la proposición anterior, tenemos la siguiente secuencia exacta.
+Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos de homología relativa $H_k(D^n,\mathbb{S}^{n-1})$ para $n\ge 2$. Por la proposición anterior, tenemos la siguiente secuencia exacta,
+
 \[
 \begin{tikzcd}[
   column sep=large,
@@ -69,9 +70,23 @@ Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos 
   (botstart.west);
 \end{tikzpicture}
 
----------------------------------
-
-
+Extraemos de ella la siguiente secuencia exacta corta,
+\begin{align*}
+    \{0\}\overset{f}{\longrightarrow} H_k(D^n,\mathbb{S}^{n-1}) \overset{g}{\longrightarrow} H_{k-1}(\mathbb{S}^{n-1}) \overset{h}{\longrightarrow} \{0\},
+\end{align*}
+y se tiene
+\begin{equation*}
+    \{0\} = \text{im }f = \text{ker }g ~~\text{ y }~~ \text{im }g = \text{ker }h = H_{k-1}(\mathbb{S}^{n-1}).
+\end{equation*}
+Luego $g$ es inyectiva y llegamos a que
+\begin{equation*}
+    H_k(D^n,\mathbb{S}^{n-1}) \simeq \text{im }g = H_{k-1}(\mathbb{S}^{n-1}) \simeq
+    \begin{cases}
+        \mathbb{Z} &~~\text{ si }~~ k=n,\\
+        0 &~~\text{ si }~~k\neq n, ~k\ge 2.
+    \end{cases}
+\end{equation*}
+Para los casos $k=2$ y $k=1$ observamos el final de la secuencia.
 \[
 \begin{tikzcd}[
   column sep=large,
@@ -82,11 +97,11 @@ Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos 
 \cdots ~ \arrow[r] &
  ~ H_1(\mathbb{S}^{n-1})~  \arrow[r] &
 ~ H_1(D^n)\simeq \{0\} ~ \arrow[r] &
-|[alias=topend]| ~H_1(D^n,\mathbb{S}^{n-1})\simeq \{0\}~ \\
+|[alias=topend]| ~H_1(D^n,\mathbb{S}^{n-1})~ \\
 |[alias=botstart]| ~H_{0}(\mathbb{S}^{n-1})\simeq \mathbb{Z}~ \arrow[r] &
 ~H_{0}(D^n)\simeq \mathbb{Z}~ \arrow[r] &
-~H_{0}(D^n,\mathbb{S}^{n-1})\simeq \{0\}~ \arrow[r] &
-~\cdots
+~H_{0}(D^n,\mathbb{S}^{n-1})~ \arrow[r] &
+~\{0\}
 \end{tikzcd}
 \]
 
@@ -97,20 +112,25 @@ Sean el $n$-disco $D^n$ y su frontera $\mathbb{S}^{n-1}$, computemos los grupos 
   (botstart.west);
 \end{tikzpicture}
 
+Se tiene que $H_{0}(\mathbb{S}^{n-1})\simeq \mathbb{Z}\to H_{0}(D^n)\simeq \mathbb{Z}$ es el isomorfismo inducido por la inclusión. Extraemos de nuevo la parte entre $\{0\}$ y $\{0\}$,
+\begin{align*}
+    \{0\}\overset{f}{\longrightarrow} H_1(D^n,\mathbb{S}^{n-1}) \overset{g}{\longrightarrow} \mathbb{Z} \overset{h}{\longrightarrow} \mathbb{Z} \overset{i}{\longrightarrow} H_0(D^n,\mathbb{S}^{n-1}) \overset{j}{\longrightarrow} \{0\}.
+\end{align*}
+Observamos que $\{0\} = \text{im }f = \text{ker }g$ y por ser $h$ un isomorfismo, también $\text{im }g = \text{ker }h = \{0\}$. Luego $g$ es inyectiva y su imagen es $\{0\}$, entonces $H_1(D^n,\mathbb{S}^{n-1})\simeq\{0\}$. Ahora, 
+\begin{equation*}
+    \text{ker }i = \text{im }h = \mathbb{Z} ~~\text{ y }~~ \text{im }i = \text{ker }j = H_0(D^n,\mathbb{S}^{n-1}).
+\end{equation*}
+Luego $\{0\}=\mathbb{Z}/\mathbb{Z}\simeq H_0(D^n,\mathbb{S}^{n-1})$.
 
-
+Para el caso $n=1$ sucede que $\mathbb{S}^0$ tiene dos componentes conexas, luego $H_0(\mathbb{S}^0)=\mathbb{Z}^2$. Para ver como quedan $H_1(D^1,\mathbb{S}^{0})$ y $H_0(D^1,\mathbb{S}^{0})$ basta observar que $C_1(D^1,\mathbb{S}^0)\simeq \mathbb{Z}$ y $C_0(D^1,\mathbb{S}^0)\simeq \{0\}$. Por tanto, 
+\begin{equation*}
+    Z_1(D^1,\mathbb{S}^0)\simeq \mathbb{Z}, ~~Z_0(D^1,\mathbb{S}^0)=\{0\} ~~\text{ y }~~ B_1(D^1,\mathbb{S}^0)=\{0\}.
+\end{equation*}
+Así, obtenemos $H_1(D^1,\mathbb{S}^{0})=\mathbb{Z}$ y $H_0(D^1,\mathbb{S}^{0})=\{0\}$, lo que encaja con lo obtenido para los casos en dimensión superior.
 
 \end{example}
 
-
-
-
-
-
-
-
-
-
+\bigskip
 Presentamos un último resultado que necesitaremos para demostrar las deisguladades de Morse, el teorema de escisión \cite[p.~119]{hatcher2002}. Este describe cuándo los grupos de homología relativa $H_k(X,A)$ no se ven afectados por eliminar un subespacio $Z\subset A$.
 
 \begin{theorem}[Teorema de escisión]

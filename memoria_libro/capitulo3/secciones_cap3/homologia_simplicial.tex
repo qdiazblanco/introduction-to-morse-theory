@@ -247,15 +247,23 @@ De nuevo, dejaremos que el lector encuentre la demostración en la fuente origin
 
 \bigskip
 
-Terminemos el ejemplo sencillo del disco, proporcionaremos más ejemplos para el caso de los CW-complejos más adelante.Sea $D^2$ el disco, entonces, usando la triangulación ya mencionada formada por un $2$-símplice se tienen $C_0(D^2) = \mathbb{Z}\langle v_0, v_1, v_2 \rangle \cong \mathbb{Z}^3$, $C_1(D^2)=\mathbb{Z}\langle [v_0,v_1],[v_1,v_2],[v_2,v_0] \rangle \cong \mathbb{Z}^3$ y $C_2(D^2)=\mathbb{Z}\langle [v_0,v_1,v_2] \rangle \cong \mathbb{Z}$. 
+Terminemos el ejemplo sencillo del disco, proporcionaremos más ejemplos para el caso de los CW-complejos más adelante.Sea $D^2$ el disco, entonces, usando la triangulación ya mencionada formada por un $2$-símplice se tienen $C_0(D^2) = \mathbb{Z}\langle v_0, v_1, v_2 \rangle \simeq \mathbb{Z}^3$, $C_1(D^2)=\mathbb{Z}\langle [v_0,v_1],[v_1,v_2],[v_2,v_0] \rangle \simeq \mathbb{Z}^3$ y $C_2(D^2)=\mathbb{Z}\langle [v_0,v_1,v_2] \rangle \simeq \mathbb{Z}$. 
     
 Ahora, $Z_2(D^2)= \text{ker}(\partial_2)=\{0\}$ ya que los elementos de $C_2(D^2)$ son de la forma $z([v_0,v_1,v_2])$ con $z$ entero y $\partial_2(z[v_0,v_1,v_2]) = z([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) \neq 0$ si $z$ es distinto de cero. Además, $B_2(D^2) =\{0\}$ necesariamente luego $H_2(D^2)=\{0\}$.
     
-Continuamos, $B_1(D^2)=\text{im}(\partial_2)=\{z[v_0,v_1,v_2]\}_{z\in\mathbb{Z}}\cong \mathbb{Z}$ y $Z_1(D^2)= \text{ker}(\partial_1)=B_1(D^2)$ luego $H_2(D^2)\cong \mathbb{Z}/\mathbb{Z} = \{0\}$.
+Continuamos, $B_1(D^2)=\text{im}(\partial_2)=\{z([v_0,v_1]+[v_1,v_2]+[v_2,v_0])\}_{z\in\mathbb{Z}}\simeq \mathbb{Z}$ y $Z_1(D^2)= \text{ker}(\partial_1)=B_1(D^2)$ luego $H_2(D^2)\simeq \mathbb{Z}/\mathbb{Z} = \{0\}$.
 
-No hace falta comprobar que $Z_0(D^2)=\text{ker}(\partial_0)=C_0(D^2)\cong \mathbb{Z}$. Por otro lado, $B_0(D^2)=\text{im}(\partial_2)\subseteq \text{ker}(\partial_1)$ luego es necesariamente $\{0\}$. Así, $H_0(D^2)\cong \mathbb{Z}$.
+No hace falta comprobar que $Z_0(D^2)=\text{ker}(\partial_0)=C_0(D^2)\simeq \mathbb{Z}^3$. Veamos como es $B_0(D^2)$. Las imágenes de los generadores de $C_1(D^2)$ son
+\begin{equation*}
+    \partial_1([v_0,v_1]) = v_1 - v_0,~~ \partial_1([v_1,v_2]) = v_2 - v_1~\text{ y }~ \partial_1([v_2,v_0]) = v_0 - v_2.
+\end{equation*}
+Luego $B_0(D^2)=\mathbb{Z}\langle v_1 - v_0, v_2 - v_1, v_0 - v_2 \rangle$, sin embargo, $(v_0 - v_2) = (v_0 - v_1) + (v_1 - v_2)$ . Luego en realidad se tiene
+\begin{equation*}
+    B_0(D^2)=\mathbb{Z}\langle v_1 - v_0, v_2 - v_0 \rangle \simeq \mathbb{Z}^2.
+\end{equation*}
+Así, $H_0(D^2)=\mathbb{Z}^3/\mathbb{Z}^2\simeq \mathbb{Z}$.
 
-¿Qué ocurre si eliminamos el interior del $2$-símplice? Obtenemos una circunferencia $\mathbb{S}^1$ triangulada por tres $1$-símplices y tres $0$-símplices. Ahora, los grupos $C_1$ y $C_0$ se mantienen, así como $Z_1$, sin embargo, $B_1(\mathbb{S}^1)$ ahora es $\{0\}$ necesariamente por lo que $H_1(\mathbb{S}^1)\cong\mathbb{Z}/\{0\} = \mathbb{Z}$. Qué coincide con el resultado esperado ya que ahora $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]$ es un ciclo que no es borde de nada, luego representa una clase no trivial del grupo de homología.
+¿Qué ocurre si eliminamos el interior del $2$-símplice? Obtenemos una circunferencia $\mathbb{S}^1$ triangulada por tres $1$-símplices y tres $0$-símplices. Ahora, los grupos $C_1$ y $C_0$ se mantienen, así como $Z_1$, sin embargo, $B_1(\mathbb{S}^1)$ ahora es $\{0\}$ necesariamente por lo que $H_1(\mathbb{S}^1)\simeq\mathbb{Z}/\{0\} = \mathbb{Z}$. Esto coincide con el resultado esperado ya que ahora $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]$ es un ciclo que no es borde de nada, luego representa una clase no trivial del grupo de homología.
 
 \bigskip
 
