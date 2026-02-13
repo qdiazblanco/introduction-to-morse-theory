@@ -604,7 +604,7 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
     Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
 \end{theorem}
 \begin{proof}
-    Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<_3<\dots$ Este conjunto no puede tener ningún punto de acumulación, veámoslo.
+    Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<c_3<\cdots$. Este conjunto no puede tener ningún punto de acumulación, veámoslo.
 
     En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a un valor $c$. Ahora, por esto, existen inifnitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
     
@@ -642,23 +642,27 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
 
     Si $M$ no es compacta pero la cantidad de valores críticos es finita, se tiene que todos los puntos críticos de $M$ se encuentran en un mismo $M^a$ y de manera similar a la demostración del teorema \ref{retractodef} se puede demostrar que $M^a$ es retracto de deformación de $M$ y, de nuevo, hemos terminado.
 
-    Si tenemos una cantidad infinitad de valores críticos y, por tanto, de puntos críticos, la construcción hecha en la inducción nos da la siguiente secuencia de equivalencias homotópicas
+    Si tenemos una cantidad infinitad de valores críticos y, por tanto, de puntos críticos, la construcción hecha en la inducción nos da la siguiente secuencia de equivalencias homotópicas,
     \[
         \begin{array}{cccccc}
             M^{a_1} & \subset & M^{a_2} & \subset & M^{a_3} & \subset \cdots \\
-            \;\;\downarrow{\simeq} & & \;\;\downarrow{\simeq} & & \;\;\downarrow{\simeq} & \\
+            \;\;\downarrow{\varphi_1} & & \;\;\downarrow{\varphi_2} & & \;\;\downarrow{\varphi_3} & \\
             K_1 & \subset & K_2 & \subset & K_3 & \subset \cdots
         \end{array}
     \]
-    tales que cada una extiende a la anterior. Sea $K$ la unión de todos los $K_i$. Sea $\Phi:M\to K$ la función límite, se tiene que $\Phi$ induce isomorfismos entre los grupos de homotopía en todas las dimensiones, entonces, por el teorema \ref{dominados} es una equivalencia homotópica, lo que concluye la demostración.
+    tales que cada una extiende a la anterior. Sea $K=\bigcup_{i=1}^{\infty} K_i$ con la mínima topología que hace continuas cada una de las inclusiones $i_j:K_j\hookrightarrow K$. Es decir, la topología tal que $\mathcal{U}\subseteq K$ es abierto si y solo si para todo $j\in \mathbb{N}$ se tiene que $i_j^{-1}(\mathcal{U})$ es abierto en $K_j$. 
+    
+    Definimos la función límite $\Phi:M\to K$ como la función que lleva un punto $x\in M$ al punto $i_i\circ \varphi_i(x)\in K$. En primer lugar, está bien definida ya que no importa la elección de $\varphi_i(x)$. En efecto, $x$ pertenece a todos los $M^{a_j}$ a partir de un cierto $j\in\mathbb{N}$ y, como cada equivalencia homotópica extiende a la anterior, la imagen de $x$ por $\varphi_j$ es la misma independientemente del índice $j$ elegido.
+    
+    Además, es continua ya que, dado $\mathcal{U}\subseteq K$ abierto, se verifica
+    \begin{equation*}
+        \Phi^{-1}(\mathcal{U})= (i_i\circ \varphi_i)^{-1}(\mathcal{U})= \varphi_i^{-1}\circ i_i^{-1}(\mathcal{U}) \overset{\text{\scriptsize abierto}}{\subseteq} M,
+    \end{equation*}
+    donde la última inclusión se sigue de la continuidad de $i_i$ y $\varphi_i$. Se tiene que $\Phi$ induce isomorfismos entre los grupos de homotopía en todas las dimensiones, luego, por el teorema \ref{dominados}, es una equivalencia homotópica, lo que concluye la demostración.
 
 \end{proof}
 \begin{remark}
-    Durante la demostración en la que nos basamos \cite[p.~23]{milnor1963}, Milnor omite algunos detalles técnicos. Aquí hemos tratado salvar todas las lagunas técnicas posibles, sin embargo, hay al menos dos que hemos obviado:
-    \begin{enumerate}[label=(\roman*)]
-        \item Al final de la demostración, para ver que se puede aplicar el teorema \ref{dominados} hay que comprobar que tanto $K$ como $M$ están dominados por CW-complejos. Es claro que $K$ está dominado por si mismo, para demostrar que $M$ lo está Milnor mencionar que ha de considerarse como un retacto de un entorno tubular del espacio euclideo.
-        \item Asumimos que la función límite $\Phi$ existe sin dar demostración.
-    \end{enumerate}    
+    Al final de la demostración, para ver que se puede aplicar el teorema \ref{dominados} hay que comprobar que tanto $K$ como $M$ están dominados por CW-complejos. Es claro que $K$ está dominado por si mismo. Para demostrar que $M$ lo está, basta observar que es retracto de deformación de un entorno tubular suyo, el cual es, a su vez, difeomorfo a un abierto de $\mathbb{R}^m$ para cierto $m$, y todo abierto de $\mathbb{R}^m$ tiene el tipo de homotopía de un CW-complejo.
 \end{remark}
 
 \begin{remark}
@@ -701,8 +705,8 @@ Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del p
     \hfil
     \begin{enumerate}[label=(\roman*)]
         \item El resultado es cierto incluso cuando los puntos críticos son degenerados, sin embargo, la prueba es más complicada.
-        \item Utilizando el teorema \ref{cwvariedad} es fácil ver que $M$ tiene el tipo de homotopía de un CW-complejo con una $0$-celda y una $n$-celda. Una esfera admite una estructura de CW-complejo con esas celdas, sin embargo, el teorema no nos dice como se pegan. Luego no podemos asegurar que $M$ tenga el tipo de homotopía de la esfera, lo que sería suficiente gracias a la \textit{conjetura de Poincaré generalizada}.
-        \item No es necesario que $M$ sea difeomorfa a la esfera, esto se debe a la existencia de \textit{esferas exóticas} en algunas dimensiones, espacios homeomorfos a la esfera cuyas estructuras diferenciables no son difeomorfas a la de la esfera estándar.
+        \item Utilizando el teorema \ref{cwvariedad} es fácil ver que $M$ tiene el tipo de homotopía de un CW-complejo con una $0$-celda y una $n$-celda. Una esfera admite una estructura de CW-complejo con esas celdas, sin embargo, el teorema no nos dice como se pegan. Luego no podemos asegurar que $M$ tenga el tipo de homotopía de la esfera, lo que sería suficiente para demostrar el resultado gracias a la \textit{conjetura de Poincaré generalizada}.
+        \item No es necesario que $M$ sea difeomorfa a la esfera. Esto se debe a la existencia de \textit{estructuras exóticas} en algunas dimensiones: espacios homeomorfos a la esfera cuyas estructuras diferenciables no son difeomorfas a la de la esfera estándar.
     \end{enumerate}
 \end{remark}
 
@@ -716,7 +720,7 @@ Definimos la función $f:\mathbb{CP}^n \to \mathbb{R}$ dada por
 \begin{equation*}
     f[z_0:z_1:\dots:z_n] = \sum_{j=0}^n c_j |z_j|^2,
 \end{equation*}
-donde $c_0,\dots,c_n\in \mathbb{R}$ son constantes distintas dos a dos. Para hallar sus puntos críticos consideremos el siguiente sistema de coordenadas locales de $\mathbb{CP}^n$. Sea $\mathcal{U}_0$ el subespacio de los puntos tales que $z_0$ es distinto de $0$, establecemos 
+donde $c_0,\dots,c_n\in \mathbb{R}$ son constantes distintas dos a dos. Para hallar sus puntos críticos consideremos el siguiente sistema de coordenadas locales de $\mathbb{CP}^n$. Sea $\mathcal{U}_0$ el subespacio de los puntos tales que $z_0$ es distinto de $0$ y sea 
 \begin{equation*}
     |z_0|\frac{z_j}{z_0} = x_j + iy_j
 \end{equation*}

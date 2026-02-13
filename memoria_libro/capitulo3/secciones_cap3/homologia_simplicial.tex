@@ -1,8 +1,15 @@
+
+De cara al siguiente y último capítulo sobre las \textit{desigualdades de Morse} necesitamos introducir el concepto de \textit{homología} de una variedad.
+
+En este capítulo desarrollamos el marco teórico necesario para demostrar las desigualdades de Morse. En primer lugar construimos la homología de un espacio desde el punto de vista simplicial. Posteriormente tratamos el caso particular de los CW-complejos. Finalmente definimos los números de Betti y la característica de Euler-Poincaré.
+
+Durante el desarrollo se omitirán ciertos aspectos técnicos, bien por ser ajenos a nuestros objetivos, bien por requerir una profundidad que no podemos abarcar en este formato. Invitamos al lector a recurrir a las referencias que se mencionan si busca un tratamiento más riguroso y detallado.
+
 \section{Homología simplicial}
 
+\iffalse
 Hasta ahora hemos demostrado que dada una variedad diferenciable de dimensión, podemos, mediante una función de Morse, extraer su estructura de CW-complejo. Es decir, reconstruirla a partir del pegado de celdas cuyas dimensiones vienen determinadas por el índice de cada uno de los puntos críticos de una función de Morse.
-
-De cara al siguiente y último capítulo sobre las \textit{desigualdades de Morse} necesitamos introducir los \textit{grupos de homología} de una variedad y sus correspondientes \textit{números de Betti}. Desarrollaremos estos conceptos en el contexto de los espacios topológicos \textit{triangulados}.
+\fi
 
 Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos pueden resultar extremadamente complicados de computar. Esta idea queda reforzada cuando uno se da cuenta de que ni siquiera existe una manera robusta de computar los grupos de homotopía de $\mathbb{S}^n$ para cualquier $n>1$. Ponemos como ejemplo algunos de los grupos de homotopía conocidos de $\mathbb{S}^2$ para tener una idea de su complejidad:
 \begin{center}
