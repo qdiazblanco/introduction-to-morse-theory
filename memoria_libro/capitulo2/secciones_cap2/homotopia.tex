@@ -329,6 +329,18 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     \end{quote}
     \bigskip
 
+    La figura \ref{fig:diagrama1} reperesenta la situación actual, los ejes corresponden a los planos $u^{\lambda+1}=\dots=u^n=0$ y $u^{1}=\dots=u^{\lambda}=0$. La circunferencia representa la frontera de la bola de radio $\sqrt{e\varepsilon}$ y centro $p$. La región más oscura se corresponde con $M^{c-\varepsilon}_f$; la región con puntos grandes es $f^{-1}[c-\varepsilon,c]$ y por último, la región con los puntos más pequeños es $f^{-1}[c,c+\varepsilon]$.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/diagrama1_cropped.pdf}
+        \caption{Representación esquemática del entorno del punto crítico $p$.}
+        \label{fig:diagrama1}
+    \end{figure}
+
+
+
+
     De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.
 
     \medskip
@@ -682,6 +694,7 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
 Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del pegado de $\lambda$-celdas.
 
 \begin{theorem}[Teorema de Reeb]
+\label{reeb}
     Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
 \end{theorem}
 \begin{proof}

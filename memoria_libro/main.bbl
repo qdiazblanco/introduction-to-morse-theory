@@ -35,6 +35,7 @@
       \strng{authornamehash}{c957d7c7683ecc087a423939393b4c34}
       \strng{authorfullhash}{c957d7c7683ecc087a423939393b4c34}
       \strng{authorfullhashraw}{c957d7c7683ecc087a423939393b4c34}
+      \field{extraname}{1}
       \field{labelalpha}{Bot80}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
@@ -50,6 +51,35 @@
       \field{dateera}{ce}
       \field{pages}{907\bibrangedash 958}
       \range{pages}{52}
+    \endentry
+    \entry{bott1988morse}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=c957d7c7683ecc087a423939393b4c34}{%
+           family={Bott},
+           familyi={B\bibinitperiod},
+           given={Raoul},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{fullhash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{fullhashraw}{c957d7c7683ecc087a423939393b4c34}
+      \strng{bibnamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorbibnamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authornamehash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorfullhash}{c957d7c7683ecc087a423939393b4c34}
+      \strng{authorfullhashraw}{c957d7c7683ecc087a423939393b4c34}
+      \field{extraname}{2}
+      \field{labelalpha}{Bot88}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Publications Mathématiques de l'IHÉS}
+      \field{title}{Morse theory indomitable}
+      \field{volume}{68}
+      \field{year}{1988}
+      \field{pages}{99\bibrangedash 114}
+      \range{pages}{16}
     \endentry
     \entry{FuchsInfiniteAbelianGroupsI}{book}{}{}
       \name{author}{1}{}{%
@@ -240,6 +270,66 @@
       \field{title}{Elementary Classical Analysis}
       \field{year}{1993}
     \endentry
+    \entry{milnor2010manifolds}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=6ed546ba346b01635423d8131e45906b}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific}%
+      }
+      \strng{namehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \strng{bibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorbibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authornamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \field{extraname}{1}
+      \field{labelalpha}{Mil10}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Topological Library: Part 2: Characteristic Classes and Smooth Structures on Manifolds}
+      \field{title}{On manifolds homeomorphic to the 7-sphere}
+      \field{year}{2010}
+      \field{pages}{1\bibrangedash 9}
+      \range{pages}{9}
+    \endentry
+    \entry{milnor2025lectures}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=6ed546ba346b01635423d8131e45906b}{%
+           family={Milnor},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton university press}%
+      }
+      \strng{namehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{fullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \strng{bibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorbibnamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authornamehash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhash}{6ed546ba346b01635423d8131e45906b}
+      \strng{authorfullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \field{extraname}{2}
+      \field{labelalpha}{Mil25}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Lectures on the h-cobordism theorem}
+      \field{volume}{2258}
+      \field{year}{2025}
+    \endentry
     \entry{milnor1963}{book}{}{}
       \name{author}{1}{}{%
         {{hash=6ed546ba346b01635423d8131e45906b}{%
@@ -259,6 +349,7 @@
       \strng{authornamehash}{6ed546ba346b01635423d8131e45906b}
       \strng{authorfullhash}{6ed546ba346b01635423d8131e45906b}
       \strng{authorfullhashraw}{6ed546ba346b01635423d8131e45906b}
+      \field{extraname}{3}
       \field{labelalpha}{Mil63}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
