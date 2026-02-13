@@ -133,17 +133,66 @@
 \usepackage{float}
 \usepackage[font=small,skip=3pt]{caption}
 
-\title{Introducción a la\\ \hspace{1pt} Teoría de Morse}   %note \\[1ex] is a line break in the title
+\iffalse
+\title{Introducción a la\\[0.25em] \hspace{0.25pt} Teoría de Morse}   %note \\[1ex] is a line break in the title
 
 \author{Enrique Díaz Blanco}             %your name
 \college{Facultad de Ciencias Matemáticas}  %your college
 
 %\renewcommand{\submittedtext}{change the default text here if needed}
 \degree{Grado en Matemáticas}     %the degree
-\degreedate{Noviembre de 2021}         %the degree date
-
+\degreedate{Febrero de 2026}         %the degree date
+\fi
 %end the preamble and start the document
 \begin{document}
+
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{center}
+
+        \vspace*{0.5cm}
+
+        \includegraphics[width=0.25\textwidth]{imagenes/logocomplu.png}
+
+        \vspace{0.15cm}
+
+        {\scshape\Large Universidad Complutense de Madrid\par}
+        
+        \vspace{0.15cm}
+        {\scshape\large Facultad de Ciencias Matemáticas\par}
+        
+        
+        \vspace{1.5cm}
+
+        \rule{\textwidth}{0.4pt}\par
+        \vspace{0.5cm}
+
+        {\Huge\bfseries Introducción a la Teoría de Morse\par}
+
+        \vspace{0.5cm}
+        \rule{\textwidth}{0.4pt}\par
+
+        \vspace{1.5cm}
+
+        {\huge Trabajo de Fin de Grado\par}
+        \vspace{0.15cm}
+        {\scshape\large Grado en Matemáticas\par}
+        \vspace{1.5cm}
+
+        {\Large\textbf{Enrique Díaz Blanco}\par}
+
+        \vspace{0.15cm}
+
+        {\Large Dirigido por Dr. Ángel González Prieto\par}
+
+        \vfill
+
+        {\large Febrero de 2026\par}
+
+    \end{center}
+
+\end{titlepage}
 
 %this baselineskip gives sufficient line spacing for an examiner to easily
 %markup the thesis with comments
@@ -154,7 +203,7 @@
 \setcounter{tocdepth}{3}
 
 
-\maketitle                  % create a title page from the preamble info
+%\maketitle                  % create a title page from the preamble info
 %\include{dedication}        % include a dedication.tex file
 %\include{acknowlegements}   % include an acknowledgements.tex file
 %\include{abstract}          % include the abstract

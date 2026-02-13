@@ -66,8 +66,8 @@
     \thispagestyle{empty}
   \null\vfill
   \begin{center}
-  {\noindent\rule{15cm}{1.5pt} \vspace*{6mm}}
-    { \Huge {\bfseries {\@title}} \par}
+  {\noindent\rule{15cm}{1.5pt} \vspace*{2mm}}
+    { \Huge {\bfseries {\@title}} }
   {\vspace*{1mm}\noindent\rule{15cm}{1.5pt}}\\
 {\large \vspace*{20mm} {\logo \par} \vspace*{25mm}}
     {{\Large \@author} \par}

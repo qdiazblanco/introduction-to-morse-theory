@@ -1,12 +1,12 @@
 
-\section{El lema de Morse}
+\section{El Lema de Morse}
 
-Comenzamos introduciendo los puntos críticos de una función suave y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores, el Lema de Morse.
+Comenzamos introduciendo los puntos críticos de una función suave y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores: el lema de Morse.
 
 \begin{definition}
     Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=\roman*)]
-        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es identicamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
             \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
         \end{equation*}
@@ -33,7 +33,6 @@ Comenzamos introduciendo los puntos críticos de una función suave y el concept
     \end{quote}
 \end{definition}
 \bigskip
-
 \begin{remark}
     Es rápido comprobar que $\text{Hess}_{p}f$ es en efecto simétrica y está bien definida:
 
@@ -42,7 +41,7 @@ Comenzamos introduciendo los puntos críticos de una función suave y el concept
         \begin{equation*}
             [\tilde{v},\tilde{w}]_{p}(f)=\sum_{i=1}^n \big( \tilde{v}_p(\tilde{w}_{i}) - \tilde{w}_p(\tilde{v}_{i}) \big) \left. \frac{\partial}{\partial x_{i}}\right|_p f.
         \end{equation*}
-        Luego sea anula al ser $p$ un punto crítico.
+        Luego se anula al ser $p$ un punto crítico.
 
         \item Por otro lado, está bien definida ya que $\tilde{v}_{p}(\tilde{w}_{p}(f))$ no depende de las extensiones de $v$ y $w$ elegidas puesto que nos importa el vector del campo en el punto $p$ y este no cambia.
     \end{enumerate}
@@ -59,7 +58,7 @@ Y para las extensiones $\tilde{v}$ y $\tilde{w}$ basta tomar como coeficientes l
     \text{Hess}_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x_i \partial x_j}\right|_p f .
 \end{equation*}
 
-Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $\text{Hess}_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
+Luego la matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $\text{Hess}_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
 \bigskip
 
 \begin{definition}
@@ -77,7 +76,7 @@ Luego matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ m
 \end{definition}
 
 \begin{remark}
-    Un punto crítico $p\in M$ de $f$ suave es no degenerado si y solo si La nulidad de $H$ sobre $T_pM$ es $0$. En efecto:
+    Un punto crítico $p\in M$ de $f$ suave es no degenerado si y solo si la nulidad de $H$ sobre $T_pM$ es $0$. En efecto:
     \vspace{-2em}
     \begin{quote}
         \mbox{}\\[0.5em]
@@ -100,7 +99,7 @@ Este resultado es fundamental para el desarrollo de la teoría de Morse. A grand
 
 \bigskip
 
-Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de calculo diferencial.
+Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de cálculo diferencial.
 
 \begin{lemma}
     Sean $V$ un entorno convexo del origen en $\mathbb{R}^n$ y $f\in \mathcal{C}^\infty(V)$ con $f(0)=0$. Entonces,
@@ -110,6 +109,7 @@ Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de 
     para unas funciones $g_i\in \mathcal{C}^\infty(V)$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
 \end{lemma}
 \begin{proof}
+    Se tiene
 \begin{align*}
     f(x_i,\dots,x_n)=\int_0^1 \frac{df(tx_1,\dots,tx_n)}{dt}dt = \int_0^1 \big(\sum_{i=1}^n \frac{\partial f}{\partial x_i}&(tx_1,\dots,tx_n)x_i \big)dt =\\
     &=\sum_{i=1}^n x_i \left(\int_0^1 \frac{\partial f}{\partial x_i}(tx_1,\dots,tx_n )dt\right)
@@ -151,7 +151,7 @@ Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de 
 
     Es decir, $H_pf$ es una matriz diagonal con $\lambda$ valores negativos y $n-\lambda$ valores positivos. Luego tiene $\lambda$ autovalores negativos, lo que quiere decir que existe un subespacio de dimensión $\lambda$ de $T_pM$ en el que es definida negativa y otro de dimensión $n-\lambda$ en el que es definida positiva.
 
-    La única forma en que $\lambda$ pudiera ser distinto que el índice de $f$ en $p$ es si existiera un subespacio de dimension mayor que el mencionado en el que $H_pf$ fuese definida negativa, lo cual es imposible.\\
+    La única forma en que $\lambda$ pudiera ser distinto que el índice de $f$ en $p$ es si existiera un subespacio de dimensión mayor que el mencionado en el que $H_pf$ fuese definida negativa, lo cual es imposible.\\
 
 
     %############ PARTE 2, SISTEMA DE COORDENADAS ##################
@@ -315,11 +315,13 @@ A continuación presentamos algunos puntos críticos degenerados y no degenerado
 \end{minipage}
 \end{figure}
 
-Concluimos la sección definiendo los objetos que le dan nombre y de los que nos serviremos de ahora en adelante para describir la estructura de CW-complejo de cualquier variedad diferenciable.
+Concluimos el capítulo definiendo los objetos que le dan nombre y de los que nos serviremos de ahora en adelante para describir la estructura de CW-complejo de cualquier variedad diferenciable.
 \bigskip
 
 \begin{definition}
  Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no degenerados.
 \end{definition}
 
+\iffalse
 {\color{blue} ¿Demostrar que para toda variedad de dimension finita existe una funcion de morse?}  
+\fi

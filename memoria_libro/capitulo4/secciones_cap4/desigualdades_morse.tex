@@ -21,11 +21,11 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \label{betti_subad}
     \hfill
     \begin{enumerate}[label=(\roman*)]
-        \item La función $b_k(X,Y)$ que asigna a cada par $(X,Y)$ su $k$-ésimo número de Betti es subaditiva, siempre que sean finitos. En efecto, sean $X$, $Y$ y $Z$ tales que $X\supset Y\supset Z$, se tiene la siguiente secuencia exacta:
+        \item La función $b_k(X,Y)$ que asigna a cada par $(X,Y)$ su $k$-ésimo número de Betti es subaditiva (siempre que los números de Betti involucrados sean finitos). En efecto, sean $X$, $Y$ y $Z$ tales que $X\supset Y\supset Z$, se tiene la siguiente secuencia exacta:
         \begin{align*}
             \cdots \longrightarrow H_k(Y,Z) \overset{f}{\longrightarrow} H_k(X,Z) \overset{g}{\longrightarrow} H_k(X,Y) \overset{h}{\longrightarrow} \cdots
         \end{align*}
-        Esta surge de generalizar la secuencia mencionada en \ref{exact_sec_hom_rel} a una terna (\cite[p.~118]{hatcher2002}). De ella se deduce la subaditividad, veamos cómo. Dado un homomorfismo entre grupos abelianos de rango finito $\varphi: G\to H$, por el primer teorema de isomorfía $G/\text{ker}\varphi$ es isomorfo a $\text{im} \varphi$, luego se tiene
+        Esta surge de generalizar la secuencia mencionada en \ref{exact_sec_hom_rel} a una terna \cite[p.~118]{hatcher2002}. De ella se deduce la subaditividad, veamos cómo. Dado un homomorfismo entre grupos abelianos de rango finito $\varphi: G\to H$, por el primer teorema de isomorfía, $G/\text{ker}\varphi$ es isomorfo a $\text{im} \varphi$, luego se tiene
         \begin{equation*}
             \text{rank } G = \text{rank}(\text{ker } \varphi) + \text{rank}(\text{im } \varphi).
         \end{equation*}
@@ -44,7 +44,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
             b_k(X,Z) - b_k(Y,Z) = \text{rank}(\text{im } g) - \text{rank}(\text{ker } f) \le b_k(X,Y).
         \end{equation*}
         De donde se deduce la subaditividad.
-        \item Aunque la demostración es más involucrada y no la añadiremos, se tiene que la funcíon que asigna a cada par su característica de Euler-Poincaré $\chi (X,Y)$ es aditiva.
+        \item Aunque la demostración es más elaborada y no la añadiremos, se tiene que la función que asigna a cada par su característica de Euler-Poincaré $\chi (X,Y)$ es aditiva.
     \end{enumerate}
 \end{example}
 
@@ -76,7 +76,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \label{lema_desig_morse}
     La función $S_{k}$ es subaditiva, donde 
     \begin{equation*}
-        S_{k}(X,Y) = \sum_{i=0}^{k} (-1)^i b_{k-i}(X,Y)
+        S_{k}(X,Y) = \sum_{i=0}^{k} (-1)^i b_{k-i}(X,Y).
     \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -91,7 +91,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     \end{align*}
     De lo que se sigue que
     \begin{equation*}
-        \text{rank } f_{k+1}  = \text{rank }A_k - \text{rank } f_{k}
+        \text{rank } f_{k+1}  = \text{rank }A_k - \text{rank } f_{k}.
     \end{equation*}
     Si continuamos desarrollando los rangos de las funciones de la misma forma llegamos a lo siguiente
     \begin{align*}
@@ -101,7 +101,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
         &~\vdots\\
         &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank }A_{k-2} - \dots \pm \text{rank }A_0.
     \end{align*}
-    Es claro que la última expresión es mayor que cero. Considaremos ahora la secuencia exacta de la terna $X\supset Y\supset Z$ (introducida en \ref{betti_subad}(i)),
+    Es claro que la última expresión es mayor que cero. Consideramos ahora la secuencia exacta de la terna $X\supset Y\supset Z$ (ver \ref{betti_subad}(i)),
     \begin{align*}
         \cdots \longrightarrow H_{k+1}(Y,Z) \longrightarrow H_{k+1}(X,Z) \longrightarrow H_{k+1}(X,Y) \overset{f}{\longrightarrow} H_{k}(Y,Z) \longrightarrow \cdots
     \end{align*}
@@ -109,7 +109,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     \begin{equation*}
         \text{rank} f = b_k(Y,Z) - b_k(X,Z) + b_k(X,Y) - b_{k-1}(Y,Z) + \dots \ge 0.
     \end{equation*}
-    Agrupando los terminos adecuadamente llegamos a
+    Agrupando los términos adecuadamente llegamos a
     \begin{equation*}
         S_{k}(Y,Z) - S_{k}(X,Z) + S_{k}(X,Y) \ge 0,
     \end{equation*}
@@ -128,7 +128,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 \label{sec:desigmorse}
 \begin{theorem}[Desigualdades de Morse, versión débil]
 \label{weak_morse_desig}
-    Sean $f$ una función de Morse sobre una variedad compacta M $n$-dimensional y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
+    Sean $f$ una función de Morse sobre una variedad compacta $n$-dimensional $M$  y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Entonces,
     \begin{equation}
     \label{weak_morse_desig1}
     \tag{$1_{\lambda}$}
@@ -163,7 +163,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
 
 \end{proof}
 
-Hemos demostrado una primera relación, el rango del $\lambda$-ésimo grupo de homología de $M$ ha de ser menor o igual que el número de puntos críticos de índice $\lambda$ de cualquier función de Morse definida sobre $M$. Además, dada una función de Morse, basta hallar el número de puntos críticos con cada índice posible para conocer la característica de Euler-Poincaré de $M$.
+Hemos demostrado una primera relación, el rango del $\lambda$-ésimo grupo de homología de $M$ ha de ser menor o igual que el número de puntos críticos de índice $\lambda$ de cualquier función de Morse definida sobre $M$. Además, dada una función de Morse, basta hallar el número de puntos críticos con cada índice posible para conocer su característica de Euler-Poincaré.
 
 Ahora, se pueden obtener desigualdades ligeramente más fuertes que estas:
 
