@@ -6,13 +6,13 @@ En $1963$, Milnor acomete la tarea de compilar en un lenguaje más moderno los f
 
 Como ya hemos mencionado, la teoría de Morse relaciona los puntos críticos de una función diferenciable con la topología. Los puntos críticos de una función se clasifican en base a si su matriz Hessiana es singular o no en ellos, llamándose en el segundo caso \textit{puntos críticos no degenerados}. Los puntos críticos no degenerados tienen la particularidad de que en un entorno suyo existe un sistema local de coordenadas respecto del que la función se expresa como una forma cuadrática; lo que implica que son aislados.
 
-Una función sobre una variedad diferenciable que toma valores reales cuyos puntos críticos son todos no degenerados se conoce como \textit{función de Morse}. Estudiando los espacios subnivel $M^a=\{q\in M| f(q)\le a\}$ de una función de Morse $f:M\to\mathbb{R}$ uno puede conocer cómo cambia la topología de $M$ al atravesar los puntos críticos. El resultado \ref{cwvariedad} establece que si todos los conjuntos subnivel son compactos, entonces el tipo de homotopía de la variedad es el de un CW-complejo con tantas celdas de dimensión $\lambda$ como puntos críticos de índice $\lambda$ tenga $f$. Además, las desigualdades de Morse se valen únicamente del número de puntos críticos de cada índice posible para determinar la carácterística de Euler-Poincaré y acotar los números de Betti de la variedad.
+Una función sobre una variedad diferenciable que toma valores reales cuyos puntos críticos son todos no degenerados se conoce como \textit{función de Morse}. Estudiando los espacios subnivel $M^a=\{q\in M| f(q)\le a\}$ de una función de Morse $f:M\to\mathbb{R}$ uno puede conocer cómo cambia la topología de $M$ al atravesar los puntos críticos. El teorema \ref{cwvariedad} establece que si todos los conjuntos subnivel son compactos, entonces el tipo de homotopía de la variedad es el de un CW-complejo con tantas celdas de dimensión $\lambda$ como puntos críticos de índice $\lambda$ tenga $f$. Además, las desigualdades de Morse se valen únicamente del número de puntos críticos de cada índice posible para determinar la carácterística de Euler-Poincaré y acotar los números de Betti de la variedad.
 
 En esencia, la teoría de Morse nos permite conocer una gran cantidad de información acerca de los invariantes topológicos de una variedad conociendo solamente índices de puntos críticos. Procedimientos que antes requerían de complejos argumentos y técnicas algebraicas quedan reducidos a técnicas básicas de análisis.
 
 Volviendo a los resultados mencionados, Milnor construye una variedad equipada con una estructura diferenciable y demuestra que es homeomorfa pero no difeomorfa a la esfera $7$-dimensional $\mathbb{S}^7$. Una variedad de este tipo se conoce con el nombre de esfera exótica, y la manera en que prueba que es homeomorfa a $\mathbb{S}^7$ es definiendo sobre ella una función de Morse con solo dos puntos críticos \cite{milnor2010manifolds} (ver \ref{reeb}). El caso del teorema del h-cobordismo es más complicado, pero diremos que su demostración comienza con la definición de una función de Morse sobre el cobordismo y valiéndose de ella da su descomposición en asas \cite{milnor2025lectures}.
 
-Un ejemplo muy ilustrativo y sin mayor dificultad que se suele utilizar para explicar la teoría de Morse a los no iniciados es el siguiente. Supongamos que tenemos el toro apoyado sobre un plano como en la Figura \ref{fig:toro}, y definimos sobre él la función $f:T^2\to \mathbb{R}$ que lleva cada punto a su altura respecto del plano. 
+Un ejemplo con el que ilustrar la teoría de Morse es el siguiente. Supongamos que tenemos el toro apoyado sobre un plano como en la Figura \ref{fig:toro}, y definimos sobre él la función $f:T^2\to \mathbb{R}$ que lleva cada punto a su altura respecto del plano. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/toro_vertical_cropped.pdf}
@@ -20,19 +20,27 @@ Un ejemplo muy ilustrativo y sin mayor dificultad que se suele utilizar para exp
     \label{fig:toro}
 \end{figure}
 
-Bien, $f$ es una función de Morse con cuatro puntos críticos, un mínimo ($p$), un máximo ($s$) y dos puntos de silla ($q$ y $r$). Sea $a$ un cierto real, se verifica lo siguiente: 
+Bien, $f$ es una función de Morse con cuatro puntos críticos, un mínimo ($p$), un máximo ($s$) y dos puntos de silla ($q$ y $r$). Sea $a\in\mathbb{R}$, se verifica lo siguiente: 
 \begin{enumerate}[label=(\roman*), noitemsep]
-    \item Si $a$ es menor que $f(p)$, $M^a$ es vacío. 
-    \item Si $a$ está entre $f(p)$ y $f(q)$, entonces $M^a$ es homeomorfo a un $2$-disco. 
-    \item Si $a$ está entre $f(q)$ y $f(r)$, se tiene que $M^a$ es homeomorfo a un cilindro. 
-    \item Si $a$ está entre $f(r)$ y $f(s)$, $M^a$ es homeomorfo a una variedad compacta con una circunferencia como borde.
-    \item Si $a$ es mayor que $f(s)$, $M^a$ es el toro completo.
+    \item Si $a<f(p)$, $M^a$ es vacío. 
+    \item Si $f(p)< a< f(q)$, entonces $M^a$ es homeomorfo a un $2$-disco. 
+    \item Si $f(q)<a<f(r)$, se tiene que $M^a$ es homeomorfo a un cilindro. 
+    \item Si $f(r)<a<f(s)$, $M^a$ es homeomorfo a una variedad compacta con una circunferencia como borde.
+    \item Si $f(s)<a$, $M^a$ es el toro completo.
 \end{enumerate}
 Llamemos a estas regiones, en orden, $M^{a_0}$, $M^{a_1}$, $M^{a_2}$, $M^{a_3}$ y $M^{a_4}$. Con el fin de describir como cambia la topología de $M^a$ a medida que atraviesa cada punto crítico, es necesario conocer sus índices. Los índices de $p$ y $s$ son $0$ y $2$ respectivamente; los índices de $q$ y $r$ son ambos $1$. 
 
 Ahora, en términos de homotopía, $M^{a_1}$ es indistinguible de un punto. Al pasar a $M^{a_2}$, el tipo de homotopía cambia al de un $2$ disco con una $1$-celda pegada, el mismo que el del cilindro. Cuando pasamos a $M^{a_3}$, de nuevo el cambio en el tipo de homotopía se corresponde a pegar una $1$-celda. Finalmente, cuando llegamos a $M^{a_4}$, se adjunta una $2$-celda y se tiene el tipo de homotopía de un CW-complejo con dos $2$-celdas y dos $1$-celdas. Es decir, con esta secuencia de pasos hemos recuperado el tipo de homotopía del toro \cite{milnor1963} \cite{bott1988morse}.
 
+Este resultado no es particular para el toro en esta posición, es general: la teoría de Morse nos permite reproducir este mismo proceso para cualquier variedad. Demostraremos que la topología de los conjuntos subnivel cambia únicamente al atravesar un punto crítico. En particular, probaremos que si $M^a$ y $M^b$ son tales que no existe un punto crítico $p\in M$ tal que $a<f(p)<b$ y $f^{-1}[a,b]$ es compacto entonces $M^a$ y es retracto de deformación de $M^b$ y, de hecho, son difeomorfos (teorema \ref{retractodef}). 
+
+De la misma forma, probaremos que si existe un punto crítico $p\in M$ que verifica que $a<f(p)<b$, entonces el cambio en la topología es, concretamente, el provocado por pegar a $M^a$ una $\lambda$-celda, donde $\lambda$ es el índice de $p$ (teorema \ref{pegadocelula}).
+
+\iffalse
+Entre las limitaciones de la teoría de Morse se encuentra que si bien podemos relacionar el tipo de homotopía de una variedad con el de un CW-complejo, no nos dice como se pegan sus celdas. En el caso del toro, si contásemos solamente con la función de Morse sin saber sobre que variedad esta definida, podríamos llegar a que esta tiene el tipo de homotopía de un CW-complejo con una 
+\fi
 \medskip
+
 
 En el primer capítulo introduciremos la noción de punto crítico no degenerado y demostraremos el lema de Morse. En el segundo capítulo daremos una breve introducción formal a los CW-complejos y demostraremos los resultados que describen el procedimiento utilizado en el ejemplo anterior. El tercer capítulo estará exclusivamente dedicado a desarrollar la teoría de homología, dando construcciones de las homologías simplicial, celular y relativa y presentando los números de Betti y la característica de Euler-Poincaré. El cuarto y último capítulo será acerca de las desigualdades de Morse, con una primera exposición a ciertos resultados sobre funciones subaditivas.
 

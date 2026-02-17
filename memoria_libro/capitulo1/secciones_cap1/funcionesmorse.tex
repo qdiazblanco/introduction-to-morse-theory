@@ -1,10 +1,10 @@
-
+\bigskip
 \section{El Lema de Morse}
 
 Comenzamos introduciendo los puntos críticos de una función suave y el concepto de índice de un punto crítico no degenerado. Concluiremos la sección con el primer pilar de la teoría de Morse y sobre lo que se edificarán gran parte de los resultados posteriores: el lema de Morse.
-
+\medskip
 \begin{definition}
-    Sea $f: \mathrm{M} \to \mathbb{R}$ una función suave.
+    Sea $f: $M$ \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=\roman*)]
         \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
@@ -18,14 +18,14 @@ Comenzamos introduciendo los puntos críticos de una función suave y el concept
 \bigskip
 
 \begin{definition}
-    Sea $p\in \mathrm{M}$ un punto crítico de f , diremos que $p$ es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular, es decir, su determinante es no nulo.
+    Sea $p\in M$ un punto crítico de f , diremos que $p$ es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular, es decir, su determinante es no nulo.
 \end{definition}
 \bigskip
 
 \begin{definition}
-    Sean $f:\mathrm{M}\to \mathbb{R}$ una función suave y $p\in M$ un punto crítico de f. Definimos $\textrm{Hess}_{p}f: T_{p}\mathrm{M}\to \mathbb{R}$ como la forma bilineal simétrica sobre el plano tangente a $\mathrm{M}$ en $p$ construida como sigue:
+    Sean $f:M\to \mathbb{R}$ una función suave y $p\in M$ un punto crítico de f. Definimos $\textrm{Hess}_{p}f: T_{p}M\to \mathbb{R}$ como la forma bilineal simétrica sobre el plano tangente a $M$ en $p$ construida como sigue:
     \begin{quote}
-        Tomamos $v,w\in T_{p}\mathrm{M}$ y sean $\tilde{v}$ y $\tilde{w}$ extensiones locales suyas a campos vectoriales. Entonces 
+        Tomamos $v,w\in T_{p}M$ y sean $\tilde{v}$ y $\tilde{w}$ extensiones locales suyas a campos vectoriales. Entonces 
         \begin{equation*}
             \text{Hess}_{p}f(v,w)=\tilde{v}_{p}(\tilde{w}_{p}(f)),
         \end{equation*}
@@ -52,17 +52,21 @@ Veamos ahora como es $\text{Hess}_pf$ en coordenadas. De nuevo, tomemos un siste
 \begin{equation*}
     v=\sum_{i=0}^n a_i \left.\frac{\partial}{\partial x_i}\right|_p ~~\text{y}~~ w=\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p .
 \end{equation*}
+\medskip
 
 Y para las extensiones $\tilde{v}$ y $\tilde{w}$ basta tomar como coeficientes las funciones constantes $a_i$ y $b_j$. Así
+
 \begin{equation*}
     \text{Hess}_pf= \tilde{v}_{p}(\tilde{w}_{p}(f)) = v\left(\sum_{i=0}^n b_i \left.\frac{\partial}{\partial x_i}\right|_p f\right)=\sum_{i,j} a_ib_i\left.\frac{\partial^{2}}{\partial x_i \partial x_j}\right|_p f .
 \end{equation*}
+\medskip
 
 Luego la matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ mencionada antes representa la forma bilineal $\text{Hess}_pf$ respecto de la base $\left( \left.\frac{\partial}{\partial x_i}\right|_p,\dots, \left.\frac{\partial}{\partial x_n}\right|_p \right)$ de $T_p\mathrm{M}$.
-\bigskip
+
+\vspace{3em}
 
 \begin{definition}
-    Sean $V$ un espacio vectorial y $H$ una forma bilineal sobre $V$. Entonces
+    Sean $V$ un espacio vectorial y $H:V\times V\to \mathbb{R}$ una forma bilineal sobre $V$. Entonces
     
     \begin{enumerate}[label=\roman*)]
         \item El \textit{índice} de $H$ es la máxima dimensión de un subespacio de $V$ sobre el cual $H$ es definida negativa.
@@ -75,8 +79,9 @@ Luego la matriz $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)
     \end{enumerate}
 \end{definition}
 
+
 \begin{remark}
-    Un punto crítico $p\in M$ de $f$ suave es no degenerado si y solo si la nulidad de $H$ sobre $T_pM$ es $0$. En efecto:
+    Un punto crítico $p\in M$ de $f$ suave es no degenerado si y solo si la nulidad de $H=\text{Hess}_pf$ sobre $T_pM$ es $0$. En efecto:
     \vspace{-2em}
     \begin{quote}
         \mbox{}\\[0.5em]
@@ -102,11 +107,11 @@ Este resultado es fundamental para el desarrollo de la teoría de Morse. A grand
 Antes de enunciar el Lema de Morse necesitamos probar el siguiente resultado de cálculo diferencial.
 
 \begin{lemma}
-    Sean $V$ un entorno convexo del origen en $\mathbb{R}^n$ y $f\in \mathcal{C}^\infty(V)$ con $f(0)=0$. Entonces,
+    Sean $\mathcal{V}$ un entorno convexo del origen en $\mathbb{R}^n$ y $f\in \mathcal{C}^\infty(\mathcal{V})$ con $f(0)=0$. Entonces,
     \begin{equation*}
         f(x_1,\dots,x_n)=\sum_{i=1}^n x_ig_i(x_1,\dots,x_n)
     \end{equation*}
-    para unas funciones $g_i\in \mathcal{C}^\infty(V)$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
+    para unas funciones $g_i\in \mathcal{C}^\infty(\mathcal{V})$ que además, cumplen que $g_i(0)=\frac{\partial f}{\partial x_i}(0)$.
 \end{lemma}
 \begin{proof}
     Se tiene
@@ -226,6 +231,8 @@ Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de 
 
     Se sigue entonces del \textit{teorema de la función inversa} que la transformación es un difeomorfismo sobre un entorno más pequeño $\mathcal{U}_3\subset \mathcal{U}_2$ del $0$ y por tanto $(v_1,\dots, v_n)$ es un sistema de coordenadas local alrededor de $p$.
 
+    \bigskip
+
     Ahora consideramos
     \begin{equation}
         u_ru_rH_{rr}(u_1,\dots, u_n) + 2\sum_{j=r+1}^n u_ju_rH_{jr}(u_1,\dots, u_n).
@@ -239,6 +246,7 @@ Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de 
     \end{equation}
 
     En efecto,
+
     \begin{align*}
         V_rV_r =& ~ g^2 \left[u_r+\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\right]^2 =\\
         =& ~ g^2 \left( u_r^2 + \left[ \sum_{i>r}u_i\frac{H_{ir}}{H_{rr}}\right]^2 + 2u_r\sum_{i>r}u_i\frac{H_{ir}}{H_{rr}} \right) = \\
@@ -246,7 +254,10 @@ Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de 
         =& ~ \pm H_{rr}u_r^2 \pm \frac{1}{H_{rr}}\left[\sum_{i>r}u_iH_{ir}\right]^2 \pm 2u_r\sum_{i>r}u_iH_{ir},
     \end{align*}
 
-    donde el $\pm$ será $+$ si $H_{rr}$ es positivo y $-$ si es negativo y de la misma forma en \eqref{eq4}. 
+    \vspace{2em}
+
+    donde el $\pm$ será $+$ si $H_{rr}$ es positivo y $-$ si es negativo y de la misma forma en \eqref{eq4}.
+    \bigskip
     
     Así, es claro que \eqref{eq3} y \eqref{eq4} son equivalentes. Y desde aquí es fácil ver como \eqref{eq1} se convierte en 
     \begin{equation*}
@@ -258,22 +269,24 @@ Vayamos ahora con la demostración, para la que nos hemos basado tanto en la de 
     
 \end{proof}
 
+\bigskip
+
 \begin{remark}
     Durante la demostración queda implícita una parte del proceso. Al definir el nuevo sistema de coordenadas en el paso de inducción lo que estamos haciendo es definir una función que podemos llamar $l:\mathbb{R}^n \to \mathbb{R}^n$ que, dadas las coordenadas $(u_1(p),\dots, u_n(p))$ de un punto $p\in M$, las lleva a unas nuevas $(v_1(p),\dots, v_n(p))$ y es un difeomorfismo entre abiertos de $\mathbb{R}^n$. Así, si la carta que inducía el sistema de coordenadas $(u_1,\dots, u_n)$ era $\varphi : M \to \mathbb{R}^n$, la que induce $(v_1,\dots, v_n)$ será $l\circ \varphi$.
 \end{remark}
 \bigskip
 
 El siguiente corolario será clave a la hora de demostrar uno de los teoremas principales de la teoría de Morse (ver \ref{cwvariedad}) y muestra una de las ventajas fundamentales de trabajar con puntos críticos no degenerados.
-
+\bigskip
 \begin{corollary}
         Sea $M$ una variedad diferenciable. Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está aislado respecto de los demás puntos críticos.
 \end{corollary}
 \begin{proof}
-    Sea $p\in M$ un punto crítico no degenerado de una función $f$. Existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0,~~\forall i$ y 
+    Sea $p\in M$ un punto crítico no degenerado de una función $f$. Existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0$, para todo $i\in\{1,\dots,n\}$ y 
     \begin{equation*}
         f=f(p)-(y_i)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2
     \end{equation*}
-    Por el Lema de Morse (\ref{lemamorse}).\\
+    Por el Lema de Morse (\ref{lemamorse}).
 
     Supongamos que existe otro punto crítico $q\in\mathcal{U}$, entonces
     \begin{equation*}
@@ -282,9 +295,9 @@ El siguiente corolario será clave a la hora de demostrar uno de los teoremas pr
     Luego $p$ es el único punto crítico de f en $\mathcal{U}$.
     
 \end{proof}
+\bigskip
 
-A continuación presentamos algunos puntos críticos degenerados y no degenerados junto con las gráficas de sus funciones correspondientes. Obsérvese que mientras los puntos no degenerados han de ser aislados, una función puede tener puntos críticos degenerados tanto aislados como no aislados.
-
+A continuación presentamos algunos puntos críticos degenerados y no degenerados junto con las gráficas de sus funciones correspondientes, figuras \ref{fig:ptos_criticos1}, \ref{fig:ptos_criticos2} y \ref{fig:ptos_criticos3}. Obsérvese que mientras los puntos no degenerados han de ser aislados, una función puede tener puntos críticos degenerados tanto aislados como no aislados.
 \begin{example}
     \hfil
     \begin{enumerate}
@@ -299,12 +312,14 @@ A continuación presentamos algunos puntos críticos degenerados y no degenerado
     \centering
     \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/grafica1.png}
     \caption{$f(x,y)=(x^2-1)^2 + (y^2-1)^2$}
+    \label{fig:ptos_criticos1}
 \end{minipage}
 \hfill
 \begin{minipage}{0.35\textwidth}
     \centering
     \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/grafica2.png}
     \caption{$g(x,y)=x^3-3xy^2$}
+    \label{fig:ptos_criticos2}
 \end{minipage}
 
 % --- Segunda fila ---
@@ -312,7 +327,9 @@ A continuación presentamos algunos puntos críticos degenerados y no degenerado
 \begin{minipage}{0.35\textwidth}
     \includegraphics[width=\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/grafica3.png}
     \caption{$h(x,y)= x^2y^2$}
+    \label{fig:ptos_criticos3}
 \end{minipage}
+
 \end{figure}
 
 Concluimos el capítulo definiendo los objetos que le dan nombre y de los que nos serviremos de ahora en adelante para describir la estructura de CW-complejo de cualquier variedad diferenciable.
