@@ -5,19 +5,22 @@ Incluimos también dos resultados necesarios para nuestro objetivo, pero interes
 
 El capítulo concluye con dos ejemplos de cómo se pueden aplicar los principales teoremas demostrados.
 
+\bigskip
 
 \section{CW-Complejos y tipo de homotopía}
+
 %tipo de homotopia-----------------------
-\begin{definition}
-Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
-\textit{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
-\end{definition}
+Diremos que dos funciones continuas $f, g:X\to Y$ entre dos espacios topológicos son \textit{homotópicas} si existe una \textit{homotopía} entre ellas, es decir, si existe una función continua $H:X\times [0,1]\to Y$ que verifica
+\begin{equation*}
+    H(x,0)=f(x) ~~\text{ y }~~ H(x,1)=g(x)
+\end{equation*}
+para todo $x\in X$. 
 
-\begin{nota}
-    A la hora de denotar o construir homotopías usaremos indistintamente dos notaciones. Dados dos espacios topológicos $X$ e $Y$, nos referimos a una homotopía entre dos funciones continuas $f:X\to Y$ y $g:X\to Y$ como la función continua $H(x,t): X\times [0,1]\to Y$ tal que $H(x,0)=f(x)$ y $H(x,1)=g(x)$ para todo $x\in X$ o como la familia de funciones continuas $\{H_t: X\to Y\}_{t\in [0,1]}$ tales que $H_t(x)=H(t,x)$ para cualesquiera $t$ y $x$.
-\end{nota}
+La relación de homotopía es una relación de equivalencia. Denotaremos que dos funciones están relacionadas mediante el símbolo $\simeq$.
 
-\bigskip
+A la hora de denotar o construir homotopías usaremos indistintamente dos notaciones. Nos referimos a una homotopía entre dos funciones continuas $f$ y $g$ como la función continua $H(x,t): X\times [0,1]\to Y$ que verifica las condiciones anteriores o como la familia de funciones continuas $\{H_t: X\to Y\}_{t\in [0,1]}$ tales que $H_t(x)=H(x,t)$ para cualesquiera $t$ y $x$.
+
+\medskip
 
 \begin{definition}
 Sean $X$ e $Y$ espacios topológicos. Decimos que $X$ e $Y$ son
@@ -32,7 +35,14 @@ tales que
 En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} y llamamos a $f$ y $g$ \textit{equivalencias homotópicas}.
 \end{definition}
 
-\medskip
+\bigskip
+
+Una \textit{retracción} de un espacio $X$ en un subespacio $A\subseteq X$ es una aplicación continua $r:X\to A$ que verifica que $r|_A= \text{id}_A$, en ese caso, llamamos a $A$ \textit{retracto} de $X$. Además, una homotopía $\{H_t\}$ se dice \textit{relativa a A} si $H_t|_A=\text{id}_A$ para todo $t\in[0,1]$.
+
+\begin{definition}
+Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
+\textit{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
+\end{definition}
 
 \begin{nota}
     En lo que sigue nos referiremos a los retractos de deformación fuerte simplemente como \textit{retractos de deformación}.
@@ -46,6 +56,8 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
 \bigskip
 
 %CW-complejos-------------------------------
+En lo que sigue denotaremos por $D^n$ el disco unidad cerrado, cuya frontera es $\partial D^n=\mathbb{S}^{n-1}$, la esfera unidad $(n-1)$-dimensional.
+
 \begin{definition}
     Una \textit{celda} $e^n$ es un espacio topológico homeomorfo al disco unidad n-dimensional $D^n$. Diremos que la dimensión de la celda es $n$ y que $e^n$ es una \textit{n-celda}.
 \end{definition}
@@ -60,15 +72,14 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
             
             \item Se construye, de manera inductiva, el llamado $ n $-esqueleto para $n>0$ como
             \begin{equation*}
-                X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n
+                X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n.
             \end{equation*}
             Es decir, $X_n$ se obtiene de $X_{n-1}$ pegando sobre este una colección indexada por $\Lambda_n$ de $n$-celdas mediante las \textit{funciones de pegado} $\varphi_{\alpha} : \partial D^n_{\alpha} \to X_{n-1}$.
             
-            \item Puede pararse tras un número finito de pasos (aunque no tiene por qué hacerse). Llamaremos \textit{CW-complejo} al espacio 
+            \item Llamaremos \textit{CW-complejo} al espacio 
             \begin{equation*}
                 X = \bigcup_{n} X_n.    
             \end{equation*}
-            Si el número de pasos es infinito, los conjuntos abiertos de la topología serán aquellos que sean abiertos para cada $ X_n $.
         \end{enumerate} 
 \end{definition}
 
@@ -76,18 +87,19 @@ En este caso, decimos que $X$ e $Y$ tienen el mismo \textit{tipo de homotopía} 
 
 \begin{remark} \hfill
     \begin{enumerate}
-        \item Decimos que la dimensión de un CW-complejo $X$ es $m$ si la construcción tiene una cantidad finita $m$ de pasos, en ese caso, $X=X_m$. Como se deja entrever en el último paso de la construcción, un CW-complejo puede tener dimensión infinita.
+        \item Nótese que de las funciones de pegado solo se exige que sean continuas.
+        \item Decimos que la dimensión de un CW-complejo $X$ es $m$ si la construcción tiene una cantidad finita $m$ de pasos, en ese caso, $X=X_m$. Si la cantidad de pasos es infinita, el CW-complejo tendrá dimensión infinita. 
         \item Más formalmente, llamamos $n$-celda a la imagen de la inclusión $i_{\alpha}: D^n_{\alpha}\to X_n$ y dotamos a $X$ de la \textit{topología débil}, es decir, $\mathcal{U}\subseteq X$ es abierto si y solo si $i^{-1}_{\alpha}(\mathcal{U})\subseteq D^k_{\alpha}$ es abierto para todos $\alpha$ y $k\ge 0$. De hecho, es esta topología la que les da nombre, ya que CW viene del inglés ``Closure finite-Weak topology''
     \end{enumerate}
 \end{remark}
 
-Los CW-complejos presentan una estructura cómoda para aplicar técnicas algebraicas y computar invariantes topológicos como el grupo fundamental o los grupos de homología, que veremos más adelante. Existe también la ventaja de que toda variedad diferenciable puede dotarse de una estructura de este tipo bien vía triangulaciones (\textit{cf.} sección \ref{subsec:triangulaciones}), o bien vía teoría de Morse.
+Los CW-complejos presentan una estructura cómoda para aplicar técnicas algebraicas y computar invariantes topológicos como el grupo fundamental o los grupos de homología, que veremos más adelante. Existe también la ventaja de que toda variedad diferenciable puede dotarse de una estructura de este tipo bien vía triangulaciones (ver sección \ref{subsec:triangulaciones}), o bien vía teoría de Morse.
 
 \begin{nota}
     Llamaremos habitualmente \textit{vértices} a las $0$-celdas, \textit{aristas} a las $1$-celdas y \textit{caras} a las $2$-celdas. Nótese también que el borde o la frontera de una arista son dos vértices y de una cara una colección finita de aristas.
 \end{nota}
 
-La seccion \ref{subsec:homcelular} sobre homología celular contiene algunos ejemplos de CW-complejos.
+Remitimos al lector a la seccion \ref{subsec:homcelular} sobre homología celular, en la que desarrollamos algunos ejemplos de CW-complejos.
 
 \medskip
 
@@ -116,3 +128,5 @@ Como las fronteras de todos los  $n$-discos quedan identificadas al mismo punto 
 \begin{equation*}
     \bigvee_{\alpha\in\Lambda_n} \mathbb{S}^{n-1}_{\alpha}.
 \end{equation*}
+
+\bigskip
