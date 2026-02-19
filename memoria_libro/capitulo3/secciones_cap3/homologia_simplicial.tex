@@ -11,7 +11,7 @@ Durante el desarrollo se omitirán ciertos aspectos técnicos, bien por ser ajen
 Hasta ahora hemos demostrado que dada una variedad diferenciable, podemos, mediante una función de Morse, extraer su estructura de CW-complejo. Es decir, reconstruirla a partir del pegado de celdas cuyas dimensiones vienen determinadas por el índice de cada uno de los puntos críticos de una función de Morse.
 \fi
 
-Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía $\pi_n(X)$, el problema es que estos pueden resultar extremadamente complicados de computar. Esta idea queda reforzada cuando uno se da cuenta de que ni siquiera existe una manera robusta de computar los grupos de homotopía de $\mathbb{S}^n$ para cualquier $n>1$. Ponemos como ejemplo algunos de los grupos de homotopía conocidos de $\mathbb{S}^2$ para tener una idea de su complejidad:
+Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fundamental $\pi_1(X)$ resulta muy útil. Sin embargo, este no nos permite diferenciar entre espacios de dimensiones más altas, por ejemplo el grupo fundamental de $\mathbb{S}^n$ es trivial para $n\ge 2$. Esto puede solucionarse considerando los grupos de homotopía superior $\pi_n(X)$. El problema es que estos pueden resultar extremadamente complicados de computar. Esta idea queda reforzada cuando uno se da cuenta de que ni siquiera existe una manera robusta de computar los grupos de homotopía de $\mathbb{S}^n$ para cualquier $n>1$. Ponemos como ejemplo algunos de los grupos de homotopía conocidos de $\mathbb{S}^2$ para tener una idea de su complejidad:
 \begin{center}
     \begin{tabular}{c|ccccccccccccccc}
     & $\pi_1$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ & $\pi_6$ & $\pi_7$ & $\pi_8$ & $\pi_9$ & $\pi_{10}$ & $\pi_{11}$ & $\pi_{12}$ & $\pi_{13}$ & $\pi_{14}$ & $\pi_{15}$ \\
@@ -21,7 +21,7 @@ Cuando queremos estudiar espacios topológicos de dimensión baja, el grupo fund
 \end{center}
 \vspace{1em}
 
-Por suerte, existen los grupos de homología $H_n(X)$, estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca.
+Por suerte, existen los grupos de homología $H_n(X)$. Estos son más sencillos de computar y también resuelven limitaciones del grupo fundamental al tratar con espacios de dimensiones altas. El precio a pagar por una mayor computabilidad se traduce en tener que desarrolllar una teoría que no solo es compleja si no que a priori resulta más opaca.
 
 De nuevo, estamos de suerte, porque para la tarea que nos ocupa nos basta con la llamada \textit{homología simplicial}. Esta es una versión restringida de la más complicada y general \textit{homología singular} y, aunque habrá aspectos de esta que debamos introducir, el vocabulario que necesitamos es definitivamente más sencillo. La línea general que seguiremos para el desarrollo de esta teoría es la que se utiliza en \cite{munoz2021}, partiendo de un espacio topológico triangulado.
 
@@ -169,7 +169,7 @@ Una ligera generalización de los complejos simpliciales que dan nombre a esta t
 
 \bigskip
 
-Sin ningún bagage adicional el lector puede estar preguntándose cómo son los elementos de $C^{\tau}_k(X)$ y qué hacen exactamente los operadores de borde. Bien, llamamos \textit{$k$-cadenas} a los elementos de $C^{\tau}_k(X)$, que son sumas formales de poliedros de $\tau$ con coeficientes enteros donde el signo depende de las orientaciones. Es decir, elegimos una orientación para que lleve el signo $+$ y los poliedros poliedros cuya orientación sea la otra posible llevarán el signo $-$. Es decir, son de la forma
+Sin ningún bagage adicional el lector puede estar preguntándose cómo es posible describir de forma explícita los elementos de $C^{\tau}_k(X)$ y cómo actúan exactamente los operadores de borde. Bien, llamamos \textit{$k$-cadenas} a los elementos de $C^{\tau}_k(X)$, que son sumas formales de poliedros de $\tau$ con coeficientes enteros donde el signo depende de las orientaciones. Es decir, elegimos una orientación para que lleve el signo $+$ y los poliedros cuya orientación sea la otra posible llevarán el signo $-$. Es decir, son de la forma
 \begin{equation*}
     \sum_{i=1}^m z_i e^k_{\alpha_i} ~~\text{ con }~~ z_i \in \mathbb{Z} ~~\text{ y }~~ \alpha_i \in \Lambda_k, ~\forall i\in \{1,\dots, m\}.
 \end{equation*}
@@ -180,6 +180,7 @@ Arriba hemos descrito cómo actuan los operadores de borde $\partial_k$ sobre lo
 Ahora, el operador de borde lleva una $k$-cadena a la $(k-1)$-cadena que constituye su borde teniendo en cuenta la orientación, en el caso $2$-dimensional, diríamos que lleva un $2$-poliedro a la suma de sus aristas. Una propiedad imprescindible de los operadores de borde es la siguiente.
 
 \begin{proposition}
+\label{prop_bordes}
     Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
 \end{proposition}
 
@@ -211,7 +212,7 @@ Ahora, el operador de borde lleva una $k$-cadena a la $(k-1)$-cadena que constit
         \begin{equation*}
             \dots \overset{\partial_{k+2}}{\longrightarrow} A_{k+1} \overset{\partial_{k+1}}{\longrightarrow} A_{k} \overset{\partial_{k}}{\longrightarrow} A_{k-1} \overset{\partial_{k-1}}{\longrightarrow} \dots,
         \end{equation*}
-        donde los $A_i$ sean grupos abelianos, como en nuestro caso, y se verifique esta propiedad. Dicha propiedad es equivalente a $\text{im}(\partial_{k+1})\subseteq\text{ker}(\partial_k)$. Diremos que la secuencia es \textit{exacta} si se da la igualdad.
+        donde los $A_i$ sean grupos abelianos, como en nuestro caso, y se verifique $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$. Dicha propiedad es equivalente a $\text{im}(\partial_{k+1})\subseteq\text{ker}(\partial_k)$. Diremos que la secuencia es \textit{exacta} si se da la igualdad.
 \end{remark}
 
 \bigskip
@@ -229,7 +230,7 @@ Así, podemos definir el $k$-ésimo grupo de homología de $X$ como sigue.
     \begin{align*}
         Z^{\tau}_k(X) &= \text{ker}(\partial_k: C^{\tau}_k(X) \to C^{\tau}_{k-1}(X)) \\
         B^{\tau}_k(X) &= \text{im}(\partial_{k+1}: C^{\tau}_{k+1}(X) \to C^{\tau}_{k}(X)) \\
-        H^{\tau}_k(X) &= Z^{\tau}_k(X)/B^{\tau}_k(X)
+        H^{\tau}_k(X) &= Z^{\tau}_k(X)/B^{\tau}_k(X).
     \end{align*}
 \end{definition}
 
@@ -274,13 +275,13 @@ Así, $H_0(D^2)=\mathbb{Z}^3/\mathbb{Z}^2\simeq \mathbb{Z}$.
 
 \bigskip
 
-Antes de seguir, listamos algunos resultados que podrían ser de interés para el lector en el contexto de las variedades diferenciables y la teoría de Morse. Sin embargo, decidimos no entreternos ya que no es central a nuestro objetivo y los presentamos sin demostración:
+Antes de seguir, listamos algunos resultados que podrían ser de interés para el lector en el contexto de las variedades diferenciables y la teoría de Morse. Sin embargo, decidimos no entreternos ya que no es central a nuestro objetivo y los presentamos sin demostración. Las demostraciones se pueden encontrar en: \cite[p. ~87]{munoz2021} la primera y \cite[p.~97]{munoz2021} las otras tres.
 
 \begin{enumerate}
     \item Para cualquier espacio triangulado $X$, $H_0(X)=\mathbb{Z}^r$ donde $r$ es el número de componentes conexas por caminos de $X$.
-    \item Si $M$ es una $n$-variedad compacta, conexa, orientada y sin borde triangulada, entonces $H_n(X)=\mathbb{Z}$.
-    \item Si $M$ es una $n$-variedad compacta, conexa, no orientada y sin borde triangulada, entonces $H(X)=0$.
-    \item Si $M$ es una $n$-variedad compacta, conexa y con borde (no vacío), entonces de nuevo $H_n(X)=0$.
+    \item Si $M$ es una $n$-variedad compacta, conexa, orientable y sin borde triangulada, entonces $H_n(M)=\mathbb{Z}$.
+    \item Si $M$ es una $n$-variedad compacta, conexa, no orientable y sin borde triangulada, entonces $H_n(M)=0$.
+    \item Si $M$ es una $n$-variedad compacta, conexa y con borde (no vacío), entonces de nuevo $H_n(M)=0$.
 \end{enumerate}
 
  \bigskip

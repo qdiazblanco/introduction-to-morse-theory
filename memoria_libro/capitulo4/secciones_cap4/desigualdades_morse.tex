@@ -7,7 +7,7 @@ En este capítulo presentamos esta formulación original siguiendo de nuevo el d
 
 Empezamos introduciendo algunos resultados de funciones subaditivas.
 
-A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Conviene aclarar que no se trata de pares de espacios arbitrarios, sino de pares tales que $Y$ es un subespacio de $X$ para el que tiene sentido construir los grupos de homología relativa (ver \ref{sec:hom_relat}). Recordemos también que en el caso en el que $Y$ es vacío o contractible recuperamos la homología de $X$.
+A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Conviene aclarar que no se trata de pares de espacios arbitrarios, sino de pares tales que $Y$ es un subespacio de $X$ para el que tiene sentido construir los grupos de homología relativa (ver sección \ref{sec:hom_relat}). Recordemos también que en el caso en el que $Y$ es vacío o contractible recuperamos la homología de $X$.
 
 \begin{definition}
     Sea $S$ una función que toma pares $(X,Y)$ de espacios topológicos y les asigna un entero $S(X,Y)\in \mathbb{Z}$. Decimos que $S$ es \textit{subaditiva} si siempre que $X\supset Y\supset Z$ se tiene que
@@ -132,12 +132,12 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     \begin{equation}
     \label{weak_morse_desig1}
     \tag{$1_{\lambda}$}
-        b_{\lambda}(M) \le C_{\lambda},~\forall \lambda\in\Lambda, ~~\text{ y }~~ 
+        b_{\lambda}(M) \le C_{\lambda},~\text{ para todo } \lambda\in\Lambda, ~~\text{ y }~~ 
     \end{equation}
     \begin{equation}
     \label{weak_morse_desig2}
     \tag{2}
-        \chi(M) = \sum_{j=0}^n (-1)^{j} C_{j}.
+        \chi(M) = \sum_{\lambda=0}^{n} (-1)^{\lambda} C_{\lambda}.
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -151,7 +151,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     \end{align*}
     La primera igualdad se sigue del teorema \ref{pegadocelula}, donde $\lambda_i$ es el índice del punto crítico. La segunda se obtiene al aplicar el teorema de escisión (\ref{escision}) al espacio $M^{a_i-1}\cup e^{\lambda_i}$ y los subespacios $M^{a_i-1}$ y $e^{\lambda_i}$. La tercera igualdad quedó demostrada en el ejemplo \ref{hom_relat_disco}.
 
-    Ahora, aplicando el lema \ref{lema__weak_desig_morse} con $M^{a_=0}=\emptyset \subset \dots \subset M^{a_k}=M$ y $S=b_{\lambda}$ se tiene 
+    Ahora, aplicando el lema \ref{lema__weak_desig_morse} con $M^{a_0}=\emptyset \subset \dots \subset M^{a_k}=M$ y $S=b_{\lambda}$ se tiene 
     \begin{equation*}
         b_{\lambda}(M) \le \sum_{i=1}^k b_{\lambda}(M^{a_i},M^{a_i-1}) = C_{\lambda}.
     \end{equation*}

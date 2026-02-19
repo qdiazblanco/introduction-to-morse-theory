@@ -155,15 +155,16 @@ Introducimos brevemente dos invariantes topológicos relacionados con la homolog
 \begin{definition}
     Sea $X$ un espacio topológico. Definimos el \textit{$k$-ésimo número de Betti de X} como 
     \begin{equation*}
-        b_k(X) = \text{rank} H_k(X).
+        b_k(X) = \operatorname{rank} H_k(X).
     \end{equation*}
 \end{definition}
 
 
-Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}. En el caso de que los grupos de homología sean finitamente generados, como es el de un espacio compacto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\text{rank} H_k(X)$ es $r$ en
+Para la definición general de rango de un grupo abeliano referimos al lector a la página $85$ de \cite{FuchsInfiniteAbelianGroupsI}. En el caso de que los grupos de homología sean finitamente generados, como es el de un espacio compacto, su rango queda determinado por su descomposición según el \textit{teorema de clasificación de grupos abelianos finitamente generados}. Así, $\operatorname{rank} H_k(X)$ es $r$ en la descomposición
 \begin{equation*}
-    H_k(X) = \underbrace{\mathbb{Z}\oplus\dots\oplus\mathbb{Z}}_{r} \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z_{d_m}}.
+    H_k(X) = \mathbb{Z}^r \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z}_{d_m},
 \end{equation*}
+donde $d_1,\dots,d_m$ son enteros tales que $d_1|d_2|\dots|d_m$.
 \bigskip
 
 \begin{definition}
@@ -179,6 +180,6 @@ Para la definición general de rango de un grupo abeliano referimos al lector a 
     Dado que no siempre contamos en nuestro caso con una triangulación conviene tomar la versión más general de arriba en términos de los números de Betti.
 \end{nota}
 
-Tanto para los números de Betti como para la característica de Euler-Poincaré se pueden cambiar $b_k(X)$ y $\chi(X)$ por $b_k(X,A)$ y $\chi(X,A)$ y se conservan las definiciones para los grupos de homología relativa.
+Tanto para los números de Betti como para la característica de Euler-Poincaré se pueden cambiar $b_k(X)$ y $\chi(X)$ por sus versiones relativas $b_k(X,A)$ y $\chi(X,A)$ y se conservan las definiciones para los grupos de homología relativa.
 
 \bigskip

@@ -19,7 +19,7 @@ Vamos a introducir primero algunos conceptos para evitar posibles lagunas técni
     Dados dos complejos de cadena $(A_k, \partial_k)$ y $(B_k, \partial_k')$, llamamos \textit{morfismo de cadena} a una familia $f_k$ de homomorfismos tales que $\partial_k'\circ f_k = f_{k-1}\circ \partial_k$ para todo $k$.
  \end{definition}
 
- Esto resulta en el diagrama siguiente
+ Esto resulta en el diagrama conmutativo siguiente.
  \[
  \begin{array}{ccccccccc}
     \dots & \overset{\partial_{k+2}}{\longrightarrow} & A_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & A_{k} & \overset{\partial_{k}}{\longrightarrow} & A_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots \\
@@ -67,7 +67,7 @@ q_*: H_{k-1}(X_{k-1}) \to H_{k-1}(X_{k-1}/X_{k-2}) = H_{k-1}(\vee_{\beta}\mathbb
 
 A su vez, también se verifica que $\partial_{k}\circ\partial_{k+1} = 0$. Ahora que hemos visto como actuan los operadores de borde, los grupos de homología se construyen exactamente igual que en el caso simplicial.
 
-Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\simeq H^{CW}_k(X)$ para cualquier CW-complejo $X$. Así, por transitividad, se tiene que los grupos de homología de un espacio son isomorfos independientemente de la técnica que apliquemos para computarlos.
+Una vez más referimos al lector a la fuente original \cite{munoz2021} si desea aclarar algunos de los detalles técnicos más finos que no vamos a demostrar aquí. Se puede demostrar que $H_k(X)\simeq H^{CW}_k(X)$ para cualquier espacio triangulado $X$. Así, por transitividad, se tiene que los grupos de homología de un espacio son isomorfos independientemente de la técnica que apliquemos para computarlos. Por ello, de ahora en adelante nos referiremos a los grupos de homología únicamente como $H_k(X)$
 
 También se verifica que los grupos de homología son invariantes por homeomorfismos y, de hecho, por equivalencias homotópicas (\cite[p.~111]{hatcher2002}). Enunciamos solamente el segundo resultado en virtud de que el tipo de homotopía es también invariante por homeomorfismos.
 
