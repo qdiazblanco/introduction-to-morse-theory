@@ -54,7 +54,7 @@ que verifica que para cualesquiera campos vectoriales suaves $X$ e $Y$, la funci
 
 \bigskip
 
-Dado un grupo uniparamétrico de difeormorfismos $\varphi$ definimos el siguiente campo vectorial sobre $M$
+Dado un grupo uniparamétrico de difeomorfismos $\varphi$ definimos el siguiente campo vectorial sobre $M$
 \begin{equation*}
     X_q(f)=\lim_{h\to 0}\frac{f(\varphi_h(q))-f(q)}{h},
 \end{equation*}
@@ -62,7 +62,7 @@ donde $f$ es una función suave de $M$ en $\mathbb{R}$, y decimos que $X$ genera
 
 Normalmente, uno se refiere a la curva $\varphi_\bullet(q): \mathbb{R}\to M,~~ t\mapsto \varphi_t(q)$ como el \textit{flujo de X} cuando se conoce el campo vectorial $X$ que genera el grupo uniparamétrico de difeomorfismos. En cualquier caso, mantendremos un vocabulario lo más fiel posible al texto \cite{milnor1963}.
 
-También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:\mathbb{R}\to M$ que definimos de manera similar a X
+También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:\mathbb{R}\to M$ que definimos de manera similar a $X$,
 \begin{equation*}
     \frac{dc}{dt}(f)= \lim_{h\to 0}\frac{f(c(t+h))-f(c(t))}{h}\in T_{c(t)}M .
 \end{equation*} 
@@ -70,7 +70,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 \bigskip
 \begin{lemma}
 \label{unidiff}
-    Todo campo vectorial sobre una variedad diferenciable $M$ que se anula fuera de un compacto $K\subset M$ genera un único grupo de difeomorfismos de M.
+    Todo campo vectorial sobre una variedad diferenciable $M$ que se anula fuera de un compacto $K\subset M$ genera un único grupo de difeomorfismos de $M$.
 \end{lemma}
 
 \begin{proof}
@@ -87,9 +87,9 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
     con $p=\varphi_t(q)$.
 
-    Ahora, por el teorema de Picard-Lindelöf sabemos que existe localmente una solución única, que depende de manera diferenciable de la condición inicial. Es decir, $\forall p\in M$ existen un entorno $\mathcal{U}$ de $p$ y $\varepsilon > 0$ tales que $(\ast)$ tiene una única solución para todo $q\in \mathcal{U}$ y $|t|<\varepsilon$.
+    Ahora, por el teorema de Picard-Lindelöf sabemos que existe localmente una solución única, que depende de manera diferenciable de la condición inicial. Es decir, para todo $ p\in M$ existen un entorno $\mathcal{U}$ de $p$ y $\varepsilon > 0$ tales que $(\ast)$ tiene una única solución para todo $q\in \mathcal{U}$ y $|t|<\varepsilon$.
 
-    Como $K\subset M$ es compacto, puede ser cubierto por una cantidad finita de dichos entornos. Sea $\varepsilon_0$ el menor de los valores definidos arriba y establezcamos $\varphi_t(q)=q,~~\forall q\notin K$ (luego $X_q=0$ fuera de $K$). Entonces $(\ast)$ tiene una única solución $\varphi_t(q)$ para $|t|<\varepsilon_0$ y $\forall q\in M$ suave respecto de ambas variables.
+    Como $K\subset M$ es compacto, puede ser cubierto por una cantidad finita de dichos entornos. Sea $\varepsilon_0$ el menor de los valores definidos arriba y establezcamos $\varphi_t(q)=q,~~\forall q\notin K$ (luego $X_q=0$ fuera de $K$). Entonces $(\ast)$ tiene una única solución $\varphi_t(q)$ para $|t|<\varepsilon_0$ y para todo $q\in M$ suave respecto de ambas variables.
 
     Veamos que para todo $t$ adecuado cada $\varphi_t$ es un difeomorfismo de $M$ en si misma. Para ello basta comprobar que se cumple que $\varphi_{t+s}=\varphi_t\circ \varphi_s$ suponiendo que $|t|,|s|,|t+s|<\varepsilon_0$.
 
@@ -199,7 +199,7 @@ También hablaremos del \textit{vector velocidad} de una curva diferenciable $c:
 
 \end{proof}
 \begin{remark}
-    Nótese la importancia de que $f^{-1}[a,b]$ sea compacto. Si por ejemplo nuestra variedad es la esfera $\mathbb{S}^2$ embebida en $\mathbb{R}^3$, es claro que la función que asigna a cada punto de la esfera su coordenada $z$ es de Morse y verifica que $f^{-1}[a,b]$ es compacto puesto que es cerrado y la esfera es compacta. Ahora, si eliminamos de $\mathbb{S}^2$ un punto $p$ tal que $f(p)$ queda entre $f(a)$ y $f(b)$ se tiene que $f^{-1}[a,b]$ deja de ser compacto (pues deja de ser cerrado y estamos en un espacio Hausdorff) y claramente $M^a$ no es retracto de deformación de $M^b$. 
+    Nótese la importancia de que $f^{-1}[a,b]$ sea compacto. Sean $a=-1/2$ y $b=1/2$ y nuestra variedad la esfera $\mathbb{S}^2$ embebida en $\mathbb{R}^3$, es claro que la función que asigna a cada punto de la esfera su coordenada $z$ es de Morse y verifica que $f^{-1}[a,b]$ es compacto puesto que es cerrado y la esfera es compacta. Ahora, si eliminamos de $\mathbb{S}^2$ un punto $p$ tal que $f(p)$ queda entre $f(a)$ y $f(b)$ se tiene que $f^{-1}[a,b]$ deja de ser compacto (pues deja de ser cerrado y estamos en un espacio Hausdorff) y claramente $M^a$ no es retracto de deformación de $M^b$. En efecto, $M^a$ es homeomorfo a un disco y $M^b$ a un disco perforado, que no es simplemente conexo, luego no tienen el mismo tipo de homotopía.
 \end{remark}
 \bigskip
 
@@ -207,13 +207,13 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
 
 \begin{theorem}
 \label{pegadocelula}
-     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$. Supongamos que $f(p)=c$ y que  $\exists\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $0<\varepsilon_0<\varepsilon$ suficientemente pequeño, $M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada.
+     Sea $f:M\to\mathbb{R}$ suave sobre una variedad riemanniana $(M,\langle\cdot,\cdot\rangle)$ y $p\in M$ un punto crítico no degenerado de $f$ con índice $\lambda$. Supongamos que $f(p)=c$ y que existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto y no contiene ningún punto crítico de $f$ a parte de $p$. Entonces, para todo $\varepsilon>0$ suficientemente pequeño, $M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada.
 \end{theorem}
 
 \begin{proof}
     Vamos a definir una función $F$ que sea menor que $f$ en un entorno $\mathcal{U}$ de $p$ con el fin de dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$ y poder aplicar a $F$ el teorema \ref{retractodef}. Así, habremos demostrado que $F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$.
     
-    Para finalizar la demostración probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.
+    Después, probaremos que $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$ y por la transitividad de esta relación habremos terminado.
 
     \bigskip
 %Preliminares------------------
@@ -229,12 +229,12 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     \end{equation*}
     para cada $q\in \mathcal{U}$, donde $c=f(p).$
 
-    Sea $0<\varepsilon_0\le\varepsilon$ suficientemente pequeño para que:
+    Sea $\varepsilon>0$ suficientemente pequeño para que:
     \begin{enumerate}[label=\roman*)]
-        \item $f^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ sea compacto y no contenga ningún punto crítico de $f$ distinto de $p$.
-        \item $\phi^{-1}(\mathcal{U})\subset \mathbb{R}^n$ contenga a la bola cerrada
+        \item $f^{-1}[c-\varepsilon,c+\varepsilon]$ sea compacto y no contenga ningún punto crítico de $f$ distinto de $p$.
+        \item $\phi(\mathcal{U})\subset \mathbb{R}^n$ contenga a la bola cerrada
         \begin{equation*}
-            \phi\left(\overline{B(0, \sqrt{2\varepsilon_0})}\right)= \{q\in \mathcal{U}: \xi(q)+\eta(q)\le 2\varepsilon_0\}
+            \phi\left(\overline{B(0, \sqrt{2\varepsilon})}\right)= \{q\in \mathcal{U}: \xi(q)+\eta(q)\le 2\varepsilon\}
         \end{equation*}
     \end{enumerate}
 
@@ -242,8 +242,8 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     Construyamos $F:M\to \mathbb{R}$. Sea $\mu:\mathbb{R}\to\mathbb{R}$ una aplicación suave que verifica lo siguiente
     \begin{equation*}
         \begin{cases}
-        \mu(0)>\varepsilon_0\\
-        \mu(r)=0, ~~r\ge 2\varepsilon_0\\
+        \mu(0)>\varepsilon\\[3pt]
+        \mu(r)=0, ~~r\ge 2\varepsilon\\[3pt]
         -1<\mu'(r)\le 0, ~~\forall r\in \mathbb{R},
         \end{cases}
     \end{equation*}
@@ -257,24 +257,24 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
         \end{cases}
     \end{equation*}
 
-    Es claro que $F$ esta bien definida ya que $\mu$ se anula en $\partial\mathcal{U}$. Además, es suave ya que en un entorno de $\partial\mathcal{U}$ se tiene que $\mu'$ es identicamente $0$, luego tanto aproximándonos desde dentro de $\mathcal{U}$ como desde fuera $d_qF=d_qf$.
+    Es claro que $F$ esta bien definida ya que $\mu$ se anula en $\partial\mathcal{U}$. Además, es suave ya que en un entorno de $\partial\mathcal{U}$ se tiene que $\mu'$ es idénticamente $0$, luego tanto aproximándonos desde dentro de $\mathcal{U}$ como desde fuera $d_qF=d_qf$.
 
     \bigskip
     
 %Primera retraccion-------------------------------
 
-    Ahora que tenemos $F$ debemos comprobar que nos encontramos en las hipótesis del teorema \ref{retractodef}. Veamos primero que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$, después que $F$ y $f$ poseen los mismos puntos críticos y que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ no contiene ningún punto crítico.
+    Ahora que tenemos $F$ debemos comprobar que nos encontramos en las hipótesis del teorema \ref{retractodef}. Veamos primero que $M_F^{c+\varepsilon}=M_f^{c+\varepsilon}$, después que $F$ y $f$ poseen los mismos puntos críticos y que $F^{-1}[c-\varepsilon,c+\varepsilon]$ no contiene ningún punto crítico.
 
-    En efecto, $\mu(\xi(q)+2\eta(q))=0, ~\forall q\in M$ tal que $\xi(q)+2\eta(q)\ge 2\varepsilon_0$ luego fuera del elipsoide $E=\{q\in M:\xi(q)+2\eta(q)\le 2\varepsilon_0\}$ se tiene que $F=f$.
+    En efecto, $\mu(\xi(q)+2\eta(q))=0$ para todo $q\in M$ tal que $\xi(q)+2\eta(q)\ge 2\varepsilon$ luego fuera del elipsoide $E=\{q\in M:\xi(q)+2\eta(q)\le 2\varepsilon\}$ se tiene que $F=f$.
 
     \medskip
     
-    Sabemos que $E\in M_f^{c+\varepsilon_0}$ y por
+    Sabemos que $E\subset M_f^{c+\varepsilon}$ y por
     \begin{equation*}
-        F(q)<f(q)=c-\xi(q)+\eta(q)\le c+\frac{1}{2}\xi(q)+\eta\le c + \varepsilon_0, ~\forall q\in E,
+        F(q)<f(q)=c-\xi(q)+\eta(q)\le c+\frac{1}{2}\xi(q)+\eta\le c + \varepsilon, ~\forall q\in E,
     \end{equation*}
 
-    se tiene que $E\in M_F^{c+\varepsilon_0}$. Visto que es la única región en la que difieren concluimos que $M_F^{c+\varepsilon_0}=M_f^{c+\varepsilon_0}$.
+    se tiene que $E\subset M_F^{c+\varepsilon}$. Visto que es la única región en la que difieren concluimos que $M_F^{c+\varepsilon}=M_f^{c+\varepsilon}$.
 
     \medskip
 
@@ -292,42 +292,42 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
 
     \medskip
 
-    Veamos que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]=M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F$ es compacto y no contiene ningún punto crítico. Es claro que $M^{c-\varepsilon_0}_f\subset M^{c-\varepsilon_0}_F$ ya que $F$ y $f$ coinciden salvo en el entorno de $p$ en el que $F\le f$ así
-    \begin{equation}
-        M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f\implies M^{c+\varepsilon_0}_F\setminus M^{c-\varepsilon_0}_F \subset M^{c+\varepsilon_0}_f\setminus M^{c-\varepsilon_0}_f=f^{-1}[c-\varepsilon_0,c+\varepsilon_0],
-    \end{equation}
-    por lo que $F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$ es compacto. Por otro lado,
+    Veamos que $F^{-1}[c-\varepsilon,c+\varepsilon]=M^{c+\varepsilon}_F\setminus M^{c-\varepsilon}_F$ es compacto y no contiene ningún punto crítico. Es claro que $M^{c-\varepsilon}_f\subset M^{c-\varepsilon}_F$ ya que $F$ y $f$ coinciden salvo en el entorno de $p$ en el que $F\le f$ así
     \begin{equation*}
-        F(p)=c-\mu(0)<c-\varepsilon_0,
+        M^{c+\varepsilon}_F=M^{c+\varepsilon}_f\implies M^{c+\varepsilon}_F\setminus M^{c-\varepsilon}_F \subset M^{c+\varepsilon}_f\setminus M^{c-\varepsilon}_f=f^{-1}[c-\varepsilon,c+\varepsilon],
+    \end{equation*}
+    por lo que $F^{-1}[c-\varepsilon,c+\varepsilon]$ es compacto. Por otro lado,
+    \begin{equation*}
+        F(p)=c-\mu(0)<c-\varepsilon,
     \end{equation*}
 
-    luego $p\notin F^{-1}[c-\varepsilon_0,c+\varepsilon_0]$.
+    luego $p\notin F^{-1}[c-\varepsilon,c+\varepsilon]$.
 
     \medskip
 
-    De esta manera, nos encontramos en las hipótesis del teorema \ref{retractodef} para $F$, lo que demuestra que $M^{c-\varepsilon_0}_F$ es retracto de deformación de $M^{c+\varepsilon_0}_F=M^{c+\varepsilon_0}_f$.
+    De esta manera, nos encontramos en las hipótesis del teorema \ref{retractodef} para $F$, lo que demuestra que $M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_F=M^{c+\varepsilon}_f$.
 
     \bigskip
 
 %Segunda retracción------------------
 
-    Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon_0,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-celda. En primer lugar, veamos que
+    Sea $e^{\lambda}=\{q\in \mathcal{U}: \xi(q)\le \varepsilon,~\eta(q)=0 \}\subset \mathcal{U}$ una $\lambda$-celda. En primer lugar, veamos que
     \begin{equation*}
-        \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon_0,~~\eta(q)=0 \}=M^{c-\varepsilon_0}_f\cap e^{\lambda}.
+        \partial e^{\lambda}=\{q\in \mathcal{U}: \xi(q)= \varepsilon,~~\eta(q)=0 \}=M^{c-\varepsilon}_f\cap e^{\lambda}.
     \end{equation*}
     En efecto:
     \begin{quote}
-    $\left( \subseteq \right) ~~\forall q\in \partial e^{\lambda},~f(q)=c-\varepsilon_0 \implies q\in M^{c-\varepsilon_0}_f$
+    $\left( \subseteq \right) ~~\text{Para todo }~ q\in \partial e^{\lambda},~f(q)=c-\varepsilon \implies q\in M^{c-\varepsilon}_f$.
     
-    $\left( \supseteq \right) ~~\forall q\in M^{c-\varepsilon_0}_f\cap e^{\lambda}$, se tiene $\xi(q)\le\varepsilon_0,~\eta(q)=0 \text{ y } f(q)\le -\varepsilon_0$, entonces como
+    $\left( \supseteq \right) ~~\text{Para todo }~ q\in M^{c-\varepsilon}_f\cap e^{\lambda}$, se tiene $\xi(q)\le\varepsilon,~\eta(q)=0 \text{ y } f(q)\le -\varepsilon$, entonces como
     \begin{equation*}
-        f(q)=c-\xi(q)\le c-\varepsilon_0\iff \xi(q)\ge \varepsilon_0
+        f(q)=c-\xi(q)\le c-\varepsilon\iff \xi(q)\ge \varepsilon
     \end{equation*}
-    \quad \quad necesariamente $\xi(q)=\varepsilon_0$, luego $q\in \partial e^{\lambda}$. 
+    \quad \quad necesariamente $\xi(q)=\varepsilon$, luego $q\in \partial e^{\lambda}$. 
     \end{quote}
     \bigskip
 
-    La figura \ref{fig:diagrama1} reperesenta la situación actual, los ejes corresponden a los planos $u^{\lambda+1}=\dots=u^n=0$ y $u^{1}=\dots=u^{\lambda}=0$. La circunferencia representa la frontera de la bola de radio $\sqrt{e\varepsilon}$ y centro $p$. La región más oscura se corresponde con $M^{c-\varepsilon}_f$; la región con puntos grandes es $f^{-1}[c-\varepsilon,c]$ y por último, la región con los puntos más pequeños es $f^{-1}[c,c+\varepsilon]$.
+    La figura \ref{fig:diagrama1} reperesenta la situación actual, los ejes corresponden a los planos $u^{\lambda+1}=\dots=u^n=0$ y $u^{1}=\dots=u^{\lambda}=0$. La circunferencia representa la frontera de la bola de radio $\sqrt{2\varepsilon}$ y centro $p$. La región más oscura se corresponde con $M^{c-\varepsilon}_f$; la región con puntos grandes es $f^{-1}[c-\varepsilon,c]$ y, por último, la región con los puntos más pequeños es $f^{-1}[c,c+\varepsilon]$.
 
     \begin{figure}[H]
         \centering
@@ -339,68 +339,76 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
 
 
 
-    De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon_0}$ como $M_f^{c-\varepsilon_0}\cup H$ donde $H=\overline{M_F^{c-\varepsilon_0}\setminus M_f^{c-\varepsilon_0}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.
+    De cara al resto de la demostración resultará conveniente introducir la noción de \textit{asa}. Entenderemos $M_F^{c-\varepsilon}$ como $M_f^{c-\varepsilon}\cup H$ donde $H=\overline{M_F^{c-\varepsilon}\setminus M_f^{c-\varepsilon}}$ es el asa del que hablamos, denotado así en virtud de su nombre en inglés \textit{handle}.
 
     \medskip
     
     Observamos que $e^{\lambda}$ está contenido en $H$. En efecto, $F$ alcanza su máximo en $\mathcal{U}$ cuando $\mu(\xi+2\eta)$ alcanza su mínimo y este lo alcanza cuando $\xi$ y $\eta$ se anulan, es decir, únicamente en $p$, así
     \begin{equation*}
-        F(q)\le F(p)<c-\varepsilon_0 ~\text{ y }~f(q)=c-\xi(q)\ge c-\varepsilon_0,~\forall q\in e^{\lambda},
+        F(q)\le F(p)<c-\varepsilon ~\text{ y }~f(q)=c-\xi(q)\ge c-\varepsilon,~\forall q\in e^{\lambda},
     \end{equation*}
     luego $q\in e^{\lambda}$ lo que implica que $q$ está en $H$.
 
     \medskip
 
     
-    Ahora queremos demostrar que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon_0}_f\cup e^{\lambda}$, como en la demostración del teorema \ref{retractodef}.\\
+    Ahora queremos demostrar que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon}_F = M_f^{c-\varepsilon}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon}_f\cup e^{\lambda}$, como en la demostración del teorema \ref{retractodef}.
+    \bigskip
 
-    Sea $D:[0,1]\times M_f^{c-\varepsilon_0}\cup H\to M_f^{c-\varepsilon_0}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.\\
+    Sea $D:[0,1]\times M_f^{c-\varepsilon}\cup H\to M_f^{c-\varepsilon}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.
+    \medskip
 
-    \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon_0\}$.
+    \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon\}$.
     
     En esta región lo que queremos es llevar los puntos a $e^{\lambda}$.
 
-    Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),tu_{\lambda+1}(q),\dots,tu_n(q))$.\\
+    Definimos $\Psi(t,q)=\Psi(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),tu_{\lambda+1}(q),\dots,tu_n(q))$.
+    \bigskip
     
-    Es claro que es relativa a $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ ($R_1\cap M^{c-\varepsilon_0}_f=\varnothing$ y los puntos de $e^{\lambda}$ no los toca) y que  $D(1,\cdot)$ es la identidad. Además,
+    Es claro que es relativa a $M^{c-\varepsilon}_f\cup e^{\lambda}$ ($R_1\cap M^{c-\varepsilon}_f=\varnothing$ y los puntos de $e^{\lambda}$ no los toca) y que  $\Psi(1,\cdot)$ es la identidad. Además,
     \begin{equation*}
-        \forall q\in R_1, ~D(0, q)\in e^{\lambda} ~\text{ y }~ D(0,D(0,q))=D(0,q).
+        \forall q\in R_1, ~\Psi(0, q)\in e^{\lambda} ~\text{ y }~ \Psi(0,\Psi(0,q))=\Psi(0,q).
     \end{equation*} 
 
-    Asimismo, como $\frac{\partial F}{\partial \eta}>0$ (es decir, $F$ crece en la dirección de $\eta$) se tiene que $F(D(t,q))\le F(q)$ para todo $t\in [0,1]$ y todo $q\in R_1$. Luego $D$ lleva $M_f^{c-\varepsilon_0}\cup H$ en sí mismo.
+    Asimismo, como $\frac{\partial F}{\partial \eta}>0$ (es decir, $F$ crece en la dirección de $\eta$) se tiene que $F(\Psi(t,q))\le F(q)$ para todo $t\in [0,1]$ y todo $q\in R_1$. Luego $\Psi$ lleva $M_f^{c-\varepsilon}\cup H$ en sí mismo.
     \bigskip
 
-    \textbf{Región 2:}\quad $R_2=\{q\in \mathcal{U}:~ \varepsilon_0\le \xi(q)\le \eta(q)+\varepsilon_0\}$.
+    \textbf{Región 2:}\quad $R_2=\{q\in \mathcal{U}:~ \varepsilon\le \xi(q)\le \eta(q)+\varepsilon\}$.
 
 
-    Aquí lo que buscamos es llevar los puntos de $R_2$ a la frontera de $M_f^{c-\varepsilon_0}$.
+    Aquí lo que buscamos es llevar los puntos de $R_2$ a la frontera de $M_f^{c-\varepsilon}$.
 
-    Definimos $D(t,q)=D(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),s_t(q) u_{\lambda+1}(q),\dots,s_t(q) u_n(q))$, donde 
+    Definimos $\Psi(t,q)=\Psi(t,(u_1(q),\dots,u_n(q))=(u_1(q),\dots,u_{\lambda}(q),s_t(q) u_{\lambda+1}(q),\dots,s_t(q) u_n(q))$, donde 
     \begin{equation*}
-        s_t(q)=t + (1-t)\left(\frac{\xi(q)-\varepsilon_0}{\eta}\right)^{1/2} \in ~[0,1]
+        s_t(q)=t + (1-t)\left(\frac{\xi(q)-\varepsilon}{\eta}\right)^{1/2} \in ~[0,1]
     \end{equation*}
 
-    Igual que sobre $R_1$ queda claro que es relativa a $M_f^{c-\varepsilon_0}\cup e^{\lambda}$, que $D(1,\cdot)$ es de nuevo la identidad y que $D(0,\cdot)$ es una retracción sobre la frontera de $M_f^{c-\varepsilon_0}$. Lo último se sigue de que en la frontera de $M_f^{c-\varepsilon_0}$ se tiene que $-\xi +\eta = \varepsilon_0$, luego $s_0(q)=1$. 
+    Igual que sobre $R_1$ queda claro que es relativa a $M_f^{c-\varepsilon}\cup e^{\lambda}$, que $D(1,\cdot)$ es de nuevo la identidad y que $\Psi(0,\cdot)$ es una retracción sobre la frontera de $M_f^{c-\varepsilon}$. Lo último se sigue de que en la frontera de $M_f^{c-\varepsilon}$ se tiene que $-\xi +\eta = \varepsilon$, luego $s_0(q)=1$. 
     
-    Resta ver que $s_t$ es continua cuando $\xi \to \varepsilon_0$ y $\eta \to 0$. Reordenando la desigualdad que define $R_2$ tenemos $0\le\xi-\varepsilon_0\le\eta$, lo que significa que a medida que $\eta$ tiende a cero, $\xi$ debe tender a $\varepsilon_0$ más rápidamente. Así, 
+    Resta ver que $s_t$ es continua cuando $\xi \to \varepsilon$ y $\eta \to 0$. Reordenando la desigualdad que define $R_2$ tenemos $0\le\xi-\varepsilon\le\eta$, lo que significa que a medida que $\eta$ tiende a cero, $\xi$ debe tender a $\varepsilon$ más rápidamente. Así, 
     \begin{equation*}
-        0\le \lim_{\xi \to \varepsilon_0, \eta\to 0} \frac{\xi - \varepsilon_0}{\eta} \le 1
+        0\le \lim_{\xi \to \varepsilon, \eta\to 0} \frac{\xi - \varepsilon}{\eta} \le 1
     \end{equation*}
-    y en particular, se tiene que $\lim_{\xi \to \varepsilon_0, \eta\to 0} \frac{\xi - \varepsilon_0}{\eta}=0$ necesariamente. Concluimos entonces que $s_t$ no genera problemas en la continuidad de $D$ cerca de los puntos con $\eta(q)=0$.
+    y en particular, se tiene que $\lim_{\xi \to \varepsilon, \eta\to 0} \frac{\xi - \varepsilon}{\eta}=0$ necesariamente. Concluimos entonces que $s_t$ no genera problemas en la continuidad de $\Psi$ cerca de los puntos con $\eta(q)=0$.
     \bigskip
 
-    \textbf{Región 3:}\quad $R_3=\{q\in \mathcal{U}:~ \eta(q) + \varepsilon_0 \le \xi(q)\}$
+    \textbf{Región 3:}\quad $R_3=\{q\in \mathcal{U}:~ \eta(q) + \varepsilon \le \xi(q)\}$
     
 
-    $R_3$ coincide con $M_f^{c-\varepsilon_0}$ luego basta con tomar $D(t,q)= Id_{M_f^{c-\varepsilon_0}}$.
+    $R_3$ coincide con $M_f^{c-\varepsilon}$ luego basta con tomar $\Psi(t,q)= Id_{M_f^{c-\varepsilon}}$.
     \bigskip
 
-    Las tres regiones cubren por completo $\mathcal{U}$. Esto concluye la demostración de que $M^{c-\varepsilon_0}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon_0}_F = M_f^{c-\varepsilon_0}\cup H$ y con ello la demostración del teorema.
+    Las tres regiones cubren por completo $\mathcal{U}$. Esto concluye la demostración de que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon}_F = M_f^{c-\varepsilon}\cup H$ y con ello la demostración del teorema.
     
 \end{proof}
 \begin{remark}
 \label{obs_incluso_con_c_critico}
-    Modificando un poco la demostración es posible demostrar que $M^c_f$ es también retracto de deformación de $M^{c+\varepsilon}_f$. De hecho, $M^c_f$ es retracto de deformación de $M_F^c$, que es a su vez retracto de deformación de $M^{c+\varepsilon}_f$, esto, junto con el teorema, deja claro que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^c_f$.
+    \hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item Modificando un poco la demostración es posible demostrar que $M^c_f$ es también retracto de deformación de $M^{c+\varepsilon}_f$. De hecho, $M^c_f$ es retracto de deformación de $M_F^c$, que es a su vez retracto de deformación de $M^{c+\varepsilon}_f$, esto, junto con el teorema, deja claro que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^c_f$.
+        \item Además, como corolario de esta prueba se sigue que $M^{c+\varepsilon}_f$ no solo es homotópicamente equivalente sino que es homeomorfo a $M^{c-\varepsilon}$ con una $\lambda$-asa $D^\lambda \times D^{n-\lambda}$ pegada. En caso de ser $M$ compacta, hacer esto en cada punto crítico da lugar a una descomposición de $M$ en pegados sucesivos de asas que se conoce como ``handlebody decomposition''. Esta descomposición es la que se utiliza, por ejemplo, en la demostración del teorema del h-cobordismo.
+    \end{enumerate}
+    
 \end{remark}
 
 \bigskip
@@ -423,7 +431,7 @@ Su demostración necesitará del \textit{teorema de aproximación celular} cuya 
 \vspace{0.5em}
 
 \begin{definition}
-    Se dice que una función $f:X\to Y$ entre CW-complejos es una \textit{función celular} si $f(X^k)\subset Y^k$ para todo $k$. Es decir, una función que lleva celdas a celdas de su misma dimensión o más pequeña.
+    Se dice que una función $f:X\to Y$ entre CW-complejos es una \textit{función celular} si $f(X_k)\subset Y_k$ para todo $k$. Es decir, una función que lleva celdas a celdas de su misma dimensión o más pequeña.
 \end{definition}
 \begin{theorem}[Teorema de aproximación celular]
 \label{aprox_celular}
@@ -439,7 +447,7 @@ Su demostración necesitará del \textit{teorema de aproximación celular} cuya 
 \begin{definition}
     Sea $X$ un espacio dominado por un CW-complejo $K$. Denotamos por $\Delta X$ la mínima dimensión de entre los CW-complejos que dominan a $X$ (puede ser infinita), es decir,
     \begin{equation*}
-        \Delta X := \text{min}\{\text{dim}K\colon K \text{ es un CW-complejo que domina a }X\}.
+        \Delta X := \text{min}\{\dim K\colon K \text{ es un CW-complejo que domina a }X\}.
     \end{equation*}
 \end{definition}
 
@@ -458,7 +466,7 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
 
 \begin{lemma}[Lema de Whitehead]
 \label{lema1_democwvariedad}
-    Sean $\varphi_0, \varphi_1: \partial e^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
+    Sean $\varphi_0, \varphi_1: \partial D^{\lambda} \to X$ dos funciones de pegado homotópicas. Entonces, la función identidad de $X$ se puede extender a una equivalencia homotópica
     \begin{equation*}
         k: X\cup_{\varphi_0} e^{\lambda} \to X\cup_{\varphi_1} e^{\lambda}.
     \end{equation*}
@@ -467,19 +475,19 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
 
     Primero definimos la función $k$ y su inversa $l$ y después probamos que, en efecto, dan una equivalencia homotópica. 
     
-    Sea $\{\varphi_t:\partial e^{\lambda} \to X\}$ una homotopía entre $\varphi_0$ y $\varphi_1$, definimos $k$ como sigue.
+    Sea $\{\varphi_t:\partial D^{\lambda} \to X\}$ una homotopía entre $\varphi_0$ y $\varphi_1$, definimos $k$ como sigue.
     \begin{equation*}
         \begin{cases}
             k(x) = x &~~\text{ si }~~ x\in X\\
-            k(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda}\\
-            k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda},
+            k(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial D^{\lambda}\\
+            k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial D^{\lambda},
         \end{cases}
     \end{equation*}
-    donde $tu$ denota el producto usual de el escalar $t\in [0,1]$ con el vector unitario $u\in \partial e^{\lambda}$, es decir, cubre todo $D^{\lambda}$. Es continua ya que para $t=\frac{1}{2}$ se tiene
+    donde $tu$ denota el producto usual de el escalar $t\in [0,1]$ con el vector unitario $u\in \partial D^{\lambda}$, es decir, cubre todo $D^{\lambda}$. Es continua ya que para $t=\frac{1}{2}$ se tiene
     \begin{equation*}
         k(u/2) = u = \varphi_{1}(u) ~~\text{ y }~~ u \sim \varphi_{1}(u) ~\text{ en }~ X\cup_{\varphi_1} e^{\lambda}.
     \end{equation*}
-    Además, está bien definida ya que envía representantes de la misma clase de equivalencia al mismo punto. En $X\cup_{\varphi_0} e^{\lambda}$ están relacionados $u$ y $\varphi_0(u)$ para todo $u$ en $\partial e^{\lambda}$ y $k$ verifica que 
+    Además, está bien definida ya que envía representantes de la misma clase de equivalencia al mismo punto. En $X\cup_{\varphi_0} e^{\lambda}$ están relacionados $u$ y $\varphi_0(u)$ para todo $u$ en $\partial D^{\lambda}$ y $k$ verifica que 
     \begin{equation*}
         k(u) = \varphi_{0}(u) ~\text{ y }~ k(\varphi_{0}(u)) = \varphi_{0}(u),
     \end{equation*} 
@@ -489,8 +497,8 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
     \begin{equation*}
         \begin{cases}
             l(x) = x &~~\text{ si }~~ x\in X,\\
-            l(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
-            l(tu) = \varphi_{2t-1}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda}.
+            l(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial D^{\lambda},\\
+            l(tu) = \varphi_{2t-1}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial D^{\lambda}.
         \end{cases}
     \end{equation*}
     Se prueba de manera análoga a $k$ que $l$ es continua y está bien definida.
@@ -499,19 +507,19 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
     \begin{equation*}
         \begin{cases}
             l\circ k(x) = x &~~\text{ si }~~ x\in X,\\
-            l\circ k(tu) = 4tu &~~\text{ si }~~ 0\le t\le \frac{1}{4},~u\in \partial e^{\lambda},\\
-            l\circ k(tu) = \varphi_{4t-1}(u) &~~\text{ si }~~  \frac{1}{4} \le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
-            l\circ k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial e^{\lambda}.
+            l\circ k(tu) = 4tu &~~\text{ si }~~ 0\le t\le \frac{1}{4},~u\in \partial D^{\lambda},\\
+            l\circ k(tu) = \varphi_{4t-1}(u) &~~\text{ si }~~  \frac{1}{4} \le t\le \frac{1}{2},~u\in \partial D^{\lambda},\\
+            l\circ k(tu) = \varphi_{2-2t}(u) &~~\text{ si }~~  \frac{1}{2} \le t\le 1,~u\in \partial D^{\lambda}.
         \end{cases}
     \end{equation*}
     El último caso se sigue de que $k(tu) = \varphi_{2-2t}(u)$ si $\frac{1}{2} \le t\le 1$ y esto pertecene a $X$, luego $l$ lo deja fijo. Veamos ahora la homotopía, definimos
     \begin{equation*}
     \begin{cases}
         h_s(x) = x &~~\text{ si }~~ x\in X, ~~s\in[0,1],\\[4pt]
-        h_s(tu) = (4-3s)tu &~~\text{ si }~~ 0 \le t \le \frac{1}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
-        h_s(tu) = \varphi_{(4-3s)t-1}(u) &~~\text{ si }~~ \frac{1}{4-3s} \le t \le \frac{2-s}{4-3s},~u\in \partial e^{\lambda} \\[4pt]
+        h_s(tu) = (4-3s)tu &~~\text{ si }~~ 0 \le t \le \frac{1}{4-3s},~u\in \partial D^{\lambda} \\[4pt]
+        h_s(tu) = \varphi_{(4-3s)t-1}(u) &~~\text{ si }~~ \frac{1}{4-3s} \le t \le \frac{2-s}{4-3s},~u\in \partial D^{\lambda} \\[4pt]
         h_s(tu) = \varphi_{\frac{1}{2}(4-3s)(1-t)}(u),
-        &~~\text{ si }~~  \frac{2-s}{4-3s} \le t \le 1,~u\in \partial e^{\lambda}.
+        &~~\text{ si }~~  \frac{2-s}{4-3s} \le t \le 1,~u\in \partial D^{\lambda}.
     \end{cases}
     \end{equation*}
     Es claro que para $s=0$ recuperamos $l\circ k$ y para $s=1$ se tiene la identidad de $X\cup_{\varphi_0} e^{\lambda}$. La continuidad se demuestra fácilmente viendo el comportamiento en los extremos de cada tramo. Que $h_s$ está bien definida se comprueba como en el caso de $k$.
@@ -521,7 +529,7 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
 
 \begin{lemma}
 \label{lema2_democwvariedad}
-    Sea $\varphi: \partial e^{\lambda} \to X$ una función de pegado. Toda equivalencia homotópica $f:X\to Y$ se puede extender a una equivalencia homotópica 
+    Sea $\varphi: \partial D^{\lambda} \to X$ una función de pegado. Toda equivalencia homotópica $f:X\to Y$ se puede extender a una equivalencia homotópica 
     \begin{equation*}
         F: X\cup_{\varphi} e^{\lambda} \to Y\cup_{f\circ\varphi} e^{\lambda}.
     \end{equation*}
@@ -559,26 +567,22 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
     \begin{equation*}
         \begin{cases}
             kGF(x) = g(f(x)) &~~\text{ si }~~ x\in X,\\
-            kGF(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial e^{\lambda},\\
-            kGF(tu) = h_{2-2t}(\varphi(u)) &~~\text{ si }~~ \frac{1}{2}\le t\le 1,~u\in \partial e^{\lambda}.
+            kGF(tu) = 2tu &~~\text{ si }~~ 0\le t\le \frac{1}{2},~u\in \partial D^{\lambda},\\
+            kGF(tu) = h_{2-2t}(\varphi(u)) &~~\text{ si }~~ \frac{1}{2}\le t\le 1,~u\in \partial D^{\lambda}.
         \end{cases}
     \end{equation*} 
     Ahora, denotamos por $q_s:X\cup_{\varphi} e^{\lambda}\to X\cup_{\varphi} e^{\lambda}$ la homotopía que necesitamos de $kGF$ a la identidad. Esta viene dada por
     \begin{equation*}
         \begin{cases}
             q_s(x) = h_s(x) &~~\text{ si }~~ x\in X,\\
-            q_s(tu) = \frac{2}{1+s}tu &~~\text{ si }~~ 0\le t\le \frac{1+s}{2},~u\in \partial e^{\lambda},\\
-            q_s(tu) = h_{2-2t+s}(\varphi(u)) &~~\text{ si }~~ \frac{1+s}{2}\le t\le 1,~u\in \partial e^{\lambda}.
+            q_s(tu) = \frac{2}{1+s}tu &~~\text{ si }~~ 0\le t\le \frac{1+s}{2},~u\in \partial D^{\lambda},\\
+            q_s(tu) = h_{2-2t+s}(\varphi(u)) &~~\text{ si }~~ \frac{1+s}{2}\le t\le 1,~u\in \partial D^{\lambda}.
         \end{cases}
     \end{equation*}
 
-    En $s=0$ recuperamos $kGF$ ya que $h_0\equiv g\circ f$, los otros dos tramos son claros. En $s=1$ se tienen $h_1$, que es la identidad en $X$,  $q_1(tu)=tu$ para todo $t\in[0,1]$ y $q_1(u)=h_1(\varphi(u))$ en el último tramo (ya que $t$ solo puede tomar el valor $1$), que es igual a $\varphi(u)$ que está relacionado con $u$. Se comprueba fácilmente que no hay problemas de continuidad observando que los valores que toma $q$ cuando $t=\frac{1+s}{2}$ están relacionados.
+    En $s=0$ recuperamos $kGF$ ya que $h_0\equiv g\circ f$, los otros dos tramos son claros. En $s=1$ se tienen $h_1$, que es la identidad en $X$,  $q_1(tu)=tu$ para todo $t\in[0,1]$ y $q_1(u)=h_1(\varphi(u))$ en el último tramo (ya que $t$ solo puede tomar el valor $1$), que es igual a $\varphi(u)$ que está relacionado con $u$. Se comprueba fácilmente que no hay problemas de continuidad observando que los valores que toma $q$ cuando $t=\frac{1+s}{2}$ están relacionados. Además, $q$ está bien definida ya que $q_s(u) = h_s(\varphi(u)) = q_s(\varphi(u))$.
 
-    Además, $q$ está bien definida ya que $q_s(u) = h_s(\varphi(u)) = q_s(\varphi(u))$.
-
-    Así hemos probado que $F$ tiene una inversa homotópica por la izquierda. Se prubea de manera análoga que $G$ tiene un inversa homotópica por la derecha. 
-    
-    Ahora debemos probar que $kG$ es, en efecto, también una inversa homotópica por la derecha de $F$. Para ello probamos el siguiente resultado primero:
+    Así hemos probado que $F$ tiene una inversa homotópica por la izquierda. Se prueba de manera análoga que $G$ tiene un inversa homotópica por la derecha. Ahora debemos probar que $kG$ es, en efecto, también una inversa homotópica por la derecha de $F$. Para ello probamos el siguiente resultado primero:
     \begin{quote}
         Si una función $F:X\to Y$ tiene una inversa homotópica por la izquierda $L$ y una inversa homotópica por la derecha $R$, entonces $F$ es una equivalencia homotópica y tanto $R$ como $L$ son inversas homotópicas por ambos lados.
     \end{quote}
@@ -614,7 +618,7 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
 \begin{proof}
     Sea $\{c_i\}_{i\in \mathcal{C}}$ el conjunto de los valores críticos de $f$ ordenados de tal manera que se verifica $c_1<c_2<c_3<\cdots$. Este conjunto no puede tener ningún punto de acumulación, veámoslo.
 
-    En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a un valor $c$. Ahora, por esto, existen inifnitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
+    En primer lugar, que el conjunto $\{c_i\}_{i\in \mathcal{C}}$ tenga un punto de acumulación $c$ implica que existe una sucesión $\{c_{i_k}\}_{k\in \mathbb{N}}$ convergente a un valor $c$. Ahora, por esto, existen infinitos $c_i$ menores que $c+1$ y como, por definición, para cada $c_i$ existe un punto crítico $p_i\in M$ tal que $f(p_i) = c_i$ tenemos que $M^{c+1}$ contiene infinitos puntos críticos de $f$. 
     
     Por la compacidad de $M^{c+1}$, esta colección infinita de puntos críticos contiene necesariamente una sucesión $\{p_{i_k}\}_{k\in \mathbb{N}}$ convergente a un punto $p$ de $M^{c+1}$. Por continuidad de $f$ se tiene que 
     \begin{equation*}
@@ -706,7 +710,7 @@ Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del p
     \end{equation*}
     Ambos, en coordenadas locales se corresponden con $n$-discos cerrados de radio $\sqrt{\varepsilon}$ y centro $0$, por tanto, son homeomorfos a dichas bolas.
 
-    Por otro lado, como $f^{-1}[\varepsilon, 1-\varepsilon]$ no contiene ningún punto crítico, por el teorema \ref{retractodef} $M^{\varepsilon}$ y $M^{1-\varepsilon}$ son difeomorfos. Así, $M$ es igual a la unión de los dos $n$-discos $M^{1-\varepsilon}$ y $f^{-1}[1-\varepsilon,1]$ pegados a lo largo de su frontera común.
+    Por otro lado, como $f^{-1}[\varepsilon, 1-\varepsilon]$ no contiene ningún punto crítico, por el teorema \ref{retractodef} $M^{\varepsilon}$ y $M^{1-\varepsilon}$ son difeomorfos. Así, $M$ es igual a la unión de los dos $n$-discos $M^{1-\varepsilon}$ y $f^{-1}[1-\varepsilon,1]$ pegados a lo largo de su frontera común, que es homeomorfo a una esfera.
 
 \end{proof}
 \vspace{-1em}
