@@ -327,12 +327,12 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     \end{quote}
     \bigskip
 
-    La figura \ref{fig:diagrama1} reperesenta la situación actual, los ejes corresponden a los planos $u^{\lambda+1}=\dots=u^n=0$ y $u^{1}=\dots=u^{\lambda}=0$. La circunferencia representa la frontera de la bola de radio $\sqrt{2\varepsilon}$ y centro $p$. La región más oscura se corresponde con $M^{c-\varepsilon}_f$; la región con puntos grandes es $f^{-1}[c-\varepsilon,c]$ y, por último, la región con los puntos más pequeños es $f^{-1}[c,c+\varepsilon]$.
+    La Figura \ref{fig:diagrama1} muestra los conjuntos subnivel de $f$ y la $\lambda$-celda. Los ejes corresponden a los planos $u^{\lambda+1}=\dots=u^n=0$ y $u^{1}=\dots=u^{\lambda}=0$. La circunferencia representa la frontera de la bola de radio $\sqrt{2\varepsilon}$ y centro $p$. La región más oscura se corresponde con $M^{c-\varepsilon}_f$, la región con puntos grandes es $f^{-1}[c-\varepsilon,c]$ y, por último, la región con los puntos más pequeños es $f^{-1}[c,c+\varepsilon]$.
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.5\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/diagrama1_cropped.pdf}
-        \caption{Representación esquemática del entorno del punto crítico $p$.}
+        \includegraphics[width=0.8\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/diagrama1_def.pdf}
+        \caption{Representación esquemática del entorno del punto crítico $p$ respecto de $f$.}
         \label{fig:diagrama1}
     \end{figure}
 
@@ -352,10 +352,23 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
     \medskip
 
     
-    Ahora queremos demostrar que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon}_F = M_f^{c-\varepsilon}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon}_f\cup e^{\lambda}$, como en la demostración del teorema \ref{retractodef}.
+    Ahora queremos demostrar que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon}_F = M_f^{c-\varepsilon}\cup H$. Para ello vamos a construir una homotopía relativa a $M^{c-\varepsilon}_f\cup e^{\lambda}$ de la identidad a una retracción en $M^{c-\varepsilon}_f\cup e^{\lambda}$, como en la demostración del teorema \ref{retractodef}. 
+
+    La Figura \ref{fig:diagrama_asa} muestra el entorno de $p$ desde esta perspectiva. La zona oscura representa $M_f^{c-\varepsilon}$, la zona punteada se corresponde con $F^{-1}[c-\varepsilon,c+\varepsilon]=M^{c+\varepsilon}_F\setminus M^{c-\varepsilon}_F$ y la zona con flechas es $H$, el asa. Además de identificar $H$, las flechas ilustran la deformación que haremos en el siguiente y último paso de la demostración.
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/diagrama2_asa.pdf}
+        \caption{Representación esquemática del entorno del punto crítico $p$ respecto de $F$ y con el asa.}
+        \label{fig:diagrama_asa}
+    \end{figure}
+
     \bigskip
 
-    Sea $D:[0,1]\times M_f^{c-\varepsilon}\cup H\to M_f^{c-\varepsilon}\cup H$, definimos $D$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.
+    Sea $\Psi:[0,1]\times M_f^{c-\varepsilon}\cup H\to M_f^{c-\varepsilon}\cup H$, definimos $\Psi$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.
+
+    La Figura \ref{fig:diagrama_asa_regiones} muestra de manera esquemática las regiones en las que queda divido $\mathcal{U}$ cerca del asa. La zona con las flechas de punta negra representa la parte de la región $1$ que queda dentro del asa. La zona con las flechas pequeñas de punta hueca coincide con la parte de la región $2$ que queda dentro del asa. La zona oscura es la región $3$. Asimismo, las flechas ilustran qué parte del asa queremos deformar y sobre qué en cada región. Nótese que en la región $3$ no es necesario deformar nada.
     \medskip
 
     \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon\}$.
@@ -397,6 +410,14 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
 
     $R_3$ coincide con $M_f^{c-\varepsilon}$ luego basta con tomar $\Psi(t,q)= Id_{M_f^{c-\varepsilon}}$.
     \bigskip
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/memoria_libro/imagenes/diagrama_asa_regiones.pdf}
+        \caption{Representación esquemática de las regiones en las que queda dividida el asa.}
+        \label{fig:diagrama_asa_regiones}
+    \end{figure}
+
 
     Las tres regiones cubren por completo $\mathcal{U}$. Esto concluye la demostración de que $M^{c-\varepsilon}_f\cup e^{\lambda}$ es retracto de deformación de $M^{c-\varepsilon}_F = M_f^{c-\varepsilon}\cup H$ y con ello la demostración del teorema.
     

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.30">
-<info created="D:20260215193118" modified="D:20260219120118"/>
+<info created="D:20260215193118" modified="D:20260219123036"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -359,7 +359,7 @@ h
 448 608
 448 608 c
 </path>
-<path matrix="1 0 0 1 -31.7567 -160.105" stroke="0" fill="1" fillrule="eofill">
+<path matrix="1 0 0 1 -31.7567 -160.105" fill="1">
 112 784 m
 112 448 l
 464 448 l
@@ -367,12 +367,12 @@ h
 h
 124.964 0 0 124.964 288 608 e
 </path>
-<text matrix="1 0 0 1 -35.6039 -142.826" transformations="translations" pos="296 720" stroke="black" type="label" width="49.709" height="5.475" depth="1.24" valign="baseline" size="tiny" style="math">(u^{\lambda-1},\dots,u^n)</text>
-<text matrix="1 0 0 1 94.0373 -267.456" transformations="translations" pos="296 720" stroke="black" type="label" width="39.925" height="5.475" depth="1.24" valign="baseline" size="tiny" style="math">(u^{1},\dots,u^{\lambda})</text>
-<text matrix="1 0 0 1 141.584 -254.975" transformations="translations" pos="168 704" stroke="black" type="label" width="10.863" height="9.873" depth="0" valign="baseline" size="large" style="math">e^{\lambda}</text>
-<text matrix="1 0 0 1 100.616 -224.402" transformations="translations" pos="154.755 666.23" stroke="black" type="label" width="6.365" height="4.435" depth="1.93" valign="baseline" style="math">\textbf{p}</text>
-<text matrix="1 0 0 1 184.366 -107.962" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="61.441" height="6.926" depth="1.93" valign="baseline" style="math">F=f=c+\varepsilon</text>
-<text matrix="1 0 0 1 -29.9185 -158.953" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="40.367" height="6.926" depth="1.93" valign="baseline" style="math">f=c-\varepsilon</text>
+<text matrix="1 0 0 1 -95.8162 -147.141" transformations="translations" pos="296 720" stroke="black" type="label" width="54.617" height="6.966" depth="1.99" valign="baseline" size="footnote" style="math">(u^{\lambda-1},\dots,u^n)</text>
+<text matrix="1 0 0 1 88.4783 -267.438" transformations="translations" pos="296 720" stroke="black" type="label" width="44.26" height="6.966" depth="1.99" valign="baseline" size="footnote" style="math">(u^{1},\dots,u^{\lambda})</text>
+<text matrix="1 0 0 1 128.572 -255.151" transformations="translations" pos="168 704" stroke="black" type="label" width="10.863" height="9.873" depth="0" valign="baseline" size="large" style="math">e^{\lambda}</text>
+<text matrix="1 0 0 1 101.037 -224.411" transformations="translations" pos="154.755 666.23" stroke="black" type="label" width="6.365" height="4.435" depth="1.93" valign="baseline" style="math">\textbf{p}</text>
+<text matrix="1 0 0 1 184.747 -108.312" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="61.441" height="6.926" depth="1.93" valign="baseline" style="math">F=f=c+\varepsilon</text>
+<text matrix="1 0 0 1 -30.0737 -158.866" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="40.367" height="6.926" depth="1.93" valign="baseline" style="math">f=c-\varepsilon</text>
 <text matrix="1 0 0 1 230.124 -285.131" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="40.367" height="6.926" depth="1.93" valign="baseline" style="math">f=c-\varepsilon</text>
 <path matrix="1 0 0 1 -31.7567 -160.105" stroke="black">
 327.472 609.77 m
@@ -383,7 +383,7 @@ h
 128 608 m
 448 608 l
 </path>
-<path matrix="1 0 0 0.822455 -31.7567 -48.5651" stroke="black" arrow="arc/normal">
+<path matrix="1 0 0 0.8 -31.7567 -38.5053" stroke="black" arrow="arc/normal">
 288 448 m
 288 768 l
 </path>
@@ -4099,6 +4099,6 @@ h
 215.15 471.314 m
 215.234 453.121 l
 </path>
-<text matrix="1 0 0 1 -1.04074 -334.659" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="61.441" height="6.926" depth="1.93" valign="baseline" style="math">F=f=c+\varepsilon</text>
+<text matrix="1 0 0 1 -1.04563 -334.392" transformations="translations" pos="135.814 665.787" stroke="black" type="label" width="61.441" height="6.926" depth="1.93" valign="baseline" style="math">F=f=c+\varepsilon</text>
 </page>
 </ipe>
