@@ -1,11 +1,11 @@
-\newpage
+
 \section{Homología relativa}
 \label{sec:hom_relat}
 
 Concluimos el desarrollo de los aspectos que necesitamos de homología con la \textit{homología relativa}. En esencia, en homología relativa lo que hacemos es ignorar todas las cadenas de un subespacio. La construcción es similar a las que ya conocemos.
 
 \begin{definition}
-    Sean $X$ un espacio y  $A\subset X$ un subespacio. Definimos $C_k(X,A)$ como el grupo cociente
+    Sean $X$ un espacio topológico y $A\subset X$ un subespacio. Definimos $C_k(X,A)$ como el grupo cociente
     \begin{equation*}
         C_k(X)/C_k(A),
     \end{equation*} 
@@ -22,7 +22,13 @@ donde los $q_k$ forman la familia de funciones de paso al cociente. Omitiremos l
 
 Observamos que en este caso también se verifica $\partial^{rel}_{k-1}\circ \partial^{rel}_k = 0$ ya que se anulan antes de pasar al cociente, luego los $q_k$ forman un morfismo de cadena.
 
-Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se construyen los \textit{grupos de homología relativa} de la misma manera que en homología celular y simplicial.
+\newpage
+Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se construyen los \textit{grupos de homología relativa} de la misma manera que en homología celular y simplicial. Es decir, dados un espacio topológico triangulado o un CW-complejo $X$ y un subespacio triangulado o subcomplejo $A$ el \textit{k-ésimo grupo de homología relativa} del par $(X,A)$ es el grupo abeliano $H_k(X,A)$ construido como sigue
+\begin{align*}
+    Z_k(X,A) &= \text{ker}(\partial^{rel}_k: C_k(X,A) \to C_{k-1}(X,A)) \\
+    B_k(X,A) &= \text{im}(\partial^{rel}_{k+1}: C_{k+1}(X,A) \to C_{k}(X,A)) \\
+    H_k(X,A) &= Z_k(X,A)/B_k(X,A).
+\end{align*}
 
 \begin{nota}
     Como cabría esperar, si el subespacio $A$ es por ejemplo contractible o vacío, se recuperan los grupos de homología no relativa.
@@ -31,13 +37,15 @@ Una vez tenemos los grupos de cadenas y los operadores de borde definidos, se co
 
 \begin{proposition}
 \label{exact_sec_hom_rel}
-    Para cualquier par $(X,A)$ con las propiedades necesarias según el contexto como establecido arriba, se tiene la siguiente secuencia exacta
+    Para cualquier par $(X,A)$, con $X$ o bien un espacio topológico triangulado o bien un CW-complejo y $A$ un subespacio triangulado o un subcomplejo respectivamente, se tiene la siguiente secuencia exacta
     \begin{align*}
         \cdots \longrightarrow H_n(A) \longrightarrow H_n(X) \longrightarrow H_n(X,A) \longrightarrow H_{n-1}(A) \longrightarrow H_{n-1}(X) \longrightarrow \cdots \longrightarrow H_0(X,A) \longrightarrow 0.
     \end{align*}
 \end{proposition}
 
 Demostrar esto es uno de los objetivos principales de la sección de homología relativa de \cite[p.~115]{hatcher2002} en la que nos hemos basado para esta sección.
+
+\bigskip
 
 Un ejemplo de la utilidad de esta secuencia exacta para computar los grupos de homología relativa es el siguiente.
 
@@ -85,6 +93,7 @@ Luego $g$ es inyectiva y llegamos a que
     \end{cases}
 \end{equation*}
 
+\newpage
 Para los casos $k=2$ y $k=1$ observamos el final de la secuencia.
 \[
 \begin{tikzcd}[

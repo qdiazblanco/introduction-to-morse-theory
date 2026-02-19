@@ -368,7 +368,7 @@ El siguiente teorema es crucial para conocer la estructura de CW-complejo de una
 
     Sea $\Psi:[0,1]\times M_f^{c-\varepsilon}\cup H\to M_f^{c-\varepsilon}\cup H$, definimos $\Psi$ como la identidad fuera de $\mathcal{U}$. En $\mathcal{U}$ debemos distinguir tres regiones.
 
-    La Figura \ref{fig:diagrama_asa_regiones} muestra de manera esquemática las regiones en las que queda divido $\mathcal{U}$ cerca del asa. La zona con las flechas de punta negra representa la parte de la región $1$ que queda dentro del asa. La zona con las flechas pequeñas de punta hueca coincide con la parte de la región $2$ que queda dentro del asa. La zona oscura es la región $3$. Asimismo, las flechas ilustran qué parte del asa queremos deformar y sobre qué en cada región. Nótese que en la región $3$ no es necesario deformar nada.
+    La Figura \ref{fig:diagrama_asa_regiones} muestra de manera esquemática las regiones en las que queda divido $\mathcal{U}$ cerca del asa. La zona con las flechas de punta negra representa la parte de la región $1$ que queda dentro del asa. La zona con las flechas pequeñas de punta hueca coincide con la parte de la región $2$ que queda dentro del asa. La zona oscura es la región $3$. Asimismo, las flechas ilustran qué parte del asa queremos deformar y sobre qué. Nótese que en la región $3$ no es necesario deformar nada.
     \medskip
 
     \textbf{Región 1:}\quad $R_1=\{q\in\mathcal{U}:\xi(q)\le \varepsilon\}$.
@@ -627,13 +627,11 @@ Vamos ahora con los dos lemas, ambos con demostración. Para la demostración de
     De la misma forma, como $G(Fk) \simeq \text{id}_{X\cup_{g\circ f\circ\varphi} e^{\lambda}}$ y sabemos que $G$ tiene una invera homotópica por la izquierda, se tiene $(Fk)G \simeq \text{id}_{Y\cup_{f\circ\varphi} e^{\lambda}}$.
 
     Por último, como $F(kG) \simeq \text{id}_{Y\cup_{f\circ\varphi} e^{\lambda}}$ y $F$ tiene una inversa homotópica por la izquierda, se tiene que $F$ es una equivalencia homotópica, lo que conlcluye la demostración.
-
 \end{proof}
 
 Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado de la sección. 
 
-\begin{theorem}
-\label{cwvariedad}
+\begin{theorem}\label{cwvariedad}
     Si $f$ es una función de Morse sobre una variedad diferenciable $M$ y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces $M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.
 \end{theorem}
 \begin{proof}
@@ -710,12 +708,11 @@ Demostrados ambos lemas, procedemos a enunciar y demostrar el último resultado 
 %%       APLICACIONES        %%
 %%                           %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Aplicaciones de los teoremas sobre el pegado de $\lambda$-celdas}
-\label{subsec:aplicaciones}
+\newpage
+\subsection{Aplicaciones de los teoremas sobre el pegado de $\lambda$-celdas}\label{subsec:aplicaciones}
 Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del pegado de $\lambda$-celdas.
 
-\begin{theorem}[Teorema de Reeb]
-\label{reeb}
+\begin{theorem}[Teorema de Reeb]\label{reeb}
     Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
 \end{theorem}
 \begin{proof}
@@ -744,11 +741,9 @@ Presentamos brevemente dos ejemplos de aplicaciones de los teoremas acerca del p
     \end{enumerate}
 \end{remark}
 
-\vspace{2.5em}
+\newpage
 
-Otra aplicación de los teoremas de la sección anterior es la siguiente.
-
-Sea $\mathbb{CP}^n$ el espacio proyectivo complejo de dimensión $n$. Pensaremos en $\mathbb{CP}^n$ como el espacio cuyos puntos son las clases de equivalencia de $(n+1)$-uplas $(z_0,\dots,z_n)$ de números complejos denotadas por $[z_0:z_1:\dots:z_n]$ tales que $\sum_j |z_j|^2=1$. 
+Otra aplicación de los teoremas de la sección anterior es la siguiente. Sea $\mathbb{CP}^n$ el espacio proyectivo complejo de dimensión $n$. Pensaremos en $\mathbb{CP}^n$ como el espacio cuyos puntos son las clases de equivalencia de $(n+1)$-uplas $(z_0,\dots,z_n)$ de números complejos denotadas por $[z_0:z_1:\dots:z_n]$ tales que $\sum_j |z_j|^2=1$. 
 
 Definimos la función $f:\mathbb{CP}^n \to \mathbb{R}$ dada por 
 \begin{equation*}
@@ -788,4 +783,10 @@ Por el teorema \ref{cwvariedad}, $\mathbb{CP}^n$ tiene el tipo de homotopía de 
 \begin{equation*}
     e^0\cup_{\varphi_1} e^2 \cup_{\varphi_2} e^4 \cup_{\varphi_3} \dots \cup_{\varphi_n} e^{2n}.
 \end{equation*}
-para ciertas funciones de pegado $\varphi_j$.
+para ciertas funciones de pegado $\varphi_j$. 
+
+\begin{remark}
+    La descomposición de $\mathbb{CP}^n$ que acabamos de obtener recupera la noción de que $\mathbb{CP}^n$ es $\mathbb{C}^{n}$ con un $\mathbb{CP}^{n-1}$ pegado en el infinito. Veámoslo:
+
+    Sea $H=\{p=[z_0:z_1:\dots:z_n]\in \mathbb{CP}^n ~|~ z_0=0\}$, entnces $\mathbb{CP}^n\setminus H$ contiene los puntos cuya primera coordenada es no nula, es decir, aquellos pertenecientes a las clases con representantes $[1:z_1:\dots:z_n]$. Así, se tiene que $\mathbb{CP}^n\setminus H$ es homeomorfo a $\mathbb{C}^n$ que es homeomorfo a una $2n$-celda. Ahora, $H$ es, a su vez, homeomorfo a $\mathbb{CP}^{n-1}$. Por lo que $\mathbb{CP}^n$ es el resultado de pegar una $2n$-celda a $H$. Iterando este proceso se llega a la descomposición en celdas que habíamos hallado.
+\end{remark}

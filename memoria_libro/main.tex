@@ -1,3 +1,4 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
 
 \documentclass[12pt]{ucmthesis}  % default square logo 
 
@@ -22,7 +23,7 @@
 \usepackage[backend=biber,citestyle=alphabetic,style=alphabetic]{biblatex} %bibliografia
 \bibliography{bibliografia/bibliografia} % tu archivo .bib
 
-\usepackage{xcolor} %cambiar color del texto
+%\usepackage[dvipsnames]{xcolor} %cambiar color del texto
 
 \usepackage{enumitem} % Para hacer apartados (i), (ii), ...
 
@@ -74,10 +75,10 @@
 % - - - - - - - - - - - - - - - - - - - - - - - -
 \sloppy %evita partir palabras al final de la linea
 %------------------------------------------------
-
+\definecolor{DeepBlue}{HTML}{003399}
 \usepackage[colorlinks=true,
-            linkcolor=blue,
-            citecolor=blue,
+            linkcolor=DeepBlue,
+            citecolor=DeepBlue,
             urlcolor=blue]{hyperref}
 
 % -------------------------------------------------
@@ -209,6 +210,13 @@
 %\include{abstract}          % include the abstract
 
 \begin{romanpages}          % start roman page numbering
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          DEDICATORIA          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedication}
+  A la memoria de Bimba. Gracias por acompañarme hasta casi el final de este camino.
+\end{dedication}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %          ABSTRACT             %

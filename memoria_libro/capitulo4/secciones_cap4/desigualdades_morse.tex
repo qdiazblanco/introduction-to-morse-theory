@@ -44,7 +44,7 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
             b_k(X,Z) - b_k(Y,Z) = \text{rank}(\text{im } g) - \text{rank}(\text{ker } f) \le b_k(X,Y).
         \end{equation*}
         De donde se deduce la subaditividad.
-        \item Aunque la demostración es más elaborada y no la añadiremos, se tiene que la función que asigna a cada par su característica de Euler-Poincaré $\chi (X,Y)$ es aditiva.
+        \item Lla función que asigna a cada par su característica de Euler-Poincaré $\chi (X,Y)$ es aditiva. No incluiremos la demostración en este ejemplo, referimos al lector a la observación \ref{demo_adit_euler}.
     \end{enumerate}
 \end{example}
 
@@ -110,12 +110,18 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
         \text{rank} f = b_k(Y,Z) - b_k(X,Z) + b_k(X,Y) - b_{k-1}(Y,Z) + \dots \ge 0.
     \end{equation*}
     Agrupando los términos adecuadamente llegamos a
-    \begin{equation*}
+    \begin{equation}
+    \label{demo_charac}
         S_{k}(Y,Z) - S_{k}(X,Z) + S_{k}(X,Y) \ge 0,
-    \end{equation*}
+    \end{equation}
     lo que concluye la demostración.
 
 \end{proof}
+
+\begin{remark}
+\label{demo_adit_euler}
+    Tomando $k$ suficientemente grande se recupera de $S_k$ la característica de Euler-Poincaré, es decir, $S_k(X,Y)=\chi(X,Y)$. Además, para este $k$ se tiene que \ref{demo_charac} es una igualdad, lo que demuestra la aditividad de la  característica de Euler-Poincaré.
+\end{remark}
 
 \bigskip
 
@@ -157,8 +163,8 @@ A lo largo de este capítulo nos referiremos a pares de espacios $(X,Y)$. Convie
     \end{equation*}
     Si por el contrario, aplicamos el lema con $S=\chi$ se llega a 
     \begin{gather*}
-        \chi(M) = \sum_{i=1}^k \chi(M^{a_i},M^{a_i-1}) = \sum_{i=1}^k \Big(\sum_{j=0}^n (-1)^j b_j(M^{a_i},M^{a_i-1})\Big) = \sum_{j=0}^n (-1)^j \sum_{i=1}^k b_j(M^{a_i},M^{a_i-1})=\\
-        = \sum_{j=0}^n (-1)^{j} C_{j}
+        \chi(M) = \sum_{i=1}^k \chi(M^{a_i},M^{a_i-1}) = \sum_{i=1}^k \Big(\sum_{\lambda=0}^n (-1)^{\lambda} b_{\lambda}(M^{a_i},M^{a_i-1})\Big) = \sum_{\lambda=0}^n (-1)^{\lambda} \sum_{i=1}^k b_{\lambda}(M^{a_i},M^{a_i-1})=\\
+        = \sum_{\lambda=0}^n (-1)^{{\lambda}} C_{{\lambda}}
     \end{gather*}
 
 \end{proof}
@@ -180,7 +186,7 @@ Ahora, se pueden obtener desigualdades ligeramente más fuertes que estas:
     \end{equation}
 \end{theorem}
 \begin{proof}
-    Basta aplicar la subaditividad de $S_{\lambda}$ y el lema \ref{lema__weak_desig_morse} con los espacios $M^{a_=0}=\emptyset \subset \dots \subset M^{a_k}=M$.
+    Basta aplicar la subaditividad de $S_{\lambda}$ y el lema \ref{lema__weak_desig_morse} con los espacios $M^{a_0}=\emptyset \subset \dots \subset M^{a_k}=M$.
 
 \end{proof}
 
@@ -206,3 +212,46 @@ Restando ahora esta a la primera igualdad se obtiene que $b_{\lambda} = C_{\lamb
     Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
 \end{corollary}
 
+Concluimos el capítulo aplicando este último resultado al cálculo de los grupos de homología de $\mathbb{S}^n$ con $n\ge 2$ y de $\mathbb{CP}^n$ ya calculados en el ejemplo \ref{ejemplos_hom_celular}.
+
+Recordemos que $\mathbb{S}^n$ admite una función de Morse con exactamente dos puntos críticos de índices $0$ y $n$ (\ref{reeb}). Así,
+\begin{equation*}
+    C_{\lambda}=
+    \begin{cases}
+        1, &\text{ si } \lambda \in \{0,n\},\\
+        0, &\text{ en otro caso.}
+    \end{cases}
+\end{equation*}
+Por tanto, aplicando el corolario anterior se tiene que $b_{\lambda}(\mathbb{S}^n)=1$ si $\lambda \in \{0,n\}$ y $0$ en caso contrario. Luego recuperamos los grupos de homología de $\mathbb{S}^n$,
+\begin{equation*}
+    H_{k}(\mathbb{S}^n)=
+    \begin{cases}
+        \mathbb{Z}, &\text{ si } k \in \{0,n\},\\
+        \{0\}, &\text{ en otro caso.}
+    \end{cases}
+\end{equation*}
+
+Por otro lado, por lo visto al final de la sección \ref{subsec:aplicaciones}, $\mathbb{CP}^n$ admite una función de Morse con $n+1$ puntos críticos cuyos índices son los números pares desde $0$ hasta $2n$. Es decir,
+\begin{equation*}
+    C_{\lambda}=
+    \begin{cases}
+        1, &\text{ si } \lambda \text{ es par  y } \lambda\le 2n,\\
+        0, &\text{ en otro caso.}
+    \end{cases}
+\end{equation*}
+Luego para todo índice par nos encontramos en las hipótesis del corolario. Si $\lambda$ es par, se tiene que $C_{\lambda+1}=C_{\lambda-1}=0$. Luego, 
+\begin{equation*}
+    b_{\lambda}(\mathbb{CP}^n)=
+    \begin{cases}
+        1, &\text{ si } \lambda \text{ es par  y } \lambda\le 2n,\\
+        0, &\text{ en otro caso.}
+    \end{cases}
+\end{equation*}
+Por lo que, de nuevo, recuperamos sus grupos de homología,
+\begin{equation*}
+    H_k(\mathbb{CP}^n) =
+    \begin{cases}
+        \mathbb{Z} &\text{ si } k \text{ es par  y } k\le 2n,\\
+        \{0\} &\text{en otro caso}.
+    \end{cases}
+\end{equation*}
