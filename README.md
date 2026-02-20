@@ -16,32 +16,28 @@ La importancia de la teoría de Morse radica en que permite determinar la topolo
 
 ### Índice general de la memoria
 
-1. Funciones de Morse. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+#### 1. Funciones de Morse (p. 5)
+1.1. Preliminares y notación (p. 5)  
+1.2. El lema de Morse (p. 7)  
 
-    1.1. Preliminares y notación . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5
-    1.2. El Lema de Morse. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7
-    
-2. La estructura de CW-complejo de una variedad . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+#### 2. La estructura de CW-complejo de una variedad (p. 15)
+2.1. CW-complejos y tipo de homotopía (p. 15)  
+2.2. Sobre el pegado de λ-celdas (p. 18)  
+2.2.1. Aplicaciones de los teoremas sobre el pegado de λ-celdas (p. 33)  
 
-    2.1. CW-Complejos y tipo de homotopía . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
-    2.2. Sobre el pegado de λ-celdas. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-    2.2.1. Aplicaciones de los teoremas sobre el pegado de λ-celdas . . . . . . . . . . . . . . . . . . . 33
+#### 3. Introducción a la homología (p. 37)
+3.1. Homología simplicial (p. 37)  
+3.1.1. Triangulaciones (p. 38)  
+3.1.2. Construcción de la homología simplicial (p. 40)  
+3.2. Homología celular (p. 44)  
+3.3. Homología relativa (p. 47)  
+3.4. Otros invariantes relacionados con la homología (p. 49)  
 
-3. Introducción a la homología. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
+#### 4. Desigualdades de Morse (p. 51)
+4.1. Subaditividad (p. 51)  
+4.2. Las desigualdades (p. 54)  
 
-    3.1. Homología simplicial . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37
-    3.1.1. Triangulaciones. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
-    3.1.2. Construcción de la homología simplicial. . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
-    3.2. Homología celular. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44
-    3.3. Homología relativa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
-    3.4. Otros invariantes relacionados con la homología. . . . . . . . . . . . . . . . . . . . . . . . . 49
-
-4. Desigualdades de Morse . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
-
-    4.1. Subaditividad. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
-    4.2. Las desigualdades. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
-
-Bibliografía . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  57
+#### Bibliografía (p. 57)
 
 
 
