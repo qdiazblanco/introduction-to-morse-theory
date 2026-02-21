@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plantilla para presentaciones
+% en la Facultad de CC Matemáticas de la
+% Universidad Complutense de Madrid.
+%
+% Autor: Ángel González Prieto
+% Fecha: Noviembre 2021.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{beamer}
+
+\usetheme{Darmstadt}
+\usefonttheme{structurebold}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts,amsmath,amsthm}
+
+% Remove navigation bar. Comment to show navigation bar.
+\beamertemplatenavigationsymbolsempty
+
+%%%%%%%%%%%%%%%%%%%%%% MATHEMATICAL COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Mathbold
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+% Calligraphic
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}} 
+\newcommand{\cI}{\mathcal{I}} 
+\newcommand{\cO}{\mathcal{O}} 
+\newcommand{\cM}{\mathcal{M}} 
+\newcommand{\cN}{\mathcal{N}} 
+\newcommand{\cP}{\mathcal{P}} 
+\newcommand{\cQ}{\mathcal{Q}} 
+\newcommand{\cS}{\mathcal{S}} 
+\newcommand{\cU}{\mathcal{U}} 
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cH}{\mathcal{H}}
+
+% Lie groups
+\newcommand{\PGL}{\textup{PGL}}
+\newcommand{\AGL}{\textup{AGL}}
+\newcommand{\GL}{\textup{GL}}
+\newcommand{\SL}{\textup{SL}}
+\renewcommand{\O}{\textup{O}}
+\newcommand{\U}{\textup{U}}
+\newcommand{\SO}{\textup{SO}}
+\newcommand{\SU}{\textup{SU}}
+\newcommand{\norm}[1]{\lVert#1\rVert} %norma%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                   FRONT SLIDE INFO                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Mi presentaci\'on en Beamer}
+
+\author{Ángel González Prieto}
+
+\institute[Universidad Complutense de Madrid]
+{Universidad Complutense de Madrid\\[0.3cm]
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.33]{logoUCM.png}
+	\end{center}
+\end{figure}
+}
+
+\date{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Theorem-like environments
+\newtheorem*{thm}{Teorema}
+\newtheorem*{prop}{Proposición}
+\newtheorem*{lem}{Lema}
+\newtheorem*{cor}{Corolario}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definición}
+\newtheorem*{ex}{Ejemplo}
+\newtheorem*{rmk}{Observación}
+\newtheorem*{conj}{Conjetura}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                            SLIDES                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\frame{\titlepage} % Show title slide
+\part{Main Part}
+
+% Slide
+
+\begin{frame}
+\frametitle{Primera diapositiva}
+
+	\begin{alertblock}{T\'itulo}
+		La siguiente fórmula es muy importante
+		$$
+			\det(A) = \sum_{\sigma \in S_n} (-1)^{|\sigma|} a_{1\sigma(1)} \cdots a_{n\sigma(n)}
+		$$
+	\end{alertblock}
+
+	\begin{block}{}
+		Otro texto muy importante.
+	\end{block}
+
+\end{frame}
+
+
+
+% Slide
+
+\begin{frame}
+\frametitle{Segunda diapositiva}
+
+	Es importante recordar los siguientes aspectos de \LaTeX:
+	\begin{itemize}
+		\item Es un lenguaje compilado.
+		\item Separa contenido y estilo.
+		\item Soporta de forma nativa referencia cruzadas y citas.
+	\end{itemize}
+
+	\begin{block}{Otro bloque}
+	Ahora con título.
+	\end{block}
+	
+\end{frame}
+
+\end{document}
