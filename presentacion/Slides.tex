@@ -9,13 +9,13 @@
 
 \documentclass[11pt]{beamer}
 
-\usetheme{Darmstadt}
+\usetheme{Warsaw}
 \usefonttheme{structurebold}
-
+% Malmoe, Warsaw
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
+\usepackage[spanish,es-lcroman]{babel}
 \usepackage{amsfonts,amsmath,amsthm}
-
+\usepackage{enumitem}
 % Remove navigation bar. Comment to show navigation bar.
 \beamertemplatenavigationsymbolsempty
 
@@ -80,17 +80,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\title{Mi presentaci\'on en Beamer}
+\title{Introducción a la Teoría de Morse}
 
-\author{Ángel González Prieto}
+\author{Enrique Díaz Blanco}
 
 \institute[Universidad Complutense de Madrid]
 {Universidad Complutense de Madrid\\[0.3cm]
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.33]{logoUCM.png}
+	\includegraphics[scale=0.15]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/logocomplu.png}
 	\end{center}
-\end{figure}
+	\end{figure}
 }
 
 \date{}
@@ -119,42 +119,193 @@
 \frame{\titlepage} % Show title slide
 \part{Main Part}
 
+%%%%%% FLOWCHART %%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%           Capitulo 1           %%  
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Puntos críticos}
+\begin{frame}
+\frametitle{Definición de punto crítico}
+	\begin{definition}
+    Sea $f: $M$ \to \mathbb{R}$ una función suave.
+    \begin{enumerate}[label=(\roman*)]
+        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \begin{equation*}
+            \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
+        \end{equation*}
+        
+        \item A su vez, diremos que $f(p)\in \mathbb{R}$ es un \textit{valor crítico de $f$} si $p \in \mathrm{M}$ es un punto crítico.
+        
+    \end{enumerate}
+	\end{definition}
+\end{frame}
+
+
+
 % Slide
 
 \begin{frame}
-\frametitle{Primera diapositiva}
+\frametitle{Índice de un punto crítico}
+	\begin{definition}
+    	Sea $p\in M$ un punto crítico de f. Entonces $p$ es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular.
+	\end{definition}
+	\bigskip
+	En coordenadas, $\text{Hess}_pf = \left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ 
+	\bigskip
+	\begin{definition}
+		Llamamos índice de $p$ a la máxima dimensión de un subespacio de $T_pM$ sobre el que $\text{Hess}_pf$ es definida negativa.
+	\end{definition}
+\end{frame}
 
-	\begin{alertblock}{T\'itulo}
-		La siguiente fórmula es muy importante
-		$$
-			\det(A) = \sum_{\sigma \in S_n} (-1)^{|\sigma|} a_{1\sigma(1)} \cdots a_{n\sigma(n)}
-		$$
+\begin{frame}
+\frametitle{El Lema de Morse}
+
+\begin{alertblock}{Lema de Morse}
+    Sean $p$ un punto crítico \textbf{no degenerado} de una función suave $f:M\to \mathbb{R}$. Entonces existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0, \forall i\in \{1\dots,n\}$ y se verifica
+    \begin{equation*}
+        f=f(p)-(y_1)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2
+    \end{equation*}
+    en todo $\mathcal{U}$ con $\lambda$ el índice de $f$ en $p$.
+\end{alertblock}
+
+\begin{corollary}
+	Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está \textbf{aislado} respecto de los demás puntos críticos.
+\end{corollary}
+
+\end{frame}
+
+
+\begin{frame}
+	\begin{definition}
+		Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no degenerados.
+	\end{definition}
+
+\end{frame}
+
+\begin{frame}
+	\begin{example}
+		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$
+	\end{example}
+	
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.45]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/grafica1.png}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%           Capitulo 2           %%  
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{CW-complejos y tipo de homotopía}
+
+\begin{frame}
+\frametitle{Tipo de homotopía}
+
+Denotamos la relación de homotopía por el símbolo $\simeq$.
+\bigskip
+\begin{definition}
+	Dos espacios $X$ e $Y$ tienen el mismo \textbf{tipo de homotopía} si existe una equivalencia homotópica entre ellos.
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+	$f:X\to Y$ es una equivalencia homotópica si existe $g:Y\to X$ tal que
+	\begin{equation*}
+    g \circ f \simeq \mathrm{id}_X \qquad \text{y} \qquad f \circ g \simeq \mathrm{id}_Y.
+	\end{equation*}
+
+\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+	\begin{definition}
+		Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
+		\textbf{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
+	\end{definition}
+
+	\begin{alertblock}{}
+		\textbf{$A$ tiene el mismo tipo de homotopía que $X$.}
 	\end{alertblock}
 
-	\begin{block}{}
-		Otro texto muy importante.
-	\end{block}
-
 \end{frame}
-
-
-
-% Slide
 
 \begin{frame}
-\frametitle{Segunda diapositiva}
+\frametitle{CW-complejos}
+\begin{definition}
+    Llamamos \textbf{CW-complejo} a un espacio topológico construido siguiendo los siguientes pasos:
+	\vspace{1em}
+        \begin{enumerate}[label=(\roman*), itemsep=2em]
+            \item Se comienza con un conjunto discreto $ X_0 $, el \textbf{$0$-esqueleto}.
+            
+            \item Se construye, de \textbf{manera inductiva}, el $ n $-esqueleto para $n>0$ como
+            \begin{equation*}
+                X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n.
+            \end{equation*}
+            
+            \item Llamaremos \textit{CW-complejo} al espacio 
+            \begin{equation*}
+                X = \bigcup_{n} X_n.    
+            \end{equation*}
+        \end{enumerate} 
+\end{definition}
+\end{frame}
 
-	Es importante recordar los siguientes aspectos de \LaTeX:
+\begin{frame}
+\frametitle{El toro plano como CW-complejo}
+	\begin{columns}
+	
+	\column{0.4\textwidth}
+
+	Se puede construir como un CW-complejo con:
+	\vspace{1em}
 	\begin{itemize}
-		\item Es un lenguaje compilado.
-		\item Separa contenido y estilo.
-		\item Soporta de forma nativa referencia cruzadas y citas.
+		\item Una $0$-celda.
+		\item Dos $1$-celdas.
+		\item Una $2$-celda.
 	\end{itemize}
 
-	\begin{block}{Otro bloque}
-	Ahora con título.
-	\end{block}
+	\column{0.6\textwidth}
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.4]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/toroplano.pdf}
+	\end{center}
+	\end{figure}
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.4]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/frontera_toroplano.pdf}
+	\end{center}
+	\end{figure}
+	\end{columns}
 	
 \end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Sobre el pegado de $\lambda$-celdas}
+
+\begin{frame}
+	
+\end{frame}
+
 
 \end{document}
