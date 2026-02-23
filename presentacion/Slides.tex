@@ -26,6 +26,10 @@
 \deftranslation[to=spanish]{Definition}{Definición}
 \deftranslation[to=spanish]{Theorem}{Teorema}
 \deftranslation[to=spanish]{Lemma}{Lema}
+\deftranslation[to=spanish]{Example}{Ejemplo}
+\deftranslation[to=spanish]{Corollary}{Corolario}
+
+
 %%%%%%%%%%%%%%%%%%%%%% MATHEMATICAL COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Mathbold
@@ -674,19 +678,62 @@ Sea $X$ un CW-complejo:
 
 \begin{frame}
 \frametitle{Grupos de homología del toro}
+
+	$0\to C_2(T^2)\simeq \mathbb{Z} \to C_1(T^2)\simeq \mathbb{Z}^2\to C_{2}\simeq \mathbb{Z} \to C_0(T^2)\simeq \mathbb{Z}\to 0$
+
 	\begin{block}{Grupos de $k$-cadenas}
 		\begin{itemize}
 			\item $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$,
-			\item $C_1(T^2)\simeq \mathbb{Z}\langle e^1_1 \rangle \oplus \mathbb{Z}\langle e^1_2 \rangle \simeq \mathbb{Z}^2$,
-			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle$.
+			\item $C_1(T^2)\simeq \mathbb{Z}\langle a \rangle \oplus \mathbb{Z}\langle b \rangle \simeq \mathbb{Z}^2$,
+			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle\simeq \mathbb{Z}$.
 		\end{itemize}
 	\end{block}
 
+	\begin{block}{Grupos de $k$-ciclos y $k$-bordes}
+		\begin{itemize}
+			\item $\partial_2(e^2) = a + b - a - b = 0 \implies
+			\begin{cases}
+				 Z_2(T^2)=C_2(T^2)\simeq \mathbb{Z} \text{ y } \\
+				 B_1(T^2)=\{0\}.
+			\end{cases}$
+			\item $\partial_1(a) = \partial_1(b) = e^0 - e^0 = 0 \implies Z_1(T^2)=C_1(T^2)\simeq \mathbb{Z}^2$.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Grupos de homología del toro}
+
+	\begin{alertblock}{Grupos de homología}
+		\begin{equation*}
+			\begin{cases}
+				H_2(T^2)=Z_2/B_2 = \mathbb{Z}/\{0\} = \mathbb{Z},\\[6pt]
+				H_1(T^2)=Z_1/B1= \mathbb{Z}^2/\{0\} = \mathbb{Z}^2 ~\text{ y }~ \\[6pt]
+				H_0(T^2)\simeq \mathbb{Z}.
+			\end{cases}
+		\end{equation*}
+	\end{alertblock}
 
 \end{frame}
 	
 \begin{frame}
 \frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
+	\begin{definition}
+		Sea $X$ un espacio topológico. Definimos el \textbf{$k$-ésimo número de Betti de X} como 
+		\begin{equation*}
+			b_k(X) = \operatorname{rank} H_k(X).
+		\end{equation*}
+	\end{definition}
+
+	\begin{definition}
+		Sea $X$ un espacio topológico cuyos \textbf{grupos de homología son finitamente generados} y tal que $H_k(X)=0$ para todo $k>N$. La \textbf{característica de Euler-Poincaré de $X$} es 
+		\begin{equation*}
+			\chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
+		\end{equation*}
+\end{definition}
+
+
 % definicion e importancia
 \end{frame}
 
@@ -707,9 +754,80 @@ Sea $X$ un CW-complejo:
 
 \begin{frame}
 \frametitle{Las Desigualdades de Morse}
-% version fuerte y como deducir la version debil de ellas
-% corolario
-% ¿ejemplo?
+	Sean $f$ una función de Morse sobre una \textbf{variedad compacta} $n$-dimensional $M$ y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
+	\begin{block}{Teorema. (Desigualdades de Morse, Versión Débil)} 
+    	\begin{equation*}
+        	b_{\lambda}(M) \le C_{\lambda} ~~\text{ y }~~ 
+    	\end{equation*}
+    	\begin{equation*}
+        	\chi(M) = \sum_{\lambda=0}^{n} (-1)^{\lambda} C_{\lambda}.
+    	\end{equation*}
+	\end{block}
+	
+	\begin{alertblock}{Teorema (Desigualdades de Morse)}
+		\vspace{1em}
+    	\begin{equation*}
+    	    b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
+    	\end{equation*}
+		\vspace{0.2pt}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\begin{corollary}
+    	Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
+	\end{corollary}
+
+	\begin{example}
+		\begin{columns}[T]
+		\column{0.4\textwidth}
+		\vspace{0.5em}
+		$\mathbb{CP}^n$ admite una función de Morse con $n+1$ puntos críticos tales que
+		\begin{equation*}
+    		C_{\lambda}=
+    		\begin{cases}
+        		1, &\text{ si } \lambda \text{ es par},\\
+        		0, &\text{ en otro caso.}
+    		\end{cases}
+		\end{equation*}
+
+		\column{0.45\textwidth}
+		\vspace{0.5em}
+		Si $\lambda$ es par, se tiene que $C_{\lambda+1}=C_{\lambda-1}=0$. Luego,
+		\vspace{0.35em}
+
+		\begin{equation*}
+			b_{\lambda}(\mathbb{CP}^n)=
+			\begin{cases}
+				1, &\text{ si } \lambda \text{ es par},\\
+				0, &\text{ en otro caso.}
+			\end{cases}
+		\end{equation*}
+
+		\end{columns}
+	\end{example}
+\end{frame}
+
+\begin{frame}[plain]
+\centering
+\vfill
+
+\rule{0.9\textwidth}{1pt}
+
+\vspace{1.5em}
+
+{\Huge \bfseries Muchas gracias por su atención}
+
+\vspace{1.5em}
+
+\color{structure}
+\rule{0.5\textwidth}{1pt}
+
+\vfill
+
+{\footnotesize Enrique Díaz $~~|~~$ Introducción a la Teoría de Morse}
+
 \end{frame}
 
 \end{document}
