@@ -148,7 +148,7 @@
 \bigskip
 
 \begin{block}{$2$}
-	Comprender y completar los contenidos del libro ``Morse Theory'' de John Milnor hasta las desigualdades de Morse. \textbf{En particular:}
+	Comprender y completar los contenidos del libro ``Morse Theory'' de John Milnor hasta las desigualdades de Morse. En particular:
 	\begin{itemize}
 		\item Demostrar que toda variedad diferenciable tiene el \textbf{tipo de homotopía de un CW-complejo}.
 		\item Demostrar las \textbf{desigualdades de Morse}.
@@ -307,7 +307,9 @@
 
 \begin{frame}
 	\begin{example}
-		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$
+		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[6pt]
+		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\
+		$H_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
 	\end{example}
 	
 	\begin{figure}[h]
@@ -317,7 +319,37 @@
 	\end{figure}
 \end{frame}
 
+\begin{frame}
+	\begin{example}
+		\small
+		$\big((R + r\cos v)\cos u,\,(R + r\cos v)\sin u,\,r\sin v\big)\to ((R + r\cos v)\cos u)$.\\[6pt]
+		Puntos críticos: $(u,v)\in\{(0,0),(\pi, 0),(0, \pi),(\pi, \pi)\}$.\\
+	\end{example}
+	
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{figure}[h]
+		\begin{center}
+		\includegraphics[scale=0.45]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/toro_vertical_cropped.pdf}
+		\end{center}
+		\end{figure}
 
+		\column{0.6\textwidth}
+		\vspace{-3em}
+		\begin{exampleblock}{}
+		\vspace{-1em}
+		\begin{align*}
+		\small
+			&H_{(u,v)}f=\\[5pt]
+		&\begin{pmatrix}
+			-(R+r\cos v)\cos u & r\sen u\sen v\\
+			r\sen u\sen v & r\cos u\cos v
+		\end{pmatrix}
+		\end{align*}
+		\end{exampleblock}
+	\end{columns}
+	
+\end{frame}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -542,6 +574,31 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \end{frame}
 
 
+\begin{frame}
+\frametitle{Aplicaciones de los resultados anteriores}
+\begin{theorem}[de Reeb]
+    Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
+\end{theorem}
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.75]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/reeb.pdf}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{exampleblock}{$\mathbb{CP}^n$ como CW-complejo}
+	\medskip
+	$\mathbb{CP}^n$ admite una función de Morse con $n+1$ puntos críticos cuyos índices son los números pares desde $0$ hasta $2n$.
+	\medskip
+	
+	Luego tiene el tipo de homotopía de un CW-complejo de la forma
+	\begin{equation*}
+    	e^0\cup_{\varphi_1} e^2 \cup_{\varphi_2} e^4 \cup_{\varphi_3} \dots \cup_{\varphi_n} e^{2n}.
+	\end{equation*}
+	para ciertas funciones de pegado $\varphi_j$.
+	\end{exampleblock} 
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                %%
@@ -551,16 +608,83 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 
 \begin{frame}
 \frametitle{Homología Celular (1/2)}
-% invariantes por homotopia
+
+\begin{block}{$k$-cadenas y operadores de borde}
+Sea $X$ un CW-complejo:
+
+\medskip
+
+\begin{itemize}[itemsep=2em]
+	\item Se orientan las celdas de $X$ y se definen \textbf{los grupos de $k$-cadenas}
+	\begin{equation*}
+		C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle
+	\end{equation*}
+	\item Se definen los \textbf{operadores de borde} $\partial_k : C^{CW}_k(X) \to C^{CW}_{k-1}(X)$ como
+	\begin{equation*}
+		\partial_k(D^k_{\alpha}) = \sum_{\beta\in\Lambda_{k-1}}[D^k_{\alpha}:D^{k-1}_{\beta}]D^{k-1}_{\beta}.
+	\end{equation*}
+\end{itemize}
+
+\end{block}
+
+
+
 % grupos de k-cadenas + operadores de borde
 \end{frame}
 
 \begin{frame}
-\frametitle{Homología Celular (2/2)}
+\frametitle{Homología Celular (2/3)}
+
+\begin{alertblock}{Proposición}
+	Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
+\end{alertblock}
+
+\begin{block}{$\cdot$}
+	La proposición anterior es equivalente a que
+	\begin{equation*}
+		\operatorname{im}(\partial_{k+1})\subseteq \operatorname{ker}(\partial_{k}).
+	\end{equation*}
+	\vspace{0.5em}
+\end{block}
 % construccion grupos de homología
 % ejemplo con el toro
 \end{frame}
 
+\begin{frame}
+\frametitle{Homología Celular (3/3)}
+	\begin{alertblock}{Grupos de homología celular}
+		\begin{align*}
+    		Z^{CW}_k(X) &= \text{ker}(\partial_k: C^{CW}_k(X) \to C^{CW}_{k-1}(X)) \\
+    		B^{CW}_k(X) &= \text{im}(\partial_{k+1}: C^{CW}_{k+1}(X) \to C^{CW}_{k}(X))
+		\end{align*}
+		{
+		\setlength{\fboxrule}{1pt}
+		\[
+		\fcolorbox{alerted text.fg}{white}{$H^{CW}_k(X) = Z^{CW}_k(X)/B^{CW}_k(X)$}
+		\]
+		}
+		\vspace{0.5em}
+	\end{alertblock}
+
+	\begin{itemize}
+		\item Los grupos de homología no dependen del método mediante el que se construyen.
+		\item Los grupos de homología \textbf{son invariantes homotópicos}.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Grupos de homología del toro}
+	\begin{block}{Grupos de $k$-cadenas}
+		\begin{itemize}
+			\item $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$,
+			\item $C_1(T^2)\simeq \mathbb{Z}\langle e^1_1 \rangle \oplus \mathbb{Z}\langle e^1_2 \rangle \simeq \mathbb{Z}^2$,
+			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle$.
+		\end{itemize}
+	\end{block}
+
+
+\end{frame}
+	
 \begin{frame}
 \frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
 % definicion e importancia
