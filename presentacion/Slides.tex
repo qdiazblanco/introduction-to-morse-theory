@@ -16,9 +16,16 @@
 \usepackage[spanish,es-lcroman]{babel}
 \usepackage{amsfonts,amsmath,amsthm}
 \usepackage{enumitem}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+
 % Remove navigation bar. Comment to show navigation bar.
 \beamertemplatenavigationsymbolsempty
 
+\deftranslation[to=spanish]{Definition}{Definición}
+\deftranslation[to=spanish]{Theorem}{Teorema}
+\deftranslation[to=spanish]{Lemma}{Lema}
 %%%%%%%%%%%%%%%%%%%%%% MATHEMATICAL COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Mathbold
@@ -121,8 +128,117 @@
 
 %%%%%% FLOWCHART %%%%%%%
 
+\iffalse
+- Empezamos con un flowchart
+	-explico mi objetivo personal
+	-explico objetivos tecnicos:
+		-cwvariedad
+		-desigualdades de Morse
+	
+	-explico el flowchart
+\fi
+
+\begin{frame}
+\frametitle{Objetivos}
+
+\begin{block}{$1$}
+	Elaborar un manual autocontenido con los fundamentos de la Teoría de Morse.
+\end{block}
+
+\bigskip
+
+\begin{block}{$2$}
+	Comprender y completar los contenidos del libro ``Morse Theory'' de John Milnor hasta las desigualdades de Morse. \textbf{En particular:}
+	\begin{itemize}
+		\item Demostrar que toda variedad diferenciable tiene el \textbf{tipo de homotopía de un CW-complejo}.
+		\item Demostrar las \textbf{desigualdades de Morse}.
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Estructura conceptual}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    box/.style={
+        rectangle,
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.8cm,
+        minimum height=0.8cm
+    },
+    arrow/.style={-{Latex}},
+    node distance=1.8cm
+]
+
+% Fila superior
+\node[box] (crit) {Puntos críticos};
+\node[box, right=of crit] (morse) {Lema de Morse};
+\node[box, right=of morse] (aislados) {Puntos críticos \textbf{aislados}};
+
+% Fila inferior
+
+\node[box, below=2.5cm of crit] (cw) {CW-complejos};
+
+\node[ellipse, draw, align=center, right=of cw] (pegado) {Resultados sobre el \textbf{pegado} \\ \textbf{de $\lambda$-celdas}};
+
+\node[box, double, below right=0.75cm and 2.2cm of pegado] (cwvar) {Tipo de homotopía de \\ un \textbf{CW-complejo}};
 
 
+\draw[arrow] (crit) -- (morse);
+\draw[arrow] (morse) -- (aislados);
+\draw[arrow] (aislados) -- (cwvar);
+
+\draw[arrow] (cw) -- (pegado);
+\draw[arrow] (pegado) -- (cwvar);
+
+\end{tikzpicture}
+}
+\end{frame}
+
+\begin{frame}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    box/.style={
+        rectangle,
+        draw,
+        rounded corners,
+        align=center,
+        minimum width=2.8cm,
+        minimum height=0.8cm
+    },
+    arrow/.style={-{Latex}},
+    node distance=1.5cm
+]
+
+\node[ellipse, draw] (hom) {Homología};
+\node[box, right=of hom] (simp) {Homología simplicial};
+\node[box, right=of simp] (cel) {Homología celular};
+\node[box, below left= 1.5cm and -0.85cm of cel] (betti) {Números de Betti};
+\node[box, right=of betti] (chi) {Característica de \\ Euler-Poincaré};
+
+\node[box, below=5.5cm of hom] (subad) {Resultados sobre \\ funciones subaditivas};
+\node[box, below right=of subad] (debil) {Desigualdades de Morse\\ (versión débil)};
+\node[box, double, right=5.5cm of subad] (fuerte) {\textbf{Desigualdades de Morse}};
+
+
+\draw[arrow] (hom) -- (simp);
+\draw[arrow] (simp) -- (cel);
+\draw[arrow] (cel) -- (betti);
+\draw[arrow] (cel) -- (chi);
+
+\draw[arrow] (subad) -- (debil);
+\draw[arrow] (subad) -- (fuerte);
+
+\draw[arrow] (betti) -- (fuerte);
+\draw[arrow] (chi) -- (fuerte);
+
+\end{tikzpicture}
+}
+\end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                %%
@@ -233,6 +349,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 
 \end{frame}
 
+
 \begin{frame}
 
 	\begin{definition}
@@ -251,7 +368,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \begin{definition}
     Llamamos \textbf{CW-complejo} a un espacio topológico construido siguiendo los siguientes pasos:
 	\vspace{1em}
-        \begin{enumerate}[label=(\roman*), itemsep=2em]
+        \begin{enumerate}[label=(\roman*), itemsep=1.8em]
             \item Se comienza con un conjunto discreto $ X_0 $, el \textbf{$0$-esqueleto}.
             
             \item Se construye, de \textbf{manera inductiva}, el $ n $-esqueleto para $n>0$ como
@@ -304,8 +421,171 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \section{Sobre el pegado de $\lambda$-celdas}
 
 \begin{frame}
-	
+\frametitle{Conjuntos subnivel de $f$}
+
+\begin{definition}
+    Sea $f:M\to\mathbb{R}$ suave. Definimos los \textit{conjuntos subnivel de f} como
+	\begin{equation*}
+        M^a := f^{-1}(-\infty,a] =\{p\in M: f(p)\le a\}.
+    \end{equation*}
+\end{definition}
+
 \end{frame}
 
+\begin{frame}
+\frametitle{Cómo cambia la topología (1/2)}
+\textbf{Sin cruzar un punto crítico:}
+\medskip
+	\begin{alertblock}{Teorema}
+		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$
+		\begin{itemize}
+			\item es compacto,
+			\item no contiene ningún punto crítico de $f$.
+		\end{itemize}
+		\vspace{0.7em}
+		Entonces,
+		\vspace{0.3em}
+		\begin{itemize}[itemsep=1em]
+			\item \textbf{$M^a$ es difeomorfo a $M^b$}.
+			\item $M^a$ es \textbf{retracto de deformación} de $M^b$.
+		\end{itemize}
+	\end{alertblock}
+
+	\begin{block}{Idea de la demostración}
+		Recorrer el flujo de $\nabla f$.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cómo cambia la topología (2/2)}
+\textbf{Al cruzar un punto crítico:}
+\medskip
+	\begin{alertblock}{Teorema}
+		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que 
+		\begin{itemize}
+			\item $f(p)=c$
+			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es \textbf{compacto} y
+			\item $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no} contiene ningún otro punto crítico.
+		\end{itemize}
+		\vspace{0.7em}
+		Entonces, para todo $\varepsilon>0$ suficientemente pequeño:
+		\vspace{0.7em}
+
+		\textbf{$M^{c+\varepsilon}_f$ tiene el tipo de homotopía de $M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada}.
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Esquema de la demostración}
+		\begin{enumerate}[itemsep=1em]
+			\item Definir una función $F$ que sea menor que $f$ en un entorno de $p$ para \textbf{dejar a $p$ fuera de $F^{-1}[c-\varepsilon, c+\varepsilon]$.}
+			\item Aplicar a $F$ el teorema anterior.
+		\end{enumerate}
+		\vspace{0.7em}
+
+		Así, habremos demostrado que \textbf{$F^{-1}(-\infty,c-\varepsilon]=M^{c-\varepsilon}_F$ es retracto de deformación de $M^{c+\varepsilon}_f$}.
+
+		\vspace{1em}
+
+		\begin{enumerate}[start=3]
+			\item Probar que \textbf{$M^{c-\varepsilon}_f$ con una $\lambda$-celda pegada es retracto de deformacion de $M^{c-\varepsilon}_F$}.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.7]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/diagrama1_def.pdf}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.7]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/diagrama2_asa.pdf}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=1.1]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/diagrama_asa_regiones.pdf}
+	\end{center}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{$M$ tiene el tipo de homotopía de un CW-complejo}
+
+\begin{alertblock}{Teorema}
+	Si $f:M\to\mathbb{R}$ es una función de Morse y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces,
+	\vspace{0.75em}
+
+	\begin{quote}
+	\large\textbf{$M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.}
+	\end{quote}
+\end{alertblock}
+\bigskip
+\begin{block}{Idea de la demostración}
+	\footnotesize Inducción sobre el número de valores críticos por debajo de $a$. Diferenciar casos:
+	\vspace{-1em}
+	\begin{itemize}[itemsep=0pt]
+		\item $M$ compacta.
+		\item $M$ no compacta pero finitos valores críticos.
+		\item $M$ no compacta e infinitos valores críticos.
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%           Capitulo 3           %%  
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Homología Celular (1/2)}
+% invariantes por homotopia
+% grupos de k-cadenas + operadores de borde
+\end{frame}
+
+\begin{frame}
+\frametitle{Homología Celular (2/2)}
+% construccion grupos de homología
+% ejemplo con el toro
+\end{frame}
+
+\begin{frame}
+\frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
+% definicion e importancia
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%           Capitulo 4           %%  
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Subaditividad}
+%ejemplo numeros de betti subad y chi ad.
+%generalizacion de subad y ad.
+%funcion para demostras las desigs de morse
+\end{frame}
+
+\begin{frame}
+\frametitle{Las Desigualdades de Morse}
+% version fuerte y como deducir la version debil de ellas
+% corolario
+% ¿ejemplo?
+\end{frame}
 
 \end{document}
