@@ -23,6 +23,13 @@
 % Remove navigation bar. Comment to show navigation bar.
 \beamertemplatenavigationsymbolsempty
 
+\setbeamertemplate{headline}
+{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,leftskip=1em]{section in head/foot}
+    \insertsection
+  \end{beamercolorbox}
+}
+
 \deftranslation[to=spanish]{Definition}{Definición}
 \deftranslation[to=spanish]{Theorem}{Teorema}
 \deftranslation[to=spanish]{Lemma}{Lema}
@@ -142,6 +149,8 @@
 	-explico el flowchart
 \fi
 
+\section{Introducción}
+
 \begin{frame}
 \frametitle{Objetivos}
 
@@ -256,12 +265,12 @@
 	\begin{definition}
     Sea $f: $M$ \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=(\roman*)]
-        \item Diremos que $p\in \mathrm{M}$ es un \textit{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \item Diremos que $p\in \mathrm{M}$ es un \textbf{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
             \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
         \end{equation*}
         
-        \item A su vez, diremos que $f(p)\in \mathbb{R}$ es un \textit{valor crítico de $f$} si $p \in \mathrm{M}$ es un punto crítico.
+        \item A su vez, diremos que $f(p)\in \mathbb{R}$ es un \textbf{valor crítico de $f$} si $p \in \mathrm{M}$ es un punto crítico.
         
     \end{enumerate}
 	\end{definition}
@@ -274,13 +283,13 @@
 \begin{frame}
 \frametitle{Índice de un punto crítico}
 	\begin{definition}
-    	Sea $p\in M$ un punto crítico de f. Entonces $p$ es \textit{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular.
+    	Sea $p\in M$ un punto crítico de f. Entonces $p$ es \textbf{no degenerado} si la matriz  $\left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ es no singular.
 	\end{definition}
 	\bigskip
 	En coordenadas, $\text{Hess}_pf = \left(\frac{\partial^{2}f}{\partial x_i \partial x_j}(p)\right)$ 
 	\bigskip
 	\begin{definition}
-		Llamamos índice de $p$ a la máxima dimensión de un subespacio de $T_pM$ sobre el que $\text{Hess}_pf$ es definida negativa.
+		Llamamos \textbf{índice de $p$} a la máxima dimensión de un subespacio de $T_pM$ sobre el que $\text{Hess}_pf$ es definida negativa.
 	\end{definition}
 \end{frame}
 
@@ -290,13 +299,13 @@
 \begin{alertblock}{Lema de Morse}
     Sean $p$ un punto crítico \textbf{no degenerado} de una función suave $f:M\to \mathbb{R}$. Entonces existe un sistema de coordenadas local $(y_1,\dots, y_n)$ en un entorno $\mathcal{U}$ de $p$ tal que $y_i(p)=0, \forall i\in \{1\dots,n\}$ y se verifica
     \begin{equation*}
-        f=f(p)-(y_1)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2
+        \boxed{f=f(p)-(y_1)^2-\dots-(y_\lambda)^2 + (y_{\lambda +1})^2+\dots + (y_n)^2}
     \end{equation*}
     en todo $\mathcal{U}$ con $\lambda$ el índice de $f$ en $p$.
 \end{alertblock}
 
 \begin{corollary}
-	Todo punto crítico no degenerado de una función suave de $M$ en $\mathbb{R}$ está \textbf{aislado} respecto de los demás puntos críticos.
+	Todo punto crítico \textbf{no degenerado} de una función suave de $M$ en $\mathbb{R}$ está \textbf{aislado} respecto de los demás puntos críticos.
 \end{corollary}
 
 \end{frame}
@@ -304,7 +313,7 @@
 
 \begin{frame}
 	\begin{definition}
-		Diremos que una función suave $f: M\to \mathbb{R}$ es una \textit{función de Morse} si todos sus puntos críticos son no degenerados.
+		Diremos que una función suave $f: M\to \mathbb{R}$ es una \textbf{función de Morse} si todos sus puntos críticos son no degenerados.
 	\end{definition}
 
 \end{frame}
@@ -312,10 +321,12 @@
 \begin{frame}
 	\begin{example}
 		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[6pt]
-		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\
+		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[4pt]
 		$H_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
 	\end{example}
 	
+	\vspace{-5pt}
+
 	\begin{figure}[h]
 	\begin{center}
 	\includegraphics[scale=0.45]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/grafica1.png}
@@ -326,7 +337,7 @@
 \begin{frame}
 	\begin{example}
 		\small
-		$\big((R + r\cos v)\cos u,\,(R + r\cos v)\sin u,\,r\sin v\big)\to ((R + r\cos v)\cos u)$.\\[6pt]
+		$\big((R + r\cos v)\cos u,\,(R + r\cos v)\sin u,\,r\sin v\big)\mapsto ((R + r\cos v)\cos u)$.\\[6pt]
 		Puntos críticos: $(u,v)\in\{(0,0),(\pi, 0),(0, \pi),(\pi, \pi)\}$.\\
 	\end{example}
 	
@@ -340,7 +351,7 @@
 
 		\column{0.6\textwidth}
 		\vspace{-3em}
-		\begin{exampleblock}{}
+		\begin{exampleblock}{$\;$}
 		\vspace{-1em}
 		\begin{align*}
 		\small
@@ -376,7 +387,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \bigskip
 
 \begin{definition}
-	$f:X\to Y$ es una equivalencia homotópica si existe $g:Y\to X$ tal que
+	$f:X\to Y$ es una \textbf{equivalencia homotópica} si existe $g:Y\to X$ tal que
 	\begin{equation*}
     g \circ f \simeq \mathrm{id}_X \qquad \text{y} \qquad f \circ g \simeq \mathrm{id}_Y.
 	\end{equation*}
@@ -412,7 +423,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
                 X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n.
             \end{equation*}
             
-            \item Llamaremos \textit{CW-complejo} al espacio 
+            \item Llamaremos CW-complejo al espacio 
             \begin{equation*}
                 X = \bigcup_{n} X_n.    
             \end{equation*}
@@ -426,7 +437,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 	
 	\column{0.4\textwidth}
 
-	Se puede construir como un CW-complejo con:
+	El toro se puede construir como un CW-complejo con:
 	\vspace{1em}
 	\begin{itemize}
 		\item Una $0$-celda.
@@ -460,7 +471,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \frametitle{Conjuntos subnivel de $f$}
 
 \begin{definition}
-    Sea $f:M\to\mathbb{R}$ suave. Definimos los \textit{conjuntos subnivel de f} como
+    Sea $f:M\to\mathbb{R}$ suave. Definimos los \textbf{conjuntos subnivel de f} como
 	\begin{equation*}
         M^a := f^{-1}(-\infty,a] =\{p\in M: f(p)\le a\}.
     \end{equation*}
@@ -557,7 +568,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \frametitle{$M$ tiene el tipo de homotopía de un CW-complejo}
 
 \begin{alertblock}{Teorema}
-	Si $f:M\to\mathbb{R}$ es una función de Morse y $M^a$ es compacto para cualquier $a\in\mathbb{R}$. Entonces,
+	Si $f:M\to\mathbb{R}$ es una función de Morse y $M^a$ es \textbf{compacto} para cualquier $a\in\mathbb{R}$. Entonces,
 	\vspace{0.75em}
 
 	\begin{quote}
@@ -581,7 +592,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \begin{frame}
 \frametitle{Aplicaciones de los resultados anteriores}
 \begin{theorem}[de Reeb]
-    Si $M$ es una variedad diferenciable compacta y $f$ es una función de Morse sobre $M$ con solo dos puntos críticos, entonces $M$ es homeomorfa a una esfera.
+    Si $M$ es una variedad diferenciable \textbf{compacta} y $f$ es una función de Morse sobre $M$ con \textbf{solo dos puntos críticos}, entonces \textbf{$M$ es homeomorfa a una esfera}.
 \end{theorem}
 	\begin{figure}[h]
 	\begin{center}
@@ -604,14 +615,18 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 	\end{exampleblock} 
 \end{frame}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                %%
 %%           Capitulo 3           %%  
 %%                                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Homología}
+
 \begin{frame}
-\frametitle{Homología Celular (1/2)}
+\frametitle{Homología Celular (1/3)}
 
 \begin{block}{$k$-cadenas y operadores de borde}
 Sea $X$ un CW-complejo:
@@ -643,7 +658,7 @@ Sea $X$ un CW-complejo:
 	Los operadores de borde satisfacen $\partial_{k}\circ\partial_{k+1}=0$ para todo $k\ge 0$.
 \end{alertblock}
 
-\begin{block}{$\cdot$}
+\begin{block}{Observación}
 	La proposición anterior es equivalente a que
 	\begin{equation*}
 		\operatorname{im}(\partial_{k+1})\subseteq \operatorname{ker}(\partial_{k}).
@@ -677,12 +692,14 @@ Sea $X$ un CW-complejo:
 \end{frame}
 
 \begin{frame}
-\frametitle{Grupos de homología del toro}
-
-	$0\to C_2(T^2)\simeq \mathbb{Z} \to C_1(T^2)\simeq \mathbb{Z}^2\to C_{2}\simeq \mathbb{Z} \to C_0(T^2)\simeq \mathbb{Z}\to 0$
+\frametitle{Grupos de homología del toro (1/2)}
+	\vspace{-0.5em}
+	\[
+	\boxed{0\to C_2(T^2)\simeq \mathbb{Z} \to C_1(T^2)\simeq \mathbb{Z}^2\to C_{2}\simeq \mathbb{Z} \to C_0(T^2)\simeq \mathbb{Z}\to 0}
+	\]
 
 	\begin{block}{Grupos de $k$-cadenas}
-		\begin{itemize}
+		\begin{itemize}[itemsep=8pt]
 			\item $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$,
 			\item $C_1(T^2)\simeq \mathbb{Z}\langle a \rangle \oplus \mathbb{Z}\langle b \rangle \simeq \mathbb{Z}^2$,
 			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle\simeq \mathbb{Z}$.
@@ -690,7 +707,7 @@ Sea $X$ un CW-complejo:
 	\end{block}
 
 	\begin{block}{Grupos de $k$-ciclos y $k$-bordes}
-		\begin{itemize}
+		\begin{itemize}[itemsep=10pt]
 			\item $\partial_2(e^2) = a + b - a - b = 0 \implies
 			\begin{cases}
 				 Z_2(T^2)=C_2(T^2)\simeq \mathbb{Z} \text{ y } \\
@@ -703,7 +720,7 @@ Sea $X$ un CW-complejo:
 \end{frame}
 
 \begin{frame}
-\frametitle{Grupos de homología del toro}
+\frametitle{Grupos de homología del toro (2/2)}
 
 	\begin{alertblock}{Grupos de homología}
 		\begin{equation*}
@@ -744,13 +761,16 @@ Sea $X$ un CW-complejo:
 %%           Capitulo 4           %%  
 %%                                %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\iffalse
 \begin{frame}
 \frametitle{Subaditividad}
 %ejemplo numeros de betti subad y chi ad.
 %generalizacion de subad y ad.
 %funcion para demostras las desigs de morse
 \end{frame}
+\fi
+
+\section{Desigualdades de Morse}
 
 \begin{frame}
 \frametitle{Las Desigualdades de Morse}
@@ -779,7 +799,10 @@ Sea $X$ un CW-complejo:
     	Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
 	\end{corollary}
 
-	\begin{example}
+	\begin{example}[Homología de $\mathbb{CP}^n$ (1/2)]
+		
+		\medskip
+
 		\begin{columns}[T]
 		\column{0.4\textwidth}
 		\vspace{0.5em}
@@ -792,10 +815,10 @@ Sea $X$ un CW-complejo:
     		\end{cases}
 		\end{equation*}
 
-		\column{0.45\textwidth}
+		\column{0.5\textwidth}
 		\vspace{0.5em}
 		Si $\lambda$ es par, se tiene que $C_{\lambda+1}=C_{\lambda-1}=0$. Luego,
-		\vspace{0.35em}
+		\vspace{0.25em}
 
 		\begin{equation*}
 			b_{\lambda}(\mathbb{CP}^n)=
@@ -804,10 +827,33 @@ Sea $X$ un CW-complejo:
 				0, &\text{ en otro caso.}
 			\end{cases}
 		\end{equation*}
-
 		\end{columns}
+
+		
 	\end{example}
 \end{frame}
+
+
+\begin{frame}
+	\begin{example}[Homología de $\mathbb{CP}^n$ (2/2)]
+
+		\medskip
+
+		\begin{equation*}
+    		H_k(\mathbb{CP}^n) =
+    		\begin{cases}
+       	 		\mathbb{Z} &\text{ si } k \text{ es par  y } k\le 2n,\\
+        		\{0\} &\text{en otro caso}.
+    		\end{cases}
+		\end{equation*}
+
+		\bigskip
+
+	\end{example}
+\end{frame}
+
+
+
 
 \begin{frame}[plain]
 \centering
