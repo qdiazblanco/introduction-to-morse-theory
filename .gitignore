@@ -19,11 +19,30 @@ en/TRANSLATION_NOTES.md
 *.fdb_latexmk
 *.synctex.gz
 *.synctex(busy)
+*.dvi
+*.xdv
+*.ps
+*.idx
+*.ilg
+*.ind
+*.glo
+*.gls
+*.brf
+*.lol
+*.thm
+*.tdo
+*.spl
+*.auxlock
 *.nav
 *.snm
 *.vrb
 *.xdv
 %OUTDIR%/
+
+# Compiled output PDFs (figure PDFs under imagenes/ are sources and stay tracked)
+memoria_libro/main.pdf
+en/main.pdf
+presentacion/Slides.pdf
 
 # Editor autosaves and temp files
 *.autosave.ipe
