@@ -1,0 +1,33 @@
+# Claude working files
+THESIS_TRANSLATION_PROMPT.md
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.bbl-SAVE-ERROR
+*.blg
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.xdv
+%OUTDIR%/
+
+# Editor autosaves and temp files
+*.autosave.ipe
+*.autosave
+*~
+.*.swp
+
+# Jupyter
+.ipynb_checkpoints/
