@@ -1,0 +1,98 @@
+\section{Preliminaries and notation}
+
+To eliminate possible ambiguities in the use of certain terms, we begin by presenting smooth manifolds and establishing the direction of the charts that will be used from now on. It is also worth paying attention to what we mean when we speak of a local coordinate system and how we denote it.
+
+We understand by \textit{n-dimensional smooth manifold} a pair $(M,\mathcal{A})$ where $M$ is an $n$-dimensional topological manifold (that is, a Hausdorff, second countable and locally Euclidean topological space) and $\mathcal{A}$ an atlas of $M$.
+
+In turn, an atlas of an $n$-dimensional topological manifold $M$ will be a family $\mathcal{A}$ of pairs
+\begin{equation*}
+    \{(\mathcal{U}_{\alpha}, ~\varphi_{\alpha}:\mathcal{U}_{\alpha}\to \mathcal{V}_{\alpha}\subset\mathbb{R}^n)\}_{\alpha\in\Lambda}
+\end{equation*}
+which we will call \textit{charts}, where the $\mathcal{U}_{\alpha}$ form an open cover of $M$ and the functions $\varphi_{\alpha}$ are homeomorphisms such that the compositions
+\begin{equation*}
+    \varphi_\beta \circ \varphi_\alpha^{-1} : \varphi_\alpha (\mathcal{U}_\alpha \cap \mathcal{U}_\beta)\to \varphi_\beta (\mathcal{U}_\alpha \cap \mathcal{U}_\beta)
+\end{equation*}
+are of class $C^\infty$ for any $\alpha$ and $\beta$.
+
+Every space $M$ will denote an $n$-dimensional smooth manifold unless otherwise specified.
+
+\bigskip
+
+We will frequently speak of a \textit{local coordinate system in a neighborhood $\mathcal{U}$ of $p\in M$}. By this we will mean nothing other than the choice of a chart. We will denote it $(x_{1}, \dots ,x_{n})$ and it will be implicit that
+\begin{equation*}
+    x_i = \pi_i \circ \varphi_{\alpha} : \mathcal{U}\cap\mathcal{U}_{\alpha} \to \mathbb{R},
+\end{equation*}
+where $\alpha$ will depend on the point of $\mathcal{U}$ on which $x_i$ acts and the chosen chart containing it. In simpler terms, $x_i$ takes a point and sends it to the projection onto the $i$-th coordinate of its image under one of the charts.
+
+We will abuse notation to refer interchangeably by $f$ to a function $f:M\to \mathbb{R}$ and its expression in coordinates $\tilde{f} = f\circ\varphi_{\alpha}^{-1} : \mathbb{R}^n \to \mathbb{R}$. That is, we will speak of the image of a point $p$ under $f$ as $f(p)$ and as $f(x_1,\dots,x_n)$, where $(x_1,\dots,x_n)=(x_1(p),\dots,x_n(p))$ are its coordinates in a chosen chart.
+
+\bigskip
+
+On the other hand, a \textit{differentiable map} $f \colon M \to N$ between two smooth manifolds is a continuous map such that, for every pair of charts
+$(\mathcal{U},\varphi \colon \mathcal{U} \to \mathcal{V}) \in \mathcal{A}$ and $(\mathcal{U}',\varphi' \colon \mathcal{U}' \to \mathcal{V}') \in \mathcal{A}'$, the map
+\[
+\varphi' \circ f \circ \varphi^{-1}
+\;:\;
+\varphi\bigl(f^{-1}(\mathcal{U}')\bigr) \subseteq \mathcal{V}
+\longrightarrow \mathcal{V}'
+\]
+is of class $C^\infty$. In what follows, we will refer to them as \textit{smooth} maps and as \textit{diffeomorphisms} if they possess a differentiable inverse.
+
+\bigskip
+
+The tangent space to $M$ at a point $p$ is defined as
+\begin{equation*}
+  T_pM=\{X:C^{\infty}(p)\to \mathbb{R} ~|~ X \text{ is a derivation} \},
+\end{equation*}
+where $C^{\infty}(p)$ denotes the set of functions differentiable in a neighborhood of $p$ and a \textit{derivation} at $p$ is an $\mathbb{R}$-linear function $X:C^{\infty}(p)\to\mathbb{R}$ satisfying the Leibniz rule, that is, such that $X(f\cdot g)=X(f)g(p) + X(g)f(p)$ for any $f,g\in C^{\infty}(p)$.
+
+When we have a differentiable map $f$ we will be able to speak of its \textit{differential at a point} $p \in M$, which will be the linear map
+\[
+\mathrm d_p f \colon T_p M \longrightarrow T_{f(p)} N
+\]
+defined by
+\[
+\mathrm d_p f(X) = X(\,\bullet\, \circ f),
+\]
+where $\bullet$ indicates the position of the argument. Explicitly, the vector $\mathrm d_p f(X) \in T_{f(p)}N$ is the derivation that, for every function $g$ differentiable in a neighborhood of $f(p)$, is given by
+\[
+\mathrm d_p f(X)(g) = X(g \circ f).
+\]
+
+Let us observe that this differential will be the usual linear map given by the matrix of partial derivatives of $f$ whenever $f$ is a function from $\mathbb{R}^n$ to $\mathbb{R}^m$.
+
+\bigskip
+
+Given an $n$-dimensional smooth manifold $M$ we will call the \textit{tangent bundle} of $M$ the disjoint union of the tangent spaces at each of the points of $M$, that is,
+\[
+TM \;=\; \bigsqcup_{p \in M} T_pM.
+\]
+The tangent bundle can be endowed with a smooth manifold structure of dimension $2n$ in a manner compatible with the charts of $M$ and such that the map $\pi: TM\to M$ given by
+\[
+\pi(p,X)=p
+\]
+is differentiable.
+
+In turn, a \textit{smooth vector field} on an $M$ is a smooth map
+\[
+X \colon M \to TM,
+\]
+such that $\pi\circ X=\text{id}_M$.
+
+\bigskip
+
+Finally, we will speak of \textit{Riemannian manifolds} when what we have is a smooth manifold $M$ equipped with an \textit{inner product} on each tangent space, that is, a pair $(M,\langle\cdot,\cdot\rangle)$ where $M$ is a smooth manifold and for each point $p \in M$, $\langle\cdot,\cdot\rangle_p$ is an inner product (a bilinear, symmetric, positive definite form)
+  \[
+    \langle\cdot,\cdot\rangle_p \colon T_pM \times T_pM \to \mathbb{R},
+  \]
+satisfying that for any smooth vector fields $X$ and $Y$, the function
+  \[
+    p \mapsto \langle X(p), Y(p) \rangle_p
+  \]
+is smooth on $M$. This inner product is known as a \textit{Riemannian metric}. It is worth mentioning that we will sometimes refer to a Riemannian manifold simply as $M$ if we do not need to make explicit use of the metric, since every smooth manifold can be equipped with one.
+
+\bigskip
+
+For greater depth on most of these concepts we suggest turning to \cite{GonzalezPrietoVariedades}, from which we ourselves have obtained a great deal of the information.
+
+Now that we have gotten rid of possible gaps as far as smooth manifolds are concerned, let us make our way into \textit{Morse theory}.
