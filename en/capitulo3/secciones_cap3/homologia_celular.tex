@@ -1,0 +1,136 @@
+\section{Cellular homology}
+\label{subsec:homcelular}
+ We recall that some of the spaces holding special interest for us, together with smooth manifolds, are CW-complexes.
+
+ \iffalse
+ As we have seen, every smooth manifold admits a CW-complex structure via a Morse function. Hence cellular homology allows us to compute the homology groups of any smooth manifold as long as we have a Morse function. {\color{blue} but the problem here is that a Morse function does not tell us how they are attached, right?}
+ \fi
+
+ A triangulated space constitutes a CW-complex; after all, each of the $C^k_{\alpha}$ that are joined to build a triangulation is a $k$-cell. It is to be expected then that \textit{cellular homology} is constructed in a manner similar to the simplicial one, although now instead of $k$-polyhedra suitably glued to a space $X$ we will have $k$-cells attached to one another by the attaching maps.
+
+Let us first introduce some concepts to avoid possible technical gaps in the passage from triangulations to CW-complexes in general.
+ \iffalse
+ \begin{definition}
+    A \textit{chain complex} is a family of pairs $(A_k, \partial_k: A_k\to A_{k-1})$ of abelian groups and group homomorphisms called \textit{boundary operators} such that $\partial_{k-1}\circ \partial_k=0$ for all $k$.
+ \end{definition}
+\fi
+
+ \begin{definition}
+    Given two chain complexes $(A_k, \partial_k)$ and $(B_k, \partial_k')$, we call a \textit{chain map} a family $f_k$ of homomorphisms such that $\partial_k'\circ f_k = f_{k-1}\circ \partial_k$ for all $k$.
+ \end{definition}
+
+ This results in the following commutative diagram.
+ \[
+ \begin{array}{ccccccccc}
+    \dots & \overset{\partial_{k+2}}{\longrightarrow} & A_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & A_{k} & \overset{\partial_{k}}{\longrightarrow} & A_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots \\
+    & & f_{k+1} \huge\downarrow  ~~~ & & f_k \huge\downarrow ~~ & & f_{k-1} \huge\downarrow ~~~ & & \\
+    \dots & \overset{\partial_{k+2}}{\longrightarrow} & B_{k+1} & \overset{\partial_{k+1}}{\longrightarrow} & B_{k} & \overset{\partial_{k}}{\longrightarrow} & B_{k-1} & \overset{\partial_{k-1}}{\longrightarrow} & \dots
+ \end{array}
+\]
+
+\begin{definition}
+    Let $f \colon (A_\bullet, \partial) \to (B_\bullet, \partial')$ be a chain map. Since $f \circ \partial = \partial' \circ f$, one has that
+    $f(\ker \partial_k) \subset \ker \partial'_k$ and $f(\operatorname{im} \partial_{k+1}) \subset \operatorname{im} \partial'_{k+1}$. Therefore, \( f \) descends to the quotient, giving rise to a homomorphism $f_* \colon H_k(A_\bullet, \partial) \to H_k(B_\bullet, \partial')$ which we call the \textit{induced homomorphism in homology}.
+
+\end{definition}
+\begin{remark}
+    It is clear that $(g \circ f)_* = g_* \circ f_*$,
+    for morphisms $(A_\bullet, \partial) \xrightarrow{f} (B_\bullet, \partial') \xrightarrow{g} (C_\bullet, \partial'')$.
+\end{remark}
+
+\bigskip
+
+\begin{definition}
+    Let $X$ be a CW-complex. We orient each of the $k$-cells of $X$ and define
+    \begin{equation*}
+        C^{CW}_k(X) = \oplus_{\alpha\in\Lambda_k} \mathbb{Z} \langle D^k_{\alpha}\rangle,
+    \end{equation*}
+    and the boundary operators $\partial_k : C^{CW}_k(X) \to C^{CW}_{k-1}(X)$ are given by
+    \begin{equation*}
+        \partial_k(D^k_{\alpha}) = \sum_{\beta\in\Lambda_{k-1}}[D^k_{\alpha}:D^{k-1}_{\beta}]D^{k-1}_{\beta}.
+    \end{equation*}
+\end{definition}
+
+
+Just as in simplicial homology, the elements of $C^{CW}_k(X)$ are formal sums of $k$-cells with integer coefficients. Now, the boundary operators still take a $k$-cell to its boundary, only this time said boundary will be (taking the orientation into account) the image of its attaching map.
+
+Let us be clearer: let $i_{\alpha}(D^k_{\alpha})$ be a $k$-cell of a CW-complex $X$ and $\varphi_{\alpha}: \partial D_{\alpha}^k \simeq \mathbb{S}^{k-1} \to X_{k-1}$ its attaching map. Then, $[D^k_{\alpha}:D^{k-1}_{\beta}]$ measures how many times (it may be zero) $\varphi_{\alpha}(\partial D_{\alpha}^k)$ completely traverses the $(k-1)$-cell $i_{\beta}(D^{k-1}_{\beta})$ and in which direction: if the latter coincides with the orientation of $i_{\beta}(D^{k-1}_{\beta})$ the sign will be positive and if it differs, negative. Thus, we obtain a formal sum of elements of $(k-1)$-cells, that is, an element of $C^{CW}_{k-1}(X)$.
+
+More formally, the boundary operator $\partial_k$ performs the following journey. The attaching map induces a homomorphism in homology
+\[
+(\varphi_{\alpha})_* : H_{k-1}(\partial D_{\alpha}^k)\to H_{k-1}(X_{k-1}).
+\]
+This homomorphism takes the \textit{fundamental class} $[\partial D_{\alpha}^k]$, which is essentially the generator of $H_{k-1}(\partial D_{\alpha}^k)\simeq \mathbb{Z}\langle [\partial D_{\alpha}^k]\rangle$, to an element of $H_{k-1}(X_{k-1})$. Next, the quotient $q: X_{k-1}\to X_{k-1}/X_{k-2} \simeq \vee_{\beta}\mathbb{S}_{\beta}^{k-1}$ induces another homomorphism in homology
+\[
+q_*: H_{k-1}(X_{k-1}) \to H_{k-1}(X_{k-1}/X_{k-2}) = H_{k-1}(\vee_{\beta}\mathbb{S}_{\beta}^{k-1}) \simeq \oplus_{\beta}\mathbb{Z}\langle D^{k-1}_{\beta} \rangle = C^{CW}_{k-1}(X). % TRANSLATOR: unreduced homology of the wedge reproduced as in the original; reduced homology is needed for this identification (see IDEAS.md).
+\]
+
+In turn, $\partial_{k}\circ\partial_{k+1} = 0$ also holds. Now that we have seen how the boundary operators act, the homology groups are constructed exactly as in the simplicial case. Given a CW-complex $X$, the \textit{k-th cellular homology group} of $X$ is the abelian group $H^{CW}_k(X)$ defined by
+\begin{align*}
+    Z^{CW}_k(X) &= \text{ker}(\partial_k: C^{CW}_k(X) \to C^{CW}_{k-1}(X)) \\
+    B^{CW}_k(X) &= \text{im}(\partial_{k+1}: C^{CW}_{k+1}(X) \to C^{CW}_{k}(X)) \\
+    H^{CW}_k(X) &= Z^{CW}_k(X)/B^{CW}_k(X).
+\end{align*}
+
+Once more we refer the reader to the original source \cite{munoz2021} if they wish to clarify some of the finer technical details we are not going to prove here. It can be proven that $H_k(X)\simeq H^{CW}_k(X)$ for any triangulated space $X$. Thus, by transitivity, we have that the homology groups of a space are isomorphic regardless of the technique we apply to compute them. For this reason, from now on we will refer to the homology groups solely as $H_k(X)$.
+
+It also holds that the homology groups are invariant under homeomorphisms and, in fact, under homotopy equivalences (\cite[p.~111]{hatcher2002}). We state only the second result by virtue of the fact that the homotopy type is also invariant under homeomorphisms.
+
+\begin{theorem}
+    The homomorphisms $f_*:H_k(X)\to H_k(Y)$ induced in homology by a homotopy equivalence $f:X\to Y$ between two topological spaces are isomorphisms.
+\end{theorem}
+
+The result follows from the fact that two homotopic functions induce the same homomorphisms in homology; therefore, a homotopy equivalence and its inverse induce inverse homomorphisms, hence isomorphisms.
+
+We finish with a few examples of how to compute the homology of a CW-complex.
+
+\begin{example}\label{ejemplos_hom_celular}
+    \hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item We can endow $\mathbb{S}^n$ with a CW-complex structure with one $0$-cell and one $n$-cell by identifying the boundary of an $n$-disk to the point.
+
+        Thus, it is simple to see that $H_0(\mathbb{S}^n)\simeq \mathbb{Z}$ since $\mathbb{S}^n$ is path-connected, and that $H_1(\mathbb{S}^n), \dots, H_{n-1}(\mathbb{S}^n)$ are all $\{0\}$ as the chain groups in those dimensions are empty. % TRANSLATOR: "empty" ("vacíos") reproduced as in the original; the groups are trivial (zero), not empty.
+
+        Now, $H_{n}(\mathbb{S}^n)\simeq \mathbb{Z}$ necessarily since $Z_n(\mathbb{S}^n)=C_n(\mathbb{S}^n)\simeq \mathbb{Z}$ as $\partial_n \equiv 0$, and $B_n(\mathbb{S}^n)=\{0\}$ by construction of the chain complex.
+        \item The torus $T^2$ can be considered a CW-complex with one $0$-cell $e^0$, two $1$-cells $e^1_1$ and $e^1_2$ and one $2$-cell $e^2$ in the following way. Take the usual construction of the flat torus, a square whose parallel sides have been identified. The boundary of said square is the wedge sum of two circles, $\mathbb{S}^1\vee \mathbb{S}^1$, that is, two tangent circles; these will be our $1$-cells, the point of tangency our $0$-cell. The $2$-cell will be the interior of the square.
+
+        Now, $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$, $C_1(T^2)\simeq \mathbb{Z}\langle e^1_1 \rangle \oplus \mathbb{Z}\langle e^1_2 \rangle \simeq \mathbb{Z}^2$ and $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle\simeq \mathbb{Z}$.
+
+        The $2$-cell $e^2$ is attached to the $1$-cells along the loop $e^1_1 e^1_2 (e^1_1)^{-1} (e^1_2)^{-1} $ where the exponent $-1$ means it is traversed in the opposite direction. In terms of chains this reads
+        \begin{equation*}
+            \partial_2(e^2) = e^1_1 + e^1_2 - e^1_1 - e^1_2 = 0.
+        \end{equation*}
+        Hence we are left with $Z_2(T^2)=C_2(T^2)\simeq \mathbb{Z}$ and $B_1(T^2)=\{0\}$.
+
+        Both $1$-cells are attached to the $0$-skeleton at $e^0$; both are loops, hence
+        \begin{equation*}
+            \partial_1(e^1_1) = \partial_1(e^1_2) = e^0 - e^0 = 0.
+        \end{equation*}
+        Whereby $Z_1(T^2)=C_1(T^2)\simeq \mathbb{Z}^2$. In this way, one has
+        \begin{equation*}
+            H_2(T^2)=Z_2/B_2 = \mathbb{Z}/\{0\} = \mathbb{Z} ~\text{ and }~ H_1(T^2)=Z_1/B_1= \mathbb{Z}^2/\{0\} = \mathbb{Z}^2.
+        \end{equation*}
+
+        And $H_0(T^2)\simeq \mathbb{Z}$ since it is path-connected.
+        \item By the CW-complex structure given for $\mathbb{CP}^n$ in Subsection \ref{subsec:aplicaciones} one has the following chain complex
+        \begin{equation*}
+            0\to C_{2n}\simeq \mathbb{Z} \to C_{2n-1}\simeq \{0\}\to \dots \to C_{2}\simeq \mathbb{Z} \to C_1\simeq \{0\}\to C_0 \simeq \mathbb{Z}\to 0
+        \end{equation*}
+        where for the even dimensions the chain groups are isomorphic to $\mathbb{Z}$ and for the odd ones to $\{0\}$. This means that $Z_k = C_k$ and $B_k = \{0\}$ for all $k$, hence the homology groups of $\mathbb{CP}^n$ come out as
+        \begin{equation*}
+            H_k(\mathbb{CP}^n) =
+            \begin{cases}
+                \mathbb{Z} &\text{ if } k\le 2n \text{ is even},\\
+                \{0\} &\text{ if } k \text{ takes other values}.
+            \end{cases}
+        \end{equation*}
+    \end{enumerate}
+\end{example}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            RELATIVE HOMOLOGY               %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

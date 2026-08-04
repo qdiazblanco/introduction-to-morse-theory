@@ -1,0 +1,194 @@
+
+\section{Relative homology}
+\label{sec:hom_relat}
+
+We conclude the development of the aspects of homology we need with \textit{relative homology}. In essence, in relative homology what we do is ignore all the chains of a subspace. The construction is similar to the ones we already know.
+
+\begin{definition}
+    Let $X$ be a topological space and $A\subset X$ a subspace. We define $C_k(X,A)$ as the quotient group
+    \begin{equation*}
+        C_k(X)/C_k(A),
+    \end{equation*}
+    hence the chains of $A$ become trivial.
+\end{definition}
+
+For the boundary operators let us go step by step. In the first place, for defining them to make sense it must happen that $\partial_k$ takes $C_k(A)$ to $C_{k-1}(A)$. In the case of a triangulated space, $A$ must be a \textit{triangulated subspace}, that is, a subspace covered only by complete polyhedra of the original triangulation. For CW-complexes the subspace must be a \textit{subcomplex}, that is, a collection of complete cells of the space.
+
+Once we have this, the boundary operator in relative homology is nothing more than the boundary operator in homology followed by the passage to the quotient. Indeed, thanks to the fact that $\partial_k(C_k(A))$ is contained in $C_{k-1}(A)$, these induce a boundary operator on the quotient given by
+\begin{equation*}
+    \partial^{rel}_k = q_{k-1}\circ\partial_k,
+\end{equation*}
+where the $q_k$ form the family of quotient maps. We will omit the ``rel'' label whenever the context allows it.
+
+We observe that in this case $\partial^{rel}_{k-1}\circ \partial^{rel}_k = 0$ also holds, since they vanish before passing to the quotient, hence the $q_k$ form a chain map.
+
+\newpage
+Once we have the chain groups and the boundary operators defined, the \textit{relative homology groups} are constructed in the same way as in cellular and simplicial homology. That is, given a triangulated topological space or a CW-complex $X$ and a triangulated subspace or subcomplex $A$, the \textit{k-th relative homology group} of the pair $(X,A)$ is the abelian group $H_k(X,A)$ constructed as follows
+\begin{align*}
+    Z_k(X,A) &= \text{ker}(\partial^{rel}_k: C_k(X,A) \to C_{k-1}(X,A)) \\
+    B_k(X,A) &= \text{im}(\partial^{rel}_{k+1}: C_{k+1}(X,A) \to C_{k}(X,A)) \\
+    H_k(X,A) &= Z_k(X,A)/B_k(X,A).
+\end{align*}
+
+\begin{nota}
+    As one would expect, if the subspace $A$ is for example contractible or empty, the non-relative homology groups are recovered. % TRANSLATOR: for contractible non-empty A this fails at k=0 (one gets reduced homology); reproduced as in the original (see IDEAS.md).
+\end{nota}
+\bigskip
+
+\begin{proposition}
+\label{exact_sec_hom_rel}
+    For any pair $(X,A)$, with $X$ either a triangulated topological space or a CW-complex and $A$ a triangulated subspace or a subcomplex respectively, one has the following exact sequence
+    \begin{align*}
+        \cdots \longrightarrow H_n(A) \longrightarrow H_n(X) \longrightarrow H_n(X,A) \longrightarrow H_{n-1}(A) \longrightarrow H_{n-1}(X) \longrightarrow \cdots \longrightarrow H_0(X,A) \longrightarrow 0.
+    \end{align*}
+\end{proposition}
+
+Proving this is one of the main objectives of the relative homology section of \cite[p.~115]{hatcher2002}, on which we have based this section.
+
+\bigskip
+
+An example of the usefulness of this exact sequence for computing the relative homology groups is the following.
+
+\begin{example}
+\label{hom_relat_disco}
+Let the $n$-disk $D^n$ and its boundary $\mathbb{S}^{n-1}$ be given; let us compute the relative homology groups $H_k(D^n,\mathbb{S}^{n-1})$ for $n\ge 2$. By the previous proposition, we have the following exact sequence,
+\[
+\begin{tikzcd}[
+  column sep=large,
+  row sep=large,
+  every cell/.style={math mode},
+  remember picture
+]
+\cdots ~ \arrow[r] &
+ ~ H_k(\mathbb{S}^{n-1})~  \arrow[r] &
+~ H_k(D^n)\simeq \{0\} ~ \arrow[r] &
+|[alias=topend]| ~H_k(D^n,\mathbb{S}^{n-1})~ \\
+|[alias=botstart]| ~H_{k-1}(\mathbb{S}^{n-1})~ \arrow[r] &
+~H_{k-1}(D^n)\simeq \{0\}~ \arrow[r] &
+~H_{k-1}(D^n,\mathbb{S}^{n-1})~ \arrow[r] &
+~\cdots
+\end{tikzcd}
+\]
+\begin{tikzpicture}[overlay, remember picture]
+\draw[-{Stealth[length=1.5mm]}, thin]
+  (topend.east)
+  .. controls +(2.5cm,-1.4cm) and +(-2.5cm,1.4cm) ..
+  (botstart.west);
+\end{tikzpicture}
+
+We extract from it the following short exact sequence,
+\begin{align*}
+    \{0\}\overset{f}{\longrightarrow} H_k(D^n,\mathbb{S}^{n-1}) \overset{g}{\longrightarrow} H_{k-1}(\mathbb{S}^{n-1}) \overset{h}{\longrightarrow} \{0\},
+\end{align*}
+and one has
+\begin{equation*}
+    \{0\} = \text{im }f = \text{ker }g ~~\text{ and }~~ \text{im }g = \text{ker }h = H_{k-1}(\mathbb{S}^{n-1}).
+\end{equation*}
+Hence $g$ is injective and we arrive at
+\begin{equation*}
+    H_k(D^n,\mathbb{S}^{n-1}) \simeq \text{im }g = H_{k-1}(\mathbb{S}^{n-1}) \simeq
+    \begin{cases}
+        \mathbb{Z} &~~\text{ if }~~ k=n,\\
+        0 &~~\text{ if }~~k\neq n, ~k\ge 2.
+    \end{cases}
+\end{equation*}
+
+\newpage
+For the cases $k=2$ and $k=1$ we look at the end of the sequence.
+\[
+\begin{tikzcd}[
+  column sep=large,
+  row sep=large,
+  every cell/.style={math mode},
+  remember picture
+]
+\cdots ~ \arrow[r] &
+ ~ H_1(\mathbb{S}^{n-1})~  \arrow[r] &
+~ H_1(D^n)\simeq \{0\} ~ \arrow[r] &
+|[alias=topend]| ~H_1(D^n,\mathbb{S}^{n-1})~ \\
+|[alias=botstart]| ~H_{0}(\mathbb{S}^{n-1})\simeq \mathbb{Z}~ \arrow[r] &
+~H_{0}(D^n)\simeq \mathbb{Z}~ \arrow[r] &
+~H_{0}(D^n,\mathbb{S}^{n-1})~ \arrow[r] &
+~\{0\}
+\end{tikzcd}
+\]
+
+\begin{tikzpicture}[overlay, remember picture]
+\draw[-{Stealth[length=1.5mm]}, thin]
+  (topend.east)
+  .. controls +(2.5cm,-1.4cm) and +(-2.5cm,1.4cm) ..
+  (botstart.west);
+\end{tikzpicture}
+
+One has that $H_{0}(\mathbb{S}^{n-1})\simeq \mathbb{Z}\to H_{0}(D^n)\simeq \mathbb{Z}$ is the isomorphism induced by the inclusion. We extract again the part between $\{0\}$ and $\{0\}$,
+\begin{align*}
+    \{0\}\overset{f}{\longrightarrow} H_1(D^n,\mathbb{S}^{n-1}) \overset{g}{\longrightarrow} \mathbb{Z} \overset{h}{\longrightarrow} \mathbb{Z} \overset{i}{\longrightarrow} H_0(D^n,\mathbb{S}^{n-1}) \overset{j}{\longrightarrow} \{0\}.
+\end{align*}
+We observe that $\{0\} = \text{im }f = \text{ker }g$ and, $h$ being an isomorphism, also $\text{im }g = \text{ker }h = \{0\}$. Hence $g$ is injective and its image is $\{0\}$, so $H_1(D^n,\mathbb{S}^{n-1})\simeq\{0\}$. Now,
+\begin{equation*}
+    \text{ker }i = \text{im }h = \mathbb{Z} ~~\text{ and }~~ \text{im }i = \text{ker }j = H_0(D^n,\mathbb{S}^{n-1}).
+\end{equation*}
+Hence $\{0\}=\mathbb{Z}/\mathbb{Z}\simeq H_0(D^n,\mathbb{S}^{n-1})$.
+
+For the case $n=1$ it happens that $\mathbb{S}^0$ has two connected components, hence $H_0(\mathbb{S}^0)=\mathbb{Z}^2$. To see how $H_1(D^1,\mathbb{S}^{0})$ and $H_0(D^1,\mathbb{S}^{0})$ turn out, it suffices to observe that $C_1(D^1,\mathbb{S}^0)\simeq \mathbb{Z}$ and $C_0(D^1,\mathbb{S}^0)\simeq \{0\}$. Therefore,
+\begin{equation*}
+    Z_1(D^1,\mathbb{S}^0)\simeq \mathbb{Z}, ~~Z_0(D^1,\mathbb{S}^0)=\{0\} ~~\text{ and }~~ B_1(D^1,\mathbb{S}^0)=\{0\}.
+\end{equation*}
+Thus, we obtain $H_1(D^1,\mathbb{S}^{0})=\mathbb{Z}$ and $H_0(D^1,\mathbb{S}^{0})=\{0\}$, which fits with what was obtained for the higher-dimensional cases.
+
+\end{example}
+
+\bigskip
+We present one last result that we will need to prove the Morse inequalities: the excision theorem \cite[p.~119]{hatcher2002}. It describes when the relative homology groups $H_k(X,A)$ are unaffected by removing a subspace $Z\subset A$.
+
+\begin{theorem}[Excision theorem]
+\label{escision}
+    Let $X$ be a topological space and $A,B\subset X$ subspaces whose interiors cover $X$. Then, the inclusion $(B,A\cap B)\hookrightarrow (X,A)$ induces isomorphisms $H_n(B,A\cap B)\to H_n(X,A)$ for all $n$.
+\end{theorem}
+
+Just as explained in \cite{hatcher2002}, the proof of the excision theorem requires a certain technical detour involving a construction known as barycentric subdivision. It is worth knowing the result but we will not cover the proof here.
+
+
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            BETTI NUMBERS                   %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Other invariants related to homology}
+
+We briefly introduce two topological invariants related to the homology of a space that will be central in the last section.
+
+\begin{definition}
+    Let $X$ be a topological space. We define the \textit{$k$-th Betti number of X} as
+    \begin{equation*}
+        b_k(X) = \operatorname{rank} H_k(X).
+    \end{equation*}
+\end{definition}
+
+
+For the general definition of the rank of an abelian group we refer the reader to page $85$ of \cite{FuchsInfiniteAbelianGroupsI}. In the case where the homology groups are finitely generated, as is that of a compact space, their rank is determined by their decomposition according to the \textit{structure theorem for finitely generated abelian groups}. Thus, $\operatorname{rank} H_k(X)$ is $r$ in the decomposition
+\begin{equation*}
+    H_k(X) = \mathbb{Z}^r \oplus \mathbb{Z}_{d_1} \oplus\dots\oplus \mathbb{Z}_{d_m},
+\end{equation*}
+where $d_1,\dots,d_m$ are integers such that $d_1|d_2|\dots|d_m$.
+\bigskip
+
+\begin{definition}
+    Let $X$ be a topological space whose homology groups are finitely generated and such that $H_k(X)=0$ for all $k>N$. The \textit{Euler--Poincaré characteristic of X} is
+    \begin{equation*}
+        \chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
+    \end{equation*}
+\end{definition}
+
+\begin{nota}
+    A usual definition of the Euler--Poincaré characteristic in terms of the polyhedra of a triangulation can be found on page $39$ of \cite{munoz2021}. In it, $X$ is required to be compact so that summing over the polyhedra of the triangulation makes sense; here we impose a weaker condition.
+
+    Given that in our case we do not always have a triangulation at hand, it is convenient to take the more general version above in terms of the Betti numbers.
+\end{nota}
+
+Both for the Betti numbers and for the Euler--Poincaré characteristic one can change $b_k(X)$ and $\chi(X)$ into their relative versions $b_k(X,A)$ and $\chi(X,A)$ and the definitions carry over to the relative homology groups.
+
+\bigskip

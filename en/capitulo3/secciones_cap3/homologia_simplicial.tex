@@ -1,0 +1,293 @@
+
+Looking ahead to the next and final chapter on the \textit{Morse inequalities}, we need to introduce the concept of \textit{homology} of a manifold.
+
+In this chapter we develop the theoretical framework necessary to prove the Morse inequalities. In the first place we construct the homology of a space from the simplicial point of view. Afterwards we deal with the particular case of CW-complexes. Finally we define the Betti numbers and the Euler--Poincaré characteristic.
+
+Throughout the development certain technical aspects will be omitted, either for being foreign to our objectives, or for requiring a depth we cannot cover in this format. We invite the reader to turn to the references mentioned if they seek a more rigorous and detailed treatment.
+
+\section{Simplicial homology}
+
+\iffalse
+Up to now we have proven that given a smooth manifold, we can, by means of a Morse function, extract its CW-complex structure. That is, reconstruct it from the attaching of cells whose dimensions are determined by the index of each of the critical points of a Morse function.
+\fi
+
+When we want to study topological spaces of low dimension, the fundamental group $\pi_1(X)$ turns out to be very useful. However, it does not allow us to distinguish between spaces of higher dimensions; for example, the fundamental group of $\mathbb{S}^n$ is trivial for $n\ge 2$. This can be solved by considering the higher homotopy groups $\pi_n(X)$. The problem is that these can turn out to be extremely complicated to compute. This idea is reinforced when one realizes that there does not even exist a robust way of computing the homotopy groups of $\mathbb{S}^n$ for arbitrary $n>1$. We give as an example some of the known homotopy groups of $\mathbb{S}^2$ to get an idea of their complexity:
+\begin{center}
+    \begin{tabular}{c|ccccccccccccccc}
+    & $\pi_1$ & $\pi_2$ & $\pi_3$ & $\pi_4$ & $\pi_5$ & $\pi_6$ & $\pi_7$ & $\pi_8$ & $\pi_9$ & $\pi_{10}$ & $\pi_{11}$ & $\pi_{12}$ & $\pi_{13}$ & $\pi_{14}$ & $\pi_{15}$ \\
+    \hline
+    $\mathbb{S}^2$ & $0$ & $\mathbb{Z}$ & $\mathbb{Z}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}_{12}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2$ & $\mathbb{Z}_3$ & $\mathbb{Z}_{15}$ & $\mathbb{Z}_2$ & $\mathbb{Z}_2^2$ & $\mathbb{Z}_{12}\times \mathbb{Z}_2$ & $\mathbb{Z}_{84}\times \mathbb{Z}_2^2$ & $\mathbb{Z}_2^2$
+    \end{tabular}
+\end{center}
+\vspace{1em}
+
+Luckily, the homology groups $H_n(X)$ exist. These are simpler to compute and also resolve limitations of the fundamental group when dealing with spaces of high dimensions. The price to pay for greater computability translates into having to develop a theory that is not only complex but a priori more opaque.
+
+Once again, we are in luck, because for the task at hand the so-called \textit{simplicial homology} suffices. This is a restricted version of the more complicated and general \textit{singular homology} and, although there will be aspects of the latter we must introduce, the vocabulary we need is definitely simpler. The general line we will follow for the development of this theory is the one used in \cite{munoz2021}, starting from a triangulated topological space.
+
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%             TRIANGULATIONS                 %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Triangulations}
+\label{subsec:triangulaciones}
+
+Triangulating a topological space consists essentially in expressing it as the union of \textit{polyhedra} of its same dimension suitably glued together.
+
+\begin{definition} \hfill
+
+    \begin{enumerate}[label=(\roman*)]
+        \item  A \textit{convex k-polyhedron}, $P^k$, is the convex hull of a finite number of points of $\mathbb{R}^n$ with non-empty interior. % TRANSLATOR: as stated this forces k=n; the interior should be taken relative to the affine hull (see IDEAS.md).
+        \item An \textit{l-face} of $P^k$ is a subset $P^l\subset \partial P^k$ obtained as the intersection of $P^k$ with a hyperplane that does not meet its interior and which has dimension $l$
+    \end{enumerate}
+
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+    A \textit{triangulation} of a topological space $X$ is denoted
+    \begin{equation*}
+        \tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda_k\}
+    \end{equation*}
+    and consists of:
+    \begin{enumerate}
+        \item A family of polyhedra $P^k_{\alpha}$ of dimensions between $0$ and $n$.
+        \item For each polyhedron, a continuous function $f_{\alpha}:P^k_{\alpha}\to X$ with the following properties:
+        \begin{enumerate}
+            \item $f_{\alpha}: \mathring{P}^k_{\alpha}\to f_{\alpha}(\mathring{P}^k_{\alpha})\subset X$ is a homeomorphism.
+            \item The sets $C^k_{\alpha}=f_{\alpha}(P^k_{\alpha})\subset X$ form a locally finite closed cover of $X$.
+            \item The images $f_{\alpha}(\mathring{P}^k_{\alpha})\subset X$ form a disjoint cover of $X$.
+            \item For each $l$-face $P^l\in \partial P^k_{\alpha}$ there exists a function in the triangulation $f_{\beta}:P^l_{\beta}\to X$ such that $f_{\beta} = f_{\alpha}\circ L$, where $L: P^l_{\beta}\to P^l\subset P^k_{\alpha}$ is an affine isomorphism followed by the inclusion.
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\bigskip
+
+Each $C^k_{\alpha}$ is a $k$-cell and $n=\text{dim}(X)$ the maximal dimension of the polyhedra of the triangulation.
+
+We recall that a cover $\mathcal{C}=\{C_i\}$ of a topological space $X$ is said to be \textit{locally finite} if every $x\in X$ has an open neighborhood $\mathcal{U}_x$ intersecting only a finite number of elements of $\mathcal{C}$.
+
+We will say that the topology of a space $X$ is \textit{coherent} with respect to a cover $\mathcal{C}$ if the intersection of every open set $\mathcal{U}$ of $X$ with any closed set $C_i$ of the cover is open in $C_i$.
+
+One has that, given a locally finite closed cover $\mathcal{C}$ of a space $X$, the topology of $X$ is coherent with respect to $\mathcal{C}$. That is, the topology of a topological space $X$ is coherent with respect to the cover obtained by triangulating. This allows us to reconstruct the topology of $X$ having only a triangulation of it, as the collection of subsets $\mathcal{U}\subseteq X$ such that $\mathcal{U}\cap C^k_{\alpha}$ is open in $C^k_{\alpha}$ for any $\alpha\in \Lambda_k$.
+
+Property $2.d$ determines that the intersections of images of two polyhedra $P^k_{\alpha}$ and $P^t_{\beta}$ of a triangulation are formed by $l$-cells; they cannot intersect their interiors. Moreover, we allow each function $f_{\alpha}$ to send more than one $l$-face to one same $l$-cell.
+
+
+\bigskip
+
+\begin{definition}
+    With the notation of the previous definition, a \textit{regular triangulation} is a triangulation such that
+    \begin{enumerate}
+        \item $f_{\alpha}: P^k_{\alpha} \to C^k_{\alpha}$ is a homeomorphism for every $\alpha\in\Lambda_k$.
+        \item The $P^k_{\alpha}$ are \textit{k-simplices}, that is, the convex hull of $(k+1)$ affinely independent points.
+        \item No two $k$-cells may share all of their vertices.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    A $k$-simplex is the simplest possible geometric object of dimension $k$, the $k$-dimensional analogue of the triangle. Every $k$-simplex is a $k$-polyhedron but not the other way around. In fact, every $k$-polyhedron can be obtained by suitably gluing $k$-simplices.
+\end{remark}
+
+\bigskip
+
+A regular triangulation turns out to be simpler to visualize. In a regular triangulation any two distinct $k$-simplices either do not touch or share exactly one single $l$-simplex (with $l<k$) of their boundaries. It represents what one sees when thinking of a mesh of triangles, in the $2$-dimensional case.
+
+On the other hand, when carrying the polyhedra of a non-regular triangulation onto a space, identifications of the faces of one same polyhedron may appear. In dimension $2$, a triangle can for example turn into a ``cone'' when two of its edges become glued by the function taking it to the space it triangulates. Resulting in two possible inclusions into said space of the vertex that was not common to both.
+
+\bigskip
+
+Finally, we introduce the notion of orientation of a polyhedron.
+
+\begin{definition}
+    An \textit{orientation} $o$ of a $k$-polyhedron is an orientation of its interior $\mathring{P}^k$, that is, an orientation of $\mathbb{R}^n$. % TRANSLATOR: "R^n" reproduced as in the original; it should be R^k (as the next paragraph uses).
+\end{definition}
+
+Since $\mathring{P}^k$ is an open subset of $\mathbb{R}^k$, its orientation is obtained by fixing one of the two possible orientations of $\mathbb{R}^k$. This orientation $o$ induces an orientation $o|_{P^{n-1}}$ on each of the $(n-1)$-faces $P^{n-1}\subset \partial P^k$.
+
+More concretely, a basis of $\mathbb{R}^k$ belongs to one of two equivalence classes of bases under the following relation: two bases $B_1$ and $B_2$ are related if the determinant of the change-of-basis matrix is positive. Orienting $\mathbb{R}^k$ is simply choosing one of these two classes.
+
+On the other hand, given an oriented $k$-polyhedron $P^k$, the induced orientation on a $k-1$-polyhedron $P^{k-1}$ of its boundary is again a choice of equivalence class of bases of $\mathbb{R}^{k-1}$, but this time forced by the one inducing it. Suppose the orientation of $P^k$ is the one given by the class $[v_1,v_2,\dots, v_k]$, then the orientation induced on $P^{k-1}$ will be the one given by the class $[w_2,\dots,w_k]$ satisfying
+\begin{equation*}
+    [\nu, w_2,\dots, w_k] = [v_1,\dots,v_k]
+\end{equation*}
+where $\nu$ is a vector tangent to $P^k$, orthogonal to $P^{k-1}$ and pointing towards the exterior of $P^k$.
+
+In the $0$-dimensional case, that is, the vertices, the orientation will be the choice of sign and we will use the following convention: given an edge $a$ and a vertex $v$, $a$ induces the orientation $o(v)=\{+\}$ if it ends at $v$ and $o(v)=\{-\}$ if it starts at $v$. If $a=[v_1,v_2]$ and the order determines the orientation of $a$, then $o(v_1)=\{-\}$ and $o(v_2)=\{+\}$.
+
+It is worth pointing out that, given a regular triangulation, if two $k$-polyhedra with the same orientation share a $(k-1)$-polyhedron of their boundaries then they induce opposite orientations on it. It suffices to observe that the corresponding vectors $\nu_1$ and $\nu_2$ are opposite.
+
+There exist other notions of triangulation, such as the \textit{pseudotriangulation}, and a whole theory of the so-called \textit{PL manifolds} which for our purpose are not necessary. For greater depth on this topic, technical details and examples we suggest the reader refer to the original source \cite{munoz2021}.
+
+\bigskip
+
+We close the triangulations section with a result of Whitehead's collected in \cite{Whitehead1978} that will allow us to speak of the homology of any smooth manifold.
+
+\begin{theorem}
+    Every $n$-dimensional smooth manifold $M$ admits a triangulation $\tau$.
+\end{theorem}
+
+This result corresponds to Theorem $7$, located on page $819$ of \cite{Whitehead1978}. Whitehead first formulates it for closed manifolds and later, in Section $4$ (page $823$), generalizes it to open manifolds.
+\bigskip
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%           SIMPLICIAL HOMOLOGY              %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Construction of simplicial homology}
+
+A slight generalization of the simplicial complexes that give this theory its name are the $\Delta$-complexes. It is on these that texts such as \cite{hatcher2002} define singular homology. We, as we have already mentioned, will do it for triangulated topological spaces and, later, for CW-complexes.
+
+\bigskip
+
+\begin{definition}
+    Let the pair $(X,\tau)$ be a triangulated topological space, with $\tau = \{(P^k_{\alpha}, f_{\alpha}): ~0\le k \le n, ~\alpha\in \Lambda_k\}$. We choose arbitrary orientations $o^k_{\alpha}$ for each polyhedron $P^k_{\alpha}$ of the triangulation and call $e^k_{\alpha}=(P^k_{\alpha},o^k_{\alpha})$ the oriented polyhedron. We define $C^{\tau}_k(X)$ as the free abelian group on the generators $e^k_{\alpha}$
+    \begin{equation*}
+        \mathbb{Z}\langle e^k_{\alpha} | \alpha \in \Lambda_k \rangle
+    \end{equation*}
+    We also define the following group homomorphisms, which we will call \textit{boundary operators}, $\partial_k: C^{\tau}_k(X) \to C^{\tau}_{k-1}(X)$ given by
+    \begin{equation*}
+        \partial_k(e^k_{\alpha}) = \sum_{\beta\in\Lambda_k} [e^k_{\alpha} : e^{k-1}_{\beta}]e^{k-1}_{\beta}, % TRANSLATOR: index set reproduced as in the original; it should be \Lambda_{k-1}.
+    \end{equation*}
+    where the $[e^k_{\alpha} : e^{k-1}_{\beta}]$ will be called \textit{incidence numbers} and are given by $[e^k_{\alpha} : e^{k-1}_{\beta}] = \sum \varepsilon_i$ where $i$ runs over all the inclusions $L_i: P^{k-1}_{\beta} \hookrightarrow \partial P^k_{\alpha}$ and $\varepsilon_i=\pm 1$ depending on whether or not the orientation $o^{k-1}_{\beta}$ coincides with the orientation induced as boundary by $L_i(P^{k-1}_{\beta})\subset P^k_{\alpha}$
+\end{definition}
+
+\begin{remark}\hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item We define $C^{\tau}_k(X) = 0$ whenever $k<0$ or $k>n$ and $\partial_k \equiv 0$ whenever $k\le 0$ or $k>n$.
+        \item We choose arbitrary orientations for the polyhedra given that choosing one or the other comes down to changing the generator $e^k_{\alpha}$ into $-e^k_{\alpha}$.
+    \end{enumerate}
+\end{remark}
+
+\bigskip
+
+Without any additional background the reader may be wondering how it is possible to describe explicitly the elements of $C^{\tau}_k(X)$ and how exactly the boundary operators act. Well, we call \textit{$k$-chains} the elements of $C^{\tau}_k(X)$, which are formal sums of polyhedra of $\tau$ with integer coefficients where the sign depends on the orientations. That is, we choose an orientation to carry the $+$ sign, and the polyhedra whose orientation is the other possible one will carry the $-$ sign. That is, they are of the form
+\begin{equation*}
+    \sum_{i=1}^m z_i e^k_{\alpha_i} ~~\text{ with }~~ z_i \in \mathbb{Z} ~~\text{ and }~~ \alpha_i \in \Lambda_k, ~\forall i\in \{1,\dots, m\}.
+\end{equation*}
+Above we have described how the boundary operators $\partial_k$ act on the generators of $C^{\tau}_k(X)$; however, by linearity, they can be extended to group homomorphisms from $C^{\tau}_k(X)$ to $C^{\tau}_{k-1}(X)$. Thus,
+\begin{equation*}
+    \partial_k \left( \sum_{i=1}^m z_i e^k_{\alpha_i} \right) = \sum_{i=1}^m z_i \partial_k (e^k_{\alpha_i}).
+\end{equation*}
+Now, the boundary operator takes a $k$-chain to the $(k-1)$-chain constituting its boundary taking the orientation into account; in the $2$-dimensional case, we would say it takes a $2$-polyhedron to the sum of its edges. An indispensable property of the boundary operators is the following.
+
+\begin{proposition}
+\label{prop_bordes}
+    The boundary operators satisfy $\partial_{k}\circ\partial_{k+1}=0$ for all $k\ge 0$.
+\end{proposition}
+
+\begin{proof}
+    It is possible to prove that every triangulation can be subdivided to obtain a regular triangulation. Bearing in mind that for a regular triangulation the notation and the computations simplify considerably, we are going to prove the result in this case. Since no identifications occur between $(k-1)$-simplices of the boundary of each $k$-polyhedron when triangulating, we have that there is only one possible inclusion for each one, that is, $[e^k_{\alpha} : e^{k-1}_{\beta}]=\pm 1$ always.
+
+    Now, it suffices to check that the statement holds for the generators of $C^{\tau}_{k+1}(X)$. Let $e^{k+1}_{\alpha}$ be an oriented $(k+1)$-polyhedron generating $C^{\tau}_{k+1}(X)$, we have that
+    \begin{equation*}
+        \partial_{k}\circ\partial_{k+1}(e^{k+1}_{\alpha}) = \partial_{k}\left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}]e^{k}_{\beta} \right) = \sum_{\gamma\in\Lambda_{k}} \left( \sum_{\beta\in\Lambda_{k+1}} [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] \right) e^{k-1}_{\gamma} % TRANSLATOR: index sets reproduced as in the original; the inner sum should run over \Lambda_k and the outer over \Lambda_{k-1}.
+    \end{equation*}
+
+    Let $e^{k-1}_{\gamma}$ be any $(k-1)$-polyhedron included in $e^{k+1}_{\alpha}$. Since there is only one possible inclusion of $e^{k-1}_{\gamma}$ into $\partial e^{k+1}_{\alpha}$ , there exist exactly two oriented $k$-polyhedra $e^{k}_{\beta}$ and $e^{k}_{\beta'}$ such that
+    \begin{equation*}
+        e^{k-1}_{\gamma}\subset e^{k}_{\beta} \subset e^{k+1}_{\alpha}~\text{ and }~ e^{k-1}_{\gamma}\subset e^{k}_{\beta'}\subset e^{k+1}_{\alpha}
+    \end{equation*}
+    Hence
+    \begin{equation*}
+        \partial_{k}\circ\partial_{k+1}(e^{k+1}_{\alpha}) = \sum_{\gamma\in\Lambda_{k}}\big( [e^{k+1}_{\alpha} : e^{k}_{\beta}][e^{k}_{\beta} : e^{k-1}_{\gamma}] + [e^{k+1}_{\alpha} : e^{k}_{\beta'}][e^{k}_{\beta'} : e^{k-1}_{\gamma}] \big) e^{k-1}_{\gamma}
+    \end{equation*}
+
+    Suppose that $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$, then $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=-[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ hence the summands cancel.
+
+    In the same way, if $[e^{k+1}_{\alpha} : e^{k}_{\beta}]=-[e^{k+1}_{\alpha} : e^{k}_{\beta'}]$ then $[e^{k}_{\beta} : e^{k-1}_{\gamma}]=[e^{k}_{\beta'} : e^{k-1}_{\gamma}]$ and they cancel again.
+
+\end{proof}
+
+\begin{remark}
+    We will call \textit{chain complex} any sequence of the form
+        \begin{equation*}
+            \dots \overset{\partial_{k+2}}{\longrightarrow} A_{k+1} \overset{\partial_{k+1}}{\longrightarrow} A_{k} \overset{\partial_{k}}{\longrightarrow} A_{k-1} \overset{\partial_{k-1}}{\longrightarrow} \dots,
+        \end{equation*}
+        where the $A_i$ are abelian groups, as in our case, and $\partial_{k}\circ\partial_{k+1}=0$ holds for all $k\ge 0$. Said property is equivalent to $\text{im}(\partial_{k+1})\subseteq\text{ker}(\partial_k)$. We will say that the sequence is \textit{exact} if equality holds.
+\end{remark}
+
+\bigskip
+
+We extract from the result that if a $k$-chain is a boundary, then the boundary of the latter vanishes when taking the orientations into account. Let us imagine a $2$-dimensional disk; it is homeomorphic to a $2$-simplex, which gives us a triangulation. We have three vertices $v_0$, $v_1$ and $v_2$, three edges $[v_0,v_1]$, $[v_1,v_2]$ and $[v_2,v_0]$ and one face $[v_0, v_1, v_2]$. Hence,
+\begin{equation*}
+    \partial_1(\partial_2([v_0, v_1, v_2])) = \partial_1([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) = (v_1-v_0) + (v_2-v_1) + (v_0-v_2) = 0.
+\end{equation*}
+The boundary of the $2$-simplex has no boundary, $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]\in \text{im}(\partial_2) \subseteq \text{ker}(\partial_1)$.
+
+Thus, we can define the $k$-th homology group of $X$ as follows.
+
+\begin{definition}
+    Let $(X,\tau)$ be a triangulated space. The \textit{k-th simplicial homology group} of $X$ is the abelian group $H^{\tau}_k(X)$ defined by
+    \begin{align*}
+        Z^{\tau}_k(X) &= \text{ker}(\partial_k: C^{\tau}_k(X) \to C^{\tau}_{k-1}(X)) \\
+        B^{\tau}_k(X) &= \text{im}(\partial_{k+1}: C^{\tau}_{k+1}(X) \to C^{\tau}_{k}(X)) \\
+        H^{\tau}_k(X) &= Z^{\tau}_k(X)/B^{\tau}_k(X).
+    \end{align*}
+\end{definition}
+
+\begin{remark} Let $X$ be a triangulated space of dimension $n$, we observe that
+
+    \begin{itemize}
+        \item $H^{\tau}_k(X)=0$ for all $k>n$, since $C^{\tau}_k(X)=0$.
+        \item $H^{\tau}_n(X)$ is a free abelian group. Indeed, since $C^{\tau}_{n+1}(X)=0$ we have that $B^{\tau}_n(X)=0$ hence $H^{\tau}_n(X)=Z^{\tau}_k(X)\subset C^{\tau}_n(X)$, which is free for being a subgroup of a free group. % TRANSLATOR: "Z^tau_k" reproduced as in the original; the subscript should be n.
+        \item If $X$ is moreover compact, then $H^{\tau}_k(X)$ is a finitely generated abelian group. One has that $C^{\tau}_k(X)$ is isomorphic to $\mathbb{Z}^{n_k}$, where $n_k=|\Lambda_k|$, hence it is finitely generated, and every subgroup of a finitely generated abelian group is in turn finitely generated. Thus, $Z^{\tau}_k(X)$ and $B^{\tau}_k(X)$ are finitely generated and the result follows.
+    \end{itemize}
+\end{remark}
+
+Once again, this definition deserves a clarification. The elements of the subgroups $Z^{\tau}_k(X)$ and $B^{\tau}_k(X)$ of $C^{\tau}_k(X)$ will be called, respectively, \textit{cycles} and \textit{boundaries}. The first name is received by the $k$-chains whose boundary is empty (as in the case of the $2$-simplex) and the second by those constituting the boundary of a formal sum of $(k+1)$-chains taking the orientation into account. The elements of $H^{\tau}_k(X)$ are, therefore, the equivalence classes of cycles whose difference is a boundary.
+
+One would wish that the homology groups did not depend on the chosen triangulation and were the same as those obtained via singular homology. Indeed, this holds.
+
+\begin{theorem}
+    Let $(X,\tau)$ be a triangulated space. Then $H^{\tau}_k(X)$ is isomorphic to $H_k(X)$ for all $k>0$. Where $H_k(X)$ denotes the singular homology group of $X$. % TRANSLATOR: "k>0" reproduced as in the original; it should be k>=0.
+\end{theorem}
+
+Once again, we will let the reader find the proof in the original source, by virtue of our decision to avoid formalizing singular homology for our purposes. From now on we will refer to the homology groups as $H_k(X)$, without specifying a triangulation.
+
+\bigskip
+
+Let us finish the simple example of the disk (we will provide more examples for the case of CW-complexes later on). Let $D^2$ be the disk; then, using the already mentioned triangulation formed by one $2$-simplex, one has $C_0(D^2) = \mathbb{Z}\langle v_0, v_1, v_2 \rangle \simeq \mathbb{Z}^3$, $C_1(D^2)=\mathbb{Z}\langle [v_0,v_1],[v_1,v_2],[v_2,v_0] \rangle \simeq \mathbb{Z}^3$ and $C_2(D^2)=\mathbb{Z}\langle [v_0,v_1,v_2] \rangle \simeq \mathbb{Z}$.
+
+Now, $Z_2(D^2)= \text{ker}(\partial_2)=\{0\}$, since the elements of $C_2(D^2)$ are of the form $z([v_0,v_1,v_2])$ with $z$ an integer and $\partial_2(z[v_0,v_1,v_2]) = z([v_0,v_1]+[v_1,v_2]+[v_2,v_0]) \neq 0$ if $z$ is non-zero. Moreover, $B_2(D^2) =\{0\}$ necessarily, hence $H_2(D^2)=\{0\}$.
+
+We continue: $B_1(D^2)=\text{im}(\partial_2)=\{z([v_0,v_1]+[v_1,v_2]+[v_2,v_0])\}_{z\in\mathbb{Z}}\simeq \mathbb{Z}$ and $Z_1(D^2)= \text{ker}(\partial_1)=B_1(D^2)$, hence $H_2(D^2)\simeq \mathbb{Z}/\mathbb{Z} = \{0\}$. % TRANSLATOR: "H_2" reproduced as in the original; it should be H_1.
+
+There is no need to check that $Z_0(D^2)=\text{ker}(\partial_0)=C_0(D^2)\simeq \mathbb{Z}^3$. Let us see what $B_0(D^2)$ looks like. The images of the generators of $C_1(D^2)$ are
+\begin{equation*}
+    \partial_1([v_0,v_1]) = v_1 - v_0,~~ \partial_1([v_1,v_2]) = v_2 - v_1~\text{ and }~ \partial_1([v_2,v_0]) = v_0 - v_2.
+\end{equation*}
+Hence $B_0(D^2)=\mathbb{Z}\langle v_1 - v_0, v_2 - v_1, v_0 - v_2 \rangle$; however, $(v_0 - v_2) = (v_0 - v_1) + (v_1 - v_2)$ . Hence in reality one has
+\begin{equation*}
+    B_0(D^2)=\mathbb{Z}\langle v_1 - v_0, v_2 - v_0 \rangle \simeq \mathbb{Z}^2.
+\end{equation*}
+Thus, $H_0(D^2)=\mathbb{Z}^3/\mathbb{Z}^2\simeq \mathbb{Z}$.
+
+What happens if we remove the interior of the $2$-simplex? We obtain a circle $\mathbb{S}^1$ triangulated by three $1$-simplices and three $0$-simplices. Now, the groups $C_1$ and $C_0$ remain, as does $Z_1$; however, $B_1(\mathbb{S}^1)$ is now $\{0\}$ necessarily, whereby $H_1(\mathbb{S}^1)\simeq\mathbb{Z}/\{0\} = \mathbb{Z}$. This coincides with the expected result since now $[v_0,v_1]+[v_1,v_2]+[v_2,v_0]$ is a cycle that is not the boundary of anything, hence it represents a non-trivial class of the homology group.
+
+\bigskip
+
+Before continuing, we list some results that might be of interest to the reader in the context of smooth manifolds and Morse theory. However, we decide not to linger, since it is not central to our objective, and we present them without proof. The proofs can be found in: \cite[p. ~87]{munoz2021} the first one and \cite[p.~97]{munoz2021} the other three.
+
+\begin{enumerate}
+    \item For any triangulated space $X$, $H_0(X)=\mathbb{Z}^r$ where $r$ is the number of path-connected components of $X$.
+    \item If $M$ is a compact, connected, orientable triangulated $n$-manifold without boundary, then $H_n(M)=\mathbb{Z}$.
+    \item If $M$ is a compact, connected, non-orientable triangulated $n$-manifold without boundary, then $H_n(M)=0$.
+    \item If $M$ is a compact, connected $n$-manifold with (non-empty) boundary, then again $H_n(M)=0$.
+\end{enumerate}
+
+ \bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                            %%
+%%            CELLULAR HOMOLOGY               %%
+%%                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
