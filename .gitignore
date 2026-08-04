@@ -1,5 +1,7 @@
 # Claude working files
 THESIS_TRANSLATION_PROMPT.md
+IDEAS.md
+en/TRANSLATION_NOTES.md
 
 # LaTeX build artifacts
 *.aux
@@ -9,7 +11,7 @@ THESIS_TRANSLATION_PROMPT.md
 *.lof
 *.lot
 *.bbl
-*.bbl-SAVE-ERROR
+*-SAVE-ERROR
 *.blg
 *.bcf
 *.run.xml
