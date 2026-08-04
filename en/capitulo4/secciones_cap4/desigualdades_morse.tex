@@ -1,0 +1,259 @@
+
+When Morse developed his theory, throughout the twenties \cite{BottMarstonMorse}, the mathematical scene was very different; it was not until $1949$ that Whitehead even formalized the concept of CW-complex as we know it \cite{KletteCellComplexesHistory}. In particular, Theorem \ref{cwvariedad} had not yet been proven, so the relation between the topology of a smooth manifold and the critical points of a Morse function was described by means of a collection of inequalities.
+
+In this chapter we present this original formulation following once again the development found in \cite{milnor1963}.
+
+\section{Subadditivity}
+
+We begin by introducing some results on subadditive functions.
+
+Throughout this chapter we will refer to pairs of spaces $(X,Y)$. It is worth clarifying that these are not arbitrary pairs of spaces, but pairs such that $Y$ is a subspace of $X$ for which it makes sense to construct the relative homology groups (see Section \ref{sec:hom_relat}). Let us also recall that in the case where $Y$ is empty or contractible we recover the homology of $X$. % TRANSLATOR: see the note on contractible A in Section 3.3; reproduced as in the original.
+
+\begin{definition}
+    Let $S$ be a function that takes pairs $(X,Y)$ of topological spaces and assigns to them an integer $S(X,Y)\in \mathbb{Z}$. We say that $S$ is \textit{subadditive} if whenever $X\supset Y\supset Z$ one has
+    \begin{equation*}
+        S(X,Z) \le S(X,Y) + S(Y,Z).
+    \end{equation*}
+    If under the same hypotheses equality always holds we will say that $S$ is \textit{additive}.
+\end{definition}
+
+\begin{example}
+\label{betti_subad}
+    \hfill
+    \begin{enumerate}[label=(\roman*)]
+        \item The function $b_k(X,Y)$ assigning to each pair $(X,Y)$ its $k$-th Betti number is subadditive (as long as the Betti numbers involved are finite). Indeed, let $X$, $Y$ and $Z$ be such that $X\supset Y\supset Z$; one has the following exact sequence:
+        \begin{align*}
+            \cdots \longrightarrow H_k(Y,Z) \overset{f}{\longrightarrow} H_k(X,Z) \overset{g}{\longrightarrow} H_k(X,Y) \overset{h}{\longrightarrow} \cdots
+        \end{align*}
+        This arises from generalizing the sequence mentioned in \ref{exact_sec_hom_rel} to a triple \cite[p.~118]{hatcher2002}. From it the subadditivity is deduced; let us see how. Given a homomorphism between abelian groups of finite rank $\varphi: G\to H$, by the first isomorphism theorem, $G/\text{ker}\varphi$ is isomorphic to $\text{im} \varphi$, hence one has
+        \begin{equation*}
+            \text{rank } G = \text{rank}(\text{ker } \varphi) + \text{rank}(\text{im } \varphi).
+        \end{equation*}
+        In our case, we have the following equalities
+        \begin{equation*}
+            \text{im } f = \text{ker } g ~~\text{ and }~~ \text{im } g = \text{ker } h.
+        \end{equation*}
+        Moreover,
+        \begin{align*}
+            &b_k(Y,Z) = \text{rank}(\text{ker } f) + \text{rank}(\text{im } f) = \text{rank}(\text{ker } f) + \text{rank}(\text{ker } g),\\
+            &b_k(X,Z) = \text{rank}(\text{ker } g) + \text{rank}(\text{im } g),\\
+            &b_k(X,Y) = \text{rank}(\text{ker } h) + \text{rank}(\text{im } h) = \text{rank}(\text{im } g) + \text{rank}(\text{im } h).
+        \end{align*}
+        Whereby
+        \begin{equation*}
+            b_k(X,Z) - b_k(Y,Z) = \text{rank}(\text{im } g) - \text{rank}(\text{ker } f) \le b_k(X,Y).
+        \end{equation*}
+        From which the subadditivity is deduced.
+        \item The function assigning to each pair its Euler--Poincaré characteristic $\chi (X,Y)$ is additive. We will not include the proof in this example; we refer the reader to Remark \ref{demo_adit_euler}.
+    \end{enumerate}
+\end{example}
+
+\bigskip
+
+\begin{lemma}
+\label{lema__weak_desig_morse}
+    Let $S$ be a subadditive function and let $X_0\subset \dots \subset X_n$. Then,
+    \begin{equation*}
+        S(X_n, X_0) \le \sum^n_{i=1} S(X_i,X_{i-1}).
+    \end{equation*}
+    If $S$ is additive equality holds.
+\end{lemma}
+\begin{proof}
+    We proceed by induction on $n$. For $n=1$ equality holds trivially and for $n=2$ one has the definition of subadditivity. Suppose it holds for $n-1$, then
+    \begin{equation*}
+        S(X_{n-1}, X_0) \le \sum^{n-1}_{i=1} S(X_i,X_{i-1}).
+    \end{equation*}
+    Using the subadditivity of $S$ and the induction hypothesis one has
+    \begin{equation*}
+        S(X_n, X_0) \le S(X_{n-1}, X_0) + S(X_n, X_{n-1}) \le \sum^n_{i=1} S(X_i,X_{i-1}).
+    \end{equation*}
+
+\end{proof}
+
+\bigskip
+
+\begin{lemma}
+\label{lema_desig_morse}
+    The function $S_{k}$ is subadditive, where
+    \begin{equation*}
+        S_{k}(X,Y) = \sum_{i=0}^{k} (-1)^i b_{k-i}(X,Y).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    Suppose we have the following exact sequence
+    \begin{align*}
+        \cdots \overset{f_{k+1}}{\longrightarrow} A_k \overset{f_{k}}{\longrightarrow} A_{k-1} \overset{f_{k-1}}{\longrightarrow} A_{k-2} \overset{f_{k-2}}{\longrightarrow} \cdots \overset{f_{1}}{\longrightarrow} A_0 \overset{f_{0}}{\longrightarrow} 0.
+    \end{align*}
+    We recall that the rank of each $f_i$ is defined as the rank of $\text{im } f_i$. Thus,
+    \begin{align*}
+        &\text{rank } f_{k+1} = \text{rank } (\text{im }f_{k+1}),\\
+        &\text{rank }A_k = \text{rank } (\text{ker }f_{k}) + \text{rank } (\text{im }f_{k}) = \text{rank } (\text{im }f_{k+1}) + \text{rank } f_{k}.
+    \end{align*}
+    From which it follows that
+    \begin{equation*}
+        \text{rank } f_{k+1}  = \text{rank }A_k - \text{rank } f_{k}.
+    \end{equation*}
+    If we keep expanding the ranks of the functions in the same way we arrive at the following
+    \begin{align*}
+        \text{rank } f_{k+1}  &= \text{rank }A_k - \text{rank } f_{k}=\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank } f_{k-1} =\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank }A_{k-2} - \text{rank } f_{k-2} =\\
+        &~\vdots\\
+        &= \text{rank }A_k - \text{rank }A_{k-1} + \text{rank }A_{k-2} - \dots \pm \text{rank }A_0.
+    \end{align*}
+    It is clear that the last expression is greater than zero. We now consider the exact sequence of the triple $X\supset Y\supset Z$ (see \ref{betti_subad}(i)),
+    \begin{align*}
+        \cdots \longrightarrow H_{k+1}(Y,Z) \longrightarrow H_{k+1}(X,Z) \longrightarrow H_{k+1}(X,Y) \overset{f}{\longrightarrow} H_{k}(Y,Z) \longrightarrow \cdots
+    \end{align*}
+    and we apply to $f$ what we have just proven. We observe that
+    \begin{equation*}
+        \text{rank} f = b_k(Y,Z) - b_k(X,Z) + b_k(X,Y) - b_{k-1}(Y,Z) + \dots \ge 0.
+    \end{equation*}
+    Grouping the terms suitably we arrive at
+    \begin{equation}
+    \label{demo_charac}
+        S_{k}(Y,Z) - S_{k}(X,Z) + S_{k}(X,Y) \ge 0,
+    \end{equation}
+    which concludes the proof.
+
+\end{proof}
+
+\begin{remark}
+\label{demo_adit_euler}
+    Taking $k$ sufficiently large one recovers from $S_k$ the Euler--Poincaré characteristic, that is, $S_k(X,Y)=\chi(X,Y)$. Moreover, for this $k$ one has that \ref{demo_charac} is an equality, which proves the additivity of the Euler--Poincaré characteristic.
+\end{remark}
+
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%       THE INEQUALITIES         %%
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The inequalities}
+\label{sec:desigmorse}
+\begin{theorem}[Morse inequalities, weak version]
+\label{weak_morse_desig}
+    Let $f$ be a Morse function on a compact $n$-dimensional manifold $M$  and $C_{\lambda}$ the number of critical points of index $\lambda$ of $f$. Then,
+    \begin{equation}
+    \label{weak_morse_desig1}
+    \tag{$1_{\lambda}$}
+        b_{\lambda}(M) \le C_{\lambda},~\text{ for all } \lambda\in\Lambda, ~~\text{ and }~~ % TRANSLATOR: "\Lambda" is not defined here in the original (elsewhere it indexes cells); it should be {0,...,n}. Reproduced faithfully.
+    \end{equation}
+    \begin{equation}
+    \label{weak_morse_desig2}
+    \tag{2}
+        \chi(M) = \sum_{\lambda=0}^{n} (-1)^{\lambda} C_{\lambda}.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Since $M$ is compact, $f$ has a finite number of critical points. Let $a_1<\dots<a_k$ be such that for every $i\in \{1,\dots,k\}$ one has that $M^{a_i}$ contains exactly $i$ critical points, and $M^{a_k}=M$. Then,
+    \begin{align*}
+        H_j(M^{a_i},M^{a_{i-1}}) = H_j(M^{a_{i-1}}\cup e^{\lambda_i},M^{a_{i-1}}) = H_j(e^{\lambda_i},\partial e^{\lambda_i}) =
+        \begin{cases}
+            \mathbb{Z} &~~\text{ if }~~ j=\lambda_i,\\
+            0 &~~\text{ in any other case}.
+        \end{cases}
+    \end{align*}
+    % TRANSLATOR: the original writes "M^{a_i-1}" (missing subscript braces, i.e. the exponent a_i - 1) throughout this proof and the next theorem; corrected to M^{a_{i-1}} as approved.
+    The first equality follows from Theorem \ref{pegadocelula}, where $\lambda_i$ is the index of the critical point. The second is obtained by applying the excision theorem (\ref{escision}) to the space $M^{a_{i-1}}\cup e^{\lambda_i}$ and the subspaces $M^{a_{i-1}}$ and $e^{\lambda_i}$. The third equality was proven in Example \ref{hom_relat_disco}.
+
+    Now, applying Lemma \ref{lema__weak_desig_morse} with $M^{a_0}=\emptyset \subset \dots \subset M^{a_k}=M$ and $S=b_{\lambda}$ one has
+    \begin{equation*}
+        b_{\lambda}(M) \le \sum_{i=1}^k b_{\lambda}(M^{a_i},M^{a_{i-1}}) = C_{\lambda}.
+    \end{equation*}
+    If, on the contrary, we apply the lemma with $S=\chi$ one arrives at
+    \begin{gather*}
+        \chi(M) = \sum_{i=1}^k \chi(M^{a_i},M^{a_{i-1}}) = \sum_{i=1}^k \Big(\sum_{\lambda=0}^n (-1)^{\lambda} b_{\lambda}(M^{a_i},M^{a_{i-1}})\Big) = \sum_{\lambda=0}^n (-1)^{\lambda} \sum_{i=1}^k b_{\lambda}(M^{a_i},M^{a_{i-1}})=\\
+        = \sum_{\lambda=0}^n (-1)^{{\lambda}} C_{{\lambda}}
+    \end{gather*}
+
+\end{proof}
+
+We have proven a first relation: the rank of the $\lambda$-th homology group of $M$ must be less than or equal to the number of critical points of index $\lambda$ of any Morse function defined on $M$. Moreover, given a Morse function, it suffices to find the number of critical points of each possible index to know its Euler--Poincaré characteristic.
+
+Now, one can obtain inequalities slightly stronger than these:
+
+\begin{theorem}[Morse inequalities]
+    Let $f$ be a Morse function on a compact $n$-dimensional manifold $M$ and $S_{\lambda}$ the function defined in Lemma \ref{lema_desig_morse}; for every $\lambda\in \mathbb{Z}^+$ the following inequalities hold
+    \begin{equation*}
+        S_{\lambda}(M)\le \sum_{i=1}^k S_{\lambda}(M^{a_i},M^{a_{i-1}}) = C_{\lambda}-C_{\lambda-1}+\dots\pm C_0,
+    \end{equation*}
+    where $(M^{a_i},M^{a_{i-1}})$ are as in the proof of \ref{weak_morse_desig}. Equivalently,
+    \begin{equation}
+    \label{desig_morse_fuerte}
+    \tag{$3_{\lambda}$}
+        b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0. % TRANSLATOR: "b_{\lambda-1}" missing its argument (M) reproduced as in the original.
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    It suffices to apply the subadditivity of $S_{\lambda}$ and Lemma \ref{lema__weak_desig_morse} with the spaces $M^{a_0}=\emptyset \subset \dots \subset M^{a_k}=M$.
+
+\end{proof}
+
+It is clear that this collection of inequalities is stronger than the previous one. Indeed, it suffices to observe that adding (\ref{desig_morse_fuerte}) and ($3_{\lambda-1}$) one obtains inequality (\ref{weak_morse_desig1}). On the other hand, if $\lambda$ is greater than $n$ one has that (\ref{desig_morse_fuerte}) is the equality (\ref{weak_morse_desig2}).
+
+\bigskip
+Let us see a way of using these inequalities. Suppose that $C_{\lambda+1}=0$; then, necessarily $b_{\lambda+1}=0$. Thus, (\ref{desig_morse_fuerte}) and ($3_{\lambda+1}$) become
+\begin{align*}
+    &b_{\lambda}-b_{\lambda-1}+\dots\pm b_0 \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0,\\
+    &-b_{\lambda}+b_{\lambda-1}-\dots\pm b_0(M) \le -C_{\lambda}+C_{\lambda-1}-\dots\pm C_0.
+\end{align*}
+From which one deduces
+\begin{equation*}
+    b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) = C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
+\end{equation*}
+Suppose now that $C_{\lambda-1}=0$; one then has that $b_{\lambda-1}=0$, and in the same way one arrives at the equality
+\begin{equation*}
+    b_{\lambda-2}(M)-b_{\lambda-3}+\dots\pm b_0(M) = C_{\lambda-2}-C_{\lambda-3}+\dots\pm C_0.
+\end{equation*}
+Subtracting now the latter from the first equality one obtains that $b_{\lambda} = C_{\lambda}$. We have just proven the following corollary.
+
+\begin{corollary}
+    If $C_{\lambda+1} = C_{\lambda-1} = 0$ then $b_{\lambda} = C_{\lambda}$ and $b_{\lambda+1} = b_{\lambda-1} = 0$.
+\end{corollary}
+
+We conclude the chapter by applying this last result to the computation of the homology groups of $\mathbb{S}^n$ with $n\ge 2$ and of $\mathbb{CP}^n$, already computed in Example \ref{ejemplos_hom_celular}.
+
+Let us recall that $\mathbb{S}^n$ admits a Morse function with exactly two critical points of indices $0$ and $n$ (\ref{reeb}). Thus,
+\begin{equation*}
+    C_{\lambda}=
+    \begin{cases}
+        1, &\text{ if } \lambda \in \{0,n\},\\
+        0, &\text{ otherwise.}
+    \end{cases}
+\end{equation*}
+Therefore, applying the previous corollary one has that $b_{\lambda}(\mathbb{S}^n)=1$ if $\lambda \in \{0,n\}$ and $0$ otherwise. Hence we recover the homology groups of $\mathbb{S}^n$,
+\begin{equation*}
+    H_{k}(\mathbb{S}^n)=
+    \begin{cases}
+        \mathbb{Z}, &\text{ if } k \in \{0,n\},\\
+        \{0\}, &\text{ otherwise.}
+    \end{cases}
+\end{equation*}
+% TRANSLATOR: the passage from Betti numbers to the homology groups themselves (here and for CP^n below) needs the freeness argument discussed in IDEAS.md; reproduced as in the original.
+
+On the other hand, by what was seen at the end of Subsection \ref{subsec:aplicaciones}, $\mathbb{CP}^n$ admits a Morse function with $n+1$ critical points whose indices are the even numbers from $0$ to $2n$. That is,
+\begin{equation*}
+    C_{\lambda}=
+    \begin{cases}
+        1, &\text{ if } \lambda \text{ is even  and } \lambda\le 2n,\\
+        0, &\text{ otherwise.}
+    \end{cases}
+\end{equation*}
+Hence for every even index we find ourselves within the hypotheses of the corollary. If $\lambda$ is even, one has that $C_{\lambda+1}=C_{\lambda-1}=0$. Hence,
+\begin{equation*}
+    b_{\lambda}(\mathbb{CP}^n)=
+    \begin{cases}
+        1, &\text{ if } \lambda \text{ is even  and } \lambda\le 2n,\\
+        0, &\text{ otherwise.}
+    \end{cases}
+\end{equation*}
+Whereby, once again, we recover its homology groups,
+\begin{equation*}
+    H_k(\mathbb{CP}^n) =
+    \begin{cases}
+        \mathbb{Z} &\text{ if } k \text{ is even  and } k\le 2n,\\
+        \{0\} &\text{otherwise}.
+    \end{cases}
+\end{equation*}
