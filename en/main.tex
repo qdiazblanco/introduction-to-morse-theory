@@ -1,0 +1,258 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\documentclass[12pt]{ucmthesis}  % default square logo
+
+\usepackage{graphicx} % To insert images
+\usepackage{subcaption} % in the preamble
+
+\usepackage{pdfpages} % To insert pdf's
+
+\usepackage[left=3cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry} %Change margins
+\setlength{\parindent}{0pt} %removes indentation
+\usepackage[parfill]{parskip} %line break between paragraphs
+\setlength{\parskip}{0.7em}
+
+\renewcommand{\arraystretch}{1.5} % multiplies by 1.5 the vertical space inside the array environment
+
+\usepackage[american]{babel} % TRANSLATOR: was [spanish,es-lcroman]; es-lcroman has no English counterpart
+\usepackage[utf8]{inputenc}
+
+\usepackage{csquotes}
+
+
+\usepackage[backend=biber,citestyle=alphabetic,style=alphabetic]{biblatex} %bibliography
+\bibliography{bibliografia/bibliografia} % your .bib file
+
+%\usepackage[dvipsnames]{xcolor} %change text color
+
+\usepackage{enumitem} % For items (i), (ii), ...
+
+% Packages for mathematical notation and language and the environments below
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+%Environments for mathematics - - - - - - - - - - -
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\theoremstyle{remark}
+\newtheorem*{nota}{Note}
+%---------------------------------------
+\usepackage{tikz}
+\usetikzlibrary{cd,arrows.meta,calc}
+%-------------------------------------- for references
+%\usepackage{cleveref}
+
+%\crefname{theorem}{theorem}{theorems}
+%\Crefname{theorem}{Theorem}{Theorems}
+
+%\crefname{definition}{definition}{definitions}
+%\Crefname{definition}{Definition}{Definitions}
+
+%\crefname{lemma}{lemma}{lemmas}
+%\Crefname{lemma}{Lemma}{Lemmas}
+
+%\crefname{proposition}{proposition}{propositions}
+%\Crefname{proposition}{Proposition}{Propositions}
+
+%\crefname{corollary}{corollary}{corollaries}
+%\Crefname{corollary}{Corollary}{Corollaries}
+
+%\crefname{remark}{remark}{remarks}
+%\Crefname{remark}{Remark}{Remarks}
+
+% - - - - - - - - - - - - - - - - - - - - - - - -
+\sloppy %avoids breaking words at the end of the line
+%------------------------------------------------
+\definecolor{DeepBlue}{HTML}{003399}
+\usepackage[colorlinks=true,
+            linkcolor=DeepBlue,
+            citecolor=DeepBlue,
+            urlcolor=blue]{hyperref}
+
+% -------------------------------------------------
+% Classic book style headers (GTM / Springer)
+% -------------------------------------------------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{} % clear everything
+
+% --- ODD PAGES (odd / right pages)
+% left   -> section
+% right  -> page number
+\fancyhead[OL]{\nouppercase{\rightmark}}
+\fancyhead[OR]{\thepage}
+
+% --- EVEN PAGES (even / left pages)
+% left   -> page number
+% right  -> chapter
+\fancyhead[EL]{\thepage}
+\fancyhead[ER]{\nouppercase{\leftmark}}
+
+% Header rule
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Chapter: number + title (without the word "Chapter")
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\thechapter.\ #1}{}%
+}
+
+% Section: full number + title
+\renewcommand{\sectionmark}[1]{%
+  \markright{\thesection.\ #1}%
+}
+
+\usepackage{emptypage}
+
+%------------------------------------
+% for the page number when a chapter starts
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[R]{%
+     \raisebox{0.6ex}{\rule{0.8cm}{0.4pt}}\hspace{0.4em}\thepage
+  }
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+
+%-------------------------------------------------
+
+\usepackage{float}
+\usepackage[font=small,skip=3pt]{caption}
+
+\iffalse
+\title{Introduction to\\[0.25em] \hspace{0.25pt} Morse Theory}   %note \\[1ex] is a line break in the title
+
+\author{Enrique Díaz Blanco}             %your name
+\college{Facultad de Ciencias Matemáticas}  %your college
+
+%\renewcommand{\submittedtext}{change the default text here if needed}
+\degree{Grado en Matemáticas}     %the degree
+\degreedate{Febrero de 2026}         %the degree date
+\fi
+%end the preamble and start the document
+\begin{document}
+
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{center}
+
+        \vspace*{0.5cm}
+
+        \includegraphics[width=0.25\textwidth]{imagenes/logocomplu.png}
+
+        \vspace{0.15cm}
+
+        {\scshape\Large Universidad Complutense de Madrid\par}
+
+        \vspace{0.15cm}
+        {\scshape\large Facultad de Ciencias Matemáticas\par}
+
+
+        \vspace{1.5cm}
+
+        \rule{\textwidth}{0.4pt}\par
+        \vspace{0.5cm}
+
+        {\Huge\bfseries Introduction to Morse Theory\par}
+
+        \vspace{0.5cm}
+        \rule{\textwidth}{0.4pt}\par
+
+        \vspace{1.5cm}
+
+        {\huge Bachelor's Thesis\par}
+        \vspace{0.15cm}
+        {\scshape\large Degree in Mathematics\par}
+        \vspace{1.5cm}
+
+        {\Large\textbf{Enrique Díaz Blanco}\par}
+
+        \vspace{0.15cm}
+
+        {\Large Supervised by Prof. Ángel González Prieto\par}
+
+        \vfill
+
+        {\large February 2026\par}
+
+    \end{center}
+
+\end{titlepage}
+
+%this baselineskip gives sufficient line spacing for an examiner to easily
+%markup the thesis with comments
+\baselineskip=18pt plus1pt
+
+%set the number of sectioning levels that get number and appear in the contents
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+
+%\maketitle                  % create a title page from the preamble info
+%\include{dedication}        % include a dedication.tex file
+%\include{acknowlegements}   % include an acknowledgements.tex file
+%\include{abstract}          % include the abstract
+
+\begin{romanpages}          % start roman page numbering
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          DEDICATION           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TRANSLATOR: personal dedication kept in Spanish by the author's decision.
+\begin{dedication}
+  A la memoria de Bimba. Gracias por acompañarme hasta casi el final de este camino.
+\end{dedication}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          ABSTRACT             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{resumenlong}
+  \input{extras/resumen.tex}
+  \begin{center}
+  \vspace*{1cm}
+  {\Large \bfseries  Abstract}
+  \end{center}
+  \vspace{0.3cm}
+  \input{extras/abstract.tex}
+\end{resumenlong}
+
+
+\tableofcontents            % generate and include a table of contents
+%\listoffigures             % Uncomment to generate and include a list of figures
+\end{romanpages}            % end roman page numbering
+
+%now include the files of latex for each of the chapters etc
+\include{extras/introduccion}
+\include{capitulo1/chapter1}
+\include{capitulo2/chapter2}
+\include{capitulo3/chapter3}
+\include{capitulo4/chapter4}
+
+%now enable appendix numbering format and include any appendices
+
+%\appendix
+%\include{appendix1}
+
+%next line adds the Bibliography to the contents page
+\addcontentsline{toc}{chapter}{References}
+
+\newpage
+\printbibliography[title={References}]
+
+\end{document}
