@@ -1,0 +1,132 @@
+
+The objective of this chapter is to prove that every manifold admitting a Morse function whose sublevel sets are compact has the homotopy type of a CW-complex (\ref{cwvariedad}). To that end, we formally introduce what we understand by CW-complex and by homotopy type.
+
+We also include two results necessary for our objective, but interesting in their own right, which describe under what conditions and how the homotopy type changes as we traverse the sublevel sets of a Morse function (\ref{retractodef} and \ref{pegadocelula}).
+
+The chapter concludes with two examples of how the main theorems proven can be applied.
+
+\bigskip
+
+\section{CW-complexes and homotopy type}
+
+%homotopy type-----------------------
+We will say that two continuous functions $f, g:X\to Y$ between two topological spaces are \textit{homotopic} if there exists a \textit{homotopy} between them, that is, if there exists a continuous function $H:X\times [0,1]\to Y$ satisfying
+\begin{equation*}
+    H(x,0)=f(x) ~~\text{ and }~~ H(x,1)=g(x)
+\end{equation*}
+for all $x\in X$.
+
+The homotopy relation is an equivalence relation. We will denote that two functions are related by means of the symbol $\simeq$.
+
+When denoting or constructing homotopies we will use two notations interchangeably. We refer to a homotopy between two continuous functions $f$ and $g$ as the continuous function $H(x,t): X\times [0,1]\to Y$ satisfying the above conditions, or as the family of continuous functions $\{H_t: X\to Y\}_{t\in [0,1]}$ such that $H_t(x)=H(x,t)$ for any $t$ and $x$.
+
+\medskip
+
+\begin{definition}
+Let $X$ and $Y$ be topological spaces. We say that $X$ and $Y$ are
+\textit{homotopy equivalent} if there exist continuous maps
+\begin{equation*}
+    f: X \to Y, \qquad g: Y \to X
+\end{equation*}
+such that
+\begin{equation*}
+    g \circ f \simeq \mathrm{id}_X \qquad \text{and} \qquad f \circ g \simeq \mathrm{id}_Y.
+\end{equation*}
+In this case, we say that $X$ and $Y$ have the same \textit{homotopy type} and we call $f$ and $g$ \textit{homotopy equivalences}.
+\end{definition}
+
+\bigskip
+
+A \textit{retraction} of a space $X$ onto a subspace $A\subseteq X$ is a continuous map $r:X\to A$ satisfying $r|_A= \text{id}_A$; in that case, we call $A$ a \textit{retract} of $X$. Moreover, a homotopy $\{H_t\}$ is said to be \textit{relative to A} if $H_t|_A=\text{id}_A$ for all $t\in[0,1]$.
+
+\begin{definition}
+Let $X$ be a topological space and $A \subset X$ a subspace. We say that $A$ is a
+\textit{strong deformation retract} of $X$ if there exists a homotopy relative to $A$ from the identity function of $X$, $id_X$, to a retraction $r: X \to A$.
+\end{definition}
+
+\begin{nota}
+    In what follows we will refer to strong deformation retracts simply as \textit{deformation retracts}.
+\end{nota}
+
+\begin{remark}
+    Note that every deformation retract of a space has the same homotopy type as the latter. Given a space $X$ and a deformation retract $A\subseteq X$, the inclusion function, $i: A\hookrightarrow X$, and the retraction $r: X \to A$ are homotopy equivalences.
+\end{remark}
+%--------------------------------------------------------
+
+\bigskip
+
+%CW-complexes-------------------------------
+In what follows we will denote by $D^n$ the closed unit disk, whose boundary is $\partial D^n=\mathbb{S}^{n-1}$, the $(n-1)$-dimensional unit sphere.
+
+\begin{definition}
+    A \textit{cell} $e^n$ is a topological space homeomorphic to the interior of the $n$-dimensional unit disk $D^n$. We will say that the dimension of the cell is $n$ and that $e^n$ is an \textit{n-cell}.
+\end{definition}
+
+\bigskip
+
+\begin{definition}
+    We call \textit{CW-complex} a topological space constructed following these steps:
+
+        \begin{enumerate}[label=(\roman*)]
+            \item One starts with a discrete set $ X_0 $ (also called the \textit{0-skeleton}), whose elements we will call \textit{0-cells}.
+
+            \item One constructs, inductively, the so-called $ n $-skeleton for $n>0$ as
+            \begin{equation*}
+                X_n = X_{n-1}\cup_{\varphi_{\alpha}}D^n_{\alpha},~\alpha\in \Lambda_n.
+            \end{equation*}
+            That is, $X_n$ is obtained from $X_{n-1}$ by attaching to it a collection, indexed by $\Lambda_n$, of $n$-cells by means of the \textit{attaching maps} $\varphi_{\alpha} : \partial D^n_{\alpha} \to X_{n-1}$.
+
+            \item We will call \textit{CW-complex} the space
+            \begin{equation*}
+                X = \bigcup_{n} X_n.
+            \end{equation*}
+        \end{enumerate}
+\end{definition}
+
+\bigskip
+
+\begin{remark} \hfill
+    \begin{enumerate}
+        \item Note that the attaching maps are only required to be continuous.
+        \item We say that the dimension of a CW-complex $X$ is $m$ if the construction has a finite number $m$ of steps; in that case, $X=X_m$. If the number of steps is infinite, the CW-complex will have infinite dimension.
+        \item More formally, we call an $n$-cell the image of the inclusion $i_{\alpha}: D^n_{\alpha}\to X_n$ and we endow $X$ with the \textit{weak topology}, that is, $\mathcal{U}\subseteq X$ is open if and only if $i^{-1}_{\alpha}(\mathcal{U})\subseteq D^k_{\alpha}$ is open for all $\alpha$ and $k\ge 0$. In fact, it is this topology that gives them their name, since CW comes from the English ``Closure finite-Weak topology''
+    \end{enumerate}
+\end{remark}
+
+CW-complexes present a convenient structure for applying algebraic techniques and computing topological invariants such as the fundamental group or the homology groups, which we will see later on. There is also the advantage that every smooth manifold can be endowed with a structure of this kind either via triangulations (see Section \ref{subsec:triangulaciones}), or via Morse theory.
+
+\begin{nota}
+    We will habitually call \textit{vertices} the $0$-cells, \textit{edges} the $1$-cells and \textit{faces} the $2$-cells. Note also that the boundary or frontier of an edge is two vertices, and that of a face a finite collection of edges.
+\end{nota}
+
+We refer the reader to Section \ref{subsec:homcelular} on cellular homology, in which we develop some examples of CW-complexes.
+
+\medskip
+
+\begin{definition}
+    To each cell $e^n_{\alpha}$ of a CW-complex $X$ there corresponds a \textit{characteristic map} $\phi_{\alpha} : D^n_{\alpha}\to X$ which can be factored as
+    \begin{equation*}
+        D^n_{\alpha} \hookrightarrow X_{n-1} \sqcup_{\alpha} D^n_{\alpha} \to X_n \hookrightarrow X
+    \end{equation*}
+    where the middle function is the quotient map defining $X_n$ (that is, the one identifying the points of $D^n_{\alpha}$ with their images under $\varphi_{\alpha}$) and the others the natural inclusions. $\phi_{\alpha}$ extends the attaching map $\varphi_{\alpha}$ and is a homeomorphism from the interior of $D^n_{\alpha}$ onto $e^n_{\alpha}$.
+
+\end{definition}
+%---------------------------------------------------------------
+\bigskip
+
+\begin{proposition}
+    Given the $n$-skeleton $X_n$ and the $(n-1)$-skeleton $X_{n-1}$ of a CW-complex $X$ we have that
+    \begin{equation*}
+        X_n/X_{n-1} = \bigvee_{\alpha\in\Lambda_n} D^n_{\alpha}/\partial D^n_{\alpha} = \bigvee_{\alpha\in\Lambda_n} \mathbb{S}^{n-1}_{\alpha}, % TRANSLATOR: superscript reproduced as in the original; since D^n/dD^n is homeomorphic to S^n, it should be S^n_alpha (see IDEAS.md).
+    \end{equation*}
+    where $\vee$ denotes the wedge sum \cite[p.~10]{hatcher2002} and $\Lambda_n$ runs over the $n$-cells of $X$.
+\end{proposition}
+
+This last fact follows from the fact that each $n$-cell $e_{\alpha}^n$ is obtained by attaching the boundary of an $n$-disk to the $(n-1)$-skeleton. When taking the quotient $X_n/X_{n-1}$ we are collapsing the $(n-1)$-skeleton to a single point, so that composing the attaching map with the quotient map what one obtains is the trivial class. Thus, the boundary of the disk becomes identified to a single point; moreover, we know that $D^n/\partial D^n \cong \mathbb{S}^n$.
+
+Since the boundaries of all the $n$-disks become identified to the same point, what one obtains is a ``bouquet'' of spheres, which we denote
+\begin{equation*}
+    \bigvee_{\alpha\in\Lambda_n} \mathbb{S}^{n-1}_{\alpha}. % TRANSLATOR: same superscript slip as in the proposition above.
+\end{equation*}
+
+\bigskip
