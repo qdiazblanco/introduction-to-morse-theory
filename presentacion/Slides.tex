@@ -102,8 +102,11 @@
 
 \author{Enrique Díaz Blanco}
 
+
 \institute[Universidad Complutense de Madrid]
-{Universidad Complutense de Madrid\\[0.3cm]
+{
+	Universidad Complutense de Madrid\\[0.3cm]
+	\small{Dirigido por Ángel González Prieto}
 	\begin{figure}[h]
 	\begin{center}
 	\includegraphics[scale=0.15]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/logocomplu.png}
@@ -154,13 +157,13 @@
 \begin{frame}
 \frametitle{Objetivos}
 
-\begin{block}{$1$}
+\begin{block}{Objetivo $1$}
 	Elaborar un manual autocontenido con los fundamentos de la Teoría de Morse.
 \end{block}
 
 \bigskip
 
-\begin{block}{$2$}
+\begin{block}{Objetivo $2$}
 	Comprender y completar los contenidos del libro ``Morse Theory'' de John Milnor hasta las desigualdades de Morse. En particular:
 	\begin{itemize}
 		\item Demostrar que toda variedad diferenciable tiene el \textbf{tipo de homotopía de un CW-complejo}.
@@ -234,7 +237,7 @@
 \node[box, right=of betti] (chi) {Característica de \\ Euler-Poincaré};
 
 \node[box, below=5.5cm of hom] (subad) {Resultados sobre \\ funciones subaditivas};
-\node[box, below right=of subad] (debil) {Desigualdades de Morse\\ (versión débil)};
+
 \node[box, double, right=5.5cm of subad] (fuerte) {\textbf{Desigualdades de Morse}};
 
 
@@ -243,7 +246,6 @@
 \draw[arrow] (cel) -- (betti);
 \draw[arrow] (cel) -- (chi);
 
-\draw[arrow] (subad) -- (debil);
 \draw[arrow] (subad) -- (fuerte);
 
 \draw[arrow] (betti) -- (fuerte);
@@ -263,9 +265,9 @@
 \begin{frame}
 \frametitle{Definición de punto crítico}
 	\begin{definition}
-    Sea $f: $M$ \to \mathbb{R}$ una función suave.
+    Sea $f: M \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=(\roman*)]
-        \item Diremos que $p\in \mathrm{M}$ es un \textbf{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \item Diremos que $p\in M$ es un \textbf{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
             \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
         \end{equation*}
@@ -316,22 +318,22 @@
 		Diremos que una función suave $f: M\to \mathbb{R}$ es una \textbf{función de Morse} si todos sus puntos críticos son no degenerados.
 	\end{definition}
 
-\end{frame}
-
-\begin{frame}
 	\begin{example}
+		\footnotesize
 		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[6pt]
 		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[4pt]
-		$H_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
+		$\text{Hess}_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
 	\end{example}
 	
 	\vspace{-5pt}
 
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.45]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/grafica1.png}
+	\includegraphics[scale=0.35]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/grafica1.png}
+
 	\end{center}
 	\end{figure}
+
 \end{frame}
 
 \begin{frame}
@@ -349,14 +351,14 @@
 		\end{center}
 		\end{figure}
 
-		\column{0.6\textwidth}
+		\column{0.62\textwidth}
 		\vspace{-3em}
 		\begin{exampleblock}{$\;$}
 		\vspace{-1em}
 		\begin{align*}
-		\small
-			&H_{(u,v)}f=\\[5pt]
-		&\begin{pmatrix}
+		\scriptsize
+			\text{Hess}_{(u,v)}f=
+		\begin{pmatrix}
 			-(R+r\cos v)\cos u & r\sen u\sen v\\
 			r\sen u\sen v & r\cos u\cos v
 		\end{pmatrix}
@@ -401,13 +403,21 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 
 	\begin{definition}
 		Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
-		\textbf{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
+		\textbf{retracto de deformación fuerte} si la inclusión $i:A\hookrightarrow X$ es una equivalencia homotópica, con inversa homotópica $r: X \to A$.
 	\end{definition}
 
 	\begin{alertblock}{}
 		\textbf{$A$ tiene el mismo tipo de homotopía que $X$.}
 	\end{alertblock}
 
+	\bigskip
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=1.2]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/retractodef.pdf}
+
+	\end{center}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -435,7 +445,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \frametitle{El toro plano como CW-complejo}
 	\begin{columns}
 	
-	\column{0.4\textwidth}
+	\column{0.3\textwidth}
 
 	El toro se puede construir como un CW-complejo con:
 	\vspace{1em}
@@ -445,19 +455,33 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 		\item Una $2$-celda.
 	\end{itemize}
 
-	\column{0.6\textwidth}
-
+	\column{0.75\textwidth}
+	\begin{columns}[T]
+		
+	\column{0.2\textwidth}
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.4]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/toroplano.pdf}
+	\includegraphics[scale=0.3]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/toroplano.pdf}
 	\end{center}
 	\end{figure}
 
+	\column{0.5\textwidth}
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.4]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/frontera_toroplano.pdf}
+	\includegraphics[scale=0.3]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/frontera_toroplano.pdf}
 	\end{center}
 	\end{figure}
+	\end{columns}
+	
+	\vspace{1.5em}
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.7]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/toro_1_esqueleto.pdf}
+	\end{center}
+	\end{figure}
+
+
 	\end{columns}
 	
 \end{frame}
@@ -477,6 +501,21 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
     \end{equation*}
 \end{definition}
 
+\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=1]{/home/kike/Documents/Mates/TFG/introduction-to-morse-theory/presentacion/imagenes/subniveles_cropped.pdf}
+	\end{center}
+	\end{figure}
+\begin{center}
+
+\fbox{
+\parbox{0.8\textwidth}{
+De ahora en adelante asumiremos que \textbf{todas las variedades son compactas}.
+}}
+\end{center}
+
+
+
 \end{frame}
 
 \begin{frame}
@@ -484,11 +523,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \textbf{Sin cruzar un punto crítico:}
 \medskip
 	\begin{alertblock}{Teorema}
-		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$
-		\begin{itemize}
-			\item es compacto,
-			\item no contiene ningún punto crítico de $f$.
-		\end{itemize}
+		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$ \textbf{no contiene ningún punto crítico} de $f$.
 		\vspace{0.7em}
 		Entonces,
 		\vspace{0.3em}
@@ -496,6 +531,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 			\item \textbf{$M^a$ es difeomorfo a $M^b$}.
 			\item $M^a$ es \textbf{retracto de deformación} de $M^b$.
 		\end{itemize}
+		\vspace{0.3em}
 	\end{alertblock}
 
 	\begin{block}{Idea de la demostración}
@@ -511,8 +547,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que 
 		\begin{itemize}
 			\item $f(p)=c$
-			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es \textbf{compacto} y
-			\item $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no} contiene ningún otro punto crítico.
+			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no contiene ningún otro punto crítico}.
 		\end{itemize}
 		\vspace{0.7em}
 		Entonces, para todo $\varepsilon>0$ suficientemente pequeño:
@@ -568,22 +603,18 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \frametitle{$M$ tiene el tipo de homotopía de un CW-complejo}
 
 \begin{alertblock}{Teorema}
-	Si $f:M\to\mathbb{R}$ es una función de Morse y $M^a$ es \textbf{compacto} para cualquier $a\in\mathbb{R}$. Entonces,
+	Sea $f:M\to\mathbb{R}$ una función de Morse. Entonces,
 	\vspace{0.75em}
 
 	\begin{quote}
 	\large\textbf{$M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.}
 	\end{quote}
 \end{alertblock}
+
 \bigskip
+
 \begin{block}{Idea de la demostración}
-	\footnotesize Inducción sobre el número de valores críticos por debajo de $a$. Diferenciar casos:
-	\vspace{-1em}
-	\begin{itemize}[itemsep=0pt]
-		\item $M$ compacta.
-		\item $M$ no compacta pero finitos valores críticos.
-		\item $M$ no compacta e infinitos valores críticos.
-	\end{itemize}
+	Inducción sobre el número de valores críticos por debajo de $a$.
 \end{block}
 
 \end{frame}
@@ -691,6 +722,140 @@ Sea $X$ un CW-complejo:
 	\end{itemize}
 \end{frame}
 
+	
+\begin{frame}
+\frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
+	\begin{definition}
+		Sea $X$ un espacio topológico. Definimos el \textbf{$k$-ésimo número de Betti de X} como 
+		\begin{equation*}
+			b_k(X) = \operatorname{rank} H_k(X).
+		\end{equation*}
+	\end{definition}
+
+	\begin{definition}
+		Sea $X$ un espacio topológico cuyos \textbf{grupos de homología son finitamente generados} y tal que $H_k(X)=0$ para todo $k>N$. La \textbf{característica de Euler-Poincaré de $X$} es 
+		\begin{equation*}
+			\chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
+		\end{equation*}
+\end{definition}
+
+
+% definicion e importancia
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                %%
+%%           Capitulo 4           %%  
+%%                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
+\begin{frame}
+\frametitle{Subaditividad}
+%ejemplo numeros de betti subad y chi ad.
+%generalizacion de subad y ad.
+%funcion para demostras las desigs de morse
+\end{frame}
+\fi
+
+\section{Desigualdades de Morse}
+
+\begin{frame}
+\frametitle{Las Desigualdades de Morse}
+	Sea \textbf{$C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$}. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
+	\begin{block}{Teorema (Desigualdades de Morse, Versión Débil)} 
+    	\begin{equation*}
+        	b_{\lambda}(M) \le C_{\lambda} ~~\text{ y }~~ 
+    	\end{equation*}
+    	\begin{equation*}
+        	\chi(M) = \sum_{\lambda=0}^{n} (-1)^{\lambda} C_{\lambda}.
+    	\end{equation*}
+	\end{block}
+	
+	\begin{alertblock}{Teorema (Desigualdades de Morse)}
+		\vspace{1em}
+    	\begin{equation*}
+    	    b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
+    	\end{equation*}
+		\vspace{0.2pt}
+	\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+	\begin{corollary}
+    	Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
+	\end{corollary}
+
+	\begin{example}[Homología de $\mathbb{CP}^n$]
+		
+		\medskip
+
+		\begin{columns}[T]
+		\column{0.4\textwidth}
+		\vspace{0.5em}
+		$\mathbb{CP}^n$ admite una función de Morse con $n+1$ puntos críticos tales que
+		\begin{equation*}
+    		C_{\lambda}=
+    		\begin{cases}
+        		1, &\text{ si } \lambda \text{ es par},\\
+        		0, &\text{ en otro caso.}
+    		\end{cases}
+		\end{equation*}
+
+		\column{0.5\textwidth}
+		\vspace{0.5em}
+		Si $\lambda$ es par, se tiene que $C_{\lambda+1}=C_{\lambda-1}=0$. Luego,
+		\vspace{0.25em}
+
+		\begin{equation*}
+			b_{\lambda}(\mathbb{CP}^n)=
+			\begin{cases}
+				1, &\text{ si } \lambda \text{ es par},\\
+				0, &\text{ en otro caso.}
+			\end{cases}
+		\end{equation*}
+		\end{columns}
+		
+		\vspace{1.75em}
+
+		\begin{equation*}
+    		\implies H_k(\mathbb{CP}^n) =
+    		\begin{cases}
+       	 		\mathbb{Z} &\text{ si } k \text{ es par  y } k\le 2n,\\
+        		\{0\} &\text{en otro caso}.
+    		\end{cases}
+		\end{equation*}
+
+		
+	\end{example}
+\end{frame}
+
+
+\begin{frame}[plain]
+\centering
+\vfill
+
+\rule{0.9\textwidth}{1pt}
+
+\vspace{1.5em}
+
+{\Huge \bfseries Muchas gracias por su atención}
+
+\vspace{1.5em}
+
+\color{structure}
+\rule{0.5\textwidth}{1pt}
+
+\vfill
+
+{\footnotesize Enrique Díaz $~~|~~$ Introducción a la Teoría de Morse}
+
+\end{frame}
+
+
+
 \begin{frame}
 \frametitle{Grupos de homología del toro (1/2)}
 	\vspace{-0.5em}
@@ -733,147 +898,6 @@ Sea $X$ un CW-complejo:
 	\end{alertblock}
 
 \end{frame}
-	
-\begin{frame}
-\frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
-	\begin{definition}
-		Sea $X$ un espacio topológico. Definimos el \textbf{$k$-ésimo número de Betti de X} como 
-		\begin{equation*}
-			b_k(X) = \operatorname{rank} H_k(X).
-		\end{equation*}
-	\end{definition}
 
-	\begin{definition}
-		Sea $X$ un espacio topológico cuyos \textbf{grupos de homología son finitamente generados} y tal que $H_k(X)=0$ para todo $k>N$. La \textbf{característica de Euler-Poincaré de $X$} es 
-		\begin{equation*}
-			\chi (X) = \sum^N_{k=0} (-1)^k b_k(X).
-		\end{equation*}
-\end{definition}
-
-
-% definicion e importancia
-\end{frame}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                %%
-%%           Capitulo 4           %%  
-%%                                %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\iffalse
-\begin{frame}
-\frametitle{Subaditividad}
-%ejemplo numeros de betti subad y chi ad.
-%generalizacion de subad y ad.
-%funcion para demostras las desigs de morse
-\end{frame}
-\fi
-
-\section{Desigualdades de Morse}
-
-\begin{frame}
-\frametitle{Las Desigualdades de Morse}
-	Sean $f$ una función de Morse sobre una \textbf{variedad compacta} $n$-dimensional $M$ y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
-	\begin{block}{Teorema. (Desigualdades de Morse, Versión Débil)} 
-    	\begin{equation*}
-        	b_{\lambda}(M) \le C_{\lambda} ~~\text{ y }~~ 
-    	\end{equation*}
-    	\begin{equation*}
-        	\chi(M) = \sum_{\lambda=0}^{n} (-1)^{\lambda} C_{\lambda}.
-    	\end{equation*}
-	\end{block}
-	
-	\begin{alertblock}{Teorema (Desigualdades de Morse)}
-		\vspace{1em}
-    	\begin{equation*}
-    	    b_{\lambda}(M)-b_{\lambda-1}+\dots\pm b_0(M) \le C_{\lambda}-C_{\lambda-1}+\dots\pm C_0.
-    	\end{equation*}
-		\vspace{0.2pt}
-	\end{alertblock}
-
-\end{frame}
-
-\begin{frame}
-	\begin{corollary}
-    	Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
-	\end{corollary}
-
-	\begin{example}[Homología de $\mathbb{CP}^n$ (1/2)]
-		
-		\medskip
-
-		\begin{columns}[T]
-		\column{0.4\textwidth}
-		\vspace{0.5em}
-		$\mathbb{CP}^n$ admite una función de Morse con $n+1$ puntos críticos tales que
-		\begin{equation*}
-    		C_{\lambda}=
-    		\begin{cases}
-        		1, &\text{ si } \lambda \text{ es par},\\
-        		0, &\text{ en otro caso.}
-    		\end{cases}
-		\end{equation*}
-
-		\column{0.5\textwidth}
-		\vspace{0.5em}
-		Si $\lambda$ es par, se tiene que $C_{\lambda+1}=C_{\lambda-1}=0$. Luego,
-		\vspace{0.25em}
-
-		\begin{equation*}
-			b_{\lambda}(\mathbb{CP}^n)=
-			\begin{cases}
-				1, &\text{ si } \lambda \text{ es par},\\
-				0, &\text{ en otro caso.}
-			\end{cases}
-		\end{equation*}
-		\end{columns}
-
-		
-	\end{example}
-\end{frame}
-
-
-\begin{frame}
-	\begin{example}[Homología de $\mathbb{CP}^n$ (2/2)]
-
-		\medskip
-
-		\begin{equation*}
-    		H_k(\mathbb{CP}^n) =
-    		\begin{cases}
-       	 		\mathbb{Z} &\text{ si } k \text{ es par  y } k\le 2n,\\
-        		\{0\} &\text{en otro caso}.
-    		\end{cases}
-		\end{equation*}
-
-		\bigskip
-
-	\end{example}
-\end{frame}
-
-
-
-
-\begin{frame}[plain]
-\centering
-\vfill
-
-\rule{0.9\textwidth}{1pt}
-
-\vspace{1.5em}
-
-{\Huge \bfseries Muchas gracias por su atención}
-
-\vspace{1.5em}
-
-\color{structure}
-\rule{0.5\textwidth}{1pt}
-
-\vfill
-
-{\footnotesize Enrique Díaz $~~|~~$ Introducción a la Teoría de Morse}
-
-\end{frame}
 
 \end{document}
