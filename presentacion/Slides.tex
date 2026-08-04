@@ -104,6 +104,7 @@
 
 \institute[Universidad Complutense de Madrid]
 {Universidad Complutense de Madrid\\[0.3cm]
+	{\normalsize Dirigido por Ángel González Prieto}\\
 	\begin{figure}[h]
 	\begin{center}
 	\includegraphics[scale=0.15]{imagenes/logocomplu.png}
@@ -154,13 +155,13 @@
 \begin{frame}
 \frametitle{Objetivos}
 
-\begin{block}{$1$}
+\begin{block}{Objetivo $1$}
 	Elaborar un manual autocontenido con los fundamentos de la Teoría de Morse.
 \end{block}
 
 \bigskip
 
-\begin{block}{$2$}
+\begin{block}{Objetivo $2$}
 	Comprender y completar los contenidos del libro ``Morse Theory'' de John Milnor hasta las desigualdades de Morse. En particular:
 	\begin{itemize}
 		\item Demostrar que toda variedad diferenciable tiene el \textbf{tipo de homotopía de un CW-complejo}.
@@ -234,7 +235,6 @@
 \node[box, right=of betti] (chi) {Característica de \\ Euler-Poincaré};
 
 \node[box, below=5.5cm of hom] (subad) {Resultados sobre \\ funciones subaditivas};
-\node[box, below right=of subad] (debil) {Desigualdades de Morse\\ (versión débil)};
 \node[box, double, right=5.5cm of subad] (fuerte) {\textbf{Desigualdades de Morse}};
 
 
@@ -243,7 +243,6 @@
 \draw[arrow] (cel) -- (betti);
 \draw[arrow] (cel) -- (chi);
 
-\draw[arrow] (subad) -- (debil);
 \draw[arrow] (subad) -- (fuerte);
 
 \draw[arrow] (betti) -- (fuerte);
@@ -316,20 +315,18 @@
 		Diremos que una función suave $f: M\to \mathbb{R}$ es una \textbf{función de Morse} si todos sus puntos críticos son no degenerados.
 	\end{definition}
 
-\end{frame}
-
-\begin{frame}
 	\begin{example}
-		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[6pt]
-		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[4pt]
-		$H_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
+		\small
+		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[4pt]
+		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[3pt]
+		$\text{Hess}_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
 	\end{example}
-	
+
 	\vspace{-5pt}
 
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.45]{imagenes/grafica1.png}
+	\includegraphics[scale=0.35]{imagenes/grafica1.png}
 	\end{center}
 	\end{figure}
 \end{frame}
@@ -355,7 +352,7 @@
 		\vspace{-1em}
 		\begin{align*}
 		\small
-			&H_{(u,v)}f=\\[5pt]
+			&\text{Hess}_{(u,v)}f=\\[5pt]
 		&\begin{pmatrix}
 			-(R+r\cos v)\cos u & r\sen u\sen v\\
 			r\sen u\sen v & r\cos u\cos v
@@ -401,12 +398,18 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 
 	\begin{definition}
 		Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
-		\textbf{retracto de deformación fuerte} de $X$ si existe una homotopía relativa a $A$ de la función identidad de $X$, $id_X$, a una retracción $r: X \to A$.
+		\textbf{retracto de deformación fuerte} si la inclusión $i: A \hookrightarrow X$ es una equivalencia homotópica, con inversa homotópica $r: X \to A$.
 	\end{definition}
 
 	\begin{alertblock}{}
 		\textbf{$A$ tiene el mismo tipo de homotopía que $X$.}
 	\end{alertblock}
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=1]{imagenes/retractodef.pdf}
+	\end{center}
+	\end{figure}
 
 \end{frame}
 
@@ -434,8 +437,8 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \begin{frame}
 \frametitle{El toro plano como CW-complejo}
 	\begin{columns}
-	
-	\column{0.4\textwidth}
+
+	\column{0.35\textwidth}
 
 	El toro se puede construir como un CW-complejo con:
 	\vspace{1em}
@@ -445,21 +448,32 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 		\item Una $2$-celda.
 	\end{itemize}
 
-	\column{0.6\textwidth}
+	\column{0.65\textwidth}
+	\begin{columns}
+		\column{0.35\textwidth}
+		\begin{figure}[h]
+		\begin{center}
+		\includegraphics[scale=1]{imagenes/toroplano.pdf}
+		\end{center}
+		\end{figure}
 
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[scale=0.4]{imagenes/toroplano.pdf}
-	\end{center}
-	\end{figure}
-
-	\begin{figure}[h]
-	\begin{center}
-	\includegraphics[scale=0.4]{imagenes/frontera_toroplano.pdf}
-	\end{center}
-	\end{figure}
+		\column{0.6\textwidth}
+		\begin{figure}[h]
+		\begin{center}
+		\includegraphics[scale=1]{imagenes/frontera_toroplano.pdf}
+		\end{center}
+		\end{figure}
 	\end{columns}
-	
+	\end{columns}
+
+	\vspace{1em}
+
+	\begin{figure}[h]
+	\begin{center}
+	\hspace*{2em}\includegraphics[scale=1]{imagenes/toro_1_esqueleto.pdf}
+	\end{center}
+	\end{figure}
+
 \end{frame}
 
 
@@ -477,6 +491,18 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
     \end{equation*}
 \end{definition}
 
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1]{imagenes/subniveles_cropped.pdf}
+\end{center}
+\end{figure}
+
+\vspace{-0.5em}
+
+\begin{center}
+\fbox{\parbox{0.75\textwidth}{\centering De ahora en adelante asumiremos que \textbf{todas las variedades son compactas}.}}
+\end{center}
+
 \end{frame}
 
 \begin{frame}
@@ -484,14 +510,8 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \textbf{Sin cruzar un punto crítico:}
 \medskip
 	\begin{alertblock}{Teorema}
-		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$
-		\begin{itemize}
-			\item es compacto,
-			\item no contiene ningún punto crítico de $f$.
-		\end{itemize}
-		\vspace{0.7em}
-		Entonces,
-		\vspace{0.3em}
+		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$ \textbf{no contiene ningún punto crítico} de $f$. Entonces,
+		\vspace{0.5em}
 		\begin{itemize}[itemsep=1em]
 			\item \textbf{$M^a$ es difeomorfo a $M^b$}.
 			\item $M^a$ es \textbf{retracto de deformación} de $M^b$.
@@ -508,11 +528,10 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \textbf{Al cruzar un punto crítico:}
 \medskip
 	\begin{alertblock}{Teorema}
-		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que 
+		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que
 		\begin{itemize}
 			\item $f(p)=c$
-			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ es \textbf{compacto} y
-			\item $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no} contiene ningún otro punto crítico.
+			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no contiene ningún otro punto crítico}.
 		\end{itemize}
 		\vspace{0.7em}
 		Entonces, para todo $\varepsilon>0$ suficientemente pequeño:
@@ -568,7 +587,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \frametitle{$M$ tiene el tipo de homotopía de un CW-complejo}
 
 \begin{alertblock}{Teorema}
-	Si $f:M\to\mathbb{R}$ es una función de Morse y $M^a$ es \textbf{compacto} para cualquier $a\in\mathbb{R}$. Entonces,
+	Sea $f:M\to\mathbb{R}$ una función de Morse. Entonces,
 	\vspace{0.75em}
 
 	\begin{quote}
@@ -577,13 +596,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \end{alertblock}
 \bigskip
 \begin{block}{Idea de la demostración}
-	\footnotesize Inducción sobre el número de valores críticos por debajo de $a$. Diferenciar casos:
-	\vspace{-1em}
-	\begin{itemize}[itemsep=0pt]
-		\item $M$ compacta.
-		\item $M$ no compacta pero finitos valores críticos.
-		\item $M$ no compacta e infinitos valores críticos.
-	\end{itemize}
+	Inducción sobre el número de valores críticos por debajo de $a$.
 \end{block}
 
 \end{frame}
@@ -596,7 +609,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \end{theorem}
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=0.75]{imagenes/reeb.pdf}
+	\includegraphics[scale=1]{imagenes/reeb.pdf} % figura re-extraída de presentacion_tfg_enrique.pdf p.22
 	\end{center}
 	\end{figure}
 \end{frame}
@@ -692,49 +705,6 @@ Sea $X$ un CW-complejo:
 \end{frame}
 
 \begin{frame}
-\frametitle{Grupos de homología del toro (1/2)}
-	\vspace{-0.5em}
-	\[
-	\boxed{0\overset{\partial_3}{\longrightarrow} C_2(T^2)\simeq \mathbb{Z} \overset{\partial_2}{\longrightarrow} C_1(T^2)\simeq \mathbb{Z}^2 \overset{\partial_1}{\longrightarrow} C_0(T^2)\simeq \mathbb{Z}\overset{\partial_0}{\longrightarrow} 0}
-	\]
-
-	\begin{block}{Grupos de $k$-cadenas}
-		\begin{itemize}[itemsep=8pt]
-			\item $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$,
-			\item $C_1(T^2)\simeq \mathbb{Z}\langle a \rangle \oplus \mathbb{Z}\langle b \rangle \simeq \mathbb{Z}^2$,
-			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle\simeq \mathbb{Z}$.
-		\end{itemize}
-	\end{block}
-
-	\begin{block}{Grupos de $k$-ciclos y $k$-bordes}
-		\begin{itemize}[itemsep=10pt]
-			\item $\partial_2(e^2) = a + b - a - b = 0 \implies
-			\begin{cases}
-				 Z_2(T^2)=C_2(T^2)\simeq \mathbb{Z} \text{ y } \\
-				 B_1(T^2)=\{0\}.
-			\end{cases}$
-			\item $\partial_1(a) = \partial_1(b) = e^0 - e^0 = 0 \implies Z_1(T^2)=C_1(T^2)\simeq \mathbb{Z}^2$.
-		\end{itemize}
-	\end{block}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Grupos de homología del toro (2/2)}
-
-	\begin{alertblock}{Grupos de homología}
-		\begin{equation*}
-			\begin{cases}
-				H_2(T^2)=Z_2/B_2 = \mathbb{Z}/\{0\} = \mathbb{Z},\\[6pt]
-				H_1(T^2)=Z_1/B1= \mathbb{Z}^2/\{0\} = \mathbb{Z}^2 ~\text{ y }~ \\[6pt]
-				H_0(T^2)\simeq \mathbb{Z}.
-			\end{cases}
-		\end{equation*}
-	\end{alertblock}
-
-\end{frame}
-	
-\begin{frame}
 \frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
 	\begin{definition}
 		Sea $X$ un espacio topológico. Definimos el \textbf{$k$-ésimo número de Betti de X} como 
@@ -774,8 +744,8 @@ Sea $X$ un CW-complejo:
 
 \begin{frame}
 \frametitle{Las Desigualdades de Morse}
-	Sean $f$ una función de Morse sobre una \textbf{variedad compacta} $n$-dimensional $M$ y $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
-	\begin{block}{Teorema. (Desigualdades de Morse, Versión Débil)} 
+	Sea $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
+	\begin{block}{Teorema (Desigualdades de Morse, Versión Débil)}
     	\begin{equation*}
         	b_{\lambda}(M) \le C_{\lambda} ~~\text{ y }~~ 
     	\end{equation*}
@@ -799,8 +769,8 @@ Sea $X$ un CW-complejo:
     	Si $C_{\lambda+1} = C_{\lambda-1} = 0$ entonces $b_{\lambda} = C_{\lambda}$ y $b_{\lambda+1} = b_{\lambda-1} = 0$.
 	\end{corollary}
 
-	\begin{example}[Homología de $\mathbb{CP}^n$ (1/2)]
-		
+	\begin{example}[Homología de $\mathbb{CP}^n$]
+
 		\medskip
 
 		\begin{columns}[T]
@@ -829,25 +799,15 @@ Sea $X$ un CW-complejo:
 		\end{equation*}
 		\end{columns}
 
-		
-	\end{example}
-\end{frame}
-
-
-\begin{frame}
-	\begin{example}[Homología de $\mathbb{CP}^n$ (2/2)]
-
-		\medskip
+		\bigskip
 
 		\begin{equation*}
-    		H_k(\mathbb{CP}^n) =
+    		\implies H_k(\mathbb{CP}^n) =
     		\begin{cases}
        	 		\mathbb{Z} &\text{ si } k \text{ es par  y } k\le 2n,\\
         		\{0\} &\text{en otro caso}.
     		\end{cases}
 		\end{equation*}
-
-		\bigskip
 
 	\end{example}
 \end{frame}
@@ -873,6 +833,51 @@ Sea $X$ un CW-complejo:
 \vfill
 
 {\footnotesize Enrique Díaz $~~|~~$ Introducción a la Teoría de Morse}
+
+\end{frame}
+
+% Diapositivas de apoyo
+
+\begin{frame}
+\frametitle{Grupos de homología del toro (1/2)}
+	\vspace{-0.5em}
+	\[
+	\boxed{0\overset{\partial_3}{\longrightarrow} C_2(T^2)\simeq \mathbb{Z} \overset{\partial_2}{\longrightarrow} C_1(T^2)\simeq \mathbb{Z}^2 \overset{\partial_1}{\longrightarrow} C_0(T^2)\simeq \mathbb{Z}\overset{\partial_0}{\longrightarrow} 0}
+	\]
+
+	\begin{block}{Grupos de $k$-cadenas}
+		\begin{itemize}[itemsep=8pt]
+			\item $C_2(T^2)\simeq \mathbb{Z}\langle e^2 \rangle \simeq \mathbb{Z}$,
+			\item $C_1(T^2)\simeq \mathbb{Z}\langle a \rangle \oplus \mathbb{Z}\langle b \rangle \simeq \mathbb{Z}^2$,
+			\item $C_0(T^2)\simeq \mathbb{Z}\langle e^0 \rangle\simeq \mathbb{Z}$.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Grupos de $k$-ciclos y $k$-bordes}
+		\begin{itemize}[itemsep=10pt]
+			\item $\partial_2(e^2) = a + b - a - b = 0 \implies
+			\begin{cases}
+				 Z_2(T^2)=C_2(T^2)\simeq \mathbb{Z} \text{ y } \\
+				 B_1(T^2)=\{0\}.
+			\end{cases}$
+			\item $\partial_1(a) = \partial_1(b) = e^0 - e^0 = 0 \implies Z_1(T^2)=C_1(T^2)\simeq \mathbb{Z}^2$.
+		\end{itemize}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Grupos de homología del toro (2/2)}
+
+	\begin{alertblock}{Grupos de homología}
+		\begin{equation*}
+			\begin{cases}
+				H_2(T^2)=Z_2/B_2 = \mathbb{Z}/\{0\} = \mathbb{Z},\\[6pt]
+				H_1(T^2)=Z_1/B1= \mathbb{Z}^2/\{0\} = \mathbb{Z}^2 ~\text{ y }~ \\[6pt]
+				H_0(T^2)\simeq \mathbb{Z}.
+			\end{cases}
+		\end{equation*}
+	\end{alertblock}
 
 \end{frame}
 
