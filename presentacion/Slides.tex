@@ -102,9 +102,11 @@
 
 \author{Enrique Díaz Blanco}
 
+
 \institute[Universidad Complutense de Madrid]
-{Universidad Complutense de Madrid\\[0.3cm]
-	{\normalsize Dirigido por Ángel González Prieto}\\
+{
+	Universidad Complutense de Madrid\\[0.3cm]
+	\small{Dirigido por Ángel González Prieto}
 	\begin{figure}[h]
 	\begin{center}
 	\includegraphics[scale=0.15]{imagenes/logocomplu.png}
@@ -235,6 +237,7 @@
 \node[box, right=of betti] (chi) {Característica de \\ Euler-Poincaré};
 
 \node[box, below=5.5cm of hom] (subad) {Resultados sobre \\ funciones subaditivas};
+
 \node[box, double, right=5.5cm of subad] (fuerte) {\textbf{Desigualdades de Morse}};
 
 
@@ -262,9 +265,9 @@
 \begin{frame}
 \frametitle{Definición de punto crítico}
 	\begin{definition}
-    Sea $f: $M$ \to \mathbb{R}$ una función suave.
+    Sea $f: M \to \mathbb{R}$ una función suave.
     \begin{enumerate}[label=(\roman*)]
-        \item Diremos que $p\in \mathrm{M}$ es un \textbf{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
+        \item Diremos que $p\in M$ es un \textbf{punto crítico de $f$} si $d_{p}f:T_{p}M\to \mathbb{R}$ es idénticamente cero. Es decir, dado un sistema de coordenadas local $(x_{1}, \dots ,x_{n})$ en un entorno $\mathcal{U}$ de $p$ tenemos
         \begin{equation*}
             \frac{\partial f}{\partial x_1}(p)= \dots = \frac{\partial f}{\partial x_n}(p) = 0.
         \end{equation*}
@@ -316,19 +319,21 @@
 	\end{definition}
 
 	\begin{example}
-		\small
-		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[4pt]
-		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[3pt]
+		\footnotesize
+		$f(x,y)=(x^2-1)^2 + (y^2-1)^2$\\[6pt]
+		Puntos críticos: $\{(0,0),(\pm 1, 0),(0, \pm 1),(\pm 1, \pm 1)\}$.\\[4pt]
 		$\text{Hess}_{(x,y)}f= \text{diag}(12x^2-4, 12y^2-4)$.
 	\end{example}
-
+	
 	\vspace{-5pt}
 
 	\begin{figure}[h]
 	\begin{center}
 	\includegraphics[scale=0.35]{imagenes/grafica1.png}
+
 	\end{center}
 	\end{figure}
+
 \end{frame}
 
 \begin{frame}
@@ -346,14 +351,14 @@
 		\end{center}
 		\end{figure}
 
-		\column{0.6\textwidth}
+		\column{0.62\textwidth}
 		\vspace{-3em}
 		\begin{exampleblock}{$\;$}
 		\vspace{-1em}
 		\begin{align*}
-		\small
-			&\text{Hess}_{(u,v)}f=\\[5pt]
-		&\begin{pmatrix}
+		\scriptsize
+			\text{Hess}_{(u,v)}f=
+		\begin{pmatrix}
 			-(R+r\cos v)\cos u & r\sen u\sen v\\
 			r\sen u\sen v & r\cos u\cos v
 		\end{pmatrix}
@@ -398,19 +403,21 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 
 	\begin{definition}
 		Sea $X$ un espacio topológico y $A \subset X$ un subespacio. Decimos que $A$ es un
-		\textbf{retracto de deformación fuerte} si la inclusión $i: A \hookrightarrow X$ es una equivalencia homotópica, con inversa homotópica $r: X \to A$.
+		\textbf{retracto de deformación fuerte} si la inclusión $i:A\hookrightarrow X$ es una equivalencia homotópica, con inversa homotópica $r: X \to A$.
 	\end{definition}
 
 	\begin{alertblock}{}
 		\textbf{$A$ tiene el mismo tipo de homotopía que $X$.}
 	\end{alertblock}
 
+	\bigskip
+
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=1]{imagenes/retractodef.pdf}
+	\includegraphics[scale=1.2]{imagenes/retractodef.pdf}
+
 	\end{center}
 	\end{figure}
-
 \end{frame}
 
 \begin{frame}
@@ -437,8 +444,8 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \begin{frame}
 \frametitle{El toro plano como CW-complejo}
 	\begin{columns}
-
-	\column{0.35\textwidth}
+	
+	\column{0.3\textwidth}
 
 	El toro se puede construir como un CW-complejo con:
 	\vspace{1em}
@@ -448,32 +455,35 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 		\item Una $2$-celda.
 	\end{itemize}
 
-	\column{0.65\textwidth}
-	\begin{columns}
-		\column{0.35\textwidth}
-		\begin{figure}[h]
-		\begin{center}
-		\includegraphics[scale=1]{imagenes/toroplano.pdf}
-		\end{center}
-		\end{figure}
-
-		\column{0.6\textwidth}
-		\begin{figure}[h]
-		\begin{center}
-		\includegraphics[scale=1]{imagenes/frontera_toroplano.pdf}
-		\end{center}
-		\end{figure}
-	\end{columns}
-	\end{columns}
-
-	\vspace{1em}
-
+	\column{0.75\textwidth}
+	\begin{columns}[T]
+		
+	\column{0.2\textwidth}
 	\begin{figure}[h]
 	\begin{center}
-	\hspace*{2em}\includegraphics[scale=1]{imagenes/toro_1_esqueleto.pdf}
+	\includegraphics[scale=0.3]{imagenes/toroplano.pdf}
 	\end{center}
 	\end{figure}
 
+	\column{0.5\textwidth}
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.3]{imagenes/frontera_toroplano.pdf}
+	\end{center}
+	\end{figure}
+	\end{columns}
+	
+	\vspace{1.5em}
+
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=0.7]{imagenes/toro_1_esqueleto.pdf}
+	\end{center}
+	\end{figure}
+
+
+	\end{columns}
+	
 \end{frame}
 
 
@@ -492,16 +502,19 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \end{definition}
 
 \begin{figure}[h]
+	\begin{center}
+	\includegraphics[scale=1]{imagenes/subniveles_cropped.pdf}
+	\end{center}
+	\end{figure}
 \begin{center}
-\includegraphics[scale=1]{imagenes/subniveles_cropped.pdf}
-\end{center}
-\end{figure}
 
-\vspace{-0.5em}
-
-\begin{center}
-\fbox{\parbox{0.75\textwidth}{\centering De ahora en adelante asumiremos que \textbf{todas las variedades son compactas}.}}
+\fbox{
+\parbox{0.8\textwidth}{
+De ahora en adelante asumiremos que \textbf{todas las variedades son compactas}.
+}}
 \end{center}
+
+
 
 \end{frame}
 
@@ -510,12 +523,15 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \textbf{Sin cruzar un punto crítico:}
 \medskip
 	\begin{alertblock}{Teorema}
-		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$ \textbf{no contiene ningún punto crítico} de $f$. Entonces,
-		\vspace{0.5em}
+		Sea $f:M\to\mathbb{R}$ suave. Sean $a<b$ reales tales que $f^{-1}[a,b]$ \textbf{no contiene ningún punto crítico} de $f$.
+		\vspace{0.7em}
+		Entonces,
+		\vspace{0.3em}
 		\begin{itemize}[itemsep=1em]
 			\item \textbf{$M^a$ es difeomorfo a $M^b$}.
 			\item $M^a$ es \textbf{retracto de deformación} de $M^b$.
 		\end{itemize}
+		\vspace{0.3em}
 	\end{alertblock}
 
 	\begin{block}{Idea de la demostración}
@@ -528,7 +544,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \textbf{Al cruzar un punto crítico:}
 \medskip
 	\begin{alertblock}{Teorema}
-		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que
+		Sea $f:M\to\mathbb{R}$ y $p\in M$ \textbf{un punto crítico no degenerado con índice $\lambda$}. Supongamos que 
 		\begin{itemize}
 			\item $f(p)=c$
 			\item existe $\varepsilon>0$ tal que $f^{-1}[c-\varepsilon,c+\varepsilon]$ \textbf{no contiene ningún otro punto crítico}.
@@ -594,7 +610,9 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 	\large\textbf{$M$ tiene el tipo de homotopía de un CW-complejo con una $\lambda$-celda por cada punto crítico de índice $\lambda$.}
 	\end{quote}
 \end{alertblock}
+
 \bigskip
+
 \begin{block}{Idea de la demostración}
 	Inducción sobre el número de valores críticos por debajo de $a$.
 \end{block}
@@ -609,7 +627,7 @@ Denotamos la relación de homotopía por el símbolo $\simeq$.
 \end{theorem}
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[scale=1]{imagenes/reeb.pdf} % figura re-extraída de presentacion_tfg_enrique.pdf p.22
+	\includegraphics[scale=0.75]{imagenes/reeb.pdf}
 	\end{center}
 	\end{figure}
 \end{frame}
@@ -704,6 +722,7 @@ Sea $X$ un CW-complejo:
 	\end{itemize}
 \end{frame}
 
+	
 \begin{frame}
 \frametitle{Números de Betti y \\ Característica de Euler-Poincaré}
 	\begin{definition}
@@ -744,8 +763,8 @@ Sea $X$ un CW-complejo:
 
 \begin{frame}
 \frametitle{Las Desigualdades de Morse}
-	Sea $C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
-	\begin{block}{Teorema (Desigualdades de Morse, Versión Débil)}
+	Sea \textbf{$C_{\lambda}$ el número de puntos críticos de índice $\lambda$ de $f$}. Para todo $\lambda\in \mathbb{Z}^+$ se verifican las siguientes desigualdades
+	\begin{block}{Teorema (Desigualdades de Morse, Versión Débil)} 
     	\begin{equation*}
         	b_{\lambda}(M) \le C_{\lambda} ~~\text{ y }~~ 
     	\end{equation*}
@@ -770,7 +789,7 @@ Sea $X$ un CW-complejo:
 	\end{corollary}
 
 	\begin{example}[Homología de $\mathbb{CP}^n$]
-
+		
 		\medskip
 
 		\begin{columns}[T]
@@ -798,8 +817,8 @@ Sea $X$ un CW-complejo:
 			\end{cases}
 		\end{equation*}
 		\end{columns}
-
-		\bigskip
+		
+		\vspace{1.75em}
 
 		\begin{equation*}
     		\implies H_k(\mathbb{CP}^n) =
@@ -809,10 +828,9 @@ Sea $X$ un CW-complejo:
     		\end{cases}
 		\end{equation*}
 
+		
 	\end{example}
 \end{frame}
-
-
 
 
 \begin{frame}[plain]
@@ -836,7 +854,7 @@ Sea $X$ un CW-complejo:
 
 \end{frame}
 
-% Diapositivas de apoyo
+
 
 \begin{frame}
 \frametitle{Grupos de homología del toro (1/2)}
@@ -880,5 +898,6 @@ Sea $X$ un CW-complejo:
 	\end{alertblock}
 
 \end{frame}
+
 
 \end{document}
